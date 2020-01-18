@@ -1,0 +1,6 @@
+name: paprika
+recipe: pantheon
+config:
+  framework: wordpress
+  site: paprika
+  id: 7d2f1062-4d96-4451-ad4f-cbf7b002c9df

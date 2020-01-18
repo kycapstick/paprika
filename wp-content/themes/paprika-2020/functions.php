@@ -1,5 +1,14 @@
 <?php 
-  function add_theme_scripts() {
-      wp_enqueue_style('main', get_template_directory_uri() . '/dist/main.css', array(), filemtime(get_template_directory() . '/dist/main.css'), false );
-  }
-  add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
+  require_once( __DIR__ . '/includes/theme-scripts.php');
+
+  require_once( __DIR__ . '/includes/utilities.php');
+
+  require_once( __DIR__ . '/includes/custom-post-types.php');
+
+  require_once( __DIR__ . '/includes/metaboxes/index.php');
+  require_once( __DIR__ . '/includes/metaboxes/program.php');
+  require_once( __DIR__ . '/includes/metaboxes/staff.php');
+  require_once( __DIR__ . '/includes/metaboxes/artist.php');
+
+
+

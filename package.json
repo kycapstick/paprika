@@ -1,0 +1,25 @@
+{
+  "name": "paprika-v1",
+  "version": "1.0.0",
+  "description": "This is a WordPress repository configured to run on the [Pantheon platform](https://pantheon.io).",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^3.4.1",
+    "style-loader": "^1.1.2",
+    "uglifyjs-webpack-plugin": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd wp-content/themes/paprika-2020 && npm run watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://codeserver.dev.7d2f1062-4d96-4451-ad4f-cbf7b002c9df@codeserver.dev.7d2f1062-4d96-4451-ad4f-cbf7b002c9df.drush.in:2222/~/repository.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
