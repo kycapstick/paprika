@@ -15,6 +15,10 @@ sitemap.xml
 sitemap.xml.gz
 *.log
 
+wp-content/themes/**/node_modules
+wp-content/themes/**/dist
+wp-content/themes/**/dist
+
 # @TODO writable paths
 wp-content/cache/
 wp-content/backups/
@@ -57,3 +61,4 @@ Thumbs.db
 ##########
 .sass-cache
 node_modules
+package-lock.json
