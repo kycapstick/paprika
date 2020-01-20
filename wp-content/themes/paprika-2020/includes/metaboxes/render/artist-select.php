@@ -1,7 +1,7 @@
 <?php
   if (!function_exists('paprika_render_artists_select')):
     function paprika_render_artists_select($post) {
-      $artists = get_posts(array('post_type' => 'artist', 'orderby'=>'title','order'=>'ASC'));
+      $artists = get_posts(array('post_type' => 'artist', 'orderby'=>'title','order'=>'ASC', 'numberposts'=> -1));
       $artists = array_filter($artists, 'paprika_filter_artists');
       $artistCount = get_post_meta($post->ID, 'artistCount', true);
       $metaArtists = get_post_meta($post->ID, 'artists', true);

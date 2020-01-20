@@ -9,15 +9,15 @@
     function paprika_artist_meta_cb($post) {
       $posts = get_posts(array('post_type' => 'program'));
       $postMeta = get_post_meta($post->ID);
+      paprika_console_log(get_post_meta($post->ID));
       $mentor = get_post_meta($post->ID, 'mentor', true);
-      paprika_console_log($mentor);
       wp_nonce_field( basename( __FILE__ ), 'artist_post_nonce' );
       ?>
       <div>
         <label for="role">Role</label>
         <select name="role" id="role">
-          <option value="0" <?php echo (intval($postMeta['role'][0]) === 0 ? 'selected' : '')?>>Artist</option>
-          <option value="1" <?php echo (intval($postMeta['role'][0]) === 1 ? 'selected' : '')?>>Mentor</option>
+          <option value="0" <?php echo (isset($postMeta['role']) && intval($postMeta['role'][0]) === 0 ? 'selected' : '')?>>Artist</option>
+          <option value="1" <?php echo (isset($postMeta['role']) && intval($postMeta['role'][0]) === 1 ? 'selected' : '')?>>Mentor</option>
         </select>
       </div>
       <?php
