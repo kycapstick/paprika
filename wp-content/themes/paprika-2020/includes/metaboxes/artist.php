@@ -9,27 +9,15 @@
     function paprika_artist_meta_cb($post) {
       $posts = get_posts(array('post_type' => 'program'));
       $postMeta = get_post_meta($post->ID);
+      $mentor = get_post_meta($post->ID, 'mentor', true);
+      paprika_console_log($mentor);
       wp_nonce_field( basename( __FILE__ ), 'artist_post_nonce' );
       ?>
       <div>
         <label for="role">Role</label>
-        <input 
-          type="text" 
-          name="role" 
-          id="role" 
-          value="<?php echo ($postMeta['role'][0] ?? '') ?>""
-        >
-      </div>
-      <div>
-        <label for="program">Program</label>
-        <select name="program" id="program">
-          <?php
-            foreach($posts as $post) {
-          ?>
-            <option value="<?php echo $post->ID ?>" <?php echo (intval($postMeta['program'][0]) === intval($post->ID) ? 'selected' : '') ?>><?php echo $post->post_title ?></option>
-          <?php
-            }
-          ?>
+        <select name="role" id="role">
+          <option value="0" <?php echo (intval($postMeta['role'][0]) === 0 ? 'selected' : '')?>>Artist</option>
+          <option value="1" <?php echo (intval($postMeta['role'][0]) === 1 ? 'selected' : '')?>>Mentor</option>
         </select>
       </div>
       <?php
@@ -40,7 +28,6 @@
     function paprika_save_artist_meta($post_id, $post) {
       $fields = array(
         'role' => '',
-        'program' => '',
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
       foreach($fields as $key=>$field):
@@ -48,5 +35,7 @@
           paprika_update_meta_fields($key, $field, $post_id);
         endif;
       endforeach;
+      update_post_meta($post_id, 'mentor', array());
+      update_post_meta($post_id, 'artist', array());
     }
   endif;

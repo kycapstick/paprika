@@ -1,28 +1,46 @@
 <?php 
-  if(!function_exists('paprika_festival_meta_cb')):
-    function paprika_festival_meta_cb($post) {
-      $posts = get_posts(array('post_type' => 'festival'));
+  if(!function_exists('paprika_program_meta_cb')):
+    function paprika_program_meta_cb($post) {
+      $festivals = get_posts(array('post_type' => 'festival', 'orderby'=>'title','order'=>'DESC'));
+      $artists = get_posts(array('post_type' => 'artist', 'orderby'=>'title','order'=>'ASC'));
+      $mentors = array_filter($artists, 'paprika_filter_mentors');
       wp_nonce_field( basename( __FILE__ ), 'program_post_nonce' );
-      $postMeta = get_post_meta($post->ID, 'festival');
-      error_log(print_r($postMeta, TRUE));
+      $postMeta = get_post_meta($post->ID);
     ?>
-      <label for="festival">Festival</label>
-      <select name="festival" id="festival">
-      <?php
-        foreach($posts as $post) {
-      ?>
-          <option value="<?php echo $post->ID ?>" <?php echo (intval($postMeta[0]) === intval($post->ID) ? 'selected' : '') ?>><?php echo $post->post_title ?></option>
-      <?php
-        }
-      ?>
-      </select>
+      <div>
+        <label for="festival">Festival</label>
+        <select name="festival" id="festival">
+        <?php
+          foreach($festivals as $festival) {
+        ?>
+            <option value="<?php echo $festival->ID ?>" <?php echo (isset($postMeta['festival']) && intval($postMeta['festival'][0]) === intval($festival->ID) ? 'selected' : '') ?>><?php echo $festival->post_title ?></option>
+        <?php
+          }
+        ?>
+        </select>
+      </div>
+      <div>
+        <label for="mentor">Mentor</label>
+        <select name="mentor" id="mentor">
+          <option value="0">-- Select --</option>
+        <?php
+          foreach($mentors as $mentor) {
+        ?>
+            <option value="<?php echo $mentor->ID ?>" <?php echo (isset($postMeta['mentor'][0]) && intval($postMeta['mentor'][0]) === intval($mentor->ID) ? 'selected' : '') ?>><?php echo $mentor->post_title ?></option>
+        <?php
+          }
+        ?>
+        </select>
+      </div>
+      
     <?php
+      echo paprika_render_artists_select($post);
     }
   endif;
   
   if (!function_exists('paprika_program_metabox')):
     function paprika_program_metabox() {
-      add_meta_box('festival-meta-box', esc_html__('Festival Details'), 'paprika_festival_meta_cb', 'program', 'side', 'low');
+      add_meta_box('program-meta-box', esc_html__('Festival Details'), 'paprika_program_meta_cb', 'program', 'side', 'low');
     }
   endif;
   
@@ -33,12 +51,19 @@
       endif;
       $fields = array(
         'festival' => '',
+        'artistCount' => 0,
+        'mentor' => '',
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
+      paprika_update_mentor_program($fields['mentor'], $post_id);
       foreach($fields as $key=>$field):
         if (strlen($field) > 0):
           paprika_update_meta_fields($key, $field, $post_id);
         endif;
       endforeach;
+      if (isset($_POST['artists'])):  
+        $artists = paprika_update_artists_with_count($_POST['artists'], $_POST['artistCount']);
+        update_post_meta($post_id, 'artists', $artists);
+      endif;
     }
   endif;

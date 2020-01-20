@@ -12,6 +12,21 @@ if (!function_exists('paprika_custom_post_types')):
         'has_archive' => true,
         'menu_icon' => 'dashicons-tickets-alt',
         'supports'	=> array( 'thumbnail' , 'excerpt', 'title', 'editor'),
+        'register_meta_box_cb' => 'paprika_festival_metabox',
+        'capability_type' => 'post',
+        'show_in_rest' => true,
+      )
+    );
+    register_post_type('location',
+      array(
+        'labels' => array(
+          'name' => __('Locations'),
+          'singular_name' => __('Location')
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-admin-home',
+        'supports'	=> array( 'thumbnail' , 'excerpt', 'title', 'editor'),
         'capability_type' => 'post',
         'show_in_rest' => true,
       )
