@@ -9,10 +9,12 @@
     function paprika_artist_meta_cb($post) {
       $posts = get_posts(array('post_type' => 'program'));
       $postMeta = get_post_meta($post->ID);
-      paprika_console_log(get_post_meta($post->ID));
       $mentor = get_post_meta($post->ID, 'mentor', true);
       wp_nonce_field( basename( __FILE__ ), 'artist_post_nonce' );
-      ?>
+      paprika_console_log(get_post_meta($post->ID, 'artist', true));
+      echo paprika_render_festival($postMeta);
+    ?>
+      
       <div>
         <label for="role">Role</label>
         <select name="role" id="role">
@@ -28,6 +30,7 @@
     function paprika_save_artist_meta($post_id, $post) {
       $fields = array(
         'role' => '',
+        'festival' => '',
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
       foreach($fields as $key=>$field):

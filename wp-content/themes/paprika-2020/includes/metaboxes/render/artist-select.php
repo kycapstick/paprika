@@ -5,6 +5,8 @@
       $artists = array_filter($artists, 'paprika_filter_artists');
       $artistCount = get_post_meta($post->ID, 'artistCount', true);
       $metaArtists = get_post_meta($post->ID, 'artists', true);
+      $festival = get_post_meta($post->ID, 'festival', true);
+      paprika_console_log($metaArtists);
       ob_start();
   ?>
     <div>
@@ -23,7 +25,12 @@
             <div>
               <label for="artist<?php echo $i ?>">Artist <?php echo $i + 1 ?></label>
               <select name="artists[<?php echo $i ?>]" id="artist<?php echo $i + 1 ?>">
-                <?php foreach($artists as $index=>$artist): ?>
+                <?php 
+                  foreach($artists as $index=>$artist): 
+                    if (intval(get_post_meta($artist->ID, 'festival', true)) !== intval($festival)):
+                      continue;
+                    endif;
+                  ?>
                   <option 
                     value="<?php echo $artist->ID ?>"
                     <?php echo (isset($metaArtists[$i]) && intval($artist->ID) === intval($metaArtists[$i]) ? 'selected' : '') ?>
@@ -38,29 +45,11 @@
           ?>
           </fieldset>
           <?php
-          else: 
-            ?>
-          <fieldset>
-        <legend>Artists</legend>
-            <div>
-              <label for="artist0">Artist 1</label>
-              <select name="artists[0]" id="artist0">
-                <?php foreach($artists as $index=>$artist): ?>
-                  <option 
-                    value="<?php echo $artist->ID ?>"
-                  >
-                    <?php echo $artist->post_title ?>
-                  </option>
-                <?php endforeach; ?>
-              </select>
-            </div>
-          </fieldset>
-          <?php 
         endif;
         ?>
 
       </div>
   <?php
-    return ob_get_clean(); 
+    return ob_get_clean();
   }
 endif;
