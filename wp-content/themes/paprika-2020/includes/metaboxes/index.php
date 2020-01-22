@@ -30,8 +30,26 @@
     }
   endif;
 
-
   add_action( 'pre_post_update', 'paprika_save_post_class_meta', 10, 2 );
+
+  if (!function_exists('paprika_update_on_delete')):
+    function paprika_update_on_delete($post_id) {
+      $post_type = get_post_type($post_id);
+      if ($post_type === 'show'):
+        paprika_remove_show_relations($post_id);
+      // elseif ($post_type === 'artist'):
+      //   paprika_remove_artist_relations($post_id);
+      // elseif ($post_type === 'program'):
+      //   paprika_remove_program_relations($post_id);
+      // elseif ($post_type === 'festival'):
+      //   paprika_remove_festival_relations($post_id);
+      // elseif ($post_type === 'location'):
+      //   paprika_remove_location_relations($post_id);
+      endif;
+    }
+  endif;
+
+  add_action('before_delete_post', 'paprika_update_on_delete', 10, 1);
 
   require_once( __DIR__ . '/render/artist-select.php');
   require_once( __DIR__ . '/render/festival-select.php');

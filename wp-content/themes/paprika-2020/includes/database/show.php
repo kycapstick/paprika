@@ -52,3 +52,12 @@
       update_post_meta($show_id, 'artists', $updated_artists);
     }
   endif;
+
+  if (!function_exists('paprika_remove_show_relations')):
+    function paprika_remove_show_relations($post_id) {
+      $current_show_artists = get_post_meta($post_id, 'artists', true);
+      foreach ($current_show_artists as $current_artist):
+        paprika_remove_artist_show($current_artist, $post_id);
+      endforeach;
+    }
+  endif;
