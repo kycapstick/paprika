@@ -37,7 +37,6 @@
         $artists = paprika_update_artists_with_count($_POST['artists'], $_POST['artistCount']);
         $artists = array_unique($artists);
         paprika_update_artist_program($artists, $post_id);
-        update_post_meta($post_id, 'artists', $artists);
       endif;
       if (isset($_POST['mentors'])):  
         $mentors = paprika_update_mentors_with_count($_POST['mentors'], $_POST['mentorCount']);

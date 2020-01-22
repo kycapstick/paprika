@@ -7,6 +7,9 @@
 
   require_once( __DIR__ . '/includes/metaboxes/index.php');
 
+  require_once( __DIR__ . '/includes/database/database.php');
+
+
 
 
 

@@ -7,11 +7,11 @@
 
   if (!function_exists('paprika_artist_meta_cb')):
     function paprika_artist_meta_cb($post) {
+      paprika_console_log(get_post_meta($post->ID, 'show', true));
       $posts = get_posts(array('post_type' => 'program'));
       $postMeta = get_post_meta($post->ID);
       $mentor = get_post_meta($post->ID, 'mentor', true);
       wp_nonce_field( basename( __FILE__ ), 'artist_post_nonce' );
-      paprika_console_log(get_post_meta($post->ID, 'artist', true));
       echo paprika_render_festival($postMeta);
     ?>
       
@@ -38,7 +38,5 @@
           paprika_update_meta_fields($key, $field, $post_id);
         endif;
       endforeach;
-      update_post_meta($post_id, 'mentor', array());
-      update_post_meta($post_id, 'artist', array());
     }
   endif;

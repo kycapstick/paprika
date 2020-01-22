@@ -6,7 +6,6 @@
       $artistCount = get_post_meta($post->ID, 'artistCount', true);
       $metaArtists = get_post_meta($post->ID, 'artists', true);
       $festival = get_post_meta($post->ID, 'festival', true);
-      paprika_console_log($metaArtists);
       ob_start();
   ?>
     <div>
