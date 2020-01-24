@@ -7,7 +7,6 @@
 
   if (!function_exists('paprika_artist_meta_cb')):
     function paprika_artist_meta_cb($post) {
-      paprika_console_log(get_post_meta($post->ID, 'show', true));
       $posts = get_posts(array('post_type' => 'program'));
       $postMeta = get_post_meta($post->ID);
       $mentor = get_post_meta($post->ID, 'mentor', true);

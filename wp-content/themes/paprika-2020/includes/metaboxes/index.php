@@ -37,10 +37,10 @@
       $post_type = get_post_type($post_id);
       if ($post_type === 'show'):
         paprika_remove_show_relations($post_id);
-      // elseif ($post_type === 'artist'):
-      //   paprika_remove_artist_relations($post_id);
-      // elseif ($post_type === 'program'):
-      //   paprika_remove_program_relations($post_id);
+      elseif ($post_type === 'artist'):
+        paprika_remove_artist_relations($post_id);
+      elseif ($post_type === 'program'):
+        paprika_remove_program_relations($post_id);
       // elseif ($post_type === 'festival'):
       //   paprika_remove_festival_relations($post_id);
       // elseif ($post_type === 'location'):

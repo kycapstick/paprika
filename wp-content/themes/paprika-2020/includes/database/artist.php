@@ -14,9 +14,13 @@
   if (!function_exists('paprika_new_artist')):
     function paprika_new_artist($updated_artists, $current_program_artists, $program_id) {
       foreach($updated_artists as $new_artist):
-        if (!in_array($new_artist, $current_program_artists)):
+        if (!is_array($current_program_artists)):
+          update_post_meta($new_artist, 'artist', [$program_id]);
+        elseif (!in_array($new_artist, $current_program_artists)):
           $current_artist_programs = get_post_meta($new_artist, 'artist', true);
-          if (is_array($current_artist_programs) && !in_array($program_id, $current_artist_programs)):
+          if (!is_array($current_artist_programs)):
+            update_post_meta($new_artist, 'artist', [$program_id]);
+          elseif (!in_array($program_id, $current_artist_programs)):
             array_push($current_artist_programs, $program_id);  
             update_post_meta($new_artist, 'artist', $current_artist_programs);
           endif;
@@ -62,5 +66,22 @@
       paprika_new_artist($updated_artists, $current_program_artists, $program_id);
       paprika_previous_artist($updated_artists, $current_program_artists, $program_id);
       update_post_meta($program_id, 'artists', $updated_artists);
+    }
+  endif;
+
+  if (!function_exists('paprika_remove_artist_relations')):
+    function paprika_remove_artist_relations($post_id) {
+      $current_mentor_programs = get_post_meta($post_id, 'mentor', true);
+      $current_artist_programs = get_post_meta($post_id, 'artist', true);
+      if (is_array($current_artist_programs)):
+        foreach ($current_artist_programs as $current_program):
+          paprika_remove_program_artist($current_program, $post_id);
+        endforeach;
+      endif;
+      if (is_array($current_mentor_programs)):
+        foreach ($current_mentor_programs as $current_program):
+          paprika_remove_program_mentor($current_program, $post_id);
+        endforeach;
+      endif;
     }
   endif;

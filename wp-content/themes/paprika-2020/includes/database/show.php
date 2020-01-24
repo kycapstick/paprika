@@ -2,7 +2,7 @@
   if (!function_exists('paprika_new_show')):
     function paprika_new_show($updated_artists, $current_show_artists, $show_id) {
       foreach($updated_artists as $new_artist):
-        if (!in_array($new_artist, $current_show_artists)):
+        if (is_array($current_show_artists) && !in_array($new_artist, $current_show_artists)):
           $current_artist_shows = get_post_meta($new_artist, 'show', true);
           if (!in_array($show_id, $current_artist_shows)):
             array_push($current_artist_shows, $show_id);  
@@ -56,8 +56,10 @@
   if (!function_exists('paprika_remove_show_relations')):
     function paprika_remove_show_relations($post_id) {
       $current_show_artists = get_post_meta($post_id, 'artists', true);
-      foreach ($current_show_artists as $current_artist):
-        paprika_remove_artist_show($current_artist, $post_id);
-      endforeach;
+      if (is_array($current_show_artists)):
+        foreach ($current_show_artists as $current_artist):
+          paprika_remove_artist_show($current_artist, $post_id);
+        endforeach;
+      endif;
     }
   endif;
