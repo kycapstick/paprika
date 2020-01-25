@@ -94,6 +94,20 @@ if (!function_exists('paprika_custom_post_types')):
         'show_in_rest' => true,
       )
     );
+    register_post_type('date',
+      array(
+        'labels' => array(
+          'name' => __('Dates'),
+          'singular_name' => __('Date')
+        ),
+        'public' => true,
+        'menu_icon' => 'dashicons-calendar-alt',
+        'supports'	=> array( 'thumbnail', 'title', 'editor'),
+        'register_meta_box_cb' => 'paprika_date_metabox',
+        'capability_type' => 'post',
+        'show_in_rest' => true,
+      )
+    );
   }
   add_theme_support( 'post-thumbnails' );
   add_action('init', 'paprika_custom_post_types');

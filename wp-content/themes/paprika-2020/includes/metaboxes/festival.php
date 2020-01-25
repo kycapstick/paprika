@@ -1,23 +1,23 @@
 <?php 
   if(!function_exists('paprika_festival_meta_cb')):
     function paprika_festival_meta_cb($post) {
-      $posts = get_posts(array('post_type' => 'location'));
+      $locations = get_posts(array('post_type' => 'location'));
       wp_nonce_field( basename( __FILE__ ), 'festival_post_nonce' );
-      $postMeta = get_post_meta($post->ID, 'location');
-      error_log(print_r($postMeta, 1));
-
+      $meta_location = get_post_meta($post->ID, 'location', true);
     ?>
       <label for="location">Location</label>
       <select name="location" id="location">
       <?php
-        foreach($posts as $post) {
+        foreach($locations as $location) {
       ?>
-          <option value="<?php echo $post->ID ?>" <?php echo (intval($postMeta[0]) === intval($post->ID) ? 'selected' : '') ?>><?php echo $post->post_title ?></option>
+          <option value="<?php echo $location->ID ?>" <?php echo (is_array($meta_location) && intval($meta_location[0]) === intval($location->ID) ? 'selected' : '') ?>><?php echo $location->post_title ?></option>
       <?php
         }
       ?>
       </select>
     <?php
+      echo paprika_render_dates_select($post);
+
     }
   endif;
   
@@ -34,6 +34,7 @@
       endif;
       $fields = array(
         'location' => '',
+        'dateCount' => 0,
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
       foreach($fields as $key=>$field):
@@ -41,5 +42,10 @@
           paprika_update_meta_fields($key, $field, $post_id);
         endif;
       endforeach;
+      if (isset($_POST['dates'])):
+        $dates = paprika_update_dates_with_count($_POST['dates'], $_POST['dateCount']);
+        $dates = array_unique($dates);
+        update_post_meta($post_id, 'dates', $dates);
+      endif;
     }
   endif;

@@ -3,7 +3,6 @@
     function paprika_program_meta_cb($post) {
       $artists = get_posts(array('post_type' => 'artist', 'orderby'=>'title','order'=>'ASC', 'numberposts'=> -1));
       $mentors = array_filter($artists, 'paprika_filter_mentors');
-      paprika_console_log(get_post_meta($post->ID, 'mentors', true));
       wp_nonce_field( basename( __FILE__ ), 'program_post_nonce' );
       $postMeta = get_post_meta($post->ID);
       echo paprika_render_festival($postMeta);
@@ -24,7 +23,6 @@
         return $post_id;
       endif;
       $fields = array(
-        'festival' => '',
         'artistCount' => 0,
         'mentorCount' => 0,
       );
@@ -34,6 +32,13 @@
           paprika_update_meta_fields($key, $field, $post_id);
         endif;
       endforeach;
+      if (isset($_POST['festival'])):
+        $new_festival = $_POST['festival'];
+        $previous_festival = get_post_meta($post_id, 'festival', true);
+        if (intval($previous_festival) !== intval($new_festival)):
+          paprika_update_festival_program($post_id, $new_festival, $previous_festival);
+        endif; 
+      endif;
       if (isset($_POST['artists'])):  
         $artists = paprika_update_artists_with_count($_POST['artists'], $_POST['artistCount']);
         $artists = array_unique($artists);

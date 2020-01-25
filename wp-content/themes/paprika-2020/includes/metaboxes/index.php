@@ -12,7 +12,9 @@
         paprika_save_festival_meta($post_id, $_POST);
       } elseif ($post['post_type'] === 'show') {
         paprika_save_show_meta($post_id, $_POST);
-      }
+      } elseif ($post['post_type'] === 'date') {
+        paprika_save_date_meta($post_id, $_POST);
+      }   
     }
   endif;
 
@@ -41,8 +43,8 @@
         paprika_remove_artist_relations($post_id);
       elseif ($post_type === 'program'):
         paprika_remove_program_relations($post_id);
-      // elseif ($post_type === 'festival'):
-      //   paprika_remove_festival_relations($post_id);
+      elseif ($post_type === 'festival'):
+        paprika_remove_festival_relations($post_id);
       // elseif ($post_type === 'location'):
       //   paprika_remove_location_relations($post_id);
       endif;
@@ -54,9 +56,13 @@
   require_once( __DIR__ . '/render/artist-select.php');
   require_once( __DIR__ . '/render/festival-select.php');
   require_once( __DIR__ . '/render/mentor-select.php');
+  require_once( __DIR__ . '/render/program-select.php');
+  require_once( __DIR__ . '/render/show-select.php');
+  require_once( __DIR__ . '/render/date-select.php');
 
   require_once( __DIR__ . '/program.php');
   require_once( __DIR__ . '/staff.php');
   require_once( __DIR__ . '/artist.php');
   require_once( __DIR__ . '/festival.php');
   require_once( __DIR__ . '/show.php');
+  require_once( __DIR__ . '/date.php');

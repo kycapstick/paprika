@@ -6,6 +6,7 @@
       $postMeta = get_post_meta($post->ID);
       echo paprika_render_festival($postMeta);
       echo paprika_render_artists_select($post);
+      echo paprika_render_program_select($postMeta);
     }
   endif;
   
@@ -23,6 +24,7 @@
       $fields = array(
         'festival' => '',
         'artistCount' => 0,
+        'program' => '',
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
       foreach($fields as $key=>$field):

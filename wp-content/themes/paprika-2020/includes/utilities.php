@@ -37,6 +37,15 @@
     }
   endif;
 
+  if (!function_exists('paprika_filter_by_festival')):
+    function paprika_filter_by_festival($festival_id, $posts) {
+      $posts = array_filter($posts, function($item) use($festival_id) {
+        return intval($festival_id) === intval(get_post_meta($item->ID, 'festival', true));
+      });
+      return $posts;
+    }
+  endif;
+
 
 
   add_action( 'pre_post_update', 'paprika_save_post_class_meta', 10, 2 );
