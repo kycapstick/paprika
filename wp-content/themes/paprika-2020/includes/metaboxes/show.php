@@ -12,7 +12,7 @@
   
   if (!function_exists('paprika_show_metabox')):
     function paprika_show_metabox() {
-      add_meta_box('show-meta-box', esc_html__('Show Details'), 'paprika_show_meta_cb', 'show', 'side', 'low');
+      add_meta_box('show-meta-box', esc_html__('Show Details'), 'paprika_show_meta_cb', 'show', 'normal', 'low');
     }
   endif;
   

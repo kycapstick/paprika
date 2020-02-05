@@ -63,3 +63,22 @@
       return $mentors;
     }
   endif;
+  
+  if (!function_exists('paprika_add_festival_category')):
+    function paprika_add_festival_category($post_id) {
+      $taxonomy = 'category';
+      $parent_id = get_cat_id('Festival');
+      if ($parent_id === 0):
+        $parent_id = wp_insert_term('Festival', $taxonomy);
+        $parent_id = $parent_id['term_id'];
+      endif;
+      wp_set_post_categories($post_id, $parent_id, $taxonomy, true);
+      $festival_id = get_post_meta($post_id, 'festival', true);
+      $festival = get_post($festival_id);
+      $category_id = get_cat_id($festival->post_title);
+      if ($category_id === 0):
+        $category_id = wp_insert_term($festival->post_title, $taxonomy, array('parent' => $parent_id));
+      endif;
+      wp_set_post_categories($post_id, $category_id, $taxonomy, true);
+    }
+  endif;

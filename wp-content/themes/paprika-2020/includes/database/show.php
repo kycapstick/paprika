@@ -63,3 +63,10 @@
       endif;
     }
   endif;
+
+  if (!function_exists('paprika_save_show_categories')):
+    function paprika_save_show_categories($post_id) {
+      paprika_add_festival_category($post_id);
+      paprika_add_program_category($post_id);
+    }
+  endif;

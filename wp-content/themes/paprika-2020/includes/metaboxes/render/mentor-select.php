@@ -7,22 +7,21 @@
       $metaMentors = get_post_meta($post->ID, 'mentors', true);
       ob_start();
   ?>
-    <div>
+    <fieldset>
+      <legend class="custom-title">Mentors</legend>
       <label for="mentorCount">Number of Mentors:</label>
-      <input type="number" id="mentorCount" name="mentorCount" value="<?php echo ($mentorCount[0] ?? '') ?>"> 
-    </div>    
-    <div>
+      <input class="custom-input" type="number" id="mentorCount" name="mentorCount" value="<?php echo ($mentorCount[0] ?? '') ?>"> 
+
       <?php 
       if (isset($mentorCount) && intval($mentorCount) > 0):
       ?>
-      <fieldset>
-        <legend>Mentors</legend>
+    
         <?php 
           for ($i = 0; $i < intval($mentorCount[0]); $i = $i + 1):
             ?>
             <div>
               <label for="mentor<?php echo $i ?>">Mentor <?php echo $i + 1 ?></label>
-              <select name="mentors[<?php echo $i ?>]" id="mentor<?php echo $i + 1 ?>">
+              <select class="custom-input" name="mentors[<?php echo $i ?>]" id="mentor<?php echo $i + 1 ?>">
                 <?php foreach($mentors as $index=>$mentor): ?>
                   <option 
                     value="<?php echo $mentor->ID ?>"
@@ -40,7 +39,6 @@
           <?php 
         endif;
         ?>
-      </div>
   <?php
     return ob_get_clean(); 
   }

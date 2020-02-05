@@ -6,7 +6,7 @@
     ?>
     <div>
         <label for="festival">Festival</label>
-        <select name="festival" id="festival">
+        <select class="custom-input" name="festival" id="festival">
         <?php
           foreach($festivals as $festival) {
         ?>

@@ -12,12 +12,16 @@
       if (isset($post_meta['festival'][0])):
         $shows = paprika_filter_by_festival($post_meta['festival'][0], $shows);
       endif;
+      ?>
+      <p class="custom-title">Details</p>
+      <?php
       echo paprika_render_festival($post_meta);
 
       if (isset($post_meta['festival'][0])):
       ?>
         <label for="timeSlotCount">Number of Time Slots</label>
-        <input 
+        <input
+          class="custom-input" 
           name="timeSlotCount" 
           id="timeSlotCount" 
           type="number"
@@ -28,9 +32,11 @@
       if (isset($post_meta['timeSlotCount'][0]) && intval($post_meta['timeSlotCount'][0]) > 0):
         for ($i = 0; $i < intval($post_meta['timeSlotCount'][0]); $i = $i + 1):
           ?>
+            <p class="custom-title">Time Slot <?php echo $i + 1?></p>
             <div>
               <label for="<?php echo 'timeSlot'.$i.'[name]' ?>">Time</label>
               <input 
+                class="custom-input"
                 id="<?php echo 'timeSlot'.$i.'[name]' ?>" 
                 name="<?php echo 'timeSlot['.$i.'][name]' ?>"
                 type="text" 
@@ -42,6 +48,7 @@
             <div>
               <label for="<?php echo 'timeSlot'.$i.'ShowCount' ?>">Number of Shows</label>
               <input 
+                class="custom-input"
                 type="number" 
                 id="<?php echo 'timeSlot'.$i.'ShowCount' ?>" 
                 name="<?php echo 'timeSlot['.$i.'][showCount]'?>"
@@ -54,7 +61,7 @@
             ?> 
                   <div>
                     <label for="<?php echo 'timeSlot'.$i.'Show'.$j ?>">Show <?php echo $j + 1 ?></label>
-                    <select name="<?php echo 'timeSlot['.$i.'][shows]['.$j.']' ?>" id="<?php echo 'timeSlot'.$i.'Show'.$j ?>">
+                    <select class="custom-input" name="<?php echo 'timeSlot['.$i.'][shows]['.$j.']' ?>" id="<?php echo 'timeSlot'.$i.'Show'.$j ?>">
                       <?php 
                         foreach ($shows as $show):
                       ?>

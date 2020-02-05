@@ -1,7 +1,7 @@
 <?php 
   if (!function_exists('paprika_staff_metabox')):
     function paprika_staff_metabox() {
-      add_meta_box('staff-meta-box', esc_html__('Staff Details'), 'paprika_staff_meta_cb', 'staff', 'side', 'low');
+      add_meta_box('staff-meta-box', esc_html__('Staff Details'), 'paprika_staff_meta_cb', 'staff', 'normal', 'low');
     }
   endif;
 
@@ -13,6 +13,7 @@
       <div>
         <label for="name">Name</label>
         <input 
+          class="custom-input"
           type="text" 
           name="name" 
           id="name" 
@@ -22,6 +23,7 @@
       <div>
         <label for="email">Email</label>
         <input 
+          class="custom-input"
           type="email" 
           name="email"
           id="email"

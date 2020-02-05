@@ -8,8 +8,9 @@
       ob_start();
     ?>
     <div>
+      <p class="custom-title">Programs</p>
         <label for="program">Program</label>
-        <select name="program" id="program">
+        <select class="custom-input"name="program" id="program">
         <?php
           foreach($programs as $program) {
         ?>

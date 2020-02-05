@@ -42,3 +42,28 @@
       endif;
     }
   endif;
+
+  if (!function_exists('paprika_add_program_category')):
+    function paprika_add_program_category($post_id) {
+      $taxonomy = 'category';
+      $parent_id = get_cat_id('Program');
+      if ($parent_id === 0):
+        $parent_id = wp_insert_term('Program', $taxonomy);
+        $parent_id = $parent_id['term_id'];
+      endif;
+      wp_set_post_categories($post_id, $parent_id, $taxonomy, true);
+      $program_id = get_post_meta($post_id, 'program', true);
+      $program = get_post($program_id);
+      $category_id = get_cat_id($program->post_title);
+      if ($category_id === 0):
+        $category_id = wp_insert_term($program->post_title, $taxonomy, array('parent' => $parent_id));
+      endif;
+      wp_set_post_categories($post_id, $category_id, $taxonomy, true);
+    }
+  endif;
+
+  if (!function_exists('paprika_save_program_categories')):
+    function paprika_save_program_categories($post_id) {
+      paprika_add_festival_category($post_id);
+    }
+  endif;

@@ -9,15 +9,33 @@
   &.middle {
     align-items: center;
   }
+  .offset {
+    margin-left: 30px;
+  }
   li {
     flex-grow: 0;
     flex-basis: 33.33%;
   }
-  .col-6 {
-    flex-basis: 50%;
-    max-width: 50%;
+  .col-8 {
+    flex-basis: calc(66.66% - 10px);
+    max-width: calc(66.66% - 10px);
     flex-grow: 0;
     flex-shrink: 1;
+    max-height: 70vh;
+    overflow: hidden;
+  }
+  .col-4 {
+    flex-basis: calc(33.33% - 10px);
+    max-width: calc(33.33% - 10px);
+    flex-grow: 0;
+    flex-shrink: 1;
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+  .col-3 {
+    flex-basis: 25%;
+    max-width: 25%;
   }
 }
 
@@ -35,6 +53,10 @@ img {
 
 figure {
   margin: 0;
+}
+
+input {
+  width: 100%
 }
 
 @import './typography';

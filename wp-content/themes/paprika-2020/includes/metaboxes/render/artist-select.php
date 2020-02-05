@@ -8,22 +8,20 @@
       $festival = get_post_meta($post->ID, 'festival', true);
       ob_start();
   ?>
-    <div>
+    <fieldset>
+    <legend class="custom-title">Artists</legend>
       <label for="artistCount">Number of Artists:</label>
-      <input type="number" id="artistCount" name="artistCount" value="<?php echo ($artistCount[0] ?? '') ?>"> 
-    </div>    
-    <div>
+      <input class="custom-input" type="number" id="artistCount" name="artistCount" value="<?php echo ($artistCount[0] ?? '') ?>"> 
       <?php 
         if (isset($artistCount[0])):
       ?>
-      <fieldset>
-        <legend>Artists</legend>
+
         <?php 
           for ($i = 0; $i < intval($artistCount[0]); $i = $i + 1):
             ?>
             <div>
               <label for="artist<?php echo $i ?>">Artist <?php echo $i + 1 ?></label>
-              <select name="artists[<?php echo $i ?>]" id="artist<?php echo $i + 1 ?>">
+              <select class="custom-input" name="artists[<?php echo $i ?>]" id="artist<?php echo $i + 1 ?>">
                 <?php 
                   foreach($artists as $index=>$artist): 
                     if (intval(get_post_meta($artist->ID, 'festival', true)) !== intval($festival)):
@@ -47,7 +45,6 @@
         endif;
         ?>
 
-      </div>
   <?php
     return ob_get_clean();
   }

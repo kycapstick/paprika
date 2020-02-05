@@ -10,6 +10,24 @@
   require_once( __DIR__ . '/includes/database/database.php');
 
 
+add_action('admin_head', 'my_custom_fonts');
+
+function my_custom_fonts() {
+  echo '<style>
+    .custom-input {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    } 
+    .custom-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 10px 0;
+      text-align: center;
+    }
+  </style>';
+}
+
 
 
 

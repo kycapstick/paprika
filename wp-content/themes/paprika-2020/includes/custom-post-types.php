@@ -13,6 +13,7 @@ if (!function_exists('paprika_custom_post_types')):
         'menu_icon' => 'dashicons-tickets-alt',
         'supports'	=> array( 'thumbnail', 'title', 'editor'),
         'register_meta_box_cb' => 'paprika_festival_metabox',
+        'taxonomies' => array('category'),
         'capability_type' => 'post',
       )
     );
@@ -85,6 +86,7 @@ if (!function_exists('paprika_custom_post_types')):
         'menu_icon' => 'dashicons-tickets-alt',
         'supports'	=> array( 'thumbnail', 'title', 'editor'),
         'register_meta_box_cb' => 'paprika_show_metabox',
+        'taxonomies' => array('category'),
         'capability_type' => 'post',
       )
     );
@@ -98,6 +100,7 @@ if (!function_exists('paprika_custom_post_types')):
         'menu_icon' => 'dashicons-calendar-alt',
         'supports'	=> array( 'thumbnail', 'title', 'editor'),
         'register_meta_box_cb' => 'paprika_date_metabox',
+        'taxonomies' => array('category'),
         'capability_type' => 'post',
       )
     );

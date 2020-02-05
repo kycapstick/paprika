@@ -6,8 +6,9 @@
       wp_nonce_field( basename( __FILE__ ), 'festival_post_nonce' );
       $meta_location = get_post_meta($post->ID, 'location', true);
     ?>
+      <p class="custom-title">Details</p>
       <label for="location">Location</label>
-      <select name="location" id="location">
+      <select class="custom-input" name="location" id="location">
       <?php
         foreach($locations as $location) {
       ?>

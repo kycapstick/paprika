@@ -34,6 +34,24 @@
 
   add_action( 'pre_post_update', 'paprika_save_post_class_meta', 10, 2 );
 
+  if (!function_exists('paprika_save_categories')):
+    function paprika_save_categories($post_id) {
+      if ($_POST):
+        if ($_POST['post_type'] === 'program') {
+          paprika_save_program_categories($post_id);
+        } elseif ($_POST['post_type'] === 'artist') {
+          paprika_save_artist_categories($post_id);
+        } elseif ($_POST['post_type'] === 'show') {
+          paprika_save_show_categories($post_id);
+        } elseif ($_POST['post_type'] === 'date') {
+          paprika_save_date_categories($post_id);
+        }   
+      endif;
+      } 
+  endif;
+
+  add_action('save_post', 'paprika_save_categories');
+
   if (!function_exists('paprika_update_on_delete')):
     function paprika_update_on_delete($post_id) {
       $post_type = get_post_type($post_id);

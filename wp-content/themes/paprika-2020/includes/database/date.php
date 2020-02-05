@@ -10,3 +10,9 @@
       return $countedDates;
     }
   endif;
+
+  if (!function_exists('paprika_save_date_categories')):
+    function paprika_save_date_categories($post_id) {
+      paprika_add_festival_category($post_id);
+    }
+  endif;

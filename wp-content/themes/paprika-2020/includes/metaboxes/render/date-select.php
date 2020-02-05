@@ -9,20 +9,20 @@
   ?>
     <div>
       <label for="dateCount">Number of Days:</label>
-      <input type="number" id="dateCount" name="dateCount" value="<?php echo ($dateCount ?? '') ?>"> 
+      <input class="custom-input" type="number" id="dateCount" name="dateCount" value="<?php echo ($dateCount ?? '') ?>"> 
     </div>    
     <div>
       <?php 
         if (isset($dateCount)):
       ?>
       <fieldset>
-        <legend>Dates</legend>
+        <legend class="custom-title">Dates</legend>
         <?php 
           for ($i = 0; $i < intval($dateCount); $i = $i + 1):
             ?>
             <div>
               <label for="date<?php echo $i ?>">Date <?php echo $i + 1 ?></label>
-              <select name="dates[<?php echo $i ?>]" id="date<?php echo $i + 1 ?>">
+              <select class="custom-input" name="dates[<?php echo $i ?>]" id="date<?php echo $i + 1 ?>">
                 <?php 
                   foreach($dates as $index=>$date): 
                   ?>
