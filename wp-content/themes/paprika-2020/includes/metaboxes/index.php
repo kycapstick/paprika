@@ -45,8 +45,6 @@
         paprika_remove_program_relations($post_id);
       elseif ($post_type === 'festival'):
         paprika_remove_festival_relations($post_id);
-      // elseif ($post_type === 'location'):
-      //   paprika_remove_location_relations($post_id);
       endif;
     }
   endif;

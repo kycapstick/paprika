@@ -1,7 +1,7 @@
 <?php 
   if (!function_exists('paprika_artist_metabox')):
     function paprika_artist_metabox() {
-      add_meta_box('artist-meta-box', esc_html__('Artist Details'), 'paprika_artist_meta_cb', 'artist', 'side', 'low');
+      add_meta_box('artist-meta-box', esc_html__('Artist Details'), 'paprika_artist_meta_cb', 'artist', 'normal', 'low');
     }
   endif;
 

@@ -13,7 +13,7 @@
   
   if (!function_exists('paprika_program_metabox')):
     function paprika_program_metabox() {
-      add_meta_box('program-meta-box', esc_html__('Festival Details'), 'paprika_program_meta_cb', 'program', 'side', 'low');
+      add_meta_box('program-meta-box', esc_html__('Festival Details'), 'paprika_program_meta_cb', 'program', 'normal', 'low');
     }
   endif;
   

@@ -14,7 +14,6 @@ if (!function_exists('paprika_custom_post_types')):
         'supports'	=> array( 'thumbnail', 'title', 'editor'),
         'register_meta_box_cb' => 'paprika_festival_metabox',
         'capability_type' => 'post',
-        'show_in_rest' => true,
       )
     );
     register_post_type('location',
@@ -28,7 +27,6 @@ if (!function_exists('paprika_custom_post_types')):
         'menu_icon' => 'dashicons-admin-home',
         'supports'	=> array( 'thumbnail', 'title', 'editor'),
         'capability_type' => 'post',
-        'show_in_rest' => true,
       )
     );
     register_post_type('program',
@@ -44,7 +42,6 @@ if (!function_exists('paprika_custom_post_types')):
         'capability_type' => 'post',
         'taxonomies' => array('category'),
         'register_meta_box_cb' => 'paprika_program_metabox',
-        'show_in_rest' => true,
       )
     );
     register_post_type('staff',
@@ -60,7 +57,6 @@ if (!function_exists('paprika_custom_post_types')):
         'capability_type' => 'post',
         'taxonomies' => array('category'),
         'register_meta_box_cb' => 'paprika_staff_metabox',
-        'show_in_rest' => true,
       )
     );
     register_post_type('artist',
@@ -76,7 +72,6 @@ if (!function_exists('paprika_custom_post_types')):
         'capability_type' => 'post',
         'taxonomies' => array('category'),
         'register_meta_box_cb' => 'paprika_artist_metabox',
-        'show_in_rest' => true,
       )
     );
     register_post_type('show',
@@ -91,7 +86,6 @@ if (!function_exists('paprika_custom_post_types')):
         'supports'	=> array( 'thumbnail', 'title', 'editor'),
         'register_meta_box_cb' => 'paprika_show_metabox',
         'capability_type' => 'post',
-        'show_in_rest' => true,
       )
     );
     register_post_type('date',
@@ -105,7 +99,6 @@ if (!function_exists('paprika_custom_post_types')):
         'supports'	=> array( 'thumbnail', 'title', 'editor'),
         'register_meta_box_cb' => 'paprika_date_metabox',
         'capability_type' => 'post',
-        'show_in_rest' => true,
       )
     );
   }

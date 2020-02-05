@@ -1,6 +1,7 @@
 <?php 
   if(!function_exists('paprika_festival_meta_cb')):
     function paprika_festival_meta_cb($post) {
+      paprika_console_log(get_post_meta($post->ID, 'location', true));
       $locations = get_posts(array('post_type' => 'location'));
       wp_nonce_field( basename( __FILE__ ), 'festival_post_nonce' );
       $meta_location = get_post_meta($post->ID, 'location', true);
@@ -23,7 +24,7 @@
   
   if (!function_exists('paprika_festival_metabox')):
     function paprika_festival_metabox() {
-      add_meta_box('festival-meta-box', esc_html__('Festival Details'), 'paprika_festival_meta_cb', 'festival', 'side', 'low');
+      add_meta_box('festival-meta-box', esc_html__('Festival Details'), 'paprika_festival_meta_cb', 'festival', 'normal', 'low');
     }
   endif;
   

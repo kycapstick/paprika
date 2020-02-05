@@ -1,0 +1,53 @@
+<?php 
+  get_header();
+  $mentor_programs = get_post_meta($post->ID, 'mentor', true);
+  $artist_programs = get_post_meta($post->ID, 'artist', true);
+?>
+<main class="container">
+  <div class="flex middle">
+    <div class="col-6">
+      <h1><?php echo $post->post_title ?></h1>
+      <?php echo wpautop($post->post_content) ?>
+      <?php 
+        if (isset($mentor_programs) && is_array($mentor_programs)):
+      ?>
+      <h3>Mentor</h3>
+        <ul>
+          <?php 
+            foreach ($mentor_programs as $program_id): 
+              $program = get_post($program_id)
+          ?>
+            <li>
+              <a href="<?php echo get_post_permalink($program_id) ?>"><?php echo $program->post_title ?></a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      <?php 
+        endif;
+      ?>
+      <?php 
+        if (isset($artist_programs) && is_array($artist_programs)):
+      ?>
+        <h3>Artist</h3>
+        <ul>
+          <?php 
+            foreach ($artist_programs as $program_id): 
+              $program = get_post($program_id)
+          ?>
+            <li>
+              <a href="<?php echo get_post_permalink($program_id) ?>"><?php echo $program->post_title ?></a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      <?php 
+        endif;
+      ?>
+    </div>
+    <figure class="col-6">
+      <?php echo get_the_post_thumbnail($post->ID) ?>
+    </figure>
+  </div>
+</main>
+<?php 
+  get_footer();
+?>

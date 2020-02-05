@@ -1,5 +1,40 @@
-body {
-  h1 {
-    font-size: 20px;;
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+} 
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  &.middle {
+    align-items: center;
+  }
+  li {
+    flex-grow: 0;
+    flex-basis: 33.33%;
+  }
+  .col-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+    flex-grow: 0;
+    flex-shrink: 1;
   }
 }
+
+ul {
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0;
+}
+
+@import './typography';

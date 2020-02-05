@@ -3,8 +3,8 @@
     function paprika_new_program($program_id, $current_festival_programs, $festival_id) {
       if (!is_array($current_festival_programs)):
         update_post_meta($festival_id, 'programs', [$program_id]);
-      elseif (!in_array($festival_id, $current_festival_programs)):
-        $current_festival_programs[] = $festival_id;
+      elseif (!in_array($program_id, $current_festival_programs)):
+        $current_festival_programs[] = $program_id;
         update_post_meta($festival_id, 'programs', $current_festival_programs);
       endif;
     }
@@ -47,5 +47,19 @@
           paprika_remove_program_festival($current_program, $post_id);
         endforeach;
       endif;
+    }
+  endif;
+  
+  if (!function_exists('paprika_get_program_artists')):
+    function paprika_get_program_artists($program_id) {
+      $artists = get_post_meta($program_id, 'artists', true);
+      return $artists;
+    }
+  endif;
+
+  if (!function_exists('paprika_get_program_mentors')):
+    function paprika_get_program_mentors($program_id) {
+      $mentors = get_post_meta($program_id, 'mentors', true);
+      return $mentors;
     }
   endif;

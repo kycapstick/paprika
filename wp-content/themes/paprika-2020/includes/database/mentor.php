@@ -25,16 +25,12 @@
   if (!function_exists('paprika_new_mentor')):
     function paprika_new_mentor($updated_mentors, $current_program_mentors, $program_id) {
       foreach($updated_mentors as $new_mentor):
-        if (!is_array($current_program_mentors)):
+        $current_mentor_programs = get_post_meta($new_mentor, 'mentor', true);
+        if (!is_array($current_mentor_programs)):
           update_post_meta($new_mentor, 'mentor', [$program_id]);
-        elseif (!in_array($new_mentor, $current_program_mentors)):
-          $current_mentor_programs = get_post_meta($new_mentor, 'mentor', true);
-          if (!is_array($current_mentor_programs)):
-            update_post_meta($new_mentor, 'mentor', [$program_id]);
-          elseif (!in_array($program_id, $current_mentor_programs)):
-            array_push($current_mentor_programs, $program_id);  
-            update_post_meta($new_mentor, 'mentor', $current_mentor_programs);
-          endif;
+        elseif (!in_array($program_id, $current_mentor_programs)):
+          array_push($current_mentor_programs, $program_id);  
+          update_post_meta($new_mentor, 'mentor', $current_mentor_programs);
         endif;
       endforeach;
     }
