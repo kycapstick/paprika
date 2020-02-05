@@ -1,0 +1,14 @@
+.staff {
+  &__title,
+  &__name {
+    display: inline;
+    font-size: 1.3rem;
+  }
+  &__name {
+    &::after {
+      content: "|";
+      display: inline-block;
+      padding: 0 10px;
+    }
+  }
+}

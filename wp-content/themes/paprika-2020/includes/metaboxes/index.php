@@ -36,7 +36,7 @@
 
   if (!function_exists('paprika_save_categories')):
     function paprika_save_categories($post_id) {
-      if ($_POST):
+      if ($_POST && $_POST['post_type']):
         if ($_POST['post_type'] === 'program') {
           paprika_save_program_categories($post_id);
         } elseif ($_POST['post_type'] === 'artist') {

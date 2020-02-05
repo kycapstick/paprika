@@ -6,6 +6,7 @@
 .flex {
   display: flex;
   flex-wrap: wrap;
+  margin: 20px 0;
   &.middle {
     align-items: center;
   }
@@ -59,4 +60,10 @@ input {
   width: 100%
 }
 
+.block-link {
+  display: block;
+  margin: 10px 0;
+}
+
 @import './typography';
+@import './staff';
