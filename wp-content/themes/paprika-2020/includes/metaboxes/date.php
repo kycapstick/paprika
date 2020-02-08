@@ -6,7 +6,6 @@
       $post_meta = get_post_meta($post->ID);
       $show_count = get_post_meta($post->ID, 'showCount', true);
       $time_slots = get_post_meta($post->ID, 'timeSlot', true);
-      paprika_console_log($time_slots);
 
       $shows = get_posts(array('post_type' => 'show', 'orderby'=>'title','order'=>'ASC', 'numberposts'=> -1));
       if (isset($post_meta['festival'][0])):
@@ -122,6 +121,7 @@
           $sanitized_time_slots[$index]['showCount'] = sanitize_text_field($time_slot['showCount']);
           $sanitized_time_slots[$index]['shows'] = $time_slot['shows'];
         endforeach;
+        paprika_save_show_timeslots($post_id, $sanitized_time_slots);
         update_post_meta($post_id, 'timeSlot', $sanitized_time_slots);
       endif;
     }

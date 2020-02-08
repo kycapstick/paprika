@@ -70,3 +70,5 @@
       paprika_add_program_category($post_id);
     }
   endif;
+
+  
