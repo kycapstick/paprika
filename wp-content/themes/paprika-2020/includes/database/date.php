@@ -58,6 +58,38 @@
     }
   endif;
 
+  if (!function_exists('paprika_search_nested_array')):
+    function paprika_search_nested_array($array, $value) {
+      $index;
+      foreach($array as $array_index=>$nested_array):
+        if (is_array($nested_array)):
+          $found = array_search($value, $nested_array);
+          if ($found):
+            return $array_index;
+          endif;
+        endif;
+      endforeach;
+    }
+  endif;
+
+  if (!function_exists('paprika_remove_timeslot_show')):
+    function paprika_remove_timeslot_show($time_slot, $date_id, $post_id) {
+      if (isset($time_slot['shows']) && is_array($time_slot['shows'])):
+        $index = array_search($post_id, $time_slot['shows']);
+        if (isset($index) && intval($index) > 0):
+          unset($time_slot['shows'][$index]);
+          $current_date_shows = get_post_meta($date_id, 'timeSlot', true);
+          $time_slot_index = paprika_search_nested_array($current_date_shows, $time_slot['name']);
+          if (isset($time_slot_index)):
+            $current_date_shows[$time_slot_index] = $time_slot;
+            update_post_meta($date_id, 'timeSlot', $current_date_shows);
+          endif;
+        endif;
+      endif;
+      die();
+    }
+  endif;
+
   if (!function_exists('paprika_save_date_categories')):
     function paprika_save_date_categories($post_id) {
       paprika_add_festival_category($post_id);

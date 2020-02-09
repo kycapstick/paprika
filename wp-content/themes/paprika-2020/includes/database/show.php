@@ -56,9 +56,15 @@
   if (!function_exists('paprika_remove_show_relations')):
     function paprika_remove_show_relations($post_id) {
       $current_show_artists = get_post_meta($post_id, 'artists', true);
-      if (is_array($current_show_artists)):
+      if (isset($current_show_artists) && is_array($current_show_artists)):
         foreach ($current_show_artists as $current_artist):
           paprika_remove_artist_show($current_artist, $post_id);
+        endforeach;
+      endif;
+      $current_show_timeslots = get_post_meta($post_id, 'timeSlots', true);
+      if (isset($current_show_timeslots) && is_array($current_show_timeslots)):
+        foreach($current_show_timeslots as $date_id => $time_slot):
+          paprika_remove_timeslot_show($time_slot, $date_id, $post_id);
         endforeach;
       endif;
     }

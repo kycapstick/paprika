@@ -7,6 +7,9 @@
     $args = array(
       'post_type' => 'staff',
       'posts_per_page' => -1,
+      "orderby" => 'meta_value_num',
+      "meta_key" => 'order',
+      "order" => 'ASC'
     );
     $staff_posts = new WP_Query($args);
     if ( $staff_posts->have_posts() ):

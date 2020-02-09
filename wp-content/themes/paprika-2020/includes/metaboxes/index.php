@@ -36,7 +36,7 @@
 
   if (!function_exists('paprika_save_categories')):
     function paprika_save_categories($post_id) {
-      if ($_POST && $_POST['post_type']):
+      if (isset($_POST) && isset($_POST['post_type'])):
         if ($_POST['post_type'] === 'program') {
           paprika_save_program_categories($post_id);
         } elseif ($_POST['post_type'] === 'artist') {
@@ -55,14 +55,16 @@
   if (!function_exists('paprika_update_on_delete')):
     function paprika_update_on_delete($post_id) {
       $post_type = get_post_type($post_id);
-      if ($post_type === 'show'):
-        paprika_remove_show_relations($post_id);
-      elseif ($post_type === 'artist'):
-        paprika_remove_artist_relations($post_id);
-      elseif ($post_type === 'program'):
-        paprika_remove_program_relations($post_id);
-      elseif ($post_type === 'festival'):
-        paprika_remove_festival_relations($post_id);
+      if (isset($post_type)):
+        if ($post_type === 'show'):
+          paprika_remove_show_relations($post_id);
+        elseif ($post_type === 'artist'):
+          paprika_remove_artist_relations($post_id);
+        elseif ($post_type === 'program'):
+          paprika_remove_program_relations($post_id);
+        elseif ($post_type === 'festival'):
+          paprika_remove_festival_relations($post_id);
+        endif;
       endif;
     }
   endif;

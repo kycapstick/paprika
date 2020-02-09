@@ -11,6 +11,8 @@
       wp_nonce_field( basename( __FILE__ ), 'staff_post_nonce' );
       ?>
       <div>
+        <label for="order">Display Order</label>
+        <input class="custom-input" type="number" id="order" name="order">
         <label for="name">Name</label>
         <input 
           class="custom-input"
@@ -39,6 +41,7 @@
       $fields = array(
         'name' => '',
         'email' => '',
+        'order' => '',
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
       foreach($fields as $key=>$field):

@@ -27,7 +27,7 @@ get_header();
 			?>
 				<h2>Schedule</h2>
 				<p>Part of the 
-					<a href="/festivals">
+					<a href="<?php echo get_post_permalink($festival_id) ?>">
 						<?php echo $festival->post_title?> Festival
 					</a>	
 				</p>
