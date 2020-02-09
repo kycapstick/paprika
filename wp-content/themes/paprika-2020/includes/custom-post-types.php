@@ -2,6 +2,21 @@
 
 if (!function_exists('paprika_custom_post_types')):
   function paprika_custom_post_types() {
+    register_post_type('staff',
+      array(
+        'labels' => array(
+          'name' => __('Staff'),
+          'singular_name' => __('Staff')
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-admin-users',
+        'supports'	=> array( 'thumbnail', 'title', 'editor'),
+        'capability_type' => 'post',
+        'taxonomies' => array('category'),
+        'register_meta_box_cb' => 'paprika_staff_metabox',
+      )
+    );
     register_post_type('festival',
       array(
         'labels' => array(
@@ -10,7 +25,7 @@ if (!function_exists('paprika_custom_post_types')):
         ),
         'public' => true,
         'has_archive' => true,
-        'menu_icon' => 'dashicons-tickets-alt',
+        'menu_icon' => 'dashicons-buddicons-groups',
         'supports'	=> array( 'thumbnail', 'title', 'editor'),
         'register_meta_box_cb' => 'paprika_festival_metabox',
         'taxonomies' => array('category'),
@@ -43,21 +58,6 @@ if (!function_exists('paprika_custom_post_types')):
         'capability_type' => 'post',
         'taxonomies' => array('category'),
         'register_meta_box_cb' => 'paprika_program_metabox',
-      )
-    );
-    register_post_type('staff',
-      array(
-        'labels' => array(
-          'name' => __('Staff'),
-          'singular_name' => __('Staff')
-        ),
-        'public' => true,
-        'has_archive' => false,
-        'menu_icon' => 'dashicons-admin-users',
-        'supports'	=> array( 'thumbnail', 'title', 'editor'),
-        'capability_type' => 'post',
-        'taxonomies' => array('category'),
-        'register_meta_box_cb' => 'paprika_staff_metabox',
       )
     );
     register_post_type('artist',

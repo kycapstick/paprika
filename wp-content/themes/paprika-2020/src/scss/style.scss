@@ -7,6 +7,25 @@ a {
   width: 90%;
   margin: 0 auto;
 } 
+
+.title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.border {
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.schedule {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
 .flex {
   display: flex;
   flex-wrap: wrap;
@@ -20,6 +39,16 @@ a {
   li {
     flex-grow: 0;
     flex-basis: 33.33%;
+  }
+  .grow {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+  .col-6 {
+    flex-basis: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    flex-grow: 0;
+    flex-shrink: 1;
   }
   .col-8 {
     flex-basis: calc(66.66% - 10px);
@@ -71,6 +100,10 @@ input {
 .block-link {
   display: block;
   margin: 10px 0;
+}
+
+.no-margin {
+  margin: 0;
 }
 
 @import './typography';

@@ -25,7 +25,7 @@ get_header();
         $mentors = paprika_get_program_mentors($program_id);
         $program = get_post($program_id);
       ?>
-					<li>
+					<li class="text-center">
 						<div>
 						<h4>
               <a href="<?php echo get_post_permalink($program->ID) ?>">
@@ -78,14 +78,14 @@ get_header();
     if (isset($date_ids) && is_array($date_ids)):
 		?>
 			<h3>Schedule</h3>
-			<ul>
+			<ul class="schedule">
 			<?php 
 				foreach($date_ids as $date_id):
 					$date = get_post($date_id);
 					$time_slots = get_post_meta($date_id, 'timeSlot', true);
 			?>
-				<p class="col-3">
-					<a class="center block"href="<?php echo get_post_permalink($date_id) ?>">
+				<li class="col-3">
+					<a class="center block title"href="<?php echo get_post_permalink($date_id) ?>">
 						<?php echo $date->post_title ?>
 					</a>
         <?php 
@@ -96,29 +96,33 @@ get_header();
           ?>
           <div class="flex">
             <?php if (isset($time_slot['name'])): ?>
-            <p>
+            <p class="no-margin">
               <?php echo $time_slot['name'] ?>
             </p>
             <?php 
               endif;
               if (isset($time_slot['shows']) && is_array($time_slot['shows'])):
                 ?>
-                <ul>
-                  <?php
-                foreach($time_slot['shows'] as $show_id):
-                  $program_id = get_post_meta($show_id, 'program', true);
-                  $program_title = str_replace($post->post_title, '', get_the_title($program_id));
-                  $show = get_post($show_id);
-                  if (isset($show) && !empty($show)):
-            ?>
-                      <li>
-                        <a href="<?php echo get_post_permalink($show_id); ?>"><?php echo $show->post_title ?></a>
-                      </li>
-            <?php  
-                  endif;
-                endforeach;
-                ?>
-                <li><?php echo $program_title ?></li>
+                <ul class="grow">
+                  <li>
+                    <ul class="flex no-margin">
+                      <?php
+                      foreach($time_slot['shows'] as $show_id):
+                        $program_id = get_post_meta($show_id, 'program', true);
+                        $program_title = str_replace($post->post_title, '', get_the_title($program_id));
+                          $show = get_post($show_id);
+                          if (isset($show) && !empty($show)):
+                      ?>
+                        <li class="col-6 text-center">
+                          <a href="<?php echo get_post_permalink($show_id); ?>"><?php echo $show->post_title ?></a>
+                        </li>
+                      <?php  
+                        endif;
+                      endforeach;
+                    ?>
+                  </ul>
+                </li>
+                <li class="text-center"><?php echo $program_title ?></li>
                 </ul>
                 <?php
               endif;

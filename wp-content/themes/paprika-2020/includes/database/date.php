@@ -74,7 +74,9 @@
 
   if (!function_exists('paprika_remove_timeslot_show')):
     function paprika_remove_timeslot_show($time_slot, $date_id, $post_id) {
+
       if (isset($time_slot['shows']) && is_array($time_slot['shows'])):
+
         $index = array_search($post_id, $time_slot['shows']);
         if (isset($index) && intval($index) > 0):
           unset($time_slot['shows'][$index]);
@@ -86,7 +88,6 @@
           endif;
         endif;
       endif;
-      die();
     }
   endif;
 

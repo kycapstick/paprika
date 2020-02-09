@@ -6,7 +6,7 @@
       $postMeta = get_post_meta($post->ID);
       echo paprika_render_festival($post);
       echo paprika_render_artists_select($post);
-      echo paprika_render_program_select($postMeta);
+      echo paprika_render_program_select($post);
     }
   endif;
   

@@ -138,6 +138,12 @@ jQuery(document).ready(function($) {
     const $this = $(this);
     handleUpdateValue($this);
   });
+  
+  $("#update-program").click(function(e) {
+    e.preventDefault();
+    const $this = $(this);
+    handleUpdateValue($this);
+  });
 
   // UPDATE COUNTS
 
