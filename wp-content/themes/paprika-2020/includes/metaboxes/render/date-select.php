@@ -5,11 +5,13 @@
       $dates = paprika_filter_by_festival($post->ID, $dates);
       $dateCount = get_post_meta($post->ID, 'dateCount', true);
       $metaDates = get_post_meta($post->ID, 'dates', true);
+      $nonce = wp_create_nonce("update_count_nonce");
       ob_start();
   ?>
     <div>
       <label for="dateCount">Number of Days:</label>
-      <input class="custom-input" type="number" id="dateCount" name="dateCount" value="<?php echo ($dateCount ?? '') ?>"> 
+      <input class="custom-input" type="number" id="dateCount" name="dateCount" value="<?php echo ($dateCount ?? '') ?>">
+      <button id="update-date-count" data-selector="dateCount" data-nonce="<?php echo $nonce ?>" data-id="<?php echo $post->ID ?>">Update Date Count</button>
     </div>    
     <div>
       <?php 

@@ -1,4 +1,26 @@
 <?php
+  if (!function_exists('paprika_is_valid')):
+    function paprika_is_valid($type, $value) {
+      $valid = false;
+      if ($type === 'string'):
+        if (isset($value) && strlen($value) > 0):
+          $valid = true;
+        endif;
+      endif;
+      if ($type === 'number'):
+        if (isset($value) && $value > 0):
+          $valid = true;
+        endif;
+      endif;
+      return $valid;
+      if ($type === 'array'):
+        if (isset($value)):
+          $valid = true;
+        endif;
+      endif;
+      return $valid;
+    }
+  endif;
 
   if (!function_exists('paprika_console_log')):
     function paprika_console_log($value) {

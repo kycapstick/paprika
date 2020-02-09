@@ -35,7 +35,7 @@ $posts = new WP_Query($args);
 			<?php
       foreach($programs as $program_id) {
 				$program = get_post($program_id);
-				if (isset($program)):
+				if (isset($program) && $program->post_status === 'publish'):
       ?>
 					<li>
 						<h4>
@@ -59,6 +59,7 @@ $posts = new WP_Query($args);
 				foreach($date_ids as $date_id):
 					$date = get_post($date_id);
 					$time_slots = get_post_meta($date_id, 'timeSlot', true);
+					if ($date->post_status === 'publish'):
 			?>
 				<li class="col-3">
 					<a href="<?php echo get_post_permalink($date_id) ?>">
@@ -66,6 +67,7 @@ $posts = new WP_Query($args);
 					</a>
 				</li>
 			<?php
+				endif;
 				endforeach;
 			?>
 		</ul>

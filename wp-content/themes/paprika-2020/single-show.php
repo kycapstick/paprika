@@ -35,6 +35,7 @@ get_header();
 					<?php 
 						foreach($time_slots as $date_id => $time_slot):
 							$date = get_post($date_id);
+							if ($date->post_status === 'publish'):
 							?>
 							<li>
 								<a href="<?php echo get_post_permalink($date_id) ?>"><?php echo $date->post_title ?> at <?php echo $time_slot['name'] ?>
@@ -68,6 +69,7 @@ get_header();
 								<?php endif; ?>
 							</li>
 							<?php
+							endif;
 						endforeach;
 					?>
 				</ul>

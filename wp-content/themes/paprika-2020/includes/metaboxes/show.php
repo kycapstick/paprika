@@ -4,7 +4,7 @@
       $artists = get_posts(array('post_type' => 'artist', 'orderby'=>'title','order'=>'ASC', 'numberposts'=> -1));
       wp_nonce_field( basename( __FILE__ ), 'show_post_nonce' );
       $postMeta = get_post_meta($post->ID);
-      echo paprika_render_festival($postMeta);
+      echo paprika_render_festival($post);
       echo paprika_render_artists_select($post);
       echo paprika_render_program_select($postMeta);
     }

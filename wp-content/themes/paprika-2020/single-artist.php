@@ -21,12 +21,17 @@
         <ul>
           <?php 
             foreach ($mentor_programs as $program_id): 
-              $program = get_post($program_id)
+              $program = get_post($program_id);
+              if ($program->post_status === 'publish'):
+
           ?>
             <li>
               <a href="<?php echo get_post_permalink($program_id) ?>"><?php echo $program->post_title ?></a>
             </li>
-          <?php endforeach; ?>
+          <?php 
+            endif;
+            endforeach; 
+          ?>
         </ul>
       <?php 
         endif;
@@ -38,12 +43,16 @@
         <ul>
           <?php 
             foreach ($artist_programs as $program_id): 
-              $program = get_post($program_id)
+              $program = get_post($program_id);
+              if ($program->post_status === 'publish'):
           ?>
             <li>
               <a href="<?php echo get_post_permalink($program_id) ?>"><?php echo $program->post_title ?></a>
             </li>
-          <?php endforeach; ?>
+          <?php 
+            endif;
+            endforeach; 
+          ?>
         </ul>
       <?php 
         endif;

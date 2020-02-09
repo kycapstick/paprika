@@ -6,6 +6,8 @@
       $post_meta = get_post_meta($post->ID);
       $show_count = get_post_meta($post->ID, 'showCount', true);
       $time_slots = get_post_meta($post->ID, 'timeSlot', true);
+      $count_nonce = wp_create_nonce("update_count_nonce");
+      $array_nonce = wp_create_nonce("update_array_nonce");
 
       $shows = get_posts(array('post_type' => 'show', 'orderby'=>'title','order'=>'ASC', 'numberposts'=> -1));
       if (isset($post_meta['festival'][0])):
@@ -14,7 +16,7 @@
       ?>
       <p class="custom-title">Details</p>
       <?php
-      echo paprika_render_festival($post_meta);
+      echo paprika_render_festival($post);
 
       if (isset($post_meta['festival'][0])):
       ?>
@@ -26,17 +28,20 @@
           type="number"
           value="<?php echo ($post_meta['timeSlotCount'][0] ?? '') ?>"
         >
+        <button id="update-timeslot-count" data-selector="timeSlotCount" data-nonce="<?php echo $count_nonce ?>" data-id="<?php echo $post->ID ?>">Update Time Slot Count</button>
+
       <?php
       endif;
       if (isset($post_meta['timeSlotCount'][0]) && intval($post_meta['timeSlotCount'][0]) > 0):
         for ($i = 0; $i < intval($post_meta['timeSlotCount'][0]); $i = $i + 1):
           ?>
+            <div class="timeslots">
             <p class="custom-title">Time Slot <?php echo $i + 1?></p>
             <div>
-              <label for="<?php echo 'timeSlot'.$i.'[name]' ?>">Time</label>
+              <label for="<?php echo 'timeSlot'.$i.'Name' ?>">Time</label>
               <input 
                 class="custom-input"
-                id="<?php echo 'timeSlot'.$i.'[name]' ?>" 
+                id="<?php echo 'timeSlot'.$i.'Name' ?>" 
                 name="<?php echo 'timeSlot['.$i.'][name]' ?>"
                 type="text" 
                 value="<?php echo ($time_slots[$i]['name'] ?? '')?>">
@@ -60,7 +65,7 @@
             ?> 
                   <div>
                     <label for="<?php echo 'timeSlot'.$i.'Show'.$j ?>">Show <?php echo $j + 1 ?></label>
-                    <select class="custom-input" name="<?php echo 'timeSlot['.$i.'][shows]['.$j.']' ?>" id="<?php echo 'timeSlot'.$i.'Show'.$j ?>">
+                    <select class="custom-input shows" name="<?php echo 'timeSlot['.$i.'][shows]['.$j.']' ?>" id="<?php echo 'timeSlot'.$i.'Show'.$j ?>">
                       <?php 
                         foreach ($shows as $show):
                       ?>
@@ -79,9 +84,15 @@
                   </div>
             <?php
                 endfor;
+                ?>
+                </div>
+                <?php 
               endif;
             endif;
-        endfor;
+        endfor; 
+        ?>
+          <button id="update-timeslot-array" data-selector="timeslots" data-nonce="<?php echo $array_nonce ?>" data-type="<?php echo $post->post_type ?>" data-id="<?php echo $post->ID ?>" data-count_selector="timeSlotCount">Update Time Slots</button>
+      <?php 
       endif;
 
     ?>

@@ -24,9 +24,12 @@ const sass = {
 };
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    "main": ["./src/js/index.js"],
+    "admin": ["./src/js/admin.js"]
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist")
   },
   module: {

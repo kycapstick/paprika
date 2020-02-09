@@ -4,7 +4,9 @@
       foreach($updated_artists as $new_artist):
         if (is_array($current_show_artists) && !in_array($new_artist, $current_show_artists)):
           $current_artist_shows = get_post_meta($new_artist, 'show', true);
-          if (!in_array($show_id, $current_artist_shows)):
+          if (!is_array($current_artist_shows)):
+            update_post_meta($new_artist, 'show', [$show_id]);
+          elseif (!in_array($show_id, $current_artist_shows)):
             array_push($current_artist_shows, $show_id);  
             update_post_meta($new_artist, 'show', $current_artist_shows);
           endif;

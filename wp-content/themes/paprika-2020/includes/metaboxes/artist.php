@@ -10,9 +10,10 @@
       $posts = get_posts(array('post_type' => 'program'));
       $postMeta = get_post_meta($post->ID);
       $mentor = get_post_meta($post->ID, 'mentor', true);
-      $title = get_post_meta($post->ID, 'title', true);
+      $title = get_post_meta($post->ID, 'artist_title', true);
       wp_nonce_field( basename( __FILE__ ), 'artist_post_nonce' );
-      echo paprika_render_festival($postMeta);
+      $nonce = wp_create_nonce("update_value_nonce");
+      echo paprika_render_festival($post);
     ?>
       
       <div>
@@ -21,8 +22,12 @@
           <option value="0" <?php echo (isset($postMeta['role']) && intval($postMeta['role'][0]) === 0 ? 'selected' : '')?>>Artist</option>
           <option value="1" <?php echo (isset($postMeta['role']) && intval($postMeta['role'][0]) === 1 ? 'selected' : '')?>>Mentor</option>
         </select>
-        <label for="title">Title</label>
-        <input class="custom-input" type="text" name="title" id="title" value="<?php echo ($title ?? '') ?>">
+        <button id="update-role" data-selector="role" data-nonce="<?php echo $nonce ?>" data-id="<?php echo $post->ID ?>">Update Role</button>
+
+        <label for="artist_title">Title</label>
+        <input class="custom-input" type="text" name="artist_title" id="artist_title" value="<?php echo ($title ?? '') ?>">
+        <button id="update-title" data-selector="artist_title" data-nonce="<?php echo $nonce ?>" data-id="<?php echo $post->ID ?>">Update Title</button>
+        
       </div>
       <?php
     }
@@ -33,7 +38,7 @@
       $fields = array(
         'role' => '',
         'festival' => '',
-        'title' => '',
+        'artist_title' => '',
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
       $taxonomy = 'category';

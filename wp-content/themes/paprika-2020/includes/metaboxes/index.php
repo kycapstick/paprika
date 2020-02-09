@@ -84,3 +84,5 @@
   require_once( __DIR__ . '/festival.php');
   require_once( __DIR__ . '/show.php');
   require_once( __DIR__ . '/date.php');
+
+  require_once( __DIR__ . '/ajax_calls.php');

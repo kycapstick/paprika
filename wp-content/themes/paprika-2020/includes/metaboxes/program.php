@@ -5,7 +5,7 @@
       $mentors = array_filter($artists, 'paprika_filter_mentors');
       wp_nonce_field( basename( __FILE__ ), 'program_post_nonce' );
       $postMeta = get_post_meta($post->ID);
-      echo paprika_render_festival($postMeta);
+      echo paprika_render_festival($post);
       echo paprika_render_mentor_select($post);
       echo paprika_render_artists_select($post);
     }

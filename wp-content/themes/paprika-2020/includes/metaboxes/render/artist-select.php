@@ -6,12 +6,16 @@
       $artistCount = get_post_meta($post->ID, 'artistCount', true);
       $metaArtists = get_post_meta($post->ID, 'artists', true);
       $festival = get_post_meta($post->ID, 'festival', true);
+      $count_nonce = wp_create_nonce("update_count_nonce");
+      $array_nonce = wp_create_nonce("update_array_nonce");
       ob_start();
   ?>
+    <input type="hidden" name="post_id" value="<?php echo $post->ID ?>">
     <fieldset>
     <legend class="custom-title">Artists</legend>
       <label for="artistCount">Number of Artists:</label>
       <input class="custom-input" type="number" id="artistCount" name="artistCount" value="<?php echo ($artistCount[0] ?? '') ?>"> 
+      <button id="update-artist-count" data-selector="artistCount" data-nonce="<?php echo $count_nonce ?>" data-id="<?php echo $post->ID ?>">Update Artist Count</button>
       <?php 
         if (isset($artistCount[0])):
       ?>
@@ -21,7 +25,7 @@
             ?>
             <div>
               <label for="artist<?php echo $i ?>">Artist <?php echo $i + 1 ?></label>
-              <select class="custom-input" name="artists[<?php echo $i ?>]" id="artist<?php echo $i + 1 ?>">
+              <select class="custom-input artists" name="artists[<?php echo $i ?>]" id="artist<?php echo $i + 1 ?>">
                 <?php 
                   foreach($artists as $index=>$artist): 
                     if (intval(get_post_meta($artist->ID, 'festival', true)) !== intval($festival)):
@@ -36,10 +40,12 @@
                   </option>
                 <?php endforeach; ?>
               </select>
+
             </div>
             <?php 
           endfor;
           ?>
+            <button id="update-artists-array" data-selector="artists" data-nonce="<?php echo $array_nonce ?>" data-type="<?php echo $post->post_type ?>" data-id="<?php echo $post->ID ?>" data-count_selector="artistCount">Update Artists</button>
           </fieldset>
           <?php
         endif;
