@@ -43,9 +43,13 @@
         $shows = get_post_meta($artist_id, 'show', true);
         ?>  
           <li class="col-<?php echo 12 / count($artists) ?>">
-            <a href="<?php echo get_post_permalink($artist->ID)?>"><?php echo $artist->post_title; ?></a>
-            <?php 
-              echo get_the_post_thumbnail($artist_id);
+            <a href="<?php echo get_post_permalink($artist->ID)?>">
+              <?php 
+                echo $artist->post_title;
+                echo get_the_post_thumbnail($artist_id);
+              ?>
+            </a>
+              <?php 
               if (isset($shows) && is_array($shows) && count($shows) > 0):
               ?>
               <p>Show<?php echo (count($shows) > 1 ? 's' : '') ?>:

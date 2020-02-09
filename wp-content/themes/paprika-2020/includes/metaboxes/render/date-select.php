@@ -6,6 +6,7 @@
       $dateCount = get_post_meta($post->ID, 'dateCount', true);
       $metaDates = get_post_meta($post->ID, 'dates', true);
       $nonce = wp_create_nonce("update_count_nonce");
+      $array_nonce = wp_create_nonce("update_array_nonce");
       ob_start();
   ?>
     <div>
@@ -24,7 +25,7 @@
             ?>
             <div>
               <label for="date<?php echo $i ?>">Date <?php echo $i + 1 ?></label>
-              <select class="custom-input" name="dates[<?php echo $i ?>]" id="date<?php echo $i + 1 ?>">
+              <select class="custom-input dates" name="dates[<?php echo $i ?>]" id="date<?php echo $i + 1 ?>">
                 <?php 
                   foreach($dates as $index=>$date): 
                   ?>
@@ -40,6 +41,7 @@
             <?php 
           endfor;
           ?>
+          <button id="update-dates-array" data-selector="dates" data-nonce="<?php echo $array_nonce ?>" data-type="<?php echo $post->post_type ?>" data-id="<?php echo $post->ID ?>" data-count_selector="dateCount">Update Dates</button>
           </fieldset>
           <?php
         endif;

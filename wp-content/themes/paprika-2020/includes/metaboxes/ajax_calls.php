@@ -72,7 +72,6 @@ if (!function_exists('paprika_update_array')):
       endif;
     endif;
     if ($_REQUEST['type'] === 'date'):
-      paprika_console_log($_REQUEST['value']);
       $sanitized_time_slots = array();
         foreach($_REQUEST['value'] as $index => $time_slot):
           $sanitized_time_slots[$index]['name'] = sanitize_text_field($time_slot['name']);
@@ -82,6 +81,12 @@ if (!function_exists('paprika_update_array')):
         paprika_save_show_timeslots($_REQUEST['post_id'], $sanitized_time_slots);
         update_post_meta($_REQUEST['post_id'], 'timeSlot', $sanitized_time_slots);
         wp_send_json(array('status' => 'success'));
+    endif;
+    if ($_REQUEST['type'] === 'festival'):
+      $dates = paprika_update_dates_with_count($_REQUEST['value'], $_REQUEST['count']);
+      $dates = array_unique($dates);
+      update_post_meta($_REQUEST['post_id'], 'dates', $dates);
+      wp_send_json(array('status' => 'success'));
     endif;
   }
 endif;

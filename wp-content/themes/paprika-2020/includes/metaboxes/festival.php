@@ -1,25 +1,28 @@
 <?php 
   if(!function_exists('paprika_festival_meta_cb')):
     function paprika_festival_meta_cb($post) {
-      paprika_console_log(get_post_meta($post->ID, 'location', true));
       $locations = get_posts(array('post_type' => 'location'));
       wp_nonce_field( basename( __FILE__ ), 'festival_post_nonce' );
       $meta_location = get_post_meta($post->ID, 'location', true);
+      $value_nonce = wp_create_nonce("update_value_nonce");
+      
     ?>
       <p class="custom-title">Details</p>
       <label for="location">Location</label>
+
       <select class="custom-input" name="location" id="location">
+
       <?php
         foreach($locations as $location) {
       ?>
-          <option value="<?php echo $location->ID ?>" <?php echo (is_array($meta_location) && intval($meta_location[0]) === intval($location->ID) ? 'selected' : '') ?>><?php echo $location->post_title ?></option>
+          <option value="<?php echo $location->ID ?>" <?php echo (intval($meta_location) === intval($location->ID) ? 'selected' : '') ?>><?php echo $location->post_title ?></option>
       <?php
         }
       ?>
       </select>
+      <button id="update-location" data-selector="location" data-nonce="<?php echo $value_nonce ?>" data-id="<?php echo $post->ID ?>">Update Location</button>
     <?php
       echo paprika_render_dates_select($post);
-
     }
   endif;
   

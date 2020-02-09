@@ -6,13 +6,14 @@ get_header();
 	if ( have_posts() ) : 
 		while ( have_posts() ) : the_post(); 
 			$time_slots = get_post_meta($post->ID, 'timeSlots', true);
+			uksort($time_slots, 'paprika_sort_order');
 			$festival_id = get_post_meta($post->ID, 'festival', true);
 			$festival = get_post($festival_id);
 			$program_id = get_post_meta($post->ID, 'program', true);
 			$program = get_post($program_id);
 		?>
 			<h1><?php the_title(); ?> </h1>
-			<p>Part of the 
+			<p>Part of 
 				<a href="<?php echo get_post_permalink($program_id)?>">
 					<?php echo $program->post_title ?>
 				</a>

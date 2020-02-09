@@ -5,7 +5,9 @@ const ajaxCall = function(data) {
     url: myAjax.ajaxurl,
     data,
     success: function(response) {
-      console.log(response);
+      if (response.status === 'success') {
+        location.reload();
+      }
     }
   })
 }

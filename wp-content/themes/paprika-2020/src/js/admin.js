@@ -115,6 +115,12 @@ jQuery(document).ready(function($) {
     handleUpdateValue($this);
   });
 
+  $("#update-order").click(function(e) {
+    e.preventDefault();
+    const $this = $(this);
+    handleUpdateValue($this);
+  });
+
   $("#update-role").click(function(e) {
     e.preventDefault();
     const $this = $(this);
@@ -122,6 +128,12 @@ jQuery(document).ready(function($) {
   });
 
   $("#update-title").click(function(e) {
+    e.preventDefault();
+    const $this = $(this);
+    handleUpdateValue($this);
+  });
+
+  $("#update-location").click(function(e) {
     e.preventDefault();
     const $this = $(this);
     handleUpdateValue($this);
@@ -156,6 +168,12 @@ jQuery(document).ready(function($) {
   // UPDATE ARRAYS
 
   $("#update-artists-array").click(function(e) {
+    e.preventDefault();
+    const $this = $(this);
+    handleUpdateArray($this);
+  });
+
+  $("#update-dates-array").click(function(e) {
     e.preventDefault();
     const $this = $(this);
     handleUpdateArray($this);

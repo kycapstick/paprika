@@ -6,8 +6,10 @@
       $post_meta = get_post_meta($post->ID);
       $show_count = get_post_meta($post->ID, 'showCount', true);
       $time_slots = get_post_meta($post->ID, 'timeSlot', true);
+      $order = get_post_meta($post->ID, 'order', true);
       $count_nonce = wp_create_nonce("update_count_nonce");
       $array_nonce = wp_create_nonce("update_array_nonce");
+      $value_nonce = wp_create_nonce("update_value_nonce");
 
       $shows = get_posts(array('post_type' => 'show', 'orderby'=>'title','order'=>'ASC', 'numberposts'=> -1));
       if (isset($post_meta['festival'][0])):
@@ -46,9 +48,6 @@
                 type="text" 
                 value="<?php echo ($time_slots[$i]['name'] ?? '')?>">
             </div>
-            <?php
-              if (isset($time_slots[$i]['name'])):
-            ?>
             <div>
               <label for="<?php echo 'timeSlot'.$i.'ShowCount' ?>">Number of Shows</label>
               <input 
@@ -88,15 +87,17 @@
                 </div>
                 <?php 
               endif;
-            endif;
         endfor; 
         ?>
-          <button id="update-timeslot-array" data-selector="timeslots" data-nonce="<?php echo $array_nonce ?>" data-type="<?php echo $post->post_type ?>" data-id="<?php echo $post->ID ?>" data-count_selector="timeSlotCount">Update Time Slots</button>
+        <button id="update-timeslot-array" data-selector="timeslots" data-nonce="<?php echo $array_nonce ?>" data-type="<?php echo $post->post_type ?>" data-id="<?php echo $post->ID ?>" data-count_selector="timeSlotCount">Update Time Slots</button>
       <?php 
       endif;
 
     ?>
-
+    <label class="custom-label" for="order">Order</label>
+    <input  class="custom-input" type="number" name="order" value="<?php echo ($order ?? '') ?>" id="order">
+    <button id="update-order" data-selector="order" data-nonce="<?php echo $value_nonce ?>" data-id="<?php echo $post->ID ?>">Update Order</button>
+    
     <?php
     }
   endif;
@@ -115,6 +116,7 @@
       $fields = array(
         'festival' => '',
         'timeSlotCount' => 0,
+        'order' => 0,
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
       foreach($fields as $key=>$field):

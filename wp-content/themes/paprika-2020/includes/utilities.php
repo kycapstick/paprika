@@ -1,4 +1,21 @@
 <?php
+
+  if (!function_exists('paprika_sort_order')):
+    function paprika_sort_order($a, $b) {
+      $a_order = get_post_meta($a, 'order', true);
+      $b_order = get_post_meta($b, 'order', true);
+      if (!isset($a_order)):
+        return false;
+      endif;
+      if (!isset($b_order)):
+        return true;
+      endif;
+      if(intval($a_order) > intval($b_order)):
+        return true;
+      endif;
+      return false;
+    }
+  endif;
   if (!function_exists('paprika_is_valid')):
     function paprika_is_valid($type, $value) {
       $valid = false;

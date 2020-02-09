@@ -11,7 +11,7 @@
       <?php echo get_the_post_thumbnail($post->ID) ?>
     </figure>
     <?php endif; ?>
-     <div class="<?php echo (has_post_thumbnail($post->ID) ? 'col-8' : "") ?>">
+    <div class="<?php echo (has_post_thumbnail($post->ID) ? 'col-8' : "") ?>">
       <h1><?php echo $post->post_title ?></h1>
       <?php echo wpautop($post->post_content) ?>
       <?php 
