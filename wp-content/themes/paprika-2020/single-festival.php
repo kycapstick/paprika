@@ -7,6 +7,7 @@ get_header();
     while ( have_posts() ) : the_post(); 
       $date_ids = get_post_meta($post->ID, 'dates', true);
       $programs = get_post_meta($post->ID, 'programs', true);
+      usort($programs, 'paprika_sort_order');
   ?>
       <h1>Festival <?php the_title(); ?> </h1>
         <p>

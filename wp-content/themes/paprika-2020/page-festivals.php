@@ -16,6 +16,7 @@ $posts = new WP_Query($args);
   while ($posts->have_posts() ):
     $posts->the_post();
 		$programs = get_post_meta($post->ID, 'programs', true);
+		usort($programs, 'paprika_sort_order');
 		$location_id = get_post_meta($post->ID, 'location', true);
 		$date_ids = get_post_meta($post->ID, 'dates', true);
     ?>
@@ -31,18 +32,25 @@ $posts = new WP_Query($args);
     <?php 
 		if (isset($programs) && is_array($programs)):
 			?>
-			<ul class="flex">
+			<ul class="flex mason">
 			<?php
       foreach($programs as $program_id) {
 				$program = get_post($program_id);
 				if (isset($program) && $program->post_status === 'publish'):
       ?>
 					<li>
-						<h4>
-							<a href="<?php echo get_post_permalink($program_id) ?>">
+						<a href="<?php echo get_post_permalink($program_id) ?>">
+						<?php 
+              if (get_the_post_thumbnail($program_id)):
+                echo get_the_post_thumbnail($program_id);
+              else:  
+            ?>
+						<h4>							
 								<?php echo str_replace(get_the_title(), '', $program->post_title) ?>
-							</a>
 						</h4>
+							<?php endif; ?>
+							</a>
+
 					</li>
           <?php
         endif;

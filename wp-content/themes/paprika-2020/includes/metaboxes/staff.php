@@ -12,7 +12,13 @@
       ?>
       <div>
         <label for="order">Display Order</label>
-        <input class="custom-input" type="number" id="order" name="order">
+        <input 
+          class="custom-input" 
+          type="number" 
+          id="order" 
+          name="order"
+          value="<?php echo ($postMeta['order'][0] ?? '') ?>"
+        >
         <label for="name">Name</label>
         <input 
           class="custom-input"
@@ -41,7 +47,7 @@
       $fields = array(
         'name' => '',
         'email' => '',
-        'order' => '',
+        'order' => 0,
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
       foreach($fields as $key=>$field):

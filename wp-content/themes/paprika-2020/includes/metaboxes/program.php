@@ -8,6 +8,7 @@
       echo paprika_render_festival($post);
       echo paprika_render_mentor_select($post);
       echo paprika_render_artists_select($post);
+      echo paprika_render_order_input($post);
     }
   endif;
   
@@ -25,6 +26,7 @@
       $fields = array(
         'artistCount' => 0,
         'mentorCount' => 0,
+        'order' => 0,
       );
       $fields = paprika_sanitize_fields($fields, $_POST);
       foreach($fields as $key=>$field):

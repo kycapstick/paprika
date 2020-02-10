@@ -36,10 +36,21 @@ a {
   .offset {
     margin-left: 30px;
   }
+  &.mason {
+    li {
+    flex-grow: 0;
+    flex-basis: 42%;
+    &:nth-child(2),
+    &:nth-child(2n + 3) {
+        flex-basis: 58%;
+      }
+    }
+  }
   li {
     flex-grow: 0;
     flex-basis: 33.33%;
   }
+  
   .grow {
     flex-grow: 1;
     margin-left: 20px;

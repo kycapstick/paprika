@@ -93,12 +93,7 @@
       <?php 
       endif;
 
-    ?>
-    <label class="custom-label" for="order">Order</label>
-    <input  class="custom-input" type="number" name="order" value="<?php echo ($order ?? '') ?>" id="order">
-    <button id="update-order" data-selector="order" data-nonce="<?php echo $value_nonce ?>" data-id="<?php echo $post->ID ?>">Update Order</button>
-    
-    <?php
+    echo paprika_render_order_input($post);
     }
   endif;
   
