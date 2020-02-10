@@ -27,11 +27,16 @@ if ( have_posts() ) :
           ?>
           <ul>
             <?php if (isset($time_slot['name'])): ?>
-            <li>
-              <?php echo $time_slot['name'] ?>
-            </li>
+            <li class="flex">
+              <p class="no-margin"><?php echo $time_slot['name'] ?></p>
+              <ul class="grow">
             <?php 
               endif;
+              ?>
+              <li>
+              <ul class="flex no-margin ">
+
+              <?php
               if (isset($time_slot['shows']) && is_array($time_slot['shows'])):
                 foreach($time_slot['shows'] as $show_id):
                   $program_id = get_post_meta($show_id, 'program', true);
@@ -39,7 +44,7 @@ if ( have_posts() ) :
                   $show = get_post($show_id);
                   if (isset($show) && !empty($show)):
             ?>
-                      <li>
+                      <li class="col-6">
                         <a href="<?php echo get_post_permalink($show_id); ?>">
                           <?php echo $show->post_title ?>
                         </a>
@@ -49,12 +54,18 @@ if ( have_posts() ) :
                   endif;
                 endforeach;
                 ?>
+                </ul>
+                </li>
+                <li>
                   <a href="<?php echo get_post_permalink($program_id) ?>"> 
                     <?php echo $program_title ?>
                   </a>
+                </li>
                 <?php
               endif;
             ?>
+            </ul>
+            </li>
           </ul>
           <?php
               endforeach;
