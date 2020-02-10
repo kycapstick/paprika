@@ -10,7 +10,7 @@
 
 if (!function_exists('paprika_add_admin_scripts')):
   function paprika_add_admin_scripts() {
-    wp_enqueue_style('admin', get_template_directory_uri() . '/dist/admin.css', array(), filemtime(get_template_directory() . '/dist/admin.css'), false );
+    wp_enqueue_style('admin', get_template_directory_uri() . '/dist/admin.css', array());
     wp_register_script('admin_scripts', get_template_directory_uri() . '/dist/admin.js', array('jquery'), true);
     wp_localize_script( 'admin_scripts', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));
     wp_enqueue_script('jquery');
