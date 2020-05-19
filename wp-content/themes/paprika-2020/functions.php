@@ -1,12 +1,34 @@
 <?php 
 
-function paprika_head_metadata() {
+require get_template_directory() . '/includes/setup.php';
+require get_template_directory() . '/includes/theme-scripts.php';
+require get_template_directory() . '/includes/gutenberg.php';
 
-  ?>
+/**
+ * Functions which enhance the theme by hooking into WordPress.
+ */
+require get_template_directory() . '/includes/template-functions.php';
 
-    <meta name="google" content="notranslate" />
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/includes/customizer.php';
 
-  <?php
+/**
+ * Load Jetpack compatibility file.
+ */
+if ( defined( 'JETPACK__VERSION' ) ) {
+	require get_template_directory() . '/includes/jetpack.php';
+}
+
+
+	function paprika_head_metadata() {
+
+?>
+
+	<meta name="google" content="notranslate" />
+
+	<?php
 
 }
 add_action( 'wp_head', 'paprika_head_metadata' );

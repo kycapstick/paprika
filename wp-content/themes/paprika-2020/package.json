@@ -1,30 +1,46 @@
 {
-  "name": "paprika-2020",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "build": "webpack"
-  },
-  "keywords": [],
-  "author": "Ky Capstick",
-  "license": "ISC",
-  "devDependencies": {
-    "autoprefixer": "^9.7.3",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
-    "babel-preset-env": "^1.7.0",
-    "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.0",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^8.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^5.0.0-beta.11"
-  },
-  "dependencies": {
-    "@babel/core": "^7.7.7",
-    "webpack-cli": "^3.3.10"
-  }
+	"name": "paprika-2020",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"watch": "webpack --watch",
+		"build": "webpack"
+	},
+	"keywords": [],
+	"author": "Ky Capstick",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.3.4",
+		"@babel/polyfill": "^7.0.0",
+		"@babel/preset-env": "^7.9.6",
+		"autoprefixer": "^8.4.1",
+		"babel-loader": "^8.0.4",
+		"browser-sync": "^2.26.3",
+		"browser-sync-webpack-plugin": "^2.2.2",
+		"concurrently": "^3.5.1",
+		"cross-env": "^5.1.4",
+		"css-loader": "^0.28.11",
+		"dotenv": "^5.0.1",
+		"hoek": "^5.0.3",
+		"mini-css-extract-plugin": "^0.4.0",
+		"node-sass": "^4.11.0",
+		"postcss-loader": "^2.1.4",
+		"resolve-url-loader": "^2.3.0",
+		"sass-loader": "^6.0.7",
+		"style-loader": "^0.21.0",
+		"webpack": "^4.20.2",
+		"webpack-cli": "^3.1.2"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not ie <= 11"
+	],
+	"dependencies": {
+		"ajax": "0.0.4",
+		"babel-plugin-transform-react-jsx": "^6.24.1",
+		"babel-preset-env": "^1.7.0"
+	}
 }
