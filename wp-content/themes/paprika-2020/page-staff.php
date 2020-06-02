@@ -2,7 +2,6 @@
   get_header();
 ?>
   <main class="container">
-  <h1>Staff</h1>
   <?php 
     $args = array(
       'post_type' => 'staff',
