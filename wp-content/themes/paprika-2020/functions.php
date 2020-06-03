@@ -3,6 +3,7 @@
 require get_template_directory() . '/includes/setup.php';
 require get_template_directory() . '/includes/theme-scripts.php';
 require get_template_directory() . '/includes/gutenberg.php';
+require get_template_directory() . '/includes/utilities.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
@@ -32,3 +33,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 }
 add_action( 'wp_head', 'paprika_head_metadata' );
+
+require get_template_directory() . '/includes/gutenberg/render-cta.php';
+require get_template_directory() . '/includes/gutenberg/render-blocks.php';
+
