@@ -35,5 +35,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 add_action( 'wp_head', 'paprika_head_metadata' );
 
 require get_template_directory() . '/includes/gutenberg/render-cta.php';
+require get_template_directory() . '/includes/gutenberg/render-image-block.php';
 require get_template_directory() . '/includes/gutenberg/render-blocks.php';
 

@@ -8,6 +8,10 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_cta($block);
             break;
 
+            case 'paprika/image-container':
+                $block_content = paprika_render_image_block($block);
+            break;
+
         }
         return $block_content;
     }
