@@ -1,8 +1,10 @@
 import exampleBlock from "./blocks/example";
 import ctaBlock from "./blocks/cta";
-import imageBlock from "./blocks/image-container";
+import fwImage from "./blocks/full-width-image";
+import masonImages from "./blocks/mason-grid";
 
 // Init blocks here
 exampleBlock();
 ctaBlock();
-imageBlock();
+fwImage();
+masonImages();

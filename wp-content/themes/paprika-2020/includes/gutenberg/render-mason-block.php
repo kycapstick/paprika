@@ -1,14 +1,15 @@
 <?php 
-    if ( ! function_exists('paprika_render_fw_image') ) {
-    function paprika_render_fw_image($block) {
+    if ( ! function_exists('paprika_render_mason') ) {
+    function paprika_render_mason($block) {
         $fields = array( 
             'title' 
         );
+        $images = [];
         foreach ($block['innerBlocks'] as $innerBlock):
             switch( $innerBlock['blockName'] ) {
 
                 case 'core/image':
-                    $image = $innerBlock['innerHTML'];
+                    array_push($images, $innerBlock['innerHTML']);
                 break;
             }
         endforeach;
@@ -21,11 +22,15 @@
             </h2>
         <?php
             endif;
-            if (pg_is_valid('string', $image)):
+            if (pg_is_valid('array', $images)):
                 ?>
+                <div class="flex">
                 <?php 
-                    echo $image;
+                    foreach($images as $image) {
+                        echo $image;
+                    }
                 ?>
+                </div>
                 <?php 
             endif;
             return ob_get_clean();

@@ -1,4 +1,4 @@
-export default function rgcTwoUpCardContainerBlock() {
+export default function paprikaMasonImageBlock() {
 	const { registerBlockType } = wp.blocks;
 	const {
 		InnerBlocks,
@@ -8,11 +8,11 @@ export default function rgcTwoUpCardContainerBlock() {
 	} = wp.blockEditor;
 	const { i18n } = wp;
 
-	const blockSlug = "image-container";
-	const blockTitle = "Image Container";
-	const blockDescription = "Add an image to the page";
+	const blockSlug = "mason-image";
+	const blockTitle = "Mason Image Container";
+	const blockDescription = "Add side by side images with title to the page";
 	const blockCategory = "common";
-	const blockIcon = "screenoptions"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
 		title: i18n.__(blockTitle),
@@ -20,26 +20,13 @@ export default function rgcTwoUpCardContainerBlock() {
 		category: blockCategory,
 		icon: blockIcon,
 		attributes: {
-			imageUrl: {
-				type: "string",
-				default:
-					"https://via.placeholder.com/690x460.png?text=Click+to+replace+this+image",
-			},
-			imageId: {
-				type: "string",
-				default: "",
-			},
-			imageAlt: {
-				type: "string",
-				default: "Placeholder Image",
-			},
 			title: {
 				type: "string",
 			},
 		},
 		edit: (props, editor = false, save = false) => {
 			const { setAttributes, attributes } = props;
-			const { imageUrl, imageId, imageAlt, title } = attributes;
+			const { title } = attributes;
 
 			function updateAttributeValue(attribute, value) {
 				setAttributes({ [attribute]: value });
@@ -57,22 +44,6 @@ export default function rgcTwoUpCardContainerBlock() {
 					}`}
 				>
 					<div>
-						<MediaUpload
-							onSelect={(image) => {
-								updateAttributeValue(
-									"imageUrl",
-									image.sizes.full.url
-								);
-								updateAttributeValue("imageAlt", image.alt);
-								updateAttributeValue("imageId", image.id);
-							}}
-							type="image"
-							render={({ open }) => {
-								return <img src={imageUrl} onClick={open} />;
-							}}
-						/>
-					</div>
-					<div>
 						<RichText
 							class="components-text-control__input"
 							tagName="h3"
@@ -88,11 +59,21 @@ export default function rgcTwoUpCardContainerBlock() {
 							<InnerBlocks.Content />
 						) : (
 							<InnerBlocks
-								allowedBlocks={[
-									"core/paragraph",
-									"core/button",
-									"pg/subtitle",
+								template={[
+									[
+										"core/image",
+										{
+											className: "col-4",
+										},
+									],
+									[
+										"core/image",
+										{
+											className: "col-8",
+										},
+									],
 								]}
+								templateLock="all"
 							/>
 						)}
 					</div>
@@ -100,7 +81,7 @@ export default function rgcTwoUpCardContainerBlock() {
 			];
 		},
 		save: ({ attributes }) => {
-			const { imageUrl, imageId, imageAlt, title } = attributes;
+			const { title } = attributes;
 			return <InnerBlocks.Content />;
 		},
 	});
