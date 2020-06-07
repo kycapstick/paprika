@@ -1,20 +1,14 @@
-export default function ctaBlock() {
+export default function artistBlock() {
 	/**
-	 * CTA GUTENBERG BLOCK
+	 * ARTIST GUTENBERG BLOCK
 	 */
 
 	const { registerBlockType } = wp.blocks;
-	const {
-		InnerBlocks,
-		InspectorControls,
-		RichText,
-		MediaUpload,
-	} = wp.blockEditor;
-	const { TextControl } = wp.components;
+	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	registerBlockType("paprika/cta", {
-		title: i18n.__("CTA Block"),
+	registerBlockType("paprika/artist", {
+		title: i18n.__("Artist Block"),
 		description: i18n.__("A call to action"),
 		category: "common",
 		icon: "dashicons-external", // Dashicons: https://developer.wordpress.org/resource/dashicons/
@@ -22,13 +16,10 @@ export default function ctaBlock() {
 			title: {
 				type: "string",
 			},
-			copy: {
-				type: "string",
-			},
 		},
 		edit: (props, editor = false, save = false) => {
 			const { setAttributes, attributes } = props;
-			const { title, copy } = attributes;
+			const { title } = attributes;
 
 			function updateAttributeValue(attribute, value) {
 				setAttributes({ [attribute]: value });
@@ -44,35 +35,28 @@ export default function ctaBlock() {
 						<RichText
 							class="components-text-control__input"
 							tagName="h2"
-							placeholder="Add the cta title text here."
+							placeholder="Add the title here."
 							keepPlaceholderOnFocus={true}
 							value={title}
 							onChange={(changes) => {
 								updateAttributeValue("title", changes);
 							}}
 						/>
-						<RichText
-							class="components-text-control__input"
-							tagName="p"
-							placeholder="Add the cta copy here."
-							keepPlaceholderOnFocus={true}
-							value={copy}
-							onChange={(changes) => {
-								updateAttributeValue("copy", changes);
-							}}
-						/>
 
 						{save ? (
 							<InnerBlocks.Content />
 						) : (
-							<InnerBlocks allowedBlocks={["core/button"]} />
+							<InnerBlocks
+								template={[["paprika/artist-select"]]}
+								templateLock="all"
+							/>
 						)}
 					</div>
 				</div>,
 			];
 		},
 		save: ({ attributes }) => {
-			const { title, copy } = attributes;
+			const { title } = attributes;
 			return <InnerBlocks.Content />;
 		},
 	});

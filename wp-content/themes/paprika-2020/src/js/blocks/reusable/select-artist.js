@@ -14,7 +14,7 @@ export default function selectPost() {
 		/>
 	);
 
-	registerBlockType("paprika/artist", {
+	registerBlockType("paprika/artist-select", {
 		title: "Artist Select",
 		description: "Adds an artist block to the page",
 		icon: "star-filled",
@@ -24,6 +24,7 @@ export default function selectPost() {
 				type: "string",
 			},
 		},
+		parent: ["paprika/artist"],
 		edit: withSelect((select) => {
 			return {
 				posts: select("core").getEntityRecords("postType", "artist", {
