@@ -1,25 +1,26 @@
-export default function newsBlock() {
-	/**
-	 * NEWS GUTENBERG BLOCK
-	 */
-
+export default function paprikaFinePrintBlock() {
 	const { registerBlockType } = wp.blocks;
 	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	registerBlockType("paprika/news", {
-		title: i18n.__("News Block"),
-		description: i18n.__("Pull in a news post"),
-		category: "common",
-		icon: "dashicons-external", // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockSlug = "fine-print";
+	const blockTitle = "Fine Print";
+	const blockDescription = "Fine print for donor cards";
+	const blockCategory = "common";
+
+	registerBlockType(`paprika/${blockSlug}`, {
+		title: i18n.__(blockTitle),
+		description: i18n.__(blockDescription),
+		category: blockCategory,
+		parent: ["paprika/donor-two-up"],
 		attributes: {
-			title: {
+			copy: {
 				type: "string",
 			},
 		},
 		edit: (props, editor = false, save = false) => {
 			const { setAttributes, attributes } = props;
-			const { title } = attributes;
+			const { copy } = attributes;
 
 			function updateAttributeValue(attribute, value) {
 				setAttributes({ [attribute]: value });
@@ -34,29 +35,21 @@ export default function newsBlock() {
 					<div>
 						<RichText
 							class="components-text-control__input"
-							tagName="h2"
-							placeholder="Add the title here."
+							tagName="p"
+							placeholder="Add fine print for donor card."
 							keepPlaceholderOnFocus={true}
-							value={title}
+							value={copy}
 							onChange={(changes) => {
-								updateAttributeValue("title", changes);
+								updateAttributeValue("copy", changes);
 							}}
 						/>
-
-						{save ? (
-							<InnerBlocks.Content />
-						) : (
-							<InnerBlocks
-								template={[["paprika/news-select"]]}
-								templateLock="all"
-							/>
-						)}
+						{save ? <InnerBlocks.Content /> : <InnerBlocks />}
 					</div>
 				</div>,
 			];
 		},
 		save: ({ attributes }) => {
-			const { title } = attributes;
+			const { copy } = attributes;
 			return <InnerBlocks.Content />;
 		},
 	});

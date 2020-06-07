@@ -44,6 +44,14 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_artist_block($block);
             break;
 
+            case 'paprika/donor-two-up':
+                $block_content = paprika_render_donor_two_up($block);
+            break;
+
+            case 'paprika/donor-fw':
+                $block_content = paprika_render_donor_fw($block);
+            break;
+
         }
         return $block_content;
     }

@@ -44,5 +44,7 @@ require get_template_directory() . '/includes/gutenberg/render-news.php';
 require get_template_directory() . '/includes/gutenberg/render-artist-block.php';
 require get_template_directory() . '/includes/gutenberg/render-homepage-cards.php';
 require get_template_directory() . '/includes/gutenberg/render-two-up-cards.php';
+require get_template_directory() . '/includes/gutenberg/render-donor-two-up.php';
+require get_template_directory() . '/includes/gutenberg/render-donor-fw.php';
 require get_template_directory() . '/includes/gutenberg/render-blocks.php';
 
