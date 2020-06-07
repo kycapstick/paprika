@@ -16,6 +16,14 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_mason($block);
             break;
 
+            case 'paprika/reverse-mason-image':
+                $block_content = paprika_render_mason_reverse($block);
+            break;
+
+            case 'paprika/news':
+                $block_content = paprika_render_news($block);
+            break;
+
         }
         return $block_content;
     }

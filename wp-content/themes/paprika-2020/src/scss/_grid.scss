@@ -1,0 +1,9 @@
+@for $i from 1 through 12 {
+	.col-#{$i} {
+		flex-basis: calc(((#{$i} / 12) * 100%) - 10px);
+		max-width: calc(((#{$i} / 12) * 100%) - 10px);
+		margin: 5px;
+		flex-grow: 0;
+		flex-shrink: 1;
+	}
+}

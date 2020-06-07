@@ -2,7 +2,7 @@
     if ( ! function_exists('paprika_render_fw_image') ) {
     function paprika_render_fw_image($block) {
         $fields = array( 
-            'title' 
+            'title'
         );
         foreach ($block['innerBlocks'] as $innerBlock):
             switch( $innerBlock['blockName'] ) {

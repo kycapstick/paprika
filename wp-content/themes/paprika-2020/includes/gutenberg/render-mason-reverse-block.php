@@ -1,6 +1,6 @@
 <?php 
-    if ( ! function_exists('paprika_render_mason') ) {
-    function paprika_render_mason($block) {
+    if ( ! function_exists('paprika_render_mason_reverse') ) {
+    function paprika_render_mason_reverse($block) {
         $fields = array( 
             'title',
             'secondaryTitle',
@@ -21,7 +21,7 @@
         ?>
             <?php if (pg_is_valid('string', $attributes->title) || pg_is_valid('array', $images) )?>
             <div class="flex">
-                <div class="col-5">
+                <div class="col-7">
                     <?php
                         if (pg_is_valid('url', $attributes->link)):
                     ?>
@@ -45,7 +45,7 @@
                         endif;  
                     ?>
                 </div>
-                <div class="col-7">
+                <div class="col-5">
                     <?php
                         if (pg_is_valid('url', $attributes->secondaryLink)):
                     ?>

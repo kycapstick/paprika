@@ -37,5 +37,7 @@ add_action( 'wp_head', 'paprika_head_metadata' );
 require get_template_directory() . '/includes/gutenberg/render-cta.php';
 require get_template_directory() . '/includes/gutenberg/render-image-block.php';
 require get_template_directory() . '/includes/gutenberg/render-mason-block.php';
+require get_template_directory() . '/includes/gutenberg/render-mason-reverse-block.php';
+require get_template_directory() . '/includes/gutenberg/render-news.php';
 require get_template_directory() . '/includes/gutenberg/render-blocks.php';
 
