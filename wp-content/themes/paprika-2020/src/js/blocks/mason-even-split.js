@@ -1,10 +1,10 @@
-export default function paprikaReverseMasonImageBlock() {
+export default function paprikaMasonEvenSplitBlock() {
 	const { registerBlockType } = wp.blocks;
-	const { InnerBlocks } = wp.blockEditor;
+	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	const blockSlug = "reverse-mason-image";
-	const blockTitle = "Reverse Mason Image";
+	const blockSlug = "mason-even-split";
+	const blockTitle = "Mason Even Split Block";
 	const blockDescription = "Add side by side images with title to the page";
 	const blockCategory = "common";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/

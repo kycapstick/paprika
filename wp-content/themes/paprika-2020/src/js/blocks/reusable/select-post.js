@@ -1,4 +1,4 @@
-export default function newsPost() {
+export default function selectPost() {
 	const { registerBlockType } = wp.blocks;
 	const { withSelect } = wp.data;
 	const { SelectControl } = wp.components;
@@ -14,9 +14,9 @@ export default function newsPost() {
 		/>
 	);
 
-	registerBlockType("paprika/news", {
-		title: "News",
-		description: "Adds a news block to the page",
+	registerBlockType("paprika/artist", {
+		title: "Artist Select",
+		description: "Adds an artist block to the page",
 		icon: "star-filled",
 		category: "common",
 		attributes: {
@@ -26,7 +26,7 @@ export default function newsPost() {
 		},
 		edit: withSelect((select) => {
 			return {
-				posts: select("core").getEntityRecords("postType", "post", {
+				posts: select("core").getEntityRecords("postType", "artist", {
 					per_page: -1,
 				}),
 			};

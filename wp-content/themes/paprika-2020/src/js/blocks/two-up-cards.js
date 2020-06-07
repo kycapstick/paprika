@@ -1,11 +1,11 @@
-export default function paprikaReverseMasonImageBlock() {
+export default function paprikaHomepageCardsBlock() {
 	const { registerBlockType } = wp.blocks;
-	const { InnerBlocks } = wp.blockEditor;
+	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	const blockSlug = "reverse-mason-image";
-	const blockTitle = "Reverse Mason Image";
-	const blockDescription = "Add side by side images with title to the page";
+	const blockSlug = "two-up-cards";
+	const blockTitle = "Two Up Cards";
+	const blockDescription = "Set of 2 cards with related links";
 	const blockCategory = "common";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
@@ -21,21 +21,23 @@ export default function paprikaReverseMasonImageBlock() {
 						editor ? "custom-card--editor" : "custom-card--fe"
 					}`}
 				>
-					<div>
-						{save ? (
-							<InnerBlocks.Content />
-						) : (
-							<InnerBlocks
-								template={[
-									["paprika/card-title"],
-									["core/image"],
-									["paprika/card-title"],
-									["core/image"],
-								]}
-								templateLock="all"
-							/>
-						)}
-					</div>
+					{save ? (
+						<InnerBlocks.Content />
+					) : (
+						<InnerBlocks
+							template={[
+								["core/image"],
+								["paprika/card-title-copy"],
+								["core/paragraph"],
+								["core/button"],
+								["core/image"],
+								["paprika/card-title-copy"],
+								["core/paragraph"],
+								["core/button"],
+							]}
+							templateLock="all"
+						/>
+					)}
 				</div>,
 			];
 		},

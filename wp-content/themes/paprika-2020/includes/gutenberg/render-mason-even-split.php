@@ -1,15 +1,14 @@
 <?php 
-    if ( ! function_exists('paprika_render_homepage_cards') ) {
-    function paprika_render_homepage_cards($block) {
-        $titleObjects = [];
-        $images = [];
-        $fields = array(
+    if ( ! function_exists('paprika_render_mason_even_split') ) {
+    function paprika_render_mason_even_split($block) {
+        $fields = array( 
             'title',
-            'link'
+            'link', 
         );
+        $images = [];
+        $titleObjects = [];
         foreach ($block['innerBlocks'] as $innerBlock):
             switch( $innerBlock['blockName'] ) {
-
                 case 'core/image':
                     array_push($images, $innerBlock['innerHTML']);
                 break;
@@ -23,10 +22,12 @@
         ?>
             <?php if (pg_is_valid('array', $titleObjects) || pg_is_valid('array', $images) )?>
             <div class="flex">
-                <?php for ($i = 0; $i < 2; $i = $i + 1): ?>
+                <?php 
+                    for ($i = 0; $i < 2; $i = $i + 1):  
+                ?>
                     <div class="col-6">
                         <?php
-                            if (pg_is_valid('string', $titleObjects[$i]->link)):
+                            if (pg_is_valid('url', $titleObjects[$i]->link)):
                         ?>
                             <a href="<?php echo $titleObjects[$i]->link ?>">
                         <?php
@@ -41,7 +42,7 @@
                             if (pg_is_valid('string', $images[$i])):
                                 echo $images[$i];
                             endif;
-                            if (pg_is_valid('string', $titleObjects[$i]->link)):
+                            if (pg_is_valid('url', $titleObjects[$i]->link)):
                         ?>
                             </a>
                         <?php

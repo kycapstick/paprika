@@ -20,12 +20,28 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_mason_reverse($block);
             break;
 
+            case 'paprika/mason-three-up':
+                $block_content = paprika_render_mason_three_up($block);
+            break;
+
+            case 'paprika/mason-even-split':
+                $block_content = paprika_render_mason_even_split($block);
+            break;
+
             case 'paprika/news':
                 $block_content = paprika_render_news($block);
             break;
 
             case 'paprika/homepage-cards': 
                 $block_content = paprika_render_homepage_cards($block);
+            break;
+
+            case 'paprika/two-up-cards':
+                $block_content = paprika_render_two_up_cards($block);
+            break;
+
+            case 'paprika/artist':
+                $block_content = paprika_render_artist_block($block);
             break;
 
         }

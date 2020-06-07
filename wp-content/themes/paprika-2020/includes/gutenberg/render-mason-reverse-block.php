@@ -3,42 +3,43 @@
     function paprika_render_mason_reverse($block) {
         $fields = array( 
             'title',
-            'secondaryTitle',
             'link', 
-            'secondaryLink'
         );
         $images = [];
+        $titleObjects = [];
         foreach ($block['innerBlocks'] as $innerBlock):
             switch( $innerBlock['blockName'] ) {
-
                 case 'core/image':
                     array_push($images, $innerBlock['innerHTML']);
                 break;
+                case 'paprika/card-title':
+                    $attributes = pg_get_attributes($innerBlock, $fields);
+                    array_push($titleObjects, $attributes);
+                break;
             }
         endforeach;
-        $attributes = pg_get_attributes($block, $fields);
         ob_start();
         ?>
-            <?php if (pg_is_valid('string', $attributes->title) || pg_is_valid('array', $images) )?>
+            <?php if (pg_is_valid('array', $titleObjects) || pg_is_valid('array', $images) )?>
             <div class="flex">
                 <div class="col-7">
                     <?php
-                        if (pg_is_valid('url', $attributes->link)):
+                        if (pg_is_valid('url', $titleObjects[0]->link)):
                     ?>
-                        <a href="<?php echo $attributes->link ?>">
+                        <a href="<?php echo $titleObjects[0]->link ?>">
                     <?php
                         endif; 
-                        if (pg_is_valid('string', $attributes->title)):
+                        if (pg_is_valid('string', $titleObjects[0]->title)):
                     ?>
                         <h2 class="subtitle">
-                            <?php echo $attributes->title ?>
+                            <?php echo $titleObjects[0]->title ?>
                         </h2>
                     <?php
                         endif;
                         if (pg_is_valid('string', $images[0])):
                             echo $images[0];
                         endif;
-                        if (pg_is_valid('url', $attributes->link)):
+                        if (pg_is_valid('url', $titleObjects[0]->link)):
                     ?>
                         </a>
                     <?php
@@ -47,22 +48,22 @@
                 </div>
                 <div class="col-5">
                     <?php
-                        if (pg_is_valid('url', $attributes->secondaryLink)):
+                        if (pg_is_valid('url', $titleObjects[1]->link)):
                     ?>
-                        <a href="<?php echo $attributes->secondaryLink ?>">
+                        <a href="<?php echo $titleObjects[1]->link ?>">
                     <?php
                         endif;
-                        if (pg_is_valid('string', $attributes->secondaryTitle)):
+                        if (pg_is_valid('string', $titleObjects[1]->title)):
                     ?>
                         <h2 class="subtitle">
-                            <?php echo $attributes->secondaryTitle ?>
+                            <?php echo $attributes->title ?>
                         </h2>
                     <?php
                         endif;
                         if (pg_is_valid('string', $images[1])):
                             echo $images[1];
                         endif;
-                    if (pg_is_valid('url', $attributes->secondaryLink)):
+                    if (pg_is_valid('url', $titleObjects[1]->link)):
                 ?>
                     </a>
                 <?php

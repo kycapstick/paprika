@@ -1,15 +1,10 @@
-export default function paprikaMasonImageBlock() {
+export default function paprikaMasonBlock() {
 	const { registerBlockType } = wp.blocks;
-	const {
-		InnerBlocks,
-		InspectorControls,
-		RichText,
-		MediaUpload,
-	} = wp.blockEditor;
+	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
 	const blockSlug = "mason-image";
-	const blockTitle = "Mason Image Container";
+	const blockTitle = "Mason Image Block";
 	const blockDescription = "Add side by side images with title to the page";
 	const blockCategory = "common";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
@@ -19,28 +14,7 @@ export default function paprikaMasonImageBlock() {
 		description: i18n.__(blockDescription),
 		category: blockCategory,
 		icon: blockIcon,
-		attributes: {
-			title: {
-				type: "string",
-			},
-			secondaryTitle: {
-				type: "string",
-			},
-			link: {
-				type: "string",
-			},
-			secondaryLink: {
-				type: "string",
-			},
-		},
 		edit: (props, editor = false, save = false) => {
-			const { setAttributes, attributes } = props;
-			const { title, secondaryTitle, link, secondaryLink } = attributes;
-
-			function updateAttributeValue(attribute, value) {
-				setAttributes({ [attribute]: value });
-			}
-
 			return [
 				<div
 					className={`custom-card ${
@@ -48,51 +22,16 @@ export default function paprikaMasonImageBlock() {
 					}`}
 				>
 					<div>
-						<RichText
-							class="components-text-control__input"
-							tagName="h3"
-							placeholder="Add the card's title text here."
-							keepPlaceholderOnFocus={true}
-							value={title}
-							onChange={(changes) => {
-								updateAttributeValue("title", changes);
-							}}
-						/>
-						<RichText
-							class="components-text-control__input"
-							tagName="a"
-							placeholder="Add link for first image."
-							keepPlaceholderOnFocus={true}
-							value={link}
-							onChange={(changes) => {
-								updateAttributeValue("link", changes);
-							}}
-						/>
-						<RichText
-							class="components-text-control__input"
-							tagName="h3"
-							placeholder="Add title for the second image here."
-							keepPlaceholderOnFocus={true}
-							value={secondaryTitle}
-							onChange={(changes) => {
-								updateAttributeValue("secondaryTitle", changes);
-							}}
-						/>
-						<RichText
-							class="components-text-control__input"
-							tagName="a"
-							placeholder="Add link for second image."
-							keepPlaceholderOnFocus={true}
-							value={secondaryLink}
-							onChange={(changes) => {
-								updateAttributeValue("secondaryLink", changes);
-							}}
-						/>
 						{save ? (
 							<InnerBlocks.Content />
 						) : (
 							<InnerBlocks
-								template={[["core/image"], ["core/image"]]}
+								template={[
+									["paprika/card-title"],
+									["core/image"],
+									["paprika/card-title"],
+									["core/image"],
+								]}
 								templateLock="all"
 							/>
 						)}
@@ -101,7 +40,6 @@ export default function paprikaMasonImageBlock() {
 			];
 		},
 		save: ({ attributes }) => {
-			const { title, secondaryTitle, link, secondaryLink } = attributes;
 			return <InnerBlocks.Content />;
 		},
 	});

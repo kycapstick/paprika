@@ -1,11 +1,12 @@
-export default function paprikaReverseMasonImageBlock() {
+export default function paprikaThreeUpImageBlock() {
 	const { registerBlockType } = wp.blocks;
-	const { InnerBlocks } = wp.blockEditor;
+	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	const blockSlug = "reverse-mason-image";
-	const blockTitle = "Reverse Mason Image";
-	const blockDescription = "Add side by side images with title to the page";
+	const blockSlug = "mason-three-up";
+	const blockTitle = "Mason Three Up Image Block";
+	const blockDescription =
+		"Add three equally spaced images with title to the page";
 	const blockCategory = "common";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
@@ -27,6 +28,8 @@ export default function paprikaReverseMasonImageBlock() {
 						) : (
 							<InnerBlocks
 								template={[
+									["paprika/card-title"],
+									["core/image"],
 									["paprika/card-title"],
 									["core/image"],
 									["paprika/card-title"],
