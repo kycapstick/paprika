@@ -8,8 +8,20 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_cta($block);
             break;
 
-            case 'paprika/image-container':
-                $block_content = paprika_render_image_block($block);
+            case 'paprika/fw-image':
+                $block_content = paprika_render_fw_image($block);
+            break;
+
+            case 'paprika/mason-image':
+                $block_content = paprika_render_mason($block);
+            break;
+
+            case 'paprika/reverse-mason-image':
+                $block_content = paprika_render_mason_reverse($block);
+            break;
+
+            case 'paprika/news':
+                $block_content = paprika_render_news($block);
             break;
 
         }
