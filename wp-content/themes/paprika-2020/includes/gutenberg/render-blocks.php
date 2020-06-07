@@ -24,6 +24,10 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_news($block);
             break;
 
+            case 'paprika/homepage-cards': 
+                $block_content = paprika_render_homepage_cards($block);
+            break;
+
         }
         return $block_content;
     }

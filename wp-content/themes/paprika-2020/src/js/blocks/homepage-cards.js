@@ -1,4 +1,4 @@
-export default function paprikaReverseMasonImageBlock() {
+export default function paprikaHomepageCardsBlock() {
 	const { registerBlockType } = wp.blocks;
 	const {
 		InnerBlocks,
@@ -8,9 +8,9 @@ export default function paprikaReverseMasonImageBlock() {
 	} = wp.blockEditor;
 	const { i18n } = wp;
 
-	const blockSlug = "reverse-mason-image";
-	const blockTitle = "Reverse Mason Image";
-	const blockDescription = "Add side by side images with title to the page";
+	const blockSlug = "homepage-cards";
+	const blockTitle = "Homepage Cards";
+	const blockDescription = "Set of 4 cards with related links";
 	const blockCategory = "common";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
@@ -23,19 +23,40 @@ export default function paprikaReverseMasonImageBlock() {
 			title: {
 				type: "string",
 			},
-			secondaryTitle: {
+			secondTitle: {
+				type: "string",
+			},
+			thirdTitle: {
+				type: "string",
+			},
+			fourthTitle: {
 				type: "string",
 			},
 			link: {
 				type: "string",
 			},
-			secondaryLink: {
+			secondLink: {
+				type: "string",
+			},
+			thirdLink: {
+				type: "string",
+			},
+			fourthLink: {
 				type: "string",
 			},
 		},
 		edit: (props, editor = false, save = false) => {
 			const { setAttributes, attributes } = props;
-			const { title, secondaryTitle, link, secondaryLink } = attributes;
+			const {
+				title,
+				secondTitle,
+				thirdTitle,
+				fourthTitle,
+				link,
+				secondLink,
+				thirdLink,
+				fourthLink,
+			} = attributes;
 
 			function updateAttributeValue(attribute, value) {
 				setAttributes({ [attribute]: value });
@@ -73,9 +94,9 @@ export default function paprikaReverseMasonImageBlock() {
 							tagName="h3"
 							placeholder="Add title for the second image here."
 							keepPlaceholderOnFocus={true}
-							value={secondaryTitle}
+							value={secondTitle}
 							onChange={(changes) => {
-								updateAttributeValue("secondaryTitle", changes);
+								updateAttributeValue("secondTitle", changes);
 							}}
 						/>
 						<RichText
@@ -83,16 +104,61 @@ export default function paprikaReverseMasonImageBlock() {
 							tagName="a"
 							placeholder="Add link for second image."
 							keepPlaceholderOnFocus={true}
-							value={secondaryLink}
+							value={secondLink}
 							onChange={(changes) => {
-								updateAttributeValue("secondaryLink", changes);
+								updateAttributeValue("secondLink", changes);
+							}}
+						/>
+						<RichText
+							class="components-text-control__input"
+							tagName="h3"
+							placeholder="Add a title for the third card here."
+							keepPlaceholderOnFocus={true}
+							value={thirdTitle}
+							onChange={(changes) => {
+								updateAttributeValue("thirdTitle", changes);
+							}}
+						/>
+						<RichText
+							class="components-text-control__input"
+							tagName="a"
+							placeholder="Add link for the third card."
+							keepPlaceholderOnFocus={true}
+							value={thirdLink}
+							onChange={(changes) => {
+								updateAttributeValue("thirdLink", changes);
+							}}
+						/>
+						<RichText
+							class="components-text-control__input"
+							tagName="h3"
+							placeholder="Add title for the fourth card."
+							keepPlaceholderOnFocus={true}
+							value={fourthTitle}
+							onChange={(changes) => {
+								updateAttributeValue("fourthTitle", changes);
+							}}
+						/>
+						<RichText
+							class="components-text-control__input"
+							tagName="a"
+							placeholder="Add link for fourth card."
+							keepPlaceholderOnFocus={true}
+							value={fourthLink}
+							onChange={(changes) => {
+								updateAttributeValue("fourthLink", changes);
 							}}
 						/>
 						{save ? (
 							<InnerBlocks.Content />
 						) : (
 							<InnerBlocks
-								template={[["core/image"], ["core/image"]]}
+								template={[
+									["core/image"],
+									["core/image"],
+									["core/image"],
+									["core/image"],
+								]}
 								templateLock="all"
 							/>
 						)}
@@ -101,7 +167,16 @@ export default function paprikaReverseMasonImageBlock() {
 			];
 		},
 		save: ({ attributes }) => {
-			const { title, secondaryTitle, link, secondaryLink } = attributes;
+			const {
+				title,
+				secondTitle,
+				thirdTitle,
+				fourthTitle,
+				link,
+				secondLink,
+				thirdLink,
+				fourthLink,
+			} = attributes;
 			return <InnerBlocks.Content />;
 		},
 	});

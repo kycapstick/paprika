@@ -35,7 +35,7 @@ export default function paprikaMasonImageBlock() {
 		},
 		edit: (props, editor = false, save = false) => {
 			const { setAttributes, attributes } = props;
-			const { title, secondaryTitle, link, secondarLink } = attributes;
+			const { title, secondaryTitle, link, secondaryLink } = attributes;
 
 			function updateAttributeValue(attribute, value) {
 				setAttributes({ [attribute]: value });
@@ -83,7 +83,7 @@ export default function paprikaMasonImageBlock() {
 							tagName="a"
 							placeholder="Add link for second image."
 							keepPlaceholderOnFocus={true}
-							value={secondarLink}
+							value={secondaryLink}
 							onChange={(changes) => {
 								updateAttributeValue("secondaryLink", changes);
 							}}
@@ -101,7 +101,7 @@ export default function paprikaMasonImageBlock() {
 			];
 		},
 		save: ({ attributes }) => {
-			const { title } = attributes;
+			const { title, secondaryTitle, link, secondaryLink } = attributes;
 			return <InnerBlocks.Content />;
 		},
 	});
