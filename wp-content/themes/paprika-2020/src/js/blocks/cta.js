@@ -4,20 +4,14 @@ export default function ctaBlock() {
 	 */
 
 	const { registerBlockType } = wp.blocks;
-	const {
-		InnerBlocks,
-		InspectorControls,
-		RichText,
-		MediaUpload,
-	} = wp.blockEditor;
-	const { TextControl } = wp.components;
+	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
 	registerBlockType("paprika/cta", {
 		title: i18n.__("CTA Block"),
 		description: i18n.__("A call to action"),
-		category: "common",
-		icon: "dashicons-external", // Dashicons: https://developer.wordpress.org/resource/dashicons/
+		category: "layout",
+		icon: "external", // Dashicons: https://developer.wordpress.org/resource/dashicons/
 		attributes: {
 			title: {
 				type: "string",

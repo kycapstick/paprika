@@ -10,8 +10,8 @@ export default function newsBlock() {
 	registerBlockType("paprika/news", {
 		title: i18n.__("News Block"),
 		description: i18n.__("Pull in a news post"),
-		category: "common",
-		icon: "dashicons-external", // Dashicons: https://developer.wordpress.org/resource/dashicons/
+		category: "post-blocks",
+		icon: "sticky", // Dashicons: https://developer.wordpress.org/resource/dashicons/
 		attributes: {
 			title: {
 				type: "string",

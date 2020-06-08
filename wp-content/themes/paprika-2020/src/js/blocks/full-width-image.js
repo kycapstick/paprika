@@ -1,17 +1,12 @@
 export default function paprikaFullWidthImageBlock() {
 	const { registerBlockType } = wp.blocks;
-	const {
-		InnerBlocks,
-		InspectorControls,
-		RichText,
-		MediaUpload,
-	} = wp.blockEditor;
+	const { InnerBlocks, InspectorControls, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
 	const blockSlug = "fw-image";
 	const blockTitle = "Full-Width Image";
 	const blockDescription = "Add a full-width image with title to the page";
-	const blockCategory = "common";
+	const blockCategory = "layout";
 	const blockIcon = "format-image"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {

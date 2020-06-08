@@ -6,7 +6,7 @@ export default function paprikaReverseMasonImageBlock() {
 	const blockSlug = "reverse-mason-image";
 	const blockTitle = "Reverse Mason Image";
 	const blockDescription = "Add side by side images with title to the page";
-	const blockCategory = "common";
+	const blockCategory = "layout";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {

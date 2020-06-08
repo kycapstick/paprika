@@ -6,8 +6,8 @@ export default function paprikaHomepageCardsBlock() {
 	const blockSlug = "homepage-cards";
 	const blockTitle = "Homepage Cards";
 	const blockDescription = "Set of 2 cards with related links";
-	const blockCategory = "common";
-	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockCategory = "layout";
+	const blockIcon = "screenoptions"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
 		title: i18n.__(blockTitle),

@@ -1,13 +1,13 @@
-export default function paprikaHomepageCardsBlock() {
+export default function paprikaTwoUpCardsBlock() {
 	const { registerBlockType } = wp.blocks;
-	const { InnerBlocks, RichText } = wp.blockEditor;
+	const { InnerBlocks } = wp.blockEditor;
 	const { i18n } = wp;
 
 	const blockSlug = "two-up-cards";
 	const blockTitle = "Two Up Cards";
 	const blockDescription = "Set of 2 cards with related links";
-	const blockCategory = "common";
-	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockCategory = "layout";
+	const blockIcon = "screenoptions"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
 		title: i18n.__(blockTitle),

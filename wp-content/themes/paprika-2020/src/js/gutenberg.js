@@ -6,18 +6,14 @@ import newsSelectBlock from "./blocks/reusable/select-news";
 import finePrintBlock from "./blocks/reusable/fine-print";
 import donorTitleBlock from "./blocks/reusable/donor-title";
 
-// General Blocks
+// Layout Blocks
 import ctaBlock from "./blocks/cta";
 import twoUpCardsBlock from "./blocks/two-up-cards";
-
-// Image Blocks
 import fwImageBlock from "./blocks/full-width-image";
 import masonBlock from "./blocks/mason";
 import reverseMasonBlock from "./blocks/reverse-mason";
 import masonThreeUpBlock from "./blocks/mason-three-up";
 import masonEvenSplitBlock from "./blocks/mason-even-split";
-
-// Homepage Blocks
 import homepageCardsBlock from "./blocks/homepage-cards";
 
 // Post Blocks
@@ -36,24 +32,22 @@ newsSelectBlock();
 finePrintBlock();
 donorTitleBlock();
 
-// Init General Blocks
+// Init Layout Blocks
 ctaBlock();
+
+homepageCardsBlock();
 twoUpCardsBlock();
 
-// Init Image Blocks
 fwImageBlock();
 masonBlock();
 reverseMasonBlock();
 masonEvenSplitBlock();
 masonThreeUpBlock();
 
-// Init Homepage Blocks
-homepageCardsBlock();
+// Init Donor Blocks
+donorTwoUp();
+donorFW();
 
 // Init Post Blocks
 newsBlock();
 artistBlock();
-
-// Init Donor Blocks
-donorTwoUp();
-donorFW();

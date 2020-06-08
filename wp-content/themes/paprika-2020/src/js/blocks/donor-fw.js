@@ -1,4 +1,4 @@
-export default function paprikaDonorTwoUpBlock() {
+export default function paprikaDonorFWBlock() {
 	const { registerBlockType } = wp.blocks;
 	const { InnerBlocks } = wp.blockEditor;
 	const { i18n } = wp;
@@ -6,8 +6,8 @@ export default function paprikaDonorTwoUpBlock() {
 	const blockSlug = "donor-fw";
 	const blockTitle = "Full Width Donor Card";
 	const blockDescription = "Full width donor card";
-	const blockCategory = "common";
-	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockCategory = "donor-blocks";
+	const blockIcon = "awards"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
 		title: i18n.__(blockTitle),

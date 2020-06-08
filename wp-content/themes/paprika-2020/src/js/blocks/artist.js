@@ -9,9 +9,9 @@ export default function artistBlock() {
 
 	registerBlockType("paprika/artist", {
 		title: i18n.__("Artist Block"),
-		description: i18n.__("A call to action"),
-		category: "common",
-		icon: "dashicons-external", // Dashicons: https://developer.wordpress.org/resource/dashicons/
+		description: i18n.__("Add an artist photo and bio"),
+		category: "post-blocks",
+		icon: "admin-customizer", // Dashicons: https://developer.wordpress.org/resource/dashicons/
 		attributes: {
 			title: {
 				type: "string",
