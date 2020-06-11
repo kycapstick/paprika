@@ -43,6 +43,9 @@ require get_template_directory() . '/includes/gutenberg/render-cta.php';
 
 require get_template_directory() . '/includes/gutenberg/render-homepage-cards.php';
 require get_template_directory() . '/includes/gutenberg/render-two-up-cards.php';
+require get_template_directory() . '/includes/gutenberg/render-media-quote-block.php';
+require get_template_directory() . '/includes/gutenberg/render-alumni-block.php';
+require get_template_directory() . '/includes/gutenberg/render-alumnus-block.php';
 
 require get_template_directory() . '/includes/gutenberg/render-image-block.php';
 require get_template_directory() . '/includes/gutenberg/render-mason-block.php';

@@ -30,6 +30,7 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 		'core/quote',
 		'core/video',
 		'core/button',
+		'core/column',
 		
 		// Component Blocks
 		'paprika/card-title-copy',
@@ -38,18 +39,22 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 		'paprika/fine-print',
 		'paprika/artist-select',
 		'paprika/news-select',
+		'paprika/media-title-copy',
+		'paprika/alumnus',
 
 		// Layout Blocks
 		'paprika/cta',
 
 		'paprika/homepage-cards',
 		'paprika/two-up-cards',
+		'paprika/alumni',
 
 		'paprika/fw-image',
 		'paprika/mason-even-split',
 		'paprika/mason-three-up',
 		'paprika/mason-image',
 		'paprika/reverse-mason-image',
+		'paprika/media-quote',
 		
 		// Donor Blocks
 		'paprika/donor-fw',

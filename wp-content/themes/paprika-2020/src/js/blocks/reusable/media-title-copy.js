@@ -3,9 +3,9 @@ export default function paprikaCardTitleCopyBlock() {
 	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	const blockSlug = "card-title-copy";
-	const blockTitle = "Card Title Copy";
-	const blockDescription = "Title and copy for cards";
+	const blockSlug = "media-title-copy";
+	const blockTitle = "Media Title Copy";
+	const blockDescription = "Title and copy for media cards";
 	const blockCategory = "common";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
@@ -14,7 +14,7 @@ export default function paprikaCardTitleCopyBlock() {
 		description: i18n.__(blockDescription),
 		category: blockCategory,
 		icon: blockIcon,
-		parent: ["paprika/two-up-cards"],
+		parent: ["paprika/media-quote"],
 		attributes: {
 			title: {
 				type: "string",
@@ -41,7 +41,7 @@ export default function paprikaCardTitleCopyBlock() {
 						<RichText
 							class="components-text-control__input"
 							tagName="h3"
-							placeholder="Add title"
+							placeholder="Headline."
 							keepPlaceholderOnFocus={true}
 							value={title}
 							onChange={(changes) => {
@@ -51,7 +51,7 @@ export default function paprikaCardTitleCopyBlock() {
 						<RichText
 							class="components-text-control__input"
 							tagName="p"
-							placeholder="Add subtitle"
+							placeholder="Add optional speaker."
 							keepPlaceholderOnFocus={true}
 							value={subtitle}
 							onChange={(changes) => {

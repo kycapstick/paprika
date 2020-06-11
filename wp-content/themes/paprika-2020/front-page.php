@@ -15,6 +15,8 @@
         <p>
             <?php echo $hero_subtitle ?>
         </p> 
+    </div>
+    <div class="container">
         <?php 
             if ( have_posts() ) :
                 /* Start the Loop */
