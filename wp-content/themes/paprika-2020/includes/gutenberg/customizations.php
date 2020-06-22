@@ -55,6 +55,7 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 		'paprika/mason-image',
 		'paprika/reverse-mason-image',
 		'paprika/media-quote',
+		'paprika/image-text',
 		
 		// Donor Blocks
 		'paprika/donor-fw',
@@ -63,6 +64,10 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 		// Post Blocks
 		'paprika/artist',
 		'paprika/news',
+
+		// Show Blocks
+		'paprika/show',
+		'paprika/team-member'
 	);
 
 }

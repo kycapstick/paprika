@@ -3,10 +3,10 @@ export default function paprikaCardTitleCopyBlock() {
 	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	const blockSlug = "card-title-copy";
-	const blockTitle = "Card Title Copy";
-	const blockDescription = "Title and copy for cards";
-	const blockCategory = "common";
+	const blockSlug = "team-member";
+	const blockTitle = "Creative Team Member";
+	const blockDescription = "A single creative team member";
+	const blockCategory = "layout";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
@@ -14,18 +14,18 @@ export default function paprikaCardTitleCopyBlock() {
 		description: i18n.__(blockDescription),
 		category: blockCategory,
 		icon: blockIcon,
-		parent: ["paprika/two-up-cards", "paprika/image-text"],
+		parent: ["paprika/show"],
 		attributes: {
 			title: {
 				type: "string",
 			},
-			subtitle: {
+			fullName: {
 				type: "string",
 			},
 		},
 		edit: (props, editor = false, save = false) => {
 			const { setAttributes, attributes } = props;
-			const { title, subtitle } = attributes;
+			const { title, fullName } = attributes;
 
 			function updateAttributeValue(attribute, value) {
 				setAttributes({ [attribute]: value });
@@ -40,7 +40,7 @@ export default function paprikaCardTitleCopyBlock() {
 					<div>
 						<RichText
 							class="components-text-control__input"
-							tagName="h3"
+							tagName="p"
 							placeholder="Add title"
 							keepPlaceholderOnFocus={true}
 							value={title}
@@ -51,21 +51,20 @@ export default function paprikaCardTitleCopyBlock() {
 						<RichText
 							class="components-text-control__input"
 							tagName="p"
-							placeholder="Add subtitle"
+							placeholder="Add text"
 							keepPlaceholderOnFocus={true}
-							value={subtitle}
+							value={fullName}
 							onChange={(changes) => {
-								updateAttributeValue("subtitle", changes);
+								updateAttributeValue("fullName", changes);
 							}}
 						/>
-						{save ? <InnerBlocks.Content /> : <InnerBlocks />}
 					</div>
 				</div>,
 			];
 		},
 		save: ({ attributes }) => {
-			const { title, subtitle } = attributes;
-			return <InnerBlocks.Content />;
+			const { title, fullName } = attributes;
+			return;
 		},
 	});
 }

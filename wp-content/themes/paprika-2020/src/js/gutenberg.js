@@ -20,6 +20,7 @@ import masonThreeUpBlock from "./blocks/mason-three-up";
 import masonEvenSplitBlock from "./blocks/mason-even-split";
 import homepageCardsBlock from "./blocks/homepage-cards";
 import mediaQuoteBlock from "./blocks/media-quote";
+import imageTextBlock from "./blocks/image-text-block";
 
 // Post Blocks
 import artistBlock from "./blocks/artist";
@@ -29,7 +30,9 @@ import newsBlock from "./blocks/news";
 import donorTwoUp from "./blocks/donor-two-up";
 import donorFW from "./blocks/donor-fw";
 
-console.log("running");
+// Show Blocks
+import showBlock from "./blocks/show-block";
+import teamMember from "./blocks/reusable/team-member";
 
 // Init Component Blocks
 cardTitleBlock();
@@ -55,6 +58,8 @@ reverseMasonBlock();
 masonEvenSplitBlock();
 masonThreeUpBlock();
 
+imageTextBlock();
+
 // Init Donor Blocks
 donorTwoUp();
 donorFW();
@@ -62,3 +67,7 @@ donorFW();
 // Init Post Blocks
 newsBlock();
 artistBlock();
+
+// Init Show Blocks
+showBlock();
+teamMember();

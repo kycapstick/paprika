@@ -1,31 +1,27 @@
-export default function paprikaCardTitleCopyBlock() {
+export default function paprikaShowCardBlock() {
 	const { registerBlockType } = wp.blocks;
 	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	const blockSlug = "card-title-copy";
-	const blockTitle = "Card Title Copy";
-	const blockDescription = "Title and copy for cards";
-	const blockCategory = "common";
-	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockSlug = "show";
+	const blockTitle = "Show Card";
+	const blockDescription = "Card for show details with related link";
+	const blockCategory = "layout";
+	const blockIcon = "tickets-alt"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
 		title: i18n.__(blockTitle),
 		description: i18n.__(blockDescription),
 		category: blockCategory,
 		icon: blockIcon,
-		parent: ["paprika/two-up-cards", "paprika/image-text"],
 		attributes: {
 			title: {
-				type: "string",
-			},
-			subtitle: {
 				type: "string",
 			},
 		},
 		edit: (props, editor = false, save = false) => {
 			const { setAttributes, attributes } = props;
-			const { title, subtitle } = attributes;
+			const { title } = attributes;
 
 			function updateAttributeValue(attribute, value) {
 				setAttributes({ [attribute]: value });
@@ -48,23 +44,23 @@ export default function paprikaCardTitleCopyBlock() {
 								updateAttributeValue("title", changes);
 							}}
 						/>
-						<RichText
-							class="components-text-control__input"
-							tagName="p"
-							placeholder="Add subtitle"
-							keepPlaceholderOnFocus={true}
-							value={subtitle}
-							onChange={(changes) => {
-								updateAttributeValue("subtitle", changes);
-							}}
-						/>
-						{save ? <InnerBlocks.Content /> : <InnerBlocks />}
+						{save ? (
+							<InnerBlocks.Content />
+						) : (
+							<InnerBlocks
+								template={[["paprika/team-member"]]}
+								allowedBlocks={
+									(["paprika/team-member"],
+									["core/paragraph"])
+								}
+							/>
+						)}
 					</div>
 				</div>,
 			];
 		},
 		save: ({ attributes }) => {
-			const { title, subtitle } = attributes;
+			const { title } = attributes;
 			return <InnerBlocks.Content />;
 		},
 	});

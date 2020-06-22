@@ -1,11 +1,51 @@
 .header {
-	position: absolute;
+	position: relative;
+	background: $programs_primary;
+	overflow: hidden;
+	img {
+		max-width: 100%;
+	}
 	&__nav {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
+	&__nav__logo,
+	&__subhero {
+		position: relative;
+		&::before {
+			position: absolute;
+			content: "";
+			height: 100vw;
+			width: 100vw;
+			background-color: #fff;
+		}
+	}
+	&__nav__logo {
+		max-width: 150px;
+		a {
+			position: relative;
+			z-index: 10;
+		}
+		&::before {
+			transform: rotate(-20.75deg);
+			top: -80vw;
+			left: -60vw;
+		}
+	}
+	&__subhero::before {
+		transform: rotate(-20.75deg);
+		bottom: -80vw;
+		right: -60vw;
+	}
 	title {
 		padding: 200px;
+	}
+	&__hero {
+		min-height: 300px;
+		height: 50vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }

@@ -46,6 +46,7 @@ require get_template_directory() . '/includes/gutenberg/render-two-up-cards.php'
 require get_template_directory() . '/includes/gutenberg/render-media-quote-block.php';
 require get_template_directory() . '/includes/gutenberg/render-alumni-block.php';
 require get_template_directory() . '/includes/gutenberg/render-alumnus-block.php';
+require get_template_directory() . '/includes/gutenberg/render-image-text-block.php';
 
 require get_template_directory() . '/includes/gutenberg/render-image-block.php';
 require get_template_directory() . '/includes/gutenberg/render-mason-block.php';
@@ -60,4 +61,8 @@ require get_template_directory() . '/includes/gutenberg/render-artist-block.php'
 // Donor Blocks
 require get_template_directory() . '/includes/gutenberg/render-donor-two-up.php';
 require get_template_directory() . '/includes/gutenberg/render-donor-fw.php';
+
+// Show Blocks
+require get_template_directory() . '/includes/gutenberg/render-show-block.php';
+
 

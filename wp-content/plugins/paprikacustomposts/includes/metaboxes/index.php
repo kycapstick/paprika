@@ -78,6 +78,8 @@
   require_once( __DIR__ . '/render/show-select.php');
   require_once( __DIR__ . '/render/date-select.php');
   require_once( __DIR__ . '/render/order-input.php');
+  require_once( __DIR__ . '/render/show-details.php');
+
 
   require_once( __DIR__ . '/program.php');
   require_once( __DIR__ . '/staff.php');

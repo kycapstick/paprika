@@ -24,3 +24,7 @@
 		add_theme_support( 'align-wide' );
 	}
 	add_action( 'after_setup_theme', 'paprika_theme_setup' );
+
+
+	function my_function_admin_bar(){ return false; }
+	add_filter( 'show_admin_bar' , 'my_function_admin_bar');

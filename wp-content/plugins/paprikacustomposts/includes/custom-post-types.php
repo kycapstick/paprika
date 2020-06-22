@@ -89,6 +89,7 @@ if (!function_exists('paprika_custom_post_types')):
         'register_meta_box_cb' => 'paprika_show_metabox',
         'taxonomies' => array('category'),
         'capability_type' => 'post',
+        'show_in_rest' => true,
       )
     );
     register_post_type('date',

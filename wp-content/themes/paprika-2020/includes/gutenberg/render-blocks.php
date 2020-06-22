@@ -59,6 +59,14 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
             case 'paprika/alumni':
                 $block_content = paprika_render_alumni_block($block);
             break;
+            
+            case 'paprika/show':
+                $block_content = paprika_render_show_block($block);
+            break;
+
+            case 'paprika/image-text':
+                $block_content = paprika_render_image_text_block($block);
+            break;
 
         }
         return $block_content;
