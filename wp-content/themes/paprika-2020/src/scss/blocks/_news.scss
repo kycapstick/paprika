@@ -1,0 +1,17 @@
+.news-block {
+	padding: 128px 0;
+	&__subheader {
+		position: relative;
+	}
+	&__marker {
+		position: absolute;
+		left: -20px;
+		bottom: -8px;
+	}
+	.btn {
+		color: white;
+		display: inline-block;
+		padding: 10px 22px;
+		background-color: $programs-primary;
+	}
+}

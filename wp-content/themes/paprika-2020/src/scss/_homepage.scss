@@ -1,7 +1,9 @@
 .homepage {
-	background: $programs-primary;
 	&__hero {
 		min-height: 100vh;
 		text-align: right;
+	}
+	.cta-block {
+		background-color: $festival-primary;
 	}
 }

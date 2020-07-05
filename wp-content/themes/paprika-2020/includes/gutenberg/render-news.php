@@ -23,13 +23,27 @@
     
         ob_start();
         ?>
-        <div>
-            <p><?php echo $attributes->title ?></p>
-            <div>  
-                <h2><?php echo (isset($post) ? $post->post_title : null ) ?></h2>
-                <?php echo (isset($post) ? wpautop( $post->post_content) : null ) ?>
+        <div class="news-block">
+            <div class="container">
+                <div class="news-block__subheader">
+                    <svg class="news-block__marker" width="42" height="17" viewBox="0 0 92 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 0H92L83 17H0L11 0Z" fill="#A74482" fill-opacity="0.6"/>
+                    </svg>
+                    <p class="subheader"><?php echo $attributes->title ?></p>
+                </div>
+                <div>  
+                    <h2 class="subtitle"><?php echo (isset($post) ? $post->post_title : null ) ?></h2>
+                    <?php 
+                        $content = isset($post) ? strip_tags($post->post_content) : null;
+                    ?>
+                    <p class="copy">
+                        <?php
+                            echo (isset($content) ? substr( $content, 0, 250) : null ); 
+                        ?>
+                    </p>
+                    <a href="<?php echo get_post_permalink($post->ID, true) ?>" class="btn">Learn More</a>
+                </div>
             </div>
-
         </div>
         <?php
             return ob_get_clean();
