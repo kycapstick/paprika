@@ -12,7 +12,7 @@ get_header();
 		?>
 			<p>
 				<?php 
-					echo wpautop(the_content());
+					echo the_content();
 				?>
 			</p>
 			<?php 

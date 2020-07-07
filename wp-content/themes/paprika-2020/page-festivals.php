@@ -1,20 +1,20 @@
 <?php 
 get_header();
 $args = array(
-  'post_type' => 'festival',
-  'post_status' => 'publish',
-  'posts_per_page' => '-1',
-  'orderby' => 'title',
-  'order' => 'DESC'
+	'post_type' => 'festival',
+	'post_status' => 'publish',
+	'posts_per_page' => '-1',
+	'orderby' => 'title',
+	'order' => 'DESC'
 );
 
 $posts = new WP_Query($args);
 ?> 
 <main class="container">
-  <h1>Festivals</h1>
-  <?php
-  while ($posts->have_posts() ):
-    $posts->the_post();
+	<h1>Festivals</h1>
+	<?php
+	while ($posts->have_posts() ):
+	$posts->the_post();
 		$programs = get_post_meta($post->ID, 'programs', true);
 		usort($programs, 'paprika_sort_order');
 		$location_id = get_post_meta($post->ID, 'location', true);
@@ -34,11 +34,11 @@ $posts = new WP_Query($args);
 			?>
 			<ul class="flex mason">
 			<?php
-      foreach($programs as $program_id) {
+			foreach($programs as $program_id) {
 				$program = get_post($program_id);
 				if (isset($program) && $program->post_status === 'publish'):
-      ?>
-					<li>
+			?>
+				<li>
 						<a href="<?php echo get_post_permalink($program_id) ?>">
 						<?php 
               if (get_the_post_thumbnail($program_id)):

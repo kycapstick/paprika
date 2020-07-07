@@ -1,0 +1,36 @@
+.homepage-cards {
+	.flex {
+		justify-content: space-between;
+		.col-6 {
+			flex-basis: calc(50% - 20px);
+			max-width: calc(50% - 20px);
+		}
+	}
+	&__card {
+		position: relative;
+	}
+	&__title {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		color: white;
+		padding: 8px 16px;
+		margin: 0;
+		z-index: 10;
+		&:before {
+			content: "";
+			width: calc(100% + 20px);
+			height: 33px;
+			background-color: $festival_primary;
+			display: block;
+			transform: skew(20deg);
+			position: absolute;
+			bottom: 0;
+			left: -10px;
+			z-index: -1;
+		}
+	}
+	figure {
+		margin: 0;
+	}
+}

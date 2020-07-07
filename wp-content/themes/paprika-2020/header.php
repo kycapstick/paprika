@@ -1,7 +1,7 @@
 <?php 
 	wp_head();
 	$hero_text = get_field('hero_text');
-    $hero_text = explode('\n', $hero_text);
+	$hero_text = stripos($hero_text, '\n' ) !== false ? explode('\n', $hero_text) : null;
     $hero_subtitle = get_field('hero_subtitle');
 ?>
 <body <?php body_class()?> >
@@ -23,6 +23,7 @@
 				</div>
 			</nav>
 			<div class="header__hero">
+
 				<?php if (!empty($hero_text)): ?>
 					<h1 class="hero-text">
 						<?php foreach($hero_text as $hero_string): ?>
@@ -34,7 +35,7 @@
 						<?php echo $hero_subtitle ?>
 					</p> 
 					<?php else: ?>
-						<h1><?php echo the_title(); ?></h1>
+						<h1 class="hero-text"><?php echo get_the_title(); ?></h1>
 				<?php endif; ?>
 			</div>
 			<div class="header__subhero">

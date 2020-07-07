@@ -64,28 +64,6 @@ a {
 		flex-grow: 1;
 		margin-left: 20px;
 	}
-	.col-6 {
-		flex-basis: calc(50% - 10px);
-		max-width: calc(50% - 10px);
-		flex-grow: 0;
-		flex-shrink: 1;
-	}
-	.col-8 {
-		flex-basis: calc(66.66% - 10px);
-		max-width: calc(66.66% - 10px);
-		flex-grow: 0;
-		flex-shrink: 1;
-	}
-	.col-4 {
-		flex-basis: calc(33.33% - 10px);
-		max-width: calc(33.33% - 10px);
-		flex-grow: 0;
-		flex-shrink: 1;
-	}
-	.col-3 {
-		flex-basis: 25%;
-		max-width: 25%;
-	}
 }
 .block {
 	display: block;
@@ -136,4 +114,5 @@ input {
 // Blocks
 @import "./blocks/button";
 @import "./blocks/cta";
+@import "./blocks/homepage-cards";
 @import "./blocks/news";

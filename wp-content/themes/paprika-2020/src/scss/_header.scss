@@ -1,10 +1,6 @@
 .header {
 	position: relative;
-	background: $programs_primary;
 	overflow: hidden;
-	.container {
-		min-height: 100vh;
-	}
 	img {
 		max-width: 100%;
 	}
@@ -13,51 +9,45 @@
 		justify-content: space-between;
 		align-items: center;
 	}
-	&__nav__logo,
-	&__subhero {
+	&__nav__logo {
+		max-width: 150px;
 		position: relative;
+		a {
+			position: relative;
+			z-index: 10;
+		}
+	}
+	&__hero {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.hero-text {
+		padding: 49px 0 100px;
+	}
+}
+
+.home .header {
+	background: $festival_primary;
+	.container {
+		min-height: 100vh;
+	}
+	&__hero {
+		height: calc(100% - 128px);
+		align-items: flex-end;
+		justify-content: center;
+		flex-direction: column;
+	}
+	&__nav__logo {
 		&::before {
 			position: absolute;
 			content: "";
 			height: 100vw;
 			width: 100vw;
 			background-color: #fff;
-		}
-	}
-	&__nav__logo {
-		max-width: 150px;
-		a {
-			position: relative;
-			z-index: 10;
-		}
-		&::before {
 			transform: rotate(-20.75deg);
 			top: -80vw;
 			left: -60vw;
-		}
-	}
-	&__subhero::before {
-		transform: rotate(-20.75deg);
-		bottom: -80vw;
-		right: -60vw;
-	}
-	title {
-		padding: 200px;
-	}
-	&__hero {
-		height: calc(100% - 128px);
-		display: flex;
-		align-items: flex-end;
-		justify-content: center;
-		flex-direction: column;
-	}
-}
-
-.home .header {
-	background: $festival_primary;
-	&__subhero {
-		&::before {
-			display: none;
 		}
 	}
 }

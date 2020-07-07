@@ -32,9 +32,9 @@
                             endif;
                             if (pg_is_valid('string', $titleObject->title)):
                         ?>
-                            <h2 class="subtitle">
+                            <p>
                                 <?php echo $titleObject->title ?>
-                            </h2>
+                            </p>
                         <?php
                             endif;
                             if (pg_is_valid('string', $titleObject->subtitle)):
