@@ -1,0 +1,41 @@
+.footer {
+	margin-top: 128px;
+	&__land,
+	&__contact {
+		padding: 64px 0;
+		&__title {
+			display: flex;
+			align-items: flex-end;
+		}
+	}
+	&__land {
+		background-color: $grey-20;
+		&__copy {
+			margin: 0;
+		}
+		&__title {
+			padding-right: 24px;
+		}
+	}
+	&__contact {
+		background-color: $programs_primary;
+		&__form {
+			padding-right: 24px;
+		}
+		&__title {
+			text-align: left;
+			span {
+				display: block;
+			}
+		}
+	}
+	&__social {
+		padding: 16px 0;
+		text-align: right;
+		background-color: $grey-main;
+	}
+	.flex,
+	p {
+		margin: 0;
+	}
+}

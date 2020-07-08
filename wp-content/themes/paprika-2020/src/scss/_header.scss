@@ -25,7 +25,7 @@
 	}
 	&__text {
 		margin: 0;
-		color: $festival_primary;
+		color: $programs_primary;
 	}
 	&__banner {
 		width: 100%;
@@ -35,7 +35,7 @@
 			height: 5px;
 			min-width: 20px;
 			flex-grow: 1;
-			background-color: $festival_primary;
+			background-color: $programs_primary;
 			margin-right: 32px;
 		}
 	}

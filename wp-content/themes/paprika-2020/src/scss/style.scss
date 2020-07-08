@@ -1,11 +1,10 @@
 @import "./fonts";
 @import "./vars";
-@import "./normalize";
+@import "./vendor/normalize";
 @import "./grid";
 
-*,
-html {
-	margin-top: 0 !important;
+* {
+	box-sizing: border-box;
 }
 
 a {
@@ -107,9 +106,13 @@ input {
 }
 
 @import "./typography";
+
+@import "./header";
+@import "./footer";
+@import "./forms";
+
 @import "./staff";
 @import "./nav";
-@import "./header";
 @import "./homepage";
 
 // Blocks

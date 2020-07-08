@@ -1,0 +1,16 @@
+.form {
+	&__label {
+		display: block;
+		margin-bottom: 8px;
+		&--dark {
+			color: white;
+		}
+	}
+	&__input {
+		border: 0;
+		padding: 8px 16px;
+	}
+	&__field:nth-child(n + 2) {
+		margin-top: 16px;
+	}
+}
