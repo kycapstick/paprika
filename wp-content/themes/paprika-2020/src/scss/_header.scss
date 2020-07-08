@@ -1,4 +1,5 @@
 .header {
+	font-family: "Roboto Slab", sans-serif;
 	position: relative;
 	overflow: hidden;
 	img {
@@ -21,6 +22,22 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+	&__text {
+		margin: 0;
+		color: $festival_primary;
+	}
+	&__banner {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		&__bar {
+			height: 5px;
+			min-width: 20px;
+			flex-grow: 1;
+			background-color: $festival_primary;
+			margin-right: 32px;
+		}
 	}
 }
 
