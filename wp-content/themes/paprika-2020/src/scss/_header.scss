@@ -22,9 +22,6 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.hero-text {
-		padding: 49px 0 100px;
-	}
 }
 
 .home .header {
@@ -37,6 +34,9 @@
 		align-items: flex-end;
 		justify-content: center;
 		flex-direction: column;
+	}
+	.hero-text {
+		padding: 49px 0 100px;
 	}
 	&__nav__logo {
 		&::before {

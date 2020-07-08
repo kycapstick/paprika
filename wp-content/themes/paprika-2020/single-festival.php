@@ -2,13 +2,13 @@
 get_header();
 ?>
 <main>
-  <?php
-  if ( have_posts() ) : 
-    while ( have_posts() ) : the_post(); 
-      $date_ids = get_post_meta($post->ID, 'dates', true);
-      $programs = get_post_meta($post->ID, 'programs', true);
-      usort($programs, 'paprika_sort_order');
-  ?>
+	<?php
+		if ( have_posts() ) : 
+			while ( have_posts() ) : the_post(); 
+				$date_ids = get_post_meta($post->ID, 'dates', true);
+				$programs = get_post_meta($post->ID, 'programs', true);
+				usort($programs, 'paprika_sort_order');
+	?>
         <p>
             <?php 
                 echo wpautop(the_content());
@@ -20,18 +20,18 @@ get_header();
 			?>
 			<ul class="flex">
 			<?php
-      foreach($programs as $program_id) {
-        $artists = paprika_get_program_artists($program_id);
-        $mentors = paprika_get_program_mentors($program_id);
-        $program = get_post($program_id);
-      ?>
+			foreach($programs as $program_id) {
+				$artists = paprika_get_program_artists($program_id);
+				$mentors = paprika_get_program_mentors($program_id);
+				$program = get_post($program_id);
+			?>
 					<li class="text-center">
-						<div>
+					<div>
 						<h4>
-              <a href="<?php echo get_post_permalink($program->ID) ?>">
-                <?php echo str_replace(get_the_title(), '', $program->post_title) ?>
-              </a>
-            </h4>
+							<a href="<?php echo get_post_permalink($program->ID) ?>">
+								<?php echo str_replace(get_the_title(), '', $program->post_title) ?>
+							</a>
+						</h4>
 					<?php
 						if (isset($mentors) && is_array($mentors)):
 					?>
@@ -68,7 +68,7 @@ get_header();
 							</ul>
 						</div>
 					</li>
-          <?php
+			<?php
         endif;
 			} 
 			?>
