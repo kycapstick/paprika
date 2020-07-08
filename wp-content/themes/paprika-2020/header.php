@@ -35,8 +35,12 @@
 						<?php echo $hero_subtitle ?>
 					</p> 
 					<?php else: ?>
-						<div class="page__banner">
-							<h1 class="hero-text"><?php echo get_the_title(); ?></h1>
+						<div class="header__banner">
+							<div class="header__banner__bar">
+							</div>
+							<div class="header__title">
+								<h1 class="header__text"><?php echo is_singular('festival') ? 'Festival ' . get_the_title() : get_the_title(); ?></h1>
+							</div>
 						</div>
 				<?php endif; ?>
 			</div>
