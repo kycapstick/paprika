@@ -15,6 +15,7 @@ if (!function_exists('paprika_custom_post_types')):
         'capability_type' => 'post',
         'taxonomies' => array('category'),
         'register_meta_box_cb' => 'paprika_staff_metabox',
+        'show_in_rest' => true,
       )
     );
     register_post_type('festival',
@@ -30,6 +31,7 @@ if (!function_exists('paprika_custom_post_types')):
         'register_meta_box_cb' => 'paprika_festival_metabox',
         'taxonomies' => array('category'),
         'capability_type' => 'post',
+        'show_in_rest' => true,
       )
     );
     register_post_type('location',
@@ -43,6 +45,7 @@ if (!function_exists('paprika_custom_post_types')):
         'menu_icon' => 'dashicons-admin-home',
         'supports'	=> array( 'thumbnail', 'title', 'editor'),
         'capability_type' => 'post',
+        'show_in_rest' => true,
       )
     );
     register_post_type('program',

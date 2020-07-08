@@ -10,7 +10,7 @@ $args = array(
 
 $posts = new WP_Query($args);
 ?> 
-<main class="container">
+<main>
 	<h1>Festivals</h1>
 	<?php
 	while ($posts->have_posts() ):

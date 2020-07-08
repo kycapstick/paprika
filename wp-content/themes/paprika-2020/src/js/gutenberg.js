@@ -2,16 +2,19 @@
 import cardTitleBlock from "./blocks/reusable/card-title";
 import cardTitleCopyBlock from "./blocks/reusable/card-title-copy";
 import artistSelectBlock from "./blocks/reusable/select-artist";
+import locationSelectBlock from "./blocks/reusable/selection-location";
 import newsSelectBlock from "./blocks/reusable/select-news";
 import finePrintBlock from "./blocks/reusable/fine-print";
 import donorTitleBlock from "./blocks/reusable/donor-title";
 import mediaTitleCopy from "./blocks/reusable/media-title-copy";
 import alumnusBlock from "./blocks/reusable/alumnus-block";
+import columnBlock from "./blocks/reusable/single-column";
 
 // Layout Blocks
 import ctaBlock from "./blocks/cta";
 import twoUpCardsBlock from "./blocks/two-up-cards";
 import alumniBlock from "./blocks/alumni-block";
+import twoUpColumnsBlocks from "./blocks/two-up-text";
 
 import fwImageBlock from "./blocks/full-width-image";
 import masonBlock from "./blocks/mason";
@@ -25,6 +28,7 @@ import imageTextBlock from "./blocks/image-text-block";
 // Post Blocks
 import artistBlock from "./blocks/artist";
 import newsBlock from "./blocks/news";
+import locationBlock from "./blocks/location";
 
 // Donor Blocks
 import donorTwoUp from "./blocks/donor-two-up";
@@ -38,11 +42,13 @@ import teamMember from "./blocks/reusable/team-member";
 cardTitleBlock();
 cardTitleCopyBlock();
 artistSelectBlock();
+locationSelectBlock();
 newsSelectBlock();
 finePrintBlock();
 donorTitleBlock();
 mediaTitleCopy();
 alumnusBlock();
+columnBlock();
 
 // Init Layout Blocks
 ctaBlock();
@@ -51,6 +57,7 @@ homepageCardsBlock();
 twoUpCardsBlock();
 mediaQuoteBlock();
 alumniBlock();
+twoUpColumnsBlocks();
 
 fwImageBlock();
 masonBlock();
@@ -67,6 +74,7 @@ donorFW();
 // Init Post Blocks
 newsBlock();
 artistBlock();
+locationBlock();
 
 // Init Show Blocks
 showBlock();

@@ -68,6 +68,14 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_image_text_block($block);
             break;
 
+            case 'paprika/location':
+                $block_content = paprika_render_location($block);
+            break;
+
+            case 'paprika/two-up-columns':
+                $block_content = paprika_render_two_up_columns($block);
+            break;
+
         }
         return $block_content;
     }

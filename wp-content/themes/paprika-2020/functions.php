@@ -38,6 +38,8 @@ add_action( 'wp_head', 'paprika_head_metadata' );
 require get_template_directory() . '/includes/gutenberg/customizations.php';
 require get_template_directory() . '/includes/gutenberg/render-blocks.php';
 
+require get_template_directory() . '/includes/gutenberg/render-column.php';
+
 // Layout Blocks
 require get_template_directory() . '/includes/gutenberg/render-cta.php';
 
@@ -47,6 +49,7 @@ require get_template_directory() . '/includes/gutenberg/render-media-quote-block
 require get_template_directory() . '/includes/gutenberg/render-alumni-block.php';
 require get_template_directory() . '/includes/gutenberg/render-alumnus-block.php';
 require get_template_directory() . '/includes/gutenberg/render-image-text-block.php';
+require get_template_directory() . '/includes/gutenberg/render-two-columns.php';
 
 require get_template_directory() . '/includes/gutenberg/render-image-block.php';
 require get_template_directory() . '/includes/gutenberg/render-mason-block.php';
@@ -56,6 +59,7 @@ require get_template_directory() . '/includes/gutenberg/render-mason-reverse-blo
 
 // Post Blocks
 require get_template_directory() . '/includes/gutenberg/render-news.php';
+require get_template_directory() . '/includes/gutenberg/render-location.php';
 require get_template_directory() . '/includes/gutenberg/render-artist-block.php';
 
 // Donor Blocks

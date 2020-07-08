@@ -38,9 +38,11 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 		'paprika/donor-title',
 		'paprika/fine-print',
 		'paprika/artist-select',
+		'paprika/location-select',
 		'paprika/news-select',
 		'paprika/media-title-copy',
 		'paprika/alumnus',
+		'paprika/column',
 
 		// Layout Blocks
 		'paprika/cta',
@@ -48,6 +50,7 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 		'paprika/homepage-cards',
 		'paprika/two-up-cards',
 		'paprika/alumni',
+		'paprika/two-up-columns',
 
 		'paprika/fw-image',
 		'paprika/mason-even-split',
@@ -64,6 +67,7 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 		// Post Blocks
 		'paprika/artist',
 		'paprika/news',
+		'paprika/location',
 
 		// Show Blocks
 		'paprika/show',

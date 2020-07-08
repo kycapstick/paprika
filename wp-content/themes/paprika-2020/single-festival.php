@@ -1,7 +1,7 @@
 <?php 
 get_header();
 ?>
-<main class="container">
+<main>
   <?php
   if ( have_posts() ) : 
     while ( have_posts() ) : the_post(); 
@@ -9,7 +9,6 @@ get_header();
       $programs = get_post_meta($post->ID, 'programs', true);
       usort($programs, 'paprika_sort_order');
   ?>
-      <h1>Festival <?php the_title(); ?> </h1>
         <p>
             <?php 
                 echo wpautop(the_content());
