@@ -1,14 +1,48 @@
 .staff {
-  &__title,
-  &__name {
-    display: inline;
-    font-size: 1.3rem;
-  }
-  &__name {
-    &::after {
-      content: "|";
-      display: inline-block;
-      padding: 0 10px;
-    }
-  }
+	&__photo {
+		position: relative;
+	}
+	&__block {
+		padding: 32px;
+		margin: 64px 0;
+		&:nth-child(2n) {
+			background-color: rgba(167, 68, 130, 0.1);
+		}
+	}
+	&__title,
+	p {
+		margin: 0;
+	}
+	.block-link {
+		margin: 8px 0 16px;
+	}
+	&__photo--reverse {
+		img {
+			margin-left: auto;
+		}
+		.staff__name {
+			right: 0;
+			left: auto;
+		}
+	}
+	&__name {
+		position: absolute;
+		bottom: 0;
+		padding: 16px;
+		z-index: 10;
+		margin: 0;
+		&::before {
+			content: "";
+			padding: 0 16px;
+			display: block;
+			top: 0;
+			bottom: 0;
+			left: -16px;
+			width: 100%;
+			background: $programs_primary;
+			position: absolute;
+			z-index: -1;
+			transform: skew(20deg);
+		}
+	}
 }
