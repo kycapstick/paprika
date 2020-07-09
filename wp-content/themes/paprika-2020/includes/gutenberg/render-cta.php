@@ -22,7 +22,7 @@
                     if (pg_is_valid('string', $attributes->title)):
                 ?>
                     <h2 class="cta-block__title subtitle">
-                        <?php echo $attributes->title ?>
+                        <?php echo esc_html( $attributes->title ) ?>
                     </h2>
                 <?php
                     endif;

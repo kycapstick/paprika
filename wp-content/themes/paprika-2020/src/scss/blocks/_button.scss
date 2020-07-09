@@ -1,7 +1,9 @@
-.wp-block-button {
-	&__link {
-		border-radius: 0;
-		// background-color: #fff;
-		color: $grey-main;
+.btn {
+	margin-top: 24px;
+	padding: 16px;
+	&--dark {
+		background-color: $programs_primary;
+		border: 3px solid white;
+		color: white;
 	}
 }

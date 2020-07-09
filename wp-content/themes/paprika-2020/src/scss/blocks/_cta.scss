@@ -1,7 +1,16 @@
 .cta-block {
 	text-align: center;
 	padding: 128px 0;
+	color: #fff;
 	&__title {
-		margin-bottom: 0;
+		margin: 0;
+	}
+	.wp-block-button {
+		&__link {
+			border-radius: 0;
+			background-color: #fff;
+			color: $grey-main;
+			font-weight: bold;
+		}
 	}
 }

@@ -7,21 +7,48 @@
     );
     $land_acknowledgement = get_posts($query_args);
     ?>
-    <footer class="container">
+    <footer class="footer">
     <?php
         if (!empty($land_acknowledgement)):
     ?>
         <div class="footer__land">
-            <h3><?php echo $land_acknowledgement[0]->post_title ?></h3>
-            <p><?php echo $land_acknowledgement[0]->post_content ?></p>
+            <div class="container">
+                <div class="flex">
+                    <div class="footer__land__title col-6">
+                        <h3 class="subtitle"><?php echo $land_acknowledgement[0]->post_title ?></h3>
+                    </div>
+                    <div class="footer__land__copy col-6">
+                        <p><?php echo $land_acknowledgement[0]->post_content ?></p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="footer__contact">
-            <h3>Signup for our newsletter</h3>
-            <label for="name">Your Name (required) </label>
-            <input type="text" name="name" id="name">
-            <label for="email">Your Email Address (required)</label>
-            <input type="email" name="email" id="email">
-            <input type="submit" value="Subscribe">
+            <div class="container">
+                <div class="flex">
+                    <div class="footer__contact__form col-6">
+                        <form action="/">
+                        <div class="form__field">
+                            <label class="form__label form__label--dark" for="name">Your Name (required) </label>
+                            <input class="form__input" type="text" name="name" id="name">
+                        </div>
+                        <div class="form__field">
+                            <label class="form__label form__label--dark" for="email">Your Email Address (required)</label>
+                            <input class="form__input" type="email" name="email" id="email">
+                        </div>
+                        <input class="btn btn--dark" type="submit" value="Subscribe">
+                    </form>
+                </div>
+                <div class="footer__contact__title col-6">
+                    <h3 class="subtitle subtitle--dark">Signup <span>for our newsletter</span></h3>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="footer__social">
+            <div class="container">
+                <p class="copy copy--dark">Copyright 2020</p>
+            </div>
         </div>
     <?php
         endif;
