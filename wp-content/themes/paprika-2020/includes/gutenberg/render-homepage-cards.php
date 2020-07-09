@@ -34,9 +34,9 @@
                                 endif; 
                                 if (pg_is_valid('string', $titleObjects[$i]->title)):
                             ?>
-                                <h2 class="homepage-cards__title">
+                                <p class="homepage-cards__title card__title card__title--dark">
                                     <?php echo $titleObjects[$i]->title ?>
-                                </h2>
+                                </p>
                             <?php
                                 endif;
                                 if (pg_is_valid('string', $images[$i])):

@@ -11,7 +11,8 @@ html {
 
 h1,
 h2,
-h3 {
+h3,
+.card__title {
 	font-family: $font-heading;
 }
 
@@ -42,6 +43,18 @@ h1 {
 	}
 }
 
+.page__header {
+	font-size: 3.6rem;
+}
+
+.card__title {
+	font-size: 1.8rem;
+	letter-spacing: 0.1;
+	&--dark {
+		color: white;
+	}
+}
+
 .copy,
 p {
 	font-size: 1.6rem;
@@ -52,10 +65,15 @@ p {
 }
 
 label,
-.form__input {
+.form__input,
+.block-link {
 	font-size: 1.8rem;
 }
 
 .btn {
 	font-size: 1.6rem;
+}
+
+.programs {
+	color: $programs_primary;
 }
