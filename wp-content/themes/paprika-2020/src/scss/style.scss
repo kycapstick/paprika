@@ -83,7 +83,8 @@ img {
 	height: auto;
 }
 
-figure {
+figure,
+.wp-block-image {
 	margin: 0;
 }
 
@@ -114,8 +115,11 @@ input {
 @import "./nav";
 @import "./homepage";
 
+@import "./page";
+
 // Blocks
 @import "./blocks/button";
 @import "./blocks/cta";
 @import "./blocks/homepage-cards";
 @import "./blocks/news";
+@import "./blocks/two-up-cards";

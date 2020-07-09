@@ -37,6 +37,7 @@ add_action( 'wp_head', 'paprika_head_metadata' );
 // Block Utilities
 require get_template_directory() . '/includes/gutenberg/customizations.php';
 require get_template_directory() . '/includes/gutenberg/render-blocks.php';
+require get_template_directory() . '/includes/gutenberg/render-content.php';
 
 require get_template_directory() . '/includes/gutenberg/render-column.php';
 
