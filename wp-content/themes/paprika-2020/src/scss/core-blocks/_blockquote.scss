@@ -1,0 +1,19 @@
+blockquote {
+	position: relative;
+	margin-top: 32px;
+	padding: 0 64px;
+	&:before {
+		content: "“";
+		color: $programs_primary;
+		display: block;
+		position: absolute;
+		top: -15px;
+		left: 32px;
+		font-family: sans-serif;
+		font-size: 6rem;
+	}
+	cite {
+		display: block;
+		margin-top: 16px;
+	}
+}

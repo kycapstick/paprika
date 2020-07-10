@@ -6,7 +6,7 @@
             }
             ob_start();
             ?>
-                <div class="container container--no-margin">
+                <div class="container container--no-margin default-block">
                     <?php echo $block['innerHTML'] ?>
                 </div>
             <?php

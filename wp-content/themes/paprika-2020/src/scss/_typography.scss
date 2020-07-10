@@ -63,10 +63,16 @@ h2 {
 }
 
 .copy,
-p {
+p,
+li {
 	font-size: 1.6rem;
 	line-height: 1.6;
 }
+
+blockquote p {
+	font-size: 1.8rem;
+}
+
 .copy--dark {
 	color: white;
 }

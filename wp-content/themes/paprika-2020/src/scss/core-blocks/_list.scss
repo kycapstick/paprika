@@ -1,0 +1,20 @@
+.container.default-block {
+	ul {
+		padding-left: 32px;
+		li {
+			margin: 8px 0;
+			position: relative;
+			&::before {
+				content: "";
+				height: 5px;
+				width: 10px;
+				display: block;
+				background-color: $programs_primary;
+				position: absolute;
+				left: -20px;
+				top: 13px;
+				transform: translateY(-50%) skew(-20deg);
+			}
+		}
+	}
+}
