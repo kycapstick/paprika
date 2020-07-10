@@ -71,7 +71,10 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 
 		// Show Blocks
 		'paprika/show',
-		'paprika/team-member'
+		'paprika/team-member',
+
+		// Form Blocks
+		'paprika/contact-form',
 	);
 
 }

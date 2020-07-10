@@ -15,13 +15,15 @@
         ob_start();
         ?>
             <?php if (pg_is_valid('array', $columns) && count($columns) >= 2 )?>
-            <div class="container">
-                <div class="flex">
-                    <?php 
-                        for ($i = 0; $i < 2; $i = $i + 1):
-                                echo $columns[$i];
-                        endfor; 
-                    ?>
+            <div class="two-columns">
+                <div class="container">
+                    <div class="flex">
+                        <?php 
+                            for ($i = 0; $i < 2; $i = $i + 1):
+                                    echo $columns[$i];
+                            endfor; 
+                        ?>
+                    </div>
                 </div>
             </div>
         <?php

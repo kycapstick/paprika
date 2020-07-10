@@ -70,4 +70,6 @@ require get_template_directory() . '/includes/gutenberg/render-donor-fw.php';
 // Show Blocks
 require get_template_directory() . '/includes/gutenberg/render-show-block.php';
 
+// Form Blocks
+require get_template_directory() . '/includes/gutenberg/render-contact-form.php';
 

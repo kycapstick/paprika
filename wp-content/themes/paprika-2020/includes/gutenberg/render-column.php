@@ -22,11 +22,13 @@
         ob_start();
         ?>
             <div class="col-6">
-                <?php 
-                    foreach($contents as $content) {
-                        echo $content;
-                    }
-                ?>
+                <div class="column">
+                    <?php 
+                        foreach($contents as $content) {
+                            echo $content;
+                        }
+                    ?>
+                </div>
             </div>
         <?php
             return ob_get_clean();

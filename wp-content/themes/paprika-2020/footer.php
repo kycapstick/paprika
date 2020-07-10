@@ -30,11 +30,11 @@
                         <form action="/">
                         <div class="form__field">
                             <label class="form__label form__label--dark" for="name">Your Name (required) </label>
-                            <input class="form__input" type="text" name="name" id="name">
+                            <input class="form__input form__input--dark" type="text" name="name" id="name">
                         </div>
                         <div class="form__field">
                             <label class="form__label form__label--dark" for="email">Your Email Address (required)</label>
-                            <input class="form__input" type="email" name="email" id="email">
+                            <input class="form__input form__input--dark" type="email" name="email" id="email">
                         </div>
                         <input class="btn btn--dark" type="submit" value="Subscribe">
                     </form>
