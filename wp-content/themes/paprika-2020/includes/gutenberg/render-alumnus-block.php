@@ -25,29 +25,26 @@
         ob_start();
         ?>
             <?php if (isset($titleObject) ): ?>
-                    <div class="col-3">
-                        <?php 
-                            if (pg_is_valid('string', $image)):
+                <div class="col-3">
+                    <div class="alumni__single">
+                        <?php if (pg_is_valid('string', $image)){
                                 echo $image;
-                            endif;
-                            if (pg_is_valid('string', $titleObject->title)):
-                        ?>
-                            <p>
+                        } ?>
+                        <?php if (pg_is_valid('string', $titleObject->title)): ?>
+                            <p class="card__title alumni__name">
                                 <?php echo $titleObject->title ?>
                             </p>
-                        <?php
-                            endif;
-                            if (pg_is_valid('string', $titleObject->subtitle)):
-                        ?>
-                            <p><?php echo $titleObject->subtitle ?></p>
-                        <?php
-                            endif; 
+                        <?php endif; ?>
+                        <?php if (pg_is_valid('string', $titleObject->subtitle)): ?>
+                            <p class="alumni__role copy--light"><?php echo $titleObject->subtitle ?></p>
+                        <?php endif; ?>
+                        <?php 
                             if (pg_is_valid('string', $paragraph) && strlen($paragraph) > 9) {
                                 echo $paragraph;
                             }
                         ?>
-                    </>
-            </div>
+                    </div>
+                </div>
             <?php 
                 return ob_get_clean();
                 endif;      

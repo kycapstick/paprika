@@ -16,7 +16,7 @@ h2 {
 }
 
 .container {
-	max-width: 1100px;
+	max-width: 1140px;
 	width: 90%;
 	margin: 0 auto;
 }
@@ -87,6 +87,10 @@ img {
 	height: auto;
 }
 
+p {
+	margin: 0;
+}
+
 figure,
 .wp-block-image {
 	margin: 0;
@@ -121,9 +125,15 @@ input {
 
 @import "./page";
 
-// Blocks
-@import "./blocks/button";
-@import "./blocks/cta";
-@import "./blocks/homepage-cards";
-@import "./blocks/news";
-@import "./blocks/two-up-cards";
+// Core Blocks
+@import "./core-blocks/blockquote";
+@import "./core-blocks/button";
+@import "./core-blocks/list";
+
+// Custom Blocks
+@import "./custom-blocks/alumni";
+@import "./custom-blocks/cta";
+@import "./custom-blocks/homepage-cards";
+@import "./custom-blocks/mason";
+@import "./custom-blocks/news";
+@import "./custom-blocks/two-up-cards";

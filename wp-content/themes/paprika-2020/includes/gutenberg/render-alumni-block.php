@@ -14,11 +14,15 @@
         endforeach;
         ob_start();
         ?>
-            <div class="flex">
-                <?php foreach ($alumni as $alumnus) {
-                    echo $alumnus;
-                }
-            ?>
+            <div class="alumni-block">
+                <div class="container">
+                    <div class="flex">
+                        <?php foreach ($alumni as $alumnus) {
+                            echo $alumnus;
+                        }
+                    ?>
+                    </div>
+                </div>
             </div>
         <?php
             return ob_get_clean();
