@@ -38,6 +38,9 @@ import donorFW from "./blocks/donor-fw";
 import showBlock from "./blocks/show-block";
 import teamMember from "./blocks/reusable/team-member";
 
+// Form Blocks
+import contactFormBlock from "./blocks/contact-form";
+
 // Init Component Blocks
 cardTitleBlock();
 cardTitleCopyBlock();
@@ -79,3 +82,6 @@ locationBlock();
 // Init Show Blocks
 showBlock();
 teamMember();
+
+// Init Form Blocks
+contactFormBlock();

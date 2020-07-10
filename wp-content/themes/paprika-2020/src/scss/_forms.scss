@@ -7,10 +7,18 @@
 		}
 	}
 	&__input {
-		border: 0;
+		border: 1px solid black;
 		padding: 8px 16px;
+		&--dark {
+			border: 1px solid white;
+		}
 	}
 	&__field:nth-child(n + 2) {
 		margin-top: 16px;
 	}
+}
+
+textarea {
+	width: 100%;
+	resize: none;
 }
