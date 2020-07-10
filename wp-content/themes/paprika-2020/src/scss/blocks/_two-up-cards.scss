@@ -4,13 +4,13 @@
 		display: flex;
 		flex-direction: column;
 		flex: 1 0 auto;
-		max-width: calc(50% - 16px);
+		max-width: calc(50% - 12px);
 		&:nth-child(2n + 1) {
-			margin-right: 16px;
+			margin-right: 12px;
 			margin-left: 0;
 		}
 		&:nth-child(2n) {
-			margin-left: 16px;
+			margin-left: 12px;
 			margin-right: 0;
 		}
 	}
@@ -23,7 +23,7 @@
 		position: relative;
 	}
 	p {
-		margin-bottom: 8px 0 16px;
+		margin: 8px 0 16px;
 	}
 	&__title,
 	p.two-up-cards__subtitle {

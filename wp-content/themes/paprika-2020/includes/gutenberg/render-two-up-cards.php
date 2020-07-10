@@ -33,7 +33,7 @@
         ob_start();
         ?>
             <?php if (pg_is_valid('array', $titleObjects) || pg_is_valid('array', $images) )?>
-            <div class="container">
+            <div class="container container--no-margin">
                 <div class="two-up-cards flex">
                     <?php for ($i = 0; $i < 2; $i = $i + 1): ?>
                         <div class="col-6 two-up-cards__card">
