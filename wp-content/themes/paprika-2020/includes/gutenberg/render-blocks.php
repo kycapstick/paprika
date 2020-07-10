@@ -76,6 +76,10 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_two_up_columns($block);
             break;
 
+            default: 
+                $block_content = paprika_render_content($block);
+            break;
+
         }
         return $block_content;
     }

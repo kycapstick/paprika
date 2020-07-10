@@ -1,0 +1,41 @@
+.two-up-cards {
+	margin-bottom: 32px;
+	&__card {
+		display: flex;
+		flex-direction: column;
+		flex: 1 0 auto;
+		max-width: calc(50% - 12px);
+		&:nth-child(2n + 1) {
+			margin-right: 12px;
+			margin-left: 0;
+		}
+		&:nth-child(2n) {
+			margin-left: 12px;
+			margin-right: 0;
+		}
+	}
+	&__copy {
+		background: $programs_primary_transparent;
+		padding: 16px 24px;
+		display: flex;
+		flex-direction: column;
+		flex: 1 0 auto;
+		position: relative;
+	}
+	p {
+		margin: 8px 0 16px;
+	}
+	&__title,
+	p.two-up-cards__subtitle {
+		margin: 0;
+	}
+	.wp-block-button {
+		min-height: 50px;
+		&__link {
+			position: absolute;
+			bottom: 16px;
+			border-radius: 0;
+			background: $programs_primary;
+		}
+	}
+}

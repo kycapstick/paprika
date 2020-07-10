@@ -6,7 +6,7 @@
 		padding: 32px;
 		margin: 64px 0;
 		&:nth-child(2n) {
-			background-color: rgba(167, 68, 130, 0.1);
+			background-color: $programs_primary_transparent;
 		}
 	}
 	&__title,
