@@ -26,7 +26,7 @@
 	}
 	&__text {
 		margin: 0;
-		color: $programs-primary;
+		color: $programs_primary;
 		text-shadow: $box-shadow;
 		margin-left: 32px;
 	}
@@ -39,7 +39,7 @@
 			height: 20px;
 			min-width: 20px;
 			flex-grow: 1;
-			background-image: url("../images/circuit-board.svg"),
+			background-image: url("../images/topography.svg"),
 				linear-gradient($programs-primary, $programs-primary);
 			box-shadow: $box-shadow;
 		}

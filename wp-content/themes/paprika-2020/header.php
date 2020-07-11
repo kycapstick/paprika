@@ -52,10 +52,10 @@
 						</div>
 				<?php endif; ?>
 			</div>
-			<div class="header__subhero">
-				<?php if (is_single()): ?>
-					<a class="breadcrumb header__link" href="/news">Back to News</a>
-				<?php endif;?>
-			</div>
+			<?php if (is_single()): ?>
+				<div class="header__subhero">
+						<a class="breadcrumb header__link" href="/news">Back to News</a>
+				</div>
+			<?php endif;?>
 		</div>
     </header>
