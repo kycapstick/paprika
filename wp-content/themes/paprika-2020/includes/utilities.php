@@ -46,4 +46,21 @@ if (!function_exists('pg_is_valid')) {
     }
 }
 
+if (!function_exists('paprika_parse_content')) {
+    function paprika_parse_content($content) {
+        if (has_blocks($content)):
+            $blocks = parse_blocks($content);
+            $content = '';
+            foreach($blocks as $block) {
+                if ($block['blockName'] === 'core/paragraph') {
+                    $content = $block['innerHTML'];
+                    break;
+                }
+            }
+        endif;
+        return $content;
+    }
+
+}
+
 ?>

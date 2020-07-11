@@ -1,9 +1,12 @@
 $festival_primary: #ec407e;
 
-$programs_primary: #a74482;
-$programs_primary_transparent: rgba(167, 68, 130, 0.15);
+$programs-primary: #a74482;
+$programs-primary-15: rgba(167, 68, 130, 0.15);
 $grey-main: #56494e;
-$grey-20: rgba(86, 73, 78, 0.1);
+$grey-10: rgba(86, 73, 78, 0.1);
+$grey-50: rgba(86, 73, 78, 0.5);
 
 $font-heading: "Roboto Slab", sans-serif;
 $font-copy: "Roboto", sans-serif;
+
+$box-shadow: 3px 3px 0 black;

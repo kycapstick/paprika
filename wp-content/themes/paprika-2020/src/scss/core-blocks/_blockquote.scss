@@ -4,7 +4,7 @@ blockquote {
 	padding: 0 64px;
 	&:before {
 		content: "“";
-		color: $programs_primary;
+		color: $programs-primary;
 		display: block;
 		position: absolute;
 		top: -15px;

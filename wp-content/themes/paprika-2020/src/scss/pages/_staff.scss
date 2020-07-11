@@ -3,10 +3,11 @@
 		position: relative;
 	}
 	&__block {
-		padding: 32px;
+		padding: 32px 0;
 		margin: 64px 0;
 		&:nth-child(2n) {
-			background-color: $programs_primary_transparent;
+			padding: 64px 0;
+			background-color: $programs-primary-15;
 		}
 	}
 	&__title,
@@ -39,7 +40,7 @@
 			bottom: 0;
 			left: -16px;
 			width: 100%;
-			background: $programs_primary;
+			background: $programs-primary;
 			position: absolute;
 			z-index: -1;
 			transform: skew(20deg);

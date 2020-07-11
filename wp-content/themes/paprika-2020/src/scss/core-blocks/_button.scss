@@ -2,8 +2,11 @@
 	margin-top: 24px;
 	padding: 16px;
 	&--dark {
-		background-color: $programs_primary;
+		background-color: $programs-primary;
 		border: 3px solid white;
 		color: white;
+	}
+	&--no-brdr {
+		border: 0;
 	}
 }
