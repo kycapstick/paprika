@@ -27,6 +27,8 @@
 	&__text {
 		margin: 0;
 		color: $programs_primary;
+		text-shadow: $box-shadow;
+		margin-left: 32px;
 	}
 	&__banner {
 		width: 100%;
@@ -34,16 +36,22 @@
 		align-items: center;
 		margin-top: 32px;
 		&__bar {
-			height: 10px;
+			height: 20px;
 			min-width: 20px;
 			flex-grow: 1;
-			background-color: $programs_primary;
-			margin-right: 32px;
+			background-image: url("../images/topography.svg"),
+				linear-gradient($programs-primary, $programs-primary);
+			box-shadow: $box-shadow;
 		}
+	}
+	&__subhero {
+		padding-top: 32px;
+		text-align: right;
 	}
 }
 
 .home .header {
+	color: white;
 	background: $festival_primary;
 	.container {
 		min-height: 100vh;

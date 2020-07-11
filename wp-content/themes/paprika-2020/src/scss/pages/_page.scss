@@ -1,0 +1,55 @@
+main {
+	.container {
+		&--no-margin {
+			margin: 0 auto;
+		}
+	}
+	h2 {
+		margin: 64px 0 16px;
+	}
+}
+
+.post {
+	&__content {
+		.container {
+			margin: 0;
+		}
+		&:nth-child(2n) {
+			background-color: $programs-primary-15;
+		}
+	}
+	&__list {
+		padding-right: 20px;
+	}
+	&__aside {
+		padding-left: 20px;
+	}
+	&__card {
+		padding: 32px;
+		h2 {
+			margin-top: 0;
+		}
+	}
+	&__link {
+		color: black;
+	}
+	&__recent {
+		&__link {
+			color: $programs-primary;
+			display: block;
+			padding: 4px 0;
+		}
+	}
+	&__archive {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		li {
+			flex-basis: auto;
+			a {
+				color: $programs-primary;
+				padding: 10px 10px 10px 0;
+			}
+		}
+	}
+}

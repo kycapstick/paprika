@@ -23,7 +23,6 @@
 				</div>
 			</nav>
 			<div class="header__hero">
-
 				<?php if (!empty($hero_text)): ?>
 					<h1 class="hero-text">
 						<?php foreach($hero_text as $hero_string): ?>
@@ -39,12 +38,24 @@
 							<div class="header__banner__bar">
 							</div>
 							<div class="header__title">
-								<h1 class="header__text"><?php echo is_singular('festival') ? 'Festival ' . get_the_title() : get_the_title(); ?></h1>
+								<?php 
+									if (is_archive() ):
+								?>	
+									<?php $archive_title = explode(': ', get_the_archive_title()) ?>
+									<h1 class="header__text"><?php echo $archive_title[1]; ?></h1>
+								<?php
+									elseif (!is_single()): 
+								?>
+									<h1 class="header__text"><?php echo is_singular('festival') ? 'Festival ' . get_the_title() : get_the_title(); ?></h1>
+								<?php endif; ?>
 							</div>
 						</div>
 				<?php endif; ?>
 			</div>
-			<div class="header__subhero">
-			</div>
+			<?php if (is_single()): ?>
+				<div class="header__subhero">
+						<a class="breadcrumb header__link" href="/news">Back to News</a>
+				</div>
+			<?php endif;?>
 		</div>
     </header>

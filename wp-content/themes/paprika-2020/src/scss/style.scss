@@ -119,11 +119,14 @@ input {
 @import "./footer";
 @import "./forms";
 
-@import "./staff";
 @import "./nav";
-@import "./homepage";
 
-@import "./page";
+// Pages
+
+@import "./pages/homepage";
+@import "./pages/page";
+@import "./pages/staff";
+@import "./pages/single-post";
 
 // Core Blocks
 @import "./core-blocks/blockquote";

@@ -1,0 +1,86 @@
+<?php 
+	get_header();
+?>
+
+<?php 
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+    $args = array( 'posts_per_page' => 10, 'paged' => $paged,'post_type' => 'post' );
+    $postslist = new WP_Query( $args );
+    ?>
+    <div class="container">
+        <div class="flex">
+            <main class="col-8 post__list">
+            <?php
+            if ( $postslist->have_posts() ) :
+                while ( $postslist->have_posts() ) : $postslist->the_post(); 
+                if (intval(get_the_id()) === 439) {
+                    continue;
+                }
+            ?>
+                    <div class="post__content">
+                        <div class="continer">
+                            <a href="<?php echo get_permalink(); ?>" class="post__link">
+                                <article class="post__card">
+                                    <h2><?php echo the_title() ?></h2>
+                                    <?php
+                                        $content = get_the_content();
+                                        $content = paprika_parse_content($content); 
+                                        echo wpautop( $content );
+                                    ?>
+                                    <div class="post__button">
+                                        <button class="btn btn--dark btn--no-brdr">Read More</button>
+                                    </div>
+                                </article> 
+                            </a>
+                        </div>
+                    </div>
+                    <?php 
+                    endwhile;
+                    ?>
+                    <div class="pagination__links">
+                        <div class="container">
+                            <?php 
+                                next_posts_link( 'Older Entries', $postslist->max_num_pages );
+                                previous_posts_link( 'Next Entries &raquo;' ); 
+                                ?>
+                        </div>
+                        
+                    </div>
+                    <?php 
+                    wp_reset_postdata();
+                endif;
+                ?>
+            </main>
+            <aside class="post__aside col-3">
+                <div>
+                <h3 class="card__header">Recent Posts</h3>
+                <?php 
+                    $recent_args = array('numberposts' => 5);
+                    $recent_posts = get_posts($recent_args);
+                    if (!empty($recent_posts)):
+                        ?>
+                        <ul>
+                            <?php foreach($recent_posts as $recent_post): ?>
+                                <li>
+                                    <a class="post__recent__link" href="<?php echo get_the_permalink($recent_post->ID) ?>"><?php echo $recent_post->post_title ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
+                <div>
+                    <h3 class="card__header">Archives</h3>
+                    <ul class="post__archive">
+                        <?php
+                            wp_get_archives('type=yearly');
+                        ?>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+<?php 
+    get_footer();
+?>
