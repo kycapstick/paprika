@@ -31,7 +31,8 @@ import newsBlock from "./blocks/news";
 import locationBlock from "./blocks/location";
 
 // Donor Blocks
-import donorTwoUp from "./blocks/donor-two-up";
+import donorsBlock from "./blocks/donor-container";
+import donorTwoUp from "./blocks/reusable/donor-two-up";
 import donorFW from "./blocks/donor-fw";
 
 // Show Blocks
@@ -40,6 +41,8 @@ import teamMember from "./blocks/reusable/team-member";
 
 // Form Blocks
 import contactFormBlock from "./blocks/contact-form";
+
+console.log("running");
 
 // Init Component Blocks
 cardTitleBlock();
@@ -71,6 +74,7 @@ masonThreeUpBlock();
 imageTextBlock();
 
 // Init Donor Blocks
+donorsBlock();
 donorTwoUp();
 donorFW();
 

@@ -64,6 +64,7 @@ require get_template_directory() . '/includes/gutenberg/render-location.php';
 require get_template_directory() . '/includes/gutenberg/render-artist-block.php';
 
 // Donor Blocks
+require get_template_directory() . '/includes/gutenberg/render-donors.php';
 require get_template_directory() . '/includes/gutenberg/render-donor-two-up.php';
 require get_template_directory() . '/includes/gutenberg/render-donor-fw.php';
 

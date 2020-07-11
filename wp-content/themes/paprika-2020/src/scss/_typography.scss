@@ -76,13 +76,18 @@ blockquote p {
 	font-size: 1.8rem;
 }
 
-.copy--dark {
-	color: white;
-}
-
-.copy--light {
-	font-weight: lighter;
-	font-style: italic;
+.copy {
+	&--large {
+		font-size: 9rem;
+		font-weight: bold;
+	}
+	&--dark {
+		color: white;
+	}
+	&--light {
+		font-weight: lighter;
+		font-style: italic;
+	}
 }
 
 label,
