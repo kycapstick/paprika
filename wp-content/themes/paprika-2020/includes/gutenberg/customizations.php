@@ -62,6 +62,7 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 		
 		// Donor Blocks
 		'paprika/donor-fw',
+		'paprika/donors',
 		'paprika/donor-two-up', 
 
 		// Post Blocks

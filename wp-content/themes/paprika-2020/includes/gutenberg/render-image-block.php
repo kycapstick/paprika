@@ -14,22 +14,18 @@
         endforeach;
         $attributes = pg_get_attributes($block, $fields);
         ob_start();
-            if (pg_is_valid('string', $attributes->title)):
         ?>
             <div class="image-block">
                 <div class="container">
-                    <h2 class="subtitle">
-                        <?php echo $attributes->title ?>
-                    </h2>
-                <?php
-                    endif;
-                    if (pg_is_valid('string', $image)):
-                        ?>
-                        <?php 
+                    <?php
+                        if (pg_is_valid('string', $attributes->title)):
+                    ?>
+                        <h2 class="subtitle"> <?php echo $attributes->title ?></h2>
+                    <?php endif; ?>
+                    <?php 
+                        if (pg_is_valid('string', $image)) {
                             echo $image;
-                        ?>
-                        <?php 
-                    endif;
+                        }
                     ?>
                 </div>
             </div>

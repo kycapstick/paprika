@@ -44,8 +44,8 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_artist_block($block);
             break;
 
-            case 'paprika/donor-two-up':
-                $block_content = paprika_render_donor_two_up($block);
+            case 'paprika/donors':
+                $block_content = paprika_render_donors_block($block);
             break;
 
             case 'paprika/donor-fw':

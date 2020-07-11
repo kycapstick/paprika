@@ -14,6 +14,7 @@ export default function paprikaDonorTwoUpBlock() {
 		description: i18n.__(blockDescription),
 		category: blockCategory,
 		icon: blockIcon,
+		parent: ["paprika/donors"],
 		edit: (props, editor = false, save = false) => {
 			return [
 				<div
@@ -30,12 +31,10 @@ export default function paprikaDonorTwoUpBlock() {
 								["core/paragraph"],
 								["core/list"],
 								["paprika/fine-print"],
-								["core/button"],
 								["paprika/donor-title"],
 								["core/paragraph"],
 								["core/list"],
 								["paprika/fine-print"],
-								["core/button"],
 							]}
 							templateLock="all"
 						/>

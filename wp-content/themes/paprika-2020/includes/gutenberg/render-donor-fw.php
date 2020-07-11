@@ -30,33 +30,45 @@
         endforeach;
         ob_start();
         ?>
-            <div class="flex">
-                <div class="col-12">
-                    <?php 
-                        if (pg_is_valid('string', $attributes->tier)):
-                    ?>
-                        <h2 class="subtitle">
-                            <?php echo $attributes->tier ?>
-                        </h2>
-                        <?php
-                            endif;
-                            if (pg_is_valid('string', $attributes->title)):
+        <div class="donor-block">
+            <div class="container">
+                <div class="flex flex-center">
+                    <div class="col-8 donor-block__card">
+                        <?php 
+                            if (pg_is_valid('string', $attributes->tier)):
                         ?>
-                            <p><?php echo $attributes->title ?></p>
-                        <?php
-                            endif; 
-                            if (pg_is_valid('string', $paragraph) && strlen($paragraph) > 9) {
-                                echo $paragraph;
-                            }
-                            if (isset($list) && strlen($list) > 9) {
-                                echo $list;
-                            }
-                            if (pg_is_valid('string', $finePrint->copy)) {
-                                echo wpautop($finePrint->copy);
-                            }
-                        ?>
-                    </div>
+                            <p class="copy--large donor-block__price subtitle">
+                                <span>
+                                    <?php echo $attributes->tier ?>
+                                </span>
+                            </p>
+                            <?php
+                                endif;
+                                if (pg_is_valid('string', $attributes->title)):
+                            ?>
+                                <p class="card__title donor-block__title"><?php echo $attributes->title ?></p>
+                            <?php
+                                endif; 
+                                if (pg_is_valid('string', $paragraph) && strlen($paragraph) > 9) {
+                                    echo $paragraph;
+                                }
+                                if (isset($list) && strlen($list) > 9) {
+                                    echo $list;
+                                }
+                                if (pg_is_valid('string', $finePrint->copy)) {
+                                ?>
+                                    <div class="donor-block__fp copy copy--light">
+                                        <?php
+                                            echo wpautop($finePrint->copy);
+                                        ?>
+                                    </div>
+                                <?php
+                                }                                
+                            ?>
+                        </div>
+                </div>
             </div>
+        </div>
         <?php
             return ob_get_clean();
     }
