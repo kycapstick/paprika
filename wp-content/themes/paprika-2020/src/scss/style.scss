@@ -11,7 +11,8 @@ a {
 	text-decoration: none;
 }
 
-h2 {
+h2,
+h3 {
 	margin: 0;
 }
 
@@ -42,8 +43,14 @@ h2 {
 .flex {
 	display: flex;
 	flex-wrap: wrap;
-	&.middle {
+	&--middle {
 		align-items: center;
+	}
+	&--center {
+		justify-content: center;
+	}
+	&--column {
+		flex-direction: column;
 	}
 	.offset {
 		margin-left: 30px;
@@ -71,6 +78,7 @@ h2 {
 .block {
 	display: block;
 }
+
 .center {
 	text-align: center;
 }
@@ -115,19 +123,6 @@ input {
 
 @import "./typography";
 
-@import "./header";
-@import "./footer";
-@import "./forms";
-
-@import "./nav";
-
-// Pages
-
-@import "./pages/homepage";
-@import "./pages/page";
-@import "./pages/staff";
-@import "./pages/single-post";
-
 // Core Blocks
 @import "./core-blocks/blockquote";
 @import "./core-blocks/button";
@@ -144,3 +139,16 @@ input {
 @import "./custom-blocks/news";
 @import "./custom-blocks/two-columns";
 @import "./custom-blocks/two-up-cards";
+
+@import "./header";
+@import "./footer";
+@import "./forms";
+
+@import "./nav";
+
+// Pages
+
+@import "./pages/homepage";
+@import "./pages/page";
+@import "./pages/staff";
+@import "./pages/single-post";

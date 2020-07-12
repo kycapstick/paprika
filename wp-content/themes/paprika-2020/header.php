@@ -54,8 +54,22 @@
 				<?php endif; ?>
 			</div>
 			<?php if (is_single()): ?>
+				<?php 
+					global $post;
+					$referer = wp_get_referer(); 
+					if (pg_is_valid('string', $referer)) {
+						$reference_id = url_to_postid($referer);
+						$post_title = get_the_title($reference_id);
+						if ($post_title === $post->post_title) {
+							$post_title = 'Archives';
+						}
+					}
+				?>
 				<div class="header__subhero">
-						<a class="breadcrumb header__link" href="/news">Back to News</a>
+					<?php if (pg_is_valid('url', $referer) && isset($post_title) && pg_is_valid('string', $post_title)):?>
+						<a class="breadcrumb header__link" href="<?php echo $referer ?>">Back to <?php echo $post_title
+						?> </a>
+					<?php endif; ?>
 				</div>
 			<?php endif;?>
 		</div>

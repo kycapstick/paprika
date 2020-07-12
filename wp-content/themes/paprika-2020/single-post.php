@@ -7,7 +7,7 @@
     <div class="container">
         <div class="container container--no-margin">
             <h1 class="subtitle single-post__title"><?php echo $post->post_title ?></h1>
-            <p>Posted on <?php echo gmdate('F d, Y', strtotime( $post->post_date)); ?> by <a href="<?php echo $author_url; ?>"><?php echo $author_name ?></a></p>
+            <p class="post__byline single-post__byline">Posted on <?php echo gmdate('F d, Y', strtotime( $post->post_date)); ?> by <a href="<?php echo $author_url; ?>"><?php echo $author_name ?></a></p>
         </div>
         <?php 
             $blocks = parse_blocks($post->post_content);

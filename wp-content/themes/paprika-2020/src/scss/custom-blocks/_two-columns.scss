@@ -1,10 +1,13 @@
 .two-columns {
+	h2 {
+		margin: 0;
+	}
 	.container {
 		max-width: 850px;
 	}
-	// .column {
-	// 	text-align: center;
-	// }
+	.column {
+		margin-top: 64px;
+	}
 	a {
 		color: $programs-primary;
 	}

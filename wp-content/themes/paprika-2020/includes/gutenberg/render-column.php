@@ -22,12 +22,14 @@
         ob_start();
         ?>
             <div class="col-6">
-                <div class="column">
-                    <?php 
-                        foreach($contents as $content) {
-                            echo $content;
-                        }
-                    ?>
+                <div class="column flex--middle flex flex--column">
+                    <div>
+                        <?php 
+                            foreach($contents as $content) {
+                                echo $content;
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         <?php

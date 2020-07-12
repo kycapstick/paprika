@@ -5,7 +5,7 @@
   $title = get_post_meta($post->ID, 'title', true);
 ?>
 <main class="container">
-  <div class="flex middle">
+  <div class="flex flex--middle">
     <?php if (has_post_thumbnail($post->ID)): ?>
     <figure class="col-4">
       <?php echo get_the_post_thumbnail($post->ID) ?>

@@ -84,9 +84,13 @@ if (!function_exists('paprika_custom_colors')) {
 if (!function_exists('paprika_get_page_parent')) {
     function paprika_get_page_parent() { 
         global $post; 
+        if (empty($post)) {
+            return;
+        }
         $ancestors = get_post_ancestors($post);
         if (!empty($ancestors)) { 
-            return $ancestors[0]; 
+            $index = intval(count($ancestors)) - 1;
+            return $ancestors[$index]; 
         } else { 
             return $post->ID; 
         } 

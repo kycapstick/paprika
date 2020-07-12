@@ -52,10 +52,10 @@ get_header();
 				<li>
 						<a href="<?php echo get_post_permalink($program_id) ?>">
 						<?php 
-              if (get_the_post_thumbnail($program_id)):
-                echo get_the_post_thumbnail($program_id);
-              else:  
-            ?>
+							if (get_the_post_thumbnail($program_id)):
+								echo get_the_post_thumbnail($program_id);
+							else:  
+						?>
 						<h4>							
 								<?php echo str_replace(get_the_title(), '', $program->post_title) ?>
 						</h4>
