@@ -76,6 +76,7 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 
 		// Form Blocks
 		'paprika/contact-form',
+		'paprika/schedule',
 	);
 
 }

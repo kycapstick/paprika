@@ -1,0 +1,73 @@
+.schedule {
+	&__toggle {
+		&__single {
+			display: none;
+			&:checked + label {
+				background-color: $festivals-primary;
+				color: white;
+			}
+		}
+	}
+	&__card {
+		min-height: 200px;
+		background-color: $grey-50;
+		max-width: 300px;
+		position: relative;
+		background-position: center;
+		&__overlay {
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: white;
+			background-color: $festivals-95;
+			transition: opacity 0.3s ease-in-out;
+			&__title {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				transform: translateY(-50%);
+				text-align: center;
+			}
+		}
+		&:hover {
+			.schedule__card__overlay {
+				opacity: 1;
+			}
+			.schedule__time .active::before {
+				background-color: black;
+			}
+		}
+	}
+	&__time {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		z-index: 10;
+		padding: 10px 0 10px 48px;
+		color: white;
+		span {
+			display: none;
+		}
+		.active {
+			display: block;
+			&::before {
+				content: "";
+				width: 100%;
+				position: absolute;
+				transition: background-color 0.3s ease-in-out;
+				background-color: $festivals-primary;
+				display: block;
+				top: 0;
+				bottom: 0;
+				left: auto;
+				right: -24px;
+				transform: skew(-20deg);
+				z-index: -1;
+			}
+		}
+	}
+}

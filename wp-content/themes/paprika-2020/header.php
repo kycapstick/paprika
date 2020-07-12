@@ -40,12 +40,12 @@
 							</div>
 							<div class="header__title">
 								<?php 
-									if (is_archive() ):
+									if (is_archive()):
 								?>	
 									<?php $archive_title = explode(': ', get_the_archive_title()) ?>
 									<h1 class="header__text"><?php echo $archive_title[1]; ?></h1>
 								<?php
-									elseif (!is_single()): 
+									elseif (is_singular('festival') || !is_single()): 
 								?>
 									<h1 class="header__text"><?php echo is_singular('festival') ? 'Festival ' . get_the_title() : get_the_title(); ?></h1>
 								<?php endif; ?>
@@ -53,13 +53,14 @@
 						</div>
 				<?php endif; ?>
 			</div>
-			<?php if (is_single()): ?>
+			<?php if (is_single() && !is_singular('festival')): ?>
 				<?php 
 					global $post;
 					$referer = wp_get_referer(); 
 					if (pg_is_valid('string', $referer)) {
 						$reference_id = url_to_postid($referer);
 						$post_title = get_the_title($reference_id);
+						$post_type = get_post_type($reference_id);
 						if ($post_title === $post->post_title) {
 							$post_title = 'Archives';
 						}
@@ -67,8 +68,9 @@
 				?>
 				<div class="header__subhero">
 					<?php if (pg_is_valid('url', $referer) && isset($post_title) && pg_is_valid('string', $post_title)):?>
-						<a class="breadcrumb header__link" href="<?php echo $referer ?>">Back to <?php echo $post_title
-						?> </a>
+						<a class="breadcrumb header__link" href="<?php echo $referer ?>">
+							Back to <?php echo $post_type === 'festival' ? 'Festival ' . $post_title : $post_title ?> 
+						</a>
 					<?php endif; ?>
 				</div>
 			<?php endif;?>

@@ -1,0 +1,23 @@
+.default-block {
+	p {
+		margin: 8px 0;
+	}
+	h3 {
+		margin-top: 32px;
+	}
+	&.page-festivals {
+		a {
+			color: $festivals-primary;
+		}
+	}
+	&.page-press {
+		a {
+			color: $media-primary;
+		}
+	}
+	&.page-support {
+		a {
+			color: $sponsors-primary;
+		}
+	}
+}

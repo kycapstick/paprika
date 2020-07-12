@@ -41,6 +41,7 @@ import teamMember from "./blocks/reusable/team-member";
 
 // Form Blocks
 import contactFormBlock from "./blocks/contact-form";
+import scheduleBlock from "./blocks/schedule";
 
 console.log("running");
 
@@ -89,3 +90,4 @@ teamMember();
 
 // Init Form Blocks
 contactFormBlock();
+scheduleBlock();

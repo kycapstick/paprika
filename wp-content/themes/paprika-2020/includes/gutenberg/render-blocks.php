@@ -79,6 +79,10 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
             case 'paprika/contact-form':
                 $block_content = paprika_render_contact_form($block);
             break;
+            
+            case 'paprika/schedule':
+                $block_content = paprika_render_schedule($block);
+            break;
 
             default: 
                 $block_content = paprika_render_content($block);

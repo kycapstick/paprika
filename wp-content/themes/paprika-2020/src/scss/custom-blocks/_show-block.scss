@@ -1,0 +1,36 @@
+.show-block {
+	margin-top: 64px;
+	a {
+		color: $festivals-primary;
+	}
+	&__subheader {
+		margin-top: 8px;
+	}
+	&__date {
+		position: relative;
+		padding-left: 32px;
+		&::before {
+			position: absolute;
+			content: url(../images/calendar.svg);
+			display: inline-block;
+			left: 0;
+			top: 3px;
+		}
+		&__link {
+			margin-top: 16px;
+			display: block;
+		}
+		&__alt {
+			margin-top: 0;
+		}
+	}
+	&__team {
+		padding-right: 24px;
+		&__member {
+			margin-top: 5px;
+		}
+		p {
+			margin-top: 8px;
+		}
+	}
+}

@@ -1,7 +1,4 @@
 .container.default-block {
-	p {
-		margin: 8px 0;
-	}
 	ul {
 		padding-left: 32px;
 		li {
@@ -18,6 +15,21 @@
 				top: 13px;
 				transform: translateY(-50%) skew(-20deg);
 			}
+		}
+	}
+	&.page-festivals {
+		ul li::before {
+			background-color: $festivals-primary;
+		}
+	}
+	&.page-press {
+		ul li::before {
+			background-color: $media-primary;
+		}
+	}
+	&.page-support {
+		ul li::before {
+			background-color: $sponsors-primary;
 		}
 	}
 }

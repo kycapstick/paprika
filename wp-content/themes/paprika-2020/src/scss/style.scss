@@ -20,6 +20,10 @@ h3 {
 	max-width: 1140px;
 	width: 90%;
 	margin: 0 auto;
+	&--thin {
+		max-width: 1000px;
+		width: 85%;
+	}
 }
 
 .title {
@@ -126,6 +130,7 @@ input {
 // Core Blocks
 @import "./core-blocks/blockquote";
 @import "./core-blocks/button";
+@import "./core-blocks/default";
 @import "./core-blocks/list";
 
 // Custom Blocks
@@ -134,9 +139,12 @@ input {
 @import "./custom-blocks/cta";
 @import "./custom-blocks/donor-blocks";
 @import "./custom-blocks/homepage-cards";
+@import "./custom-blocks/image-text";
 @import "./custom-blocks/mason";
 @import "./custom-blocks/media-quote";
 @import "./custom-blocks/news";
+@import "./custom-blocks/schedule";
+@import "./custom-blocks/show-block";
 @import "./custom-blocks/two-columns";
 @import "./custom-blocks/two-up-cards";
 

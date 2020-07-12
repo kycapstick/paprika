@@ -1,17 +1,17 @@
-export default function contactFormBlock() {
+export default function scheduleBlock() {
 	/**
-	 * CONTACT FORM GUTENBERG BLOCK
+	 * SCHEDULE GUTENBERG BLOCK
 	 */
 
 	const { registerBlockType } = wp.blocks;
 	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	registerBlockType("paprika/contact-form", {
-		title: i18n.__("Contact Form Block"),
-		description: i18n.__("Builds a contact form"),
+	registerBlockType("paprika/schedule", {
+		title: i18n.__("Schedule Block"),
+		description: i18n.__("Builds a schedule"),
 		category: "post-blocks",
-		icon: "admin-customizer", // Dashicons: https://developer.wordpress.org/resource/dashicons/
+		icon: "calendar-alt", // Dashicons: https://developer.wordpress.org/resource/dashicons/
 		edit: (props, editor = false, save = false) => {
 			return [
 				<div
@@ -20,7 +20,7 @@ export default function contactFormBlock() {
 					}`}
 				>
 					<div>
-						<p> This non-editable block adds a contact form.</p>
+						<p> This non-editable block adds a schedule.</p>
 						{save ? (
 							<InnerBlocks.Content />
 						) : (

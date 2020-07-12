@@ -15,4 +15,13 @@
 	&--no-brdr {
 		border: 0;
 	}
+	&--schedule {
+		display: block;
+		margin-top: 0;
+		background-color: white;
+		border: 1px solid $festivals-primary;
+		color: black;
+		margin-right: 10px;
+		padding: 10px 32px;
+	}
 }

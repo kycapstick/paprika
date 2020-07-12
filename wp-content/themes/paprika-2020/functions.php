@@ -73,4 +73,5 @@ require get_template_directory() . '/includes/gutenberg/render-show-block.php';
 
 // Form Blocks
 require get_template_directory() . '/includes/gutenberg/render-contact-form.php';
+require get_template_directory() . '/includes/gutenberg/render-schedule.php';
 

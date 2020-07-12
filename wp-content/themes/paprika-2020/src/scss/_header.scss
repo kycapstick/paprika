@@ -92,8 +92,11 @@
 }
 
 .page-support {
-	.header__text {
+	.header__text,
+	.header__link {
 		color: $sponsors-primary;
+	}
+	.header__text {
 		text-shadow: $box-shadow;
 	}
 	.header__banner__bar {
@@ -104,8 +107,11 @@
 }
 
 .page-support {
-	.header__text {
+	.header__text,
+	.header__link {
 		color: $sponsors-primary;
+	}
+	.header__text {
 		text-shadow: $box-shadow;
 	}
 	.header__banner__bar {
@@ -116,8 +122,11 @@
 }
 
 .page-festivals {
-	.header__text {
+	.header__text,
+	.header__link {
 		color: $festivals-primary;
+	}
+	.header__text {
 		text-shadow: $box-shadow;
 	}
 	.header__banner__bar {
