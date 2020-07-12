@@ -4,12 +4,24 @@
 	color: #fff;
 	background-color: $programs-primary;
 	margin: 64px 0;
+	&.page-support {
+		background-color: $sponsors-primary;
+	}
+	&.page-press {
+		background-color: $media-primary;
+	}
+	&.page-festivals {
+		background-color: $festivals-primary;
+	}
 	&__title {
 		margin: 0 auto;
 		max-width: 50%;
 		& + .wp-block-button {
 			margin-top: 32px;
 		}
+	}
+	&__copy {
+		margin: 16px 0;
 	}
 	.wp-block-button {
 		&__link {

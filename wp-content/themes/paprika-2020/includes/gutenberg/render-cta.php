@@ -14,9 +14,10 @@
                 break;
             }
         endforeach;
+        $cta_class = paprika_custom_colors();
         ob_start();
         ?>
-        <div class="cta-block">
+        <div class="cta-block <?php echo $cta_class ?>">
             <div class="container">
                 <?php
                     if (pg_is_valid('string', $attributes->title)):

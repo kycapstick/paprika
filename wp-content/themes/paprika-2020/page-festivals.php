@@ -1,20 +1,31 @@
 <?php 
 get_header();
-$args = array(
-	'post_type' => 'festival',
-	'post_status' => 'publish',
-	'posts_per_page' => '-1',
-	'orderby' => 'title',
-	'order' => 'DESC'
-);
-
-$posts = new WP_Query($args);
 ?> 
 <main>
 	<h1>Festivals</h1>
 	<?php
+		if ( have_posts() ) : 
+			while ( have_posts() ) : the_post(); 
+				$meta = get_post_meta($post->ID);
+			?>
+			<?php 
+				echo the_content();
+			?>
+		<?php 
+			endwhile; 
+			endif; 
+		$args = array(
+			'post_type' => 'festival',
+			'post_status' => 'publish',
+			'posts_per_page' => '-1',
+			'orderby' => 'title',
+			'order' => 'DESC'
+		);
+
+	$posts = new WP_Query($args);
+	
 	while ($posts->have_posts() ):
-	$posts->the_post();
+		$posts->the_post();
 		$programs = get_post_meta($post->ID, 'programs', true);
 		usort($programs, 'paprika_sort_order');
 		$location_id = get_post_meta($post->ID, 'location', true);
@@ -41,10 +52,10 @@ $posts = new WP_Query($args);
 				<li>
 						<a href="<?php echo get_post_permalink($program_id) ?>">
 						<?php 
-              if (get_the_post_thumbnail($program_id)):
-                echo get_the_post_thumbnail($program_id);
-              else:  
-            ?>
+							if (get_the_post_thumbnail($program_id)):
+								echo get_the_post_thumbnail($program_id);
+							else:  
+						?>
 						<h4>							
 								<?php echo str_replace(get_the_title(), '', $program->post_title) ?>
 						</h4>

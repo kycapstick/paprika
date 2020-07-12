@@ -36,7 +36,7 @@
                             </p>
                         <?php endif; ?>
                         <?php if (pg_is_valid('string', $titleObject->subtitle)): ?>
-                            <p class="alumni__role copy--light"><?php echo $titleObject->subtitle ?></p>
+                            <p class="alumni__role copy--light copy--italic"><?php echo $titleObject->subtitle ?></p>
                         <?php endif; ?>
                         <?php 
                             if (pg_is_valid('string', $paragraph) && strlen($paragraph) > 9) {

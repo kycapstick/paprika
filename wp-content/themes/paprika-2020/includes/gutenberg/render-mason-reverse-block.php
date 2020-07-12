@@ -33,7 +33,7 @@
                                 endif; 
                                 if (pg_is_valid('string', $titleObjects[0]->title)):
                             ?>
-                                <h3 class="subtitle mason__title">
+                                <h3 class="subtitle mason-block__title">
                                     <?php echo $titleObjects[0]->title ?>
                                 </h3>
                             <?php
@@ -57,7 +57,7 @@
                                 endif;
                                 if (pg_is_valid('string', $titleObjects[1]->title)):
                             ?>
-                                <h3 class="mason__title subtitle">
+                                <h3 class="mason-block__title subtitle">
                                     <?php echo $attributes->title ?>
                                 </h3>
                             <?php

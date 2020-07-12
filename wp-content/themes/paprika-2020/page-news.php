@@ -10,29 +10,35 @@
     ?>
     <div class="container">
         <div class="flex">
-            <main class="col-8 post__list">
+            <main class="col-9 post__list">
             <?php
             if ( $postslist->have_posts() ) :
                 while ( $postslist->have_posts() ) : $postslist->the_post(); 
                 if (intval(get_the_id()) === 439) {
                     continue;
                 }
+                    $author_name = get_the_author_meta('display_name', $post->post_author);
+                    $author_url = get_author_posts_url($post->post_author);
             ?>
+                <div>
+                    <h2>R</h2>
+                </div>
                     <div class="post__content">
                         <div class="continer">
-                            <a href="<?php echo get_permalink(); ?>" class="post__link">
-                                <article class="post__card">
-                                    <h2><?php echo the_title() ?></h2>
-                                    <?php
-                                        $content = get_the_content();
-                                        $content = paprika_parse_content($content); 
-                                        echo wpautop( $content );
-                                    ?>
-                                    <div class="post__button">
-                                        <button class="btn btn--dark btn--no-brdr">Read More</button>
-                                    </div>
-                                </article> 
-                            </a>
+                            <article class="post__card">
+                                <h2 class="post__card__title"><?php echo the_title() ?></h2>
+                                <p class="post__card__byline copy--light">Posted on <?php echo gmdate('F d, Y', strtotime( $post->post_date)); ?> by <a href="<?php echo $author_url; ?>"><?php echo $author_name ?></a></p>
+                                <?php
+                                    $content = get_the_content();
+                                    $content = paprika_parse_content($content); 
+                                    echo wp_kses_post( wpautop( wp_strip_all_tags( $content ) ) );
+                                ?> 
+                                <div class="post__button">
+                                    <a href="<?php echo get_permalink(); ?>" class="post__link btn btn--dark btn--no-brdr">
+                                        Read More
+                                    </a>
+                                </div>
+                            </article> 
                         </div>
                     </div>
                     <?php 

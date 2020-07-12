@@ -1,7 +1,10 @@
-.mason {
+.mason-block {
+	margin-top: 64px;
 	&__title {
-		border-bottom: 2px solid black;
 		display: block;
-		margin: 32px 10px 16px;
+		margin: 32px 0 16px;
+	}
+	& + .mason-block {
+		margin-top: 0;
 	}
 }
