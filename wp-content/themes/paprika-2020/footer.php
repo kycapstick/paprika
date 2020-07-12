@@ -6,6 +6,7 @@
         'numberposts' => 1,
     );
     $land_acknowledgement = get_posts($query_args);
+    $footer_class = paprika_custom_colors();
     ?>
     <footer class="footer">
     <?php
@@ -23,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer__contact">
+        <div class="footer__contact <?php echo $footer_class ?>">
             <div class="container">
                 <div class="flex">
                     <div class="footer__contact__form col-6">

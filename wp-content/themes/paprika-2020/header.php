@@ -2,11 +2,12 @@
 	wp_head();
 	$hero_text = get_field('hero_text');
 	$hero_text = stripos($hero_text, '\n' ) !== false ? explode('\n', $hero_text) : null;
-    $hero_subtitle = get_field('hero_subtitle');
+	$hero_subtitle = get_field('hero_subtitle');
+	$header_class = paprika_custom_colors();
 ?>
 <body <?php body_class()?> >
 <?php $logo = get_custom_logo(); ?>
-    <header class="header">
+    <header class="header <?php echo $header_class ?>">
 		<div class="container">
 			<nav class="header__nav">
 				<div class="header__nav__logo">

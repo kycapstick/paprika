@@ -52,7 +52,7 @@
 
 .home .header {
 	color: white;
-	background: $festival_primary;
+	background: $festivals-primary;
 	.container {
 		min-height: 100vh;
 	}
@@ -76,5 +76,53 @@
 			top: -83vw;
 			left: -60vw;
 		}
+	}
+}
+
+.page-press {
+	.header__text {
+		color: $media-primary;
+		text-shadow: $box-shadow;
+	}
+	.header__banner__bar {
+		background-image: url("../images/jigsaw.svg"),
+			linear-gradient($media-primary, $media-primary);
+		box-shadow: $box-shadow;
+	}
+}
+
+.page-support {
+	.header__text {
+		color: $sponsors-primary;
+		text-shadow: $box-shadow;
+	}
+	.header__banner__bar {
+		background-image: url("../images/bubbles.svg"),
+			linear-gradient($sponsors-primary, $sponsors-primary);
+		box-shadow: $box-shadow;
+	}
+}
+
+.page-support {
+	.header__text {
+		color: $sponsors-primary;
+		text-shadow: $box-shadow;
+	}
+	.header__banner__bar {
+		background-image: url("../images/connections.svg"),
+			linear-gradient($sponsors-primary, $sponsors-primary);
+		box-shadow: $box-shadow;
+	}
+}
+
+.page-festivals {
+	.header__text {
+		color: $festivals-primary;
+		text-shadow: $box-shadow;
+	}
+	.header__banner__bar {
+		background-image: url("../images/hexagons.svg"),
+			linear-gradient($festivals-primary, $festivals-primary);
+		box-shadow: $box-shadow;
 	}
 }

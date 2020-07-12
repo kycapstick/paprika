@@ -30,6 +30,17 @@
 	p.two-up-cards__subtitle {
 		margin: 0;
 	}
+	&__subtitle {
+		padding-top: 8px;
+		&::before {
+			content: url(../images/age.svg);
+			height: 24px;
+			width: 24px;
+			padding-right: 3px;
+			display: inline-block;
+			transform: translateY(3px);
+		}
+	}
 	.wp-block-button {
 		min-height: 50px;
 		&__link {

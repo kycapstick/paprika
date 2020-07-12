@@ -28,6 +28,24 @@
 				display: block;
 			}
 		}
+		&.page-support {
+			background-color: $sponsors-primary;
+			.btn--dark {
+				background-color: $sponsors-primary;
+			}
+		}
+		&.page-press {
+			background-color: $media-primary;
+			.btn--dark {
+				background-color: $media-primary;
+			}
+		}
+		&.page-festivals {
+			background-color: $festivals-primary;
+			.btn--dark {
+				background-color: $festivals-primary;
+			}
+		}
 	}
 	&__social {
 		padding: 16px 0;

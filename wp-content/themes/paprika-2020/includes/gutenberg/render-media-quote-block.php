@@ -23,32 +23,40 @@
         endforeach;
         ob_start();
         ?>
-            <?php if (pg_is_valid('object', $titleObject) ): ?>
-            <div class="flex">
-                <div class="col-12">
-                    <?php 
-                        if (pg_is_valid('string', $titleObject->title)):
-                        ?>
-                            <h2 class="subtitle">
-                                <?php echo $titleObject->title ?>
-                            </h2>
-                        <?php
-                            endif;
-                            if (pg_is_valid('string', $titleObject->subtitle)):
-                        ?>
-                            <p><?php echo $titleObject->subtitle ?></p>
-                        <?php
-                            endif; 
-                            if (pg_is_valid('string', $paragraph) && strlen($paragraph) > 9) {
-                                echo $paragraph;
-                            }
-                        if (pg_is_valid('string', $button) && strlen($button) > 74):
-                            echo $button;
-                        endif;
-                    ?>
+            <div class="media-quote">
+                <div class="container">
+                    <?php if (pg_is_valid('object', $titleObject) ): ?>
+                        <div class="flex">
+                            <div class="col-12">
+                                <?php  if (pg_is_valid('string', $titleObject->title)): ?>
+                                    <h3 class="media-quote__title">
+                                        <?php echo $titleObject->title ?>
+                                    </h3>
+                                <?php endif; ?>
+                                <div class="flex">
+                                    <div class="col-9">
+                                        <?php if (pg_is_valid('string', $paragraph) && strlen($paragraph) > 9): ?>
+                                            <div class="media-quote__copy">
+                                                <?php echo $paragraph; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        <?php if (pg_is_valid('string', $button) && strlen($button) > 74): ?>
+                                            <div class="media-quote__btn">
+                                                <?php echo $button; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="col-3">
+                                        <?php if (pg_is_valid('string', $titleObject->subtitle)): ?>
+                                            <p class="media-quote__subtitle copy--light"><?php echo $titleObject->subtitle ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
-            <?php endif; ?>
         <?php
             return ob_get_clean();
     }

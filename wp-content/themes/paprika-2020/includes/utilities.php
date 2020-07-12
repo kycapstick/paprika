@@ -63,4 +63,34 @@ if (!function_exists('paprika_parse_content')) {
 
 }
 
+if (!function_exists('paprika_custom_colors')) {
+    function paprika_custom_colors() {
+        $parent_page = paprika_get_page_parent();
+        $slugs = array(
+            'press',
+            'support',
+            'festivals'
+        );
+        foreach ($slugs as $slug) {
+            $page = get_page_by_path($slug);
+            if (is_page($slug) || (isset($page) && intval($parent_page) === intval($page->ID))) {
+                return 'page-' . $slug;
+            }
+        }
+        return 'unset';
+    }
+}
+
+if (!function_exists('paprika_get_page_parent')) {
+    function paprika_get_page_parent() { 
+        global $post; 
+        $ancestors = get_post_ancestors($post);
+        if (!empty($ancestors)) { 
+            return $ancestors[0]; 
+        } else { 
+            return $post->ID; 
+        } 
+    }
+}
+
 ?>

@@ -57,7 +57,7 @@
                                 }
                                 if (pg_is_valid('string', $finePrint->copy)) {
                                 ?>
-                                    <div class="donor-block__fp copy copy--light">
+                                    <div class="donor-block__fp copy copy--light copy--italic">
                                         <?php
                                             echo wpautop($finePrint->copy);
                                         ?>
