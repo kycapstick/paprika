@@ -7,7 +7,6 @@
         ?>
             <div class="schedule-block">
                 <div class="container">
-                    <h2>Schedule</h2>
                     <?php if (isset($date_ids) && is_array($date_ids)): ?>
                         <form class="flex">
                             <?php 
