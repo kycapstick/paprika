@@ -1,0 +1,51 @@
+.participants-block {
+	.container {
+		max-width: 1000px;
+		width: 85%;
+	}
+	&__column {
+		padding-right: calc(100% / 12);
+		margin-top: 32px;
+		&:nth-child(n + 3) {
+			margin-top: 64px;
+		}
+		&:hover {
+			.participants-block__overlay {
+				opacity: 1;
+			}
+			.participants-block__name::before {
+				background-color: black;
+			}
+		}
+	}
+	&__photo {
+		position: relative;
+	}
+	&__name {
+		@extend .name-tag;
+		right: 0;
+		&::before {
+			background-color: $festivals-primary;
+			transition: background-color 0.3s ease-in-out;
+		}
+	}
+	&__overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $festivals-95;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		&__title {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			transform: translateY(-50%);
+			color: white;
+			text-align: center;
+		}
+	}
+}

@@ -45,7 +45,7 @@
 									<?php $archive_title = explode(': ', get_the_archive_title()) ?>
 									<h1 class="header__text"><?php echo $archive_title[1]; ?></h1>
 								<?php
-									elseif (is_singular('festival') || !is_single()): 
+									elseif (is_singular('festival') || is_singular('program') || !is_single()): 
 								?>
 									<h1 class="header__text"><?php echo is_singular('festival') ? 'Festival ' . get_the_title() : get_the_title(); ?></h1>
 								<?php endif; ?>
@@ -53,7 +53,7 @@
 						</div>
 				<?php endif; ?>
 			</div>
-			<?php if (is_single() && !is_singular('festival')): ?>
+			<?php if (is_single() && !is_singular('festival') && !is_singular('program')): ?>
 				<?php 
 					global $post;
 					$referer = wp_get_referer(); 

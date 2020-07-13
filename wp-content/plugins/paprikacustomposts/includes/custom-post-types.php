@@ -61,6 +61,7 @@ if (!function_exists('paprika_custom_post_types')):
         'capability_type' => 'post',
         'taxonomies' => array('category'),
         'register_meta_box_cb' => 'paprika_program_metabox',
+        'show_in_rest' => true,
       )
     );
     register_post_type('artist',

@@ -27,6 +27,7 @@ import imageTextBlock from "./blocks/image-text-block";
 
 // Post Blocks
 import artistBlock from "./blocks/artist";
+import artistReverseBlock from "./blocks/artist-reverse";
 import newsBlock from "./blocks/news";
 import locationBlock from "./blocks/location";
 
@@ -42,8 +43,7 @@ import teamMember from "./blocks/reusable/team-member";
 // Form Blocks
 import contactFormBlock from "./blocks/contact-form";
 import scheduleBlock from "./blocks/schedule";
-
-console.log("running");
+import participantBlock from "./blocks/participants";
 
 // Init Component Blocks
 cardTitleBlock();
@@ -82,6 +82,7 @@ donorFW();
 // Init Post Blocks
 newsBlock();
 artistBlock();
+artistReverseBlock();
 locationBlock();
 
 // Init Show Blocks
@@ -91,3 +92,4 @@ teamMember();
 // Init Form Blocks
 contactFormBlock();
 scheduleBlock();
+participantBlock();

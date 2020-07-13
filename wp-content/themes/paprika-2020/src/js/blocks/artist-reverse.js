@@ -1,4 +1,4 @@
-export default function artistBlock() {
+export default function artistReverseBlock() {
 	/**
 	 * ARTIST GUTENBERG BLOCK
 	 */
@@ -7,8 +7,8 @@ export default function artistBlock() {
 	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	registerBlockType("paprika/artist", {
-		title: i18n.__("Artist Block"),
+	registerBlockType("paprika/artist-reverse", {
+		title: i18n.__("Artist Block - Reverse"),
 		description: i18n.__("Add an artist photo and bio"),
 		category: "post-blocks",
 		icon: "admin-customizer", // Dashicons: https://developer.wordpress.org/resource/dashicons/

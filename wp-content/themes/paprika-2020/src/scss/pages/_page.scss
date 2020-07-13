@@ -1,11 +1,6 @@
-main {
-	.container {
-		&--no-margin {
-			margin: 0 auto;
-		}
-	}
-	h2 {
-		margin: 64px 0 16px;
+.container {
+	&--no-margin {
+		margin: 0 auto;
 	}
 }
 
@@ -61,6 +56,7 @@ main {
 		}
 		&__byline {
 			@extend .post__byline;
+			margin-top: 8px;
 		}
 	}
 	&__link {

@@ -44,6 +44,10 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_artist_block($block);
             break;
 
+            case 'paprika/artist-reverse':
+                $block_content = paprika_render_artist_block($block, true);
+            break;
+
             case 'paprika/donors':
                 $block_content = paprika_render_donors_block($block);
             break;
@@ -82,6 +86,10 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
             
             case 'paprika/schedule':
                 $block_content = paprika_render_schedule($block);
+            break;
+
+            case 'paprika/participants':
+                $block_content = paprika_render_participants($block);
             break;
 
             default: 

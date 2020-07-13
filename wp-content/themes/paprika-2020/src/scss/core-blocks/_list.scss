@@ -1,6 +1,6 @@
 .container.default-block {
 	ul {
-		padding-left: 32px;
+		padding-left: 48px;
 		li {
 			margin: 8px 0;
 			position: relative;
@@ -13,7 +13,7 @@
 				position: absolute;
 				left: -20px;
 				top: 13px;
-				transform: translateY(-50%) skew(-20deg);
+				transform: translateY(-50%);
 			}
 		}
 	}

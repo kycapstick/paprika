@@ -74,6 +74,7 @@ if (!function_exists('paprika_custom_colors')) {
         $singles = array(
             'festival',
             'show',
+            'program',
         );
         foreach ($slugs as $slug) {
             $page = get_page_by_path($slug);
