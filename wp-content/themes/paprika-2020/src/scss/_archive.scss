@@ -1,0 +1,13 @@
+.archive__item {
+	flex-basis: auto;
+	display: inline-block;
+	.archive__link {
+		padding: 5px 15px 10px 0;
+		display: block;
+		&::after {
+			display: inline-block;
+			padding-left: 5px;
+			transform: translateY(3px);
+		}
+	}
+}

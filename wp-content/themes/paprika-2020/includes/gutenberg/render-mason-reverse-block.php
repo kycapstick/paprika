@@ -26,7 +26,7 @@
                     <div class="flex">
                         <div class="col-7">
                             <?php
-                                if (pg_is_valid('url', $titleObjects[0]->link)):
+                                if (pg_is_valid('string', $titleObjects[0]->link)):
                             ?>
                                 <a href="<?php echo $titleObjects[0]->link ?>">
                             <?php
@@ -65,7 +65,7 @@
                                 if (pg_is_valid('string', $images[1])):
                                     echo $images[1];
                                 endif;
-                            if (pg_is_valid('url', $titleObjects[1]->link)):
+                            if (pg_is_valid('string', $titleObjects[1]->link)):
                         ?>
                             </a>
                         <?php

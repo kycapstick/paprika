@@ -1,0 +1,71 @@
+.festivals {
+	&.container {
+		margin-top: 64px;
+	}
+	&__articles,
+	&__aside {
+		margin: 64px 0 16px;
+	}
+	&__card {
+		position: relative;
+		margin: 0;
+		&__wrapper {
+			max-width: 80%;
+			margin: 0 auto;
+			position: relative;
+		}
+		&__link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			padding-top: 50%;
+			height: auto;
+			left: 0;
+			right: 0;
+			padding-bottom: 50%;
+			height: 100%;
+			top: 0;
+			bottom: 0;
+			transform: translateY(calc(-50% + 24px));
+			height: auto;
+			&::before {
+				content: "";
+				position: absolute;
+				display: block;
+				left: 0;
+				right: 0;
+				z-index: -1;
+				top: 0;
+				bottom: 0;
+				background: $grey-main;
+			}
+		}
+		&__title {
+			color: white;
+			text-align: center;
+		}
+	}
+	&__list {
+		padding-left: 24px;
+		margin: 16px 0 24px;
+	}
+	&__link {
+		color: $festivals-primary;
+	}
+	&__button {
+		margin-top: 32px;
+		.btn--dark {
+			background-color: $festivals-primary;
+		}
+	}
+	&__archive {
+		@extend .post__archive;
+		.archive__link {
+			color: $festivals-primary;
+			&::after {
+				content: url("../images/ticket.svg");
+			}
+		}
+	}
+}

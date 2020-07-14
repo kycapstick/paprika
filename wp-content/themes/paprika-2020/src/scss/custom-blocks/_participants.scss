@@ -48,4 +48,15 @@
 			text-align: center;
 		}
 	}
+	&__placeholder {
+		border: 32px solid $festivals-15;
+		border-bottom-width: 0;
+		height: 100%;
+		padding-top: 56.25%;
+		background-image: url("../images/missing-portrait.svg"),
+			linear-gradient(to bottom, $festivals-15, $festivals-15);
+		background-size: contain;
+		background-position: bottom center;
+		background-repeat: no-repeat;
+	}
 }

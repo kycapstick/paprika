@@ -21,7 +21,15 @@
                                         <div class="participants-block__photo">
                                             <p class="participants-block__name card__title card__title--dark"><?php echo $artist->post_title; ?></p>
                                             <?php 
-                                                echo get_the_post_thumbnail($artist_id);
+                                                $artist_thumbnail = get_the_post_thumbnail($artist_id);
+                                                if (!empty($artist_thumbnail)) {
+                                                    echo get_the_post_thumbnail($artist_id);
+                                                } else {
+                                                    ?>
+                                                        <div class="participants-block__placeholder">
+                                                        </div>
+                                                    <?php
+                                                }
                                             ?>
                                             <div class="participants-block__overlay">
                                                 <p class="participants-block__overlay__title copy--medium"><?php echo $show->post_title; ?></p>

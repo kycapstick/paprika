@@ -76,17 +76,12 @@
 		flex-wrap: wrap;
 		justify-content: flex-start;
 		li {
-			flex-basis: auto;
-			display: inline-block;
+			@extend .archive__item;
 			a {
 				color: $programs-primary;
-				padding: 5px 15px 10px 0;
-				display: block;
+				@extend .archive__link;
 				&::after {
 					content: url("../images/archive.svg");
-					display: inline-block;
-					padding-left: 5px;
-					transform: translateY(3px);
 				}
 			}
 		}

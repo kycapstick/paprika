@@ -17,7 +17,7 @@
         ob_start();
         ?>
         <div class="image-text">
-            <div class="container default-block">
+            <div class="container">
                 <div class="flex">
                     <div class="col-4">
                         <div class="image-text__image">

@@ -46,8 +46,12 @@
 									<h1 class="header__text"><?php echo $archive_title[1]; ?></h1>
 								<?php
 									elseif (is_singular('festival') || is_singular('program') || !is_single()): 
+										$title = get_the_title();
+										if (is_singular('program')) {
+											$title = preg_replace("/\b[0-9]{4}/", "", $title);
+										}
 								?>
-									<h1 class="header__text"><?php echo is_singular('festival') ? 'Festival ' . get_the_title() : get_the_title(); ?></h1>
+									<h1 class="header__text"><?php echo is_singular('festival') ? 'Festival ' .  $title : $title; ?></h1>
 								<?php endif; ?>
 							</div>
 						</div>

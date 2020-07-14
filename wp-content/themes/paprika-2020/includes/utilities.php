@@ -87,6 +87,9 @@ if (!function_exists('paprika_custom_colors')) {
                 return 'page-festivals';
             }
         }
+        if (is_post_type_archive('festival')) {
+            return 'page-festivals';
+        }
         return 'unset';
     }
 }
@@ -127,6 +130,20 @@ if (!function_exists('paprika_get_shows_with_dates')) {
                 }
             }
         }
+        return $shows;
+    }
+}
+
+if (!function_exists('paprika_get_shows_by_dates')) {
+    function paprika_get_shows_by_dates($dates) {
+        if (empty($dates)) {
+            return;
+        }
+        $shows = array();
+        foreach ($dates as $date_id) {
+            $time_slots = get_post_meta($date_id, 'timeSlot', true);
+            $shows = paprika_get_shows_with_dates($time_slots, $shows, $date_id);
+        }           
         return $shows;
     }
 }
