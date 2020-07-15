@@ -1,4 +1,8 @@
 .homepage-cards {
+	margin-top: 128px;
+	&:nth-child(n + 2) {
+		margin-top: 32px;
+	}
 	.flex {
 		justify-content: space-between;
 		.col-6 {

@@ -1,7 +1,22 @@
 .news-block {
-	padding: 128px 0;
-	&__subheader {
+	padding-top: 64px;
+	&__subheader .subheader {
 		position: relative;
+		display: inline-block;
+		padding: 0 5px;
+		margin-bottom: 8px;
+		&::before {
+			content: url("../images/bookmark.svg");
+			display: inline-block;
+			margin-right: 10px;
+			transform: translateY(3px);
+		}
+	}
+	&__title {
+		margin-top: 0;
+	}
+	&__copy {
+		margin-top: 16px;
 	}
 	&__marker {
 		position: absolute;
@@ -13,5 +28,25 @@
 		display: inline-block;
 		padding: 10px 22px;
 		background-color: $programs-primary;
+	}
+	&.page-festivals {
+		.news-block__subheader .subheader {
+			&::before {
+				content: url("../images/bookmark-festivals.svg");
+			}
+		}
+		.btn {
+			background-color: $festivals-primary;
+		}
+	}
+	&.page-press {
+		.btn {
+			background-color: $press-primary;
+		}
+	}
+	&.page-support {
+		.btn {
+			background-color: $support-primary;
+		}
 	}
 }

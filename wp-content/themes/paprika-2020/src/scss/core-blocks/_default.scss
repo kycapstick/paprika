@@ -4,6 +4,15 @@
 	}
 	h2 {
 		margin: 64px 0 16px;
+		display: inline-block;
+		&::after {
+			content: "";
+			display: block;
+			height: 8px;
+			width: 100%;
+			margin-top: 8px;
+			background-color: $programs-50;
+		}
 	}
 	h3 {
 		margin-top: 32px;
@@ -12,15 +21,24 @@
 		a {
 			color: $festivals-primary;
 		}
+		h2::after {
+			background-color: $festivals-primary;
+		}
 	}
 	&.page-press {
 		a {
-			color: $media-primary;
+			color: $press-primary;
+		}
+		h2::after {
+			background-color: $press-primary;
 		}
 	}
 	&.page-support {
 		a {
-			color: $sponsors-primary;
+			color: $support-primary;
+		}
+		h2::after {
+			background-color: $support-primary;
 		}
 	}
 }

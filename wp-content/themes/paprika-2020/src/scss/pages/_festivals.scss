@@ -1,7 +1,4 @@
 .festivals {
-	&.container {
-		margin-top: 64px;
-	}
 	&__articles,
 	&__aside {
 		margin: 64px 0 16px;
@@ -38,11 +35,11 @@
 				z-index: -1;
 				top: 0;
 				bottom: 0;
-				background: $grey-main;
+				border: 2px solid $festivals-primary;
 			}
 		}
 		&__title {
-			color: white;
+			color: $festivals-primary;
 			text-align: center;
 		}
 	}

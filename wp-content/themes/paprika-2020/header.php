@@ -4,6 +4,7 @@
 	$hero_text = stripos($hero_text, '\n' ) !== false ? explode('\n', $hero_text) : null;
 	$hero_subtitle = get_field('hero_subtitle');
 	$header_class = paprika_custom_colors();
+	$subtitle_object = isset($post) ? get_post_meta($post->ID, 'subtitle', true) : array();
 ?>
 <body <?php body_class()?> >
 <?php $logo = get_custom_logo(); ?>
@@ -57,6 +58,20 @@
 						</div>
 				<?php endif; ?>
 			</div>
+			<?php if (!empty($subtitle_object)): ?>
+				<div class="header__subheader">
+					<?php if (!empty($subtitle_object['subtitle']) ): ?>
+						<p class="copy--bold breadcrumb">
+							<?php echo $subtitle_object['subtitle'] ?>
+						</p>
+					<?php endif; ?>
+					<?php if( !empty($subtitle_object['subtitle_link']) && !empty($subtitle_object['subtitle_text'])): ?>
+						<a href="<?php echo $subtitle_object['subtitle_link'] ?>" class="btn btn--light">
+							<?php echo $subtitle_object['subtitle_text'] ?>
+						</a>
+					<?php endif; ?>
+				</div>
+			<?php endif ?>
 			<?php if (is_single() && !is_singular('festival') && !is_singular('program')): ?>
 				<?php 
 					global $post;

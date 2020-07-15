@@ -52,7 +52,7 @@
                     </div>
                     <?php endforeach;?>
             </main>
-            <aside class="festival__aside col-3">
+            <aside class="festivals__aside col-3">
                 <div>
                     <h3 class="card__header">Quick Links</h3>
                     <ul class="festivals__archive">

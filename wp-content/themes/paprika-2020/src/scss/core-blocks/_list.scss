@@ -24,12 +24,12 @@
 	}
 	&.page-press {
 		ul li::before {
-			background-color: $media-primary;
+			background-color: $press-primary;
 		}
 	}
 	&.page-support {
 		ul li::before {
-			background-color: $sponsors-primary;
+			background-color: $support-primary;
 		}
 	}
 }
