@@ -20,6 +20,10 @@ h3 {
 	max-width: 1140px;
 	width: 90%;
 	margin: 0 auto;
+	&--thin {
+		max-width: 1000px;
+		width: 85%;
+	}
 }
 
 .title {
@@ -52,8 +56,8 @@ h3 {
 	&--column {
 		flex-direction: column;
 	}
-	.offset {
-		margin-left: 30px;
+	&--right {
+		justify-content: flex-end;
 	}
 	&.mason {
 		li {
@@ -64,10 +68,6 @@ h3 {
 				flex-basis: 58%;
 			}
 		}
-	}
-	li {
-		flex-grow: 0;
-		flex-basis: 33.33%;
 	}
 
 	.grow {
@@ -121,28 +121,56 @@ input {
 	margin-bottom: 0;
 }
 
+.name-tag {
+	position: absolute;
+	bottom: 0;
+	padding: 16px;
+	z-index: 10;
+	margin: 0;
+	&::before {
+		content: "";
+		padding: 0 16px;
+		display: block;
+		top: 0;
+		bottom: 0;
+		left: -16px;
+		width: 100%;
+		background: $programs-primary;
+		position: absolute;
+		z-index: -1;
+		transform: skew(20deg);
+	}
+}
+
 @import "./typography";
 
 // Core Blocks
 @import "./core-blocks/blockquote";
 @import "./core-blocks/button";
+@import "./core-blocks/default";
 @import "./core-blocks/list";
 
 // Custom Blocks
 @import "./custom-blocks/alumni";
+@import "./custom-blocks/artist";
 @import "./custom-blocks/contact-form";
 @import "./custom-blocks/cta";
 @import "./custom-blocks/donor-blocks";
 @import "./custom-blocks/homepage-cards";
+@import "./custom-blocks/image-text";
 @import "./custom-blocks/mason";
 @import "./custom-blocks/media-quote";
 @import "./custom-blocks/news";
+@import "./custom-blocks/participants";
+@import "./custom-blocks/schedule";
+@import "./custom-blocks/show-block";
 @import "./custom-blocks/two-columns";
 @import "./custom-blocks/two-up-cards";
 
 @import "./header";
 @import "./footer";
 @import "./forms";
+@import "./archive";
 
 @import "./nav";
 
@@ -152,3 +180,4 @@ input {
 @import "./pages/page";
 @import "./pages/staff";
 @import "./pages/single-post";
+@import "./pages/festivals";

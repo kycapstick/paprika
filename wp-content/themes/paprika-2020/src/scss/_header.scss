@@ -24,11 +24,15 @@
 		justify-content: center;
 		align-items: center;
 	}
+	&__title {
+		max-width: 75%;
+	}
 	&__text {
 		margin: 0;
 		color: $programs_primary;
 		text-shadow: $box-shadow;
 		margin-left: 32px;
+		text-align: right;
 	}
 	&__banner {
 		width: 100%;
@@ -46,6 +50,12 @@
 	}
 	&__subhero {
 		padding-top: 32px;
+		text-align: right;
+	}
+	&__subheader {
+		margin-top: 8px;
+		max-width: 50%;
+		margin-left: auto;
 		text-align: right;
 	}
 }
@@ -81,43 +91,37 @@
 
 .page-press {
 	.header__text {
-		color: $media-primary;
+		color: $press-primary;
 		text-shadow: $box-shadow;
 	}
 	.header__banner__bar {
 		background-image: url("../images/jigsaw.svg"),
-			linear-gradient($media-primary, $media-primary);
+			linear-gradient($press-primary, $press-primary);
 		box-shadow: $box-shadow;
 	}
 }
 
 .page-support {
+	.header__text,
+	.header__link {
+		color: $support-primary;
+	}
 	.header__text {
-		color: $sponsors-primary;
 		text-shadow: $box-shadow;
 	}
 	.header__banner__bar {
 		background-image: url("../images/bubbles.svg"),
-			linear-gradient($sponsors-primary, $sponsors-primary);
-		box-shadow: $box-shadow;
-	}
-}
-
-.page-support {
-	.header__text {
-		color: $sponsors-primary;
-		text-shadow: $box-shadow;
-	}
-	.header__banner__bar {
-		background-image: url("../images/connections.svg"),
-			linear-gradient($sponsors-primary, $sponsors-primary);
+			linear-gradient($support-primary, $support-primary);
 		box-shadow: $box-shadow;
 	}
 }
 
 .page-festivals {
-	.header__text {
+	.header__text,
+	.header__link {
 		color: $festivals-primary;
+	}
+	.header__text {
 		text-shadow: $box-shadow;
 	}
 	.header__banner__bar {

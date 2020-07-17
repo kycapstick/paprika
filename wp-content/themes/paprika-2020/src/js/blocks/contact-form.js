@@ -1,6 +1,6 @@
 export default function contactFormBlock() {
 	/**
-	 * ARTIST GUTENBERG BLOCK
+	 * CONTACT FORM GUTENBERG BLOCK
 	 */
 
 	const { registerBlockType } = wp.blocks;

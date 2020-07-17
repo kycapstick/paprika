@@ -7,7 +7,7 @@
 		margin: 64px 0;
 		&:nth-child(2n) {
 			padding: 64px 0;
-			background-color: $programs-primary-15;
+			background-color: $programs-15;
 		}
 	}
 	&__title,
@@ -27,23 +27,6 @@
 		}
 	}
 	&__name {
-		position: absolute;
-		bottom: 0;
-		padding: 16px;
-		z-index: 10;
-		margin: 0;
-		&::before {
-			content: "";
-			padding: 0 16px;
-			display: block;
-			top: 0;
-			bottom: 0;
-			left: -16px;
-			width: 100%;
-			background: $programs-primary;
-			position: absolute;
-			z-index: -1;
-			transform: skew(20deg);
-		}
+		@extend .name-tag;
 	}
 }

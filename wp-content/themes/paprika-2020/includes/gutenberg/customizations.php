@@ -67,6 +67,7 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 
 		// Post Blocks
 		'paprika/artist',
+		'paprika/artist-reverse',
 		'paprika/news',
 		'paprika/location',
 
@@ -76,6 +77,8 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 
 		// Form Blocks
 		'paprika/contact-form',
+		'paprika/schedule',
+		'paprika/participants'
 	);
 
 }

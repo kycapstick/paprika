@@ -4,7 +4,7 @@
             ob_start();
         ?>
             <div class="contact-form">
-                <div class="container">
+                <div class="container default-block">
                     <h2>General Inquiries</h2>
                     <form action="">
                         <div class="form__field">

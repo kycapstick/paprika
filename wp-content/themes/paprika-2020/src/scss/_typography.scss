@@ -56,13 +56,19 @@ h3,
 	font-size: 3.6rem;
 }
 
-.card__header {
+.card__header,
+.default-block h3 {
 	font-size: 2.4rem;
 }
 
 .card__title,
-.breadcrumb {
+.breadcrumb,
+blockquote p {
 	font-size: 1.8rem;
+}
+
+.card__title,
+.breadcrumb {
 	letter-spacing: 0.1;
 	&--dark {
 		color: white;
@@ -72,13 +78,20 @@ h3,
 .copy,
 p,
 li,
-a {
+a,
+cite {
 	font-size: 1.6rem;
 	line-height: 1.6;
 }
 
-blockquote p {
-	font-size: 1.8rem;
+.btn {
+	&--color {
+		font-size: 1.6rem;
+		letter-spacing: 0.1;
+	}
+	&--small {
+		font-size: 1.4rem;
+	}
 }
 
 .copy {
@@ -86,11 +99,17 @@ blockquote p {
 		font-size: 9rem;
 		font-weight: bold;
 	}
+	&--medium {
+		font-size: 2.4rem;
+	}
 	&--dark {
 		color: white;
 	}
 	&--light {
 		font-weight: lighter;
+	}
+	&--bold {
+		font-weight: bold;
 	}
 	&--italic {
 		font-style: italic;

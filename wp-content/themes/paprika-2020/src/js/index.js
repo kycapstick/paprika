@@ -1,3 +1,7 @@
-import css from '../scss/style.scss';
+import css from "../scss/style.scss";
 
-console.log('loaded');
+import schedule from "./schedule";
+
+jQuery(function () {
+	schedule();
+});

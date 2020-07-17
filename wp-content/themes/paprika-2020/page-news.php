@@ -20,9 +20,6 @@
                     $author_name = get_the_author_meta('display_name', $post->post_author);
                     $author_url = get_author_posts_url($post->post_author);
             ?>
-                <div>
-                    <h2>R</h2>
-                </div>
                     <div class="post__content">
                         <div class="continer">
                             <article class="post__card">

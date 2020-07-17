@@ -69,13 +69,27 @@ if (!function_exists('paprika_custom_colors')) {
         $slugs = array(
             'press',
             'support',
-            'festivals'
+            'festivals',
+        );
+        $singles = array(
+            'festival',
+            'show',
+            'program',
         );
         foreach ($slugs as $slug) {
             $page = get_page_by_path($slug);
             if (is_page($slug) || (isset($page) && intval($parent_page) === intval($page->ID))) {
                 return 'page-' . $slug;
             }
+        }
+        foreach($singles as $single) {
+            if (is_singular($single)) {
+                // return 'page-support';
+                return 'page-festivals';
+            }
+        }
+        if (is_post_type_archive('festival')) {
+            return 'page-festivals';
         }
         return 'unset';
     }
@@ -94,6 +108,44 @@ if (!function_exists('paprika_get_page_parent')) {
         } else { 
             return $post->ID; 
         } 
+    }
+}
+
+if (!function_exists('paprika_get_shows_with_dates')) {
+    function paprika_get_shows_with_dates($time_slots, $shows, $date) {
+        if (!empty($time_slots)) {
+            foreach ($time_slots as $time_slot) {
+                if (isset($time_slot['shows']) && !empty($time_slot['shows'])) {
+                    foreach ($time_slot['shows'] as $show) {
+                        if (!isset($shows[$show])) {
+                            $shows[$show] = array();
+                        }
+                        $show_details = array(
+                            'date' => $date,
+                            'time' => $time_slot['name'],
+                        );
+                        if (!in_array($date, $shows[$show])) {
+                            array_push($shows[$show], $show_details);
+                        }
+                    }
+                }
+            }
+        }
+        return $shows;
+    }
+}
+
+if (!function_exists('paprika_get_shows_by_dates')) {
+    function paprika_get_shows_by_dates($dates) {
+        if (empty($dates)) {
+            return;
+        }
+        $shows = array();
+        foreach ($dates as $date_id) {
+            $time_slots = get_post_meta($date_id, 'timeSlot', true);
+            $shows = paprika_get_shows_with_dates($time_slots, $shows, $date_id);
+        }           
+        return $shows;
     }
 }
 

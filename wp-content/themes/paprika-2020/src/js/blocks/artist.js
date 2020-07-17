@@ -34,8 +34,8 @@ export default function artistBlock() {
 					<div>
 						<RichText
 							class="components-text-control__input"
-							tagName="h2"
-							placeholder="Add the title here."
+							tagName="p"
+							placeholder="Add artist's title here."
 							keepPlaceholderOnFocus={true}
 							value={title}
 							onChange={(changes) => {

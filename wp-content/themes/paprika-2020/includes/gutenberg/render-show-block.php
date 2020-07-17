@@ -32,37 +32,46 @@
         $festival = get_post($festival_id);
         ob_start();
         ?>
-        
-            <div class="flex">
-                <div class="col-6">
-                    <h3><?php echo $attributes->title ?></h3>
-                    <ul>
-                        <?php foreach ($team_members as $member): ?>
-                            <li>
-                                <span><?php echo $member->title ?>:</span>
-                                <span><?php echo $member->fullName ?></span>
-                            </li>
-                        <?php endforeach ?>
-                    </ul>
-                </div>
-                <div class="col-6">
-                <?php 
-				if (isset($time_slots) && is_array($time_slots) && count($time_slots) > 0):
-			?>
-				<h2>Schedule</h2>
-                <p>Part of the 
-					<a href="<?php echo get_post_permalink($festival_id) ?>">
-						<?php echo $festival->post_title?> Festival
-					</a>	
-				</p>
-				<ul>
+		<div class="show-block">
+			<div class="container">
+				<div class="flex">
+					<div class="col-9">
+						<div class="show-block__team">
+							<h3><?php echo $attributes->title ?></h3>
+							<ul>
+								<?php foreach ($team_members as $member): ?>
+									<li class="show-block__team__member">
+										<span class="copy--bold"><?php echo $member->title ?>:</span>
+										<span><?php echo $member->fullName ?></span>
+									</li>
+								<?php endforeach ?>
+							</ul>
+							<?php if (!empty($paragraphs)) {
+								foreach($paragraphs as $paragraph) {
+									echo $paragraph;
+								}	
+							}?>
+						</div>
+					</div>
+                <div class="col-3">
 					<?php 
-						foreach($time_slots as $date_id => $time_slot):
-							$date = get_post($date_id);
-							if ($date->post_status === 'publish'):
+						if (isset($time_slots) && is_array($time_slots) && count($time_slots) > 0):
+					?>
+					<h3 class="card__header">Schedule</h3>
+					<p class="show-block__subheader">Part of the 
+						<a href="<?php echo get_post_permalink($festival_id) ?>">
+							<?php echo $festival->post_title?> Festival
+						</a>	
+					</p>
+					<ul class="show-block__schedule">
+						<?php 
+							foreach($time_slots as $date_id => $time_slot):
+								$date = get_post($date_id);
+								if ($date->post_status === 'publish'):
 							?>
-							<li>
-								<a href="<?php echo get_post_permalink($date_id) ?>"><?php echo $date->post_title ?> at <?php echo $time_slot['name'] ?>
+							<li class="show-block__date">
+								<a class="show-block__date__link" href="<?php echo get_post_permalink($date_id) ?>">
+									<p><?php echo gmdate('M d', strtotime($date->post_title)) ?> at <?php echo $time_slot['name'] ?></p>
 								</a>
 								<?php 
 									if (intval($time_slot['showCount']) > 1): 
@@ -73,8 +82,8 @@
 										<?php 
 										if (is_array($other_shows) && count($other_shows) > 0):
 										?>
-									<span>
-											Paired with 
+
+											<p class="copy--light show-block__date__alt">Paired with 
 											<?php
 											foreach($other_shows as $index => $other_show):
 												$show = get_post($other_show);
@@ -85,7 +94,7 @@
 												<?php
 											endforeach;
 											?>
-												</span>
+												</p>
 											<?php
 										endif; 
 										?>
@@ -102,6 +111,8 @@
 			?>
             </div>
             </div>
+			</div>
+		</div>
         <?php
             return ob_get_clean();
     }

@@ -1,6 +1,14 @@
 .two-columns {
 	h2 {
 		margin: 0;
+		&::after {
+			content: "";
+			display: block;
+			height: 8px;
+			width: 100%;
+			margin-top: 8px;
+			background-color: $programs-50;
+		}
 	}
 	.container {
 		max-width: 850px;
@@ -8,7 +16,41 @@
 	.column {
 		margin-top: 64px;
 	}
+	p,
+	a {
+		margin-top: 8px;
+	}
 	a {
 		color: $programs-primary;
+	}
+	&.page-festivals {
+		h2 {
+			&::after {
+				background: $festivals-primary;
+			}
+		}
+		a {
+			color: $festivals-primary;
+		}
+	}
+	&.page-press {
+		h2 {
+			&::after {
+				background: $press-primary;
+			}
+		}
+		a {
+			color: $press-primary;
+		}
+	}
+	&.page-support {
+		h2 {
+			&::after {
+				background: $support-primary;
+			}
+		}
+		a {
+			color: $support-primary;
+		}
 	}
 }

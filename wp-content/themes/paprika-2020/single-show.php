@@ -1,7 +1,7 @@
 <?php 
 get_header();
 ?>
-<main class="container">
+<main>
 <?php
 	if ( have_posts() ) : 
 		while ( have_posts() ) : the_post(); 
@@ -15,9 +15,9 @@ get_header();
 					echo the_content();
 				?>
 			</p>
-			<?php 
-    endwhile; 
-endif; 
+	<?php 
+		endwhile; 
+	endif; 
 ?>
 </main>
 <?php

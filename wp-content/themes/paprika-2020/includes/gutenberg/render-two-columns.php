@@ -12,10 +12,11 @@
 
             }
         endforeach;
+        $block_classes = paprika_custom_colors();
         ob_start();
         ?>
             <?php if (pg_is_valid('array', $columns) && count($columns) >= 2 )?>
-            <div class="two-columns">
+            <div class="two-columns <?php echo $block_classes ?>">
                 <div class="container">
                     <div class="flex">
                         <?php 

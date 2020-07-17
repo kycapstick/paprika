@@ -16,19 +16,22 @@
         endforeach;
         ob_start();
         ?>
-        <div>
-            <div class="flex">
-                <div class="col-4">
-                    <?php echo $image ?>
-                </div>
-                <div class="col-8">
-                    <h2><?php echo get_the_title() ?></h2>
-                    <?php foreach($paragraphs as $paragraph ):
-                        echo $paragraph;
-                    endforeach; ?>
+        <div class="image-text">
+            <div class="container">
+                <div class="flex">
+                    <div class="col-4">
+                        <div class="image-text__image">
+                            <?php echo $image ?>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <h2 class="image-text__title"><?php echo get_the_title() ?></h2>
+                        <?php foreach($paragraphs as $paragraph ):
+                            echo $paragraph;
+                        endforeach; ?>
+                    </div>
                 </div>
             </div>
-
         </div>
         <?php
             return ob_get_clean();

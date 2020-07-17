@@ -15,5 +15,29 @@ blockquote {
 	cite {
 		display: block;
 		margin-top: 16px;
+		&::before {
+			content: url("../images/quote.svg");
+			display: inline-block;
+			margin-right: 10px;
+			transform: translateY(1px);
+		}
+	}
+}
+
+.page-festivals {
+	blockquote::before {
+		color: $festivals-primary;
+	}
+	cite::before {
+		content: url("../images/quote-festival.svg");
+	}
+}
+
+.page-press {
+	blockquote::before {
+		color: $press-primary;
+	}
+	cite::before {
+		content: url("../images/quote-pink.svg");
 	}
 }

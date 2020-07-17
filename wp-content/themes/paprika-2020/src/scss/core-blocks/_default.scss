@@ -1,0 +1,44 @@
+.default-block {
+	p {
+		margin: 8px 0;
+	}
+	h2 {
+		margin: 64px 0 16px;
+		display: inline-block;
+		&::after {
+			content: "";
+			display: block;
+			height: 8px;
+			width: 100%;
+			margin-top: 8px;
+			background-color: $programs-50;
+		}
+	}
+	h3 {
+		margin-top: 32px;
+	}
+	&.page-festivals {
+		a {
+			color: $festivals-primary;
+		}
+		h2::after {
+			background-color: $festivals-primary;
+		}
+	}
+	&.page-press {
+		a {
+			color: $press-primary;
+		}
+		h2::after {
+			background-color: $press-primary;
+		}
+	}
+	&.page-support {
+		a {
+			color: $support-primary;
+		}
+		h2::after {
+			background-color: $support-primary;
+		}
+	}
+}

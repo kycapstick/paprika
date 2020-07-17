@@ -58,8 +58,8 @@
                         ?>
                         <ul>
                             <?php foreach($recent_posts as $recent_post): ?>
-                                <li>
-                                    <a class="post__recent__link" href="<?php echo get_the_permalink($recent_post->ID) ?>"><?php echo $recent_post->post_title ?></a>
+                                <li class="archive__item">
+                                    <a class="archive__link post__recent__link" href="<?php echo get_the_permalink($recent_post->ID) ?>"><?php echo $recent_post->post_title ?></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>

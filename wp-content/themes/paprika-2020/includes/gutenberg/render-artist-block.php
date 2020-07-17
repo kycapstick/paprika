@@ -1,6 +1,6 @@
 <?php 
     if ( ! function_exists('paprika_render_artist_block') ) {
-    function paprika_render_artist_block($block) {
+    function paprika_render_artist_block($block, $reverse = false) {
         $fields = array( 
             'title', 
         );
@@ -21,22 +21,44 @@
     
         ob_start();
         ?>
-        <div>
-            <h2><?php echo $attributes->title ?></h2>
-            <div class="flex">
-                <div class="col-4">
-                    <?php echo $thumbnail ?>
-                </div>
-                <div class="col-8">
-                    <?php if (pg_is_valid('string', $post->post_title)): ?>
-                        <h2><?php echo $post->post_title ?></h2>
-                    <?php endif; ?>
-                    <?php if (pg_is_valid('string', $post->post_content)): ?>
-                        <?php echo wpautop($post->post_content); ?>
-                    <?php endif; ?>
+        <div class="artist-block <?php echo $reverse ? 'artist-block--reverse' : null; ?>">
+            <div class="container">
+                <div>
+                    <div class="flex">
+                        <?php if ($reverse === false): ?>
+                            <div class="col-4">
+                                <figure class="artist-block__photo">                                
+                                    <?php echo $thumbnail ?>
+                                    <p class="artist-block__name card__title card__title--dark"><?php echo $post->post_title ?></p>
+                                </figure>
+                            </div>
+                            <div class="col-8">
+                                <?php if (pg_is_valid('string', $post->post_title)): ?>
+                                    <h3 class="artist-block__title"><?php echo $attributes->title ?></h3>
+                                <?php endif; ?>
+                                <?php if (pg_is_valid('string', $post->post_content)): ?>
+                                    <?php echo wpautop($post->post_content); ?>
+                                <?php endif; ?>
+                            </div>
+                        <?php else: ?>
+                            <div class="col-8 artist-block__copy">
+                                <?php if (pg_is_valid('string', $post->post_title)): ?>
+                                    <h3 class="artist-block__title"><?php echo $attributes->title ?></h3>
+                                <?php endif; ?>
+                                <?php if (pg_is_valid('string', $post->post_content)): ?>
+                                    <?php echo wpautop($post->post_content); ?>
+                                <?php endif; ?>
+                            </div>
+                            <div class="col-4">
+                                <figure class="artist-block__photo">                                
+                                    <?php echo $thumbnail ?>
+                                    <p class="artist-block__name card__title card__title--dark"><?php echo $post->post_title ?></p>
+                                </figure>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
-
         </div>
         <?php
             return ob_get_clean();
