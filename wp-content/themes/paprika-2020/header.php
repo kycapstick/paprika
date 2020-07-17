@@ -17,22 +17,20 @@
 					</a>
 				</div>
 				<div class="header__nav__menu">
+					<button class="header__trigger">
+						<span class="header__trigger__bar"></span>
+						<span class="header__trigger__bar"></span>
+						<span class="header__trigger__bar"></span>
+					</button>
 					<div class="header-menu">
 						<div class="container">
 							<div class="flex">
-								<div class="col-6">
+								<div class="col-6 menu__container">
 									<?php 
 										wp_nav_menu(array(
 											'menu' => 'main',
 										))
 									?>
-									<div class="menu__donate">
-										<?php 
-											wp_nav_menu(array(
-												'menu' => 'donate',
-											))
-										?>
-									</div>
 								</div>
 							</div>	
 						</div>

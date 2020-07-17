@@ -19,6 +19,34 @@
 			z-index: 10;
 		}
 	}
+	&__trigger {
+		background: none;
+		border: 0;
+		padding: 10px;
+		position: relative;
+		z-index: 20;
+		&__bar {
+			width: 50px;
+			height: 3px;
+			margin-bottom: 10px;
+			background-color: black;
+			opacity: 1;
+			z-index: -1;
+			display: block;
+			transition: all 0.3s ease-in-out;
+		}
+		&--active .header__trigger__bar {
+			&:nth-child(1) {
+				transform: translateY(calc(100% + 10px)) rotate(45deg);
+			}
+			&:nth-child(2) {
+				opacity: 0;
+			}
+			&:nth-child(3) {
+				transform: translateY(calc(-100% - 10px)) rotate(-45deg);
+			}
+		}
+	}
 	&__hero {
 		display: flex;
 		justify-content: center;

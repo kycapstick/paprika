@@ -38,7 +38,18 @@
             ?>
         </p>
         <div class="schedule__card__overlay">
-            <p class="schedule__card__overlay__title"><?php echo $show->post_title ?></p>
+            <div class="schedule__card__overlay__title">
+                <p class="copy--medium"><?php echo $show->post_title ?></p>
+                <?php
+                    if (!empty($show_details)):
+                        foreach($show_details as $details):
+                ?>
+                    <p><?php echo gmdate('F d', strtotime( get_the_title( $details['date'] ) ) ) . ' @ ' . $details['time'] ?></p>
+                <?php
+                        endforeach;
+                    endif;
+                ?>
+            </div>
         </div>
     </div>
 </a>
