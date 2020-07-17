@@ -1,6 +1,7 @@
-$festivals-primary: #ec407e;
-$festivals-15: rgba(236, 64, 126, 0.15);
-$festivals-95: rgba(236, 64, 126, 0.95);
+$festivals-primary: #e6007a;
+$festivals-15: rgba(230, 0, 122, 0.15);
+$festivals-10: rgba(230, 0, 122, 0.1);
+$festivals-95: rgba(230, 0, 122, 0.95);
 
 $programs-primary: #a74482;
 $programs-15: rgba(167, 68, 130, 0.15);
@@ -8,8 +9,11 @@ $programs-50: rgba(167, 68, 130, 0.5);
 
 $support-primary: #177e72;
 $support-15: rgba(23, 126, 114, 0.15);
+$support-10: rgba(23, 126, 114, 0.1);
 
 $press-primary: lighten(#08415c, 10);
+$press-15: lighten(rgba(8, 65, 92, 0.15), 10);
+$press-10: lighten(rgba(8, 65, 92, 0.1), 10);
 
 $grey-main: #56494e;
 $grey-10: rgba(86, 73, 78, 0.1);

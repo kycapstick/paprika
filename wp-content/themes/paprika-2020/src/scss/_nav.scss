@@ -1,8 +1,47 @@
-.menu {
+.header-menu {
+	position: fixed;
+	background: white;
+	width: 100%;
+	min-height: 100vh;
+	left: 0;
+	top: 0;
+	z-index: 10;
 	display: flex;
 	justify-content: flex-end;
+	flex-direction: column;
+	top: -100%;
+	justify-content: flex-end;
+	li,
 	a {
-		padding: 20px;
+		line-height: 1;
+	}
+	a {
+		padding: 10px;
 		display: inline-block;
+		font-size: 9.6rem;
+		line-height: 1;
+	}
+	.menu {
+		position: relative;
+	}
+	.menu > .menu-item-has-children {
+		& > a::after {
+			content: "+";
+		}
+		&:hover {
+			.sub-menu {
+				position: absolute;
+				display: block;
+				left: 100%;
+				top: 0;
+				li,
+				a {
+					font-size: 6.4rem;
+				}
+			}
+		}
+	}
+	.sub-menu {
+		display: none;
 	}
 }

@@ -1,15 +1,17 @@
 .news-block {
 	padding-top: 64px;
-	&__subheader .subheader {
-		position: relative;
-		display: inline-block;
-		padding: 0 5px;
+	&__subheader {
 		margin-bottom: 8px;
-		&::before {
-			content: url("../images/bookmark.svg");
+		.copy {
+			position: relative;
 			display: inline-block;
-			margin-right: 10px;
-			transform: translateY(3px);
+			padding: 0 5px;
+			&::before {
+				content: url("../images/bookmark.svg");
+				display: inline-block;
+				margin-right: 8px;
+				transform: translateY(3px);
+			}
 		}
 	}
 	&__title {
@@ -24,29 +26,42 @@
 		bottom: -8px;
 	}
 	.btn {
-		color: white;
+		color: $programs-primary;
 		display: inline-block;
+		border: 2px solid $programs-primary;
 		padding: 10px 22px;
-		background-color: $programs-primary;
 	}
 	&.page-festivals {
-		.news-block__subheader .subheader {
+		.news-block__subheader .copy {
 			&::before {
 				content: url("../images/bookmark-festivals.svg");
 			}
 		}
 		.btn {
-			background-color: $festivals-primary;
+			color: $festivals-primary;
+			border: 2px solid $festivals-primary;
 		}
 	}
 	&.page-press {
+		.news-block__subheader .copy {
+			&::before {
+				content: url("../images/bookmark-press.svg");
+			}
+		}
 		.btn {
-			background-color: $press-primary;
+			color: $press-primary;
+			border: 2px solid $press-primary;
 		}
 	}
 	&.page-support {
+		.news-block__subheader .copy {
+			&::before {
+				content: url("../images/bookmark-support.svg");
+			}
+		}
 		.btn {
-			background-color: $support-primary;
+			color: $support-primary;
+			border: 2px solid $support-primary;
 		}
 	}
 }

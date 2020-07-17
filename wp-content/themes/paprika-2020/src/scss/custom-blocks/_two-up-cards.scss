@@ -1,7 +1,11 @@
 .two-up-cards {
-	margin-bottom: 32px;
+	margin-top: 64px;
+	& + .two-up-cards {
+		margin-top: 32px;
+	}
 	&__card {
 		box-shadow: 3px 3px 10px $grey-10;
+		background: $programs-15;
 		display: flex;
 		flex-direction: column;
 		flex: 1 0 auto;
@@ -16,7 +20,6 @@
 		}
 	}
 	&__copy {
-		background: $programs-15;
 		padding: 16px 24px;
 		display: flex;
 		flex-direction: column;
@@ -24,7 +27,7 @@
 		position: relative;
 	}
 	p {
-		margin: 8px 0 16px;
+		margin: 0 0 16px;
 	}
 	&__title,
 	p.two-up-cards__subtitle {
@@ -32,13 +35,28 @@
 	}
 	&__subtitle {
 		padding-top: 8px;
+		padding-bottom: 16px;
+		color: $grey-main;
 		&::before {
 			content: url(../images/age.svg);
-			height: 24px;
-			width: 24px;
 			padding-right: 3px;
+			margin-right: 5px;
 			display: inline-block;
 			transform: translateY(3px);
+		}
+	}
+	.wp-block-image {
+		background-color: $grey-10;
+		padding-top: 39%;
+		position: relative;
+		img {
+			max-height: 100%;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
 		}
 	}
 	.wp-block-button {
@@ -48,6 +66,45 @@
 			bottom: 16px;
 			border-radius: 0;
 			background: $programs-primary;
+		}
+	}
+	&.page-festivals {
+		.two-up-cards {
+			&__card {
+				background-color: $festivals-15;
+			}
+			&__subtitle::before {
+				display: none;
+			}
+		}
+		.wp-block-button__link {
+			background: $festivals-primary;
+		}
+	}
+	&.page-press {
+		.two-up-cards {
+			&__card {
+				background-color: $press-15;
+			}
+			&__subtitle::before {
+				display: none;
+			}
+		}
+		.wp-block-button__link {
+			background: $press-primary;
+		}
+	}
+	&.page-support {
+		.two-up-cards {
+			&__card {
+				background-color: $support-15;
+			}
+			&__subtitle::before {
+				display: none;
+			}
+		}
+		.wp-block-button__link {
+			background: $support-primary;
 		}
 	}
 }

@@ -37,7 +37,7 @@
 			.schedule__card__overlay {
 				opacity: 1;
 			}
-			.schedule__time .active::before {
+			.schedule__time .schedule__active::before {
 				background-color: black;
 			}
 		}
@@ -52,7 +52,7 @@
 		span {
 			display: none;
 		}
-		.active {
+		.schedule__active {
 			display: block;
 			&::before {
 				content: "";

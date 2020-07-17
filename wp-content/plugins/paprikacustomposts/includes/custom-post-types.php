@@ -36,6 +36,7 @@ if (!function_exists('paprika_custom_post_types')):
 				'public' => true,
 				'publicly_queryable' => true, 
 				'query_var' => true,
+				'show_in_nav_menus' => true,
 			)
 		);
 		register_post_type('location',

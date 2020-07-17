@@ -8,7 +8,7 @@
                 foreach($show_details as $details) {
                     $class_list[] = 'schedule__date--' . $details['date'];
                     if ($details['date'] === $first_date) {
-                        $class_list[] = 'active';
+                        $class_list[] = 'schedule__active';
                     }
                 ?>
                     data-<?php echo $details['date'] ?> = "<?php echo $details['time'] ?>"
@@ -31,7 +31,7 @@
                 if (!empty($show_details)):
                     foreach($show_details as $details):
             ?>
-                    <span class="<?php echo $details['date'] === $first_date ? 'active' : null ?>"><?php echo $details['time'] ?></span>
+                    <span class="<?php echo $details['date'] === $first_date ? 'schedule__active' : null ?> <?php echo 'schedule__date--' . $details['date'] ?>"><?php echo $details['time'] ?></span>
                 <?php
                     endforeach;
                 endif;

@@ -84,6 +84,7 @@ if (!function_exists('paprika_custom_colors')) {
         }
         foreach($singles as $single) {
             if (is_singular($single)) {
+                // return 'page-support';
                 return 'page-festivals';
             }
         }

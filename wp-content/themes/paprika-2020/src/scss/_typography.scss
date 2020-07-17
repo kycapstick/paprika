@@ -84,8 +84,14 @@ cite {
 	line-height: 1.6;
 }
 
-.btn--small {
-	font-size: 1.4rem;
+.btn {
+	&--color {
+		font-size: 1.6rem;
+		letter-spacing: 0.1;
+	}
+	&--small {
+		font-size: 1.4rem;
+	}
 }
 
 .copy {
