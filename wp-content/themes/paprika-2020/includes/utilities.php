@@ -161,11 +161,19 @@ function paprika_theme_settings() {
 			$nonce = trim( sanitize_text_field( wp_unslash( $_POST['admin_nonce_field'] ) ) );
 
 			if ( wp_verify_nonce( $nonce, 'admin_nonce' ) ) {
+                
+                if ( isset( $_POST['donations'] ) ) {
+                    
+					if (filter_var($_POST['donations'], FILTER_VALIDATE_URL)) {
+                        update_option( 'donations', $_POST['donations'] );
+                    };
+                }
 
 				if ( isset( $_POST['mailchimp'] ) ) {
 					$mailchimp = sanitize_text_field( wp_unslash( $_POST['mailchimp'] ) );
 					update_option( 'mailchimp', $mailchimp );
                 }
+    
                 $custom_colors = get_option('custom_colors');
     
                 if (!isset($custom_colors) || !is_array($custom_colors)) {
@@ -176,22 +184,26 @@ function paprika_theme_settings() {
                 if ( isset( $_POST['about-color'] ) ) {
                     $about_color = sanitize_text_field( wp_unslash( $_POST['about-color'] ) );
                     $custom_colors['about'] = $about_color;
+                } else {
+                    $custom_colors['about'] = '#a74482';
                 }
                 if ( isset( $_POST['festivals-color'] ) ) {
 					$festivals_color = sanitize_text_field( wp_unslash( $_POST['festivals-color'] ) );
 					$custom_colors['festivals'] = $festivals_color;
+                } else {
+                    $custom_colors['festivals'] = '#e6007a';
                 }
                 if ( isset( $_POST['support-color'] ) ) {
 					$support_color = sanitize_text_field( wp_unslash( $_POST['support-color'] ) );
 					$custom_colors['support'] = $support_color;
+                } else {
+                    $custom_colors['support'] = '#177e72';
                 }
                 if ( isset( $_POST['press-color'] ) ) {
 					$press_color = sanitize_text_field( wp_unslash( $_POST['press-color'] ) );
 					$custom_colors['press'] = $press_color;
-                }
-                if ( isset( $_POST['grey-color'] ) ) {
-					$grey_color = sanitize_text_field( wp_unslash( $_POST['grey-color'] ) );
-					$custom_colors['grey'] = $grey_color;
+                } else {
+					$custom_colors['press'] = '#0c628b';
                 }
                 update_option( 'custom_colors', $custom_colors );
 			}

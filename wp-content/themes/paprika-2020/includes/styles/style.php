@@ -180,7 +180,10 @@
             if (intval(strlen($color)) === 7) {
                 $opaque_values = paprika_hex_to_rgb($opacities, $color);
             }
-        ?>
+        ?> 
+        .header-menu .btn--donations {
+            background-color: <?php echo $color ?>;
+        }
         .page-support .header__banner__bar {
             background-image: url(<?php echo get_template_directory_uri() . '/images/jigsaw.svg' ?>),
             linear-gradient(<?php echo $color ?>, <?php echo $color ?>);

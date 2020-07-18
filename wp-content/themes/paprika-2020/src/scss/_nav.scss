@@ -10,6 +10,10 @@
 	transition: top 0.5s ease-in-out;
 	align-items: flex-end;
 	padding-bottom: 64px;
+	.btn--dark {
+		@extend .btn--dark;
+		padding: 24px 80px;
+	}
 	li,
 	a {
 		line-height: 1;
