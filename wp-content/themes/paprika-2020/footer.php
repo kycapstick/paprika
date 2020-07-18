@@ -29,22 +29,26 @@
                 <div class="flex">
                     <div class="footer__contact__form col-6">
                         <form action="/">
-                        <div class="form__field">
-                            <label class="form__label form__label--dark" for="name">Your Name (required) </label>
-                            <input class="form__input form__input--dark" type="text" name="name" id="name">
-                        </div>
-                        <div class="form__field">
-                            <label class="form__label form__label--dark" for="email">Your Email Address (required)</label>
-                            <input class="form__input form__input--dark" type="email" name="email" id="email">
-                        </div>
-                        <input class="btn btn--dark" type="submit" value="Subscribe">
-                    </form>
-                </div>
-                <div class="footer__contact__title col-6">
-                    <h3 class="subtitle subtitle--dark">Signup <span>for our newsletter</span></h3>
+                            <div class="form__field">
+                                <label class="form__label form__label--dark" for="name">Your First Name (required) </label>
+                                <input class="form__input form__input--dark" type="text" name="name" id="name">
+                            </div>
+                            <div class="form__field">
+                                <label class="form__label form__label--dark" for="name">Your Last Name (required) </label>
+                                <input class="form__input form__input--dark" type="text" name="name" id="name">
+                            </div>
+                            <div class="form__field">
+                                <label class="form__label form__label--dark" for="email">Your Email Address (required)</label>
+                                <input class="form__input form__input--dark" type="email" name="email" id="email">
+                            </div>
+                            <input class="btn btn--dark" type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                    <div class="footer__contact__title col-6">
+                        <h3 class="subtitle subtitle--dark">Signup <span>for our newsletter</span></h3>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
         <div class="footer__social">
             <div class="container">

@@ -23,8 +23,8 @@
 						<span class="header__trigger__bar"></span>
 					</button>
 					<div class="header-menu">
-						<div class="container">
-							<div class="flex">
+						<div class="container flex">
+							<!-- <div class="flex"> -->
 								<div class="col-6 menu__container">
 									<?php 
 										wp_nav_menu(array(
@@ -32,7 +32,7 @@
 										))
 									?>
 								</div>
-							</div>	
+							<!-- </div>	 -->
 						</div>
 					</div>
 				</div>

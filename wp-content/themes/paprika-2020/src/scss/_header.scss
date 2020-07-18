@@ -91,7 +91,7 @@
 .home .header {
 	color: white;
 	background: $festivals-primary;
-	.container {
+	& > .container {
 		min-height: 100vh;
 	}
 	&__hero {

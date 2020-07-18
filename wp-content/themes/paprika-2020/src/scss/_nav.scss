@@ -6,11 +6,10 @@
 	left: 0;
 	z-index: 10;
 	display: flex;
-	justify-content: flex-end;
-	flex-direction: column;
 	top: -100%;
 	transition: top 0.5s ease-in-out;
-	justify-content: flex-end;
+	align-items: flex-end;
+	padding-bottom: 64px;
 	li,
 	a {
 		line-height: 1;
@@ -24,7 +23,7 @@
 		display: inline-block;
 		font-size: 9rem;
 		line-height: 1;
-		color: $grey-50;
+		color: $grey-60;
 	}
 	.menu {
 		position: relative;
@@ -65,8 +64,32 @@
 			&::after {
 				content: "-";
 			}
+			&::before {
+				width: 100%;
+			}
 		}
 	}
+	.menu-item {
+		display: block;
+		a {
+			position: relative;
+		}
+		& > a::before {
+			position: absolute;
+			bottom: 3px;
+			content: "";
+			display: block;
+			height: 5px;
+			width: 0;
+			background-color: black;
+			transition: width 0.3s cubic-bezier(0, 0.51, 0.73, 0.7);
+		}
+		&--active > a::before,
+		&:hover > a::before {
+			width: 100%;
+		}
+	}
+
 	.sub-menu {
 		display: none;
 	}
