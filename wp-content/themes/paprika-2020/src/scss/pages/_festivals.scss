@@ -3,6 +3,10 @@
 	&__aside {
 		margin: 64px 0 16px;
 	}
+	&__link {
+		color: black;
+		transition: color 0.1s ease-in-out;
+	}
 	&__card {
 		position: relative;
 		margin: 0;
@@ -43,7 +47,6 @@
 		}
 	}
 	&__list {
-		padding-left: 24px;
 		margin: 16px 0 24px;
 	}
 	&__button {

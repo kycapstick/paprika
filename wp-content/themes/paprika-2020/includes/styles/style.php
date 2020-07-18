@@ -32,9 +32,6 @@
             .page-<?php echo $key ?> blockquote::before {
                 color: <?php echo $color ?>;
             }
-            .page-<?php echo $key ?> cite::before {
-                content: url("<?php echo get_template_directory_uri() . '/images/quote-festival.svg' ?>");
-            }
 
             /* BUTTONs */
             .page-<?php echo $key ?> .btn--light {
@@ -142,7 +139,7 @@
             background-color: <?php echo $color ?>;
         }
         .show-block a,
-        .festivals__link,
+        .festivals__link:hover,
         .festivals__archive .archive__link {
             color: <?php echo $color; ?>
         }

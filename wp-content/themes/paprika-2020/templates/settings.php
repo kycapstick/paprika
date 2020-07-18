@@ -17,7 +17,7 @@
 					<label for="about-color">About Color</label>
 				</th>
 				<td>
-					<input type="color" id="about-color" name="about-color" class="regular-text" value="<?php echo isset($custom_colors['about']) ? esc_attr( $custom_colors['about'] ) : null; ?>" />
+					<input type="color" id="about-color" name="about-color" class="regular-text" value="<?php echo isset($custom_colors['about']) ? esc_attr( $custom_colors['about'] ) : null; ?>"/>
 				</td>
 			</tr>
 			<tr>
@@ -42,14 +42,6 @@
 				</th>
 				<td>
 					<input type="color" id="press-color" name="press-color" class="regular-text" value="<?php echo isset($custom_colors['press']) ? esc_attr( $custom_colors['press'] ) : null; ?>" />
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label for="grey-color">Main Grey</label>
-				</th>
-				<td>
-					<input type="color" id="grey-color" name="grey-color" class="regular-text" value="<?php echo isset($custom_colors['grey']) ? esc_attr( $custom_colors['grey'] ) : null; ?>" />
 				</td>
 			</tr>
 		</tbody>
