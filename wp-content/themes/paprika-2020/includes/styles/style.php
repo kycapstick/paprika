@@ -139,6 +139,7 @@
             background-color: <?php echo $color ?>;
         }
         .show-block a,
+        .show-block__date__link:hover,
         .festivals__link:hover,
         .festivals__archive .archive__link {
             color: <?php echo $color; ?>

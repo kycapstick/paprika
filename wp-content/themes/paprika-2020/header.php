@@ -34,9 +34,8 @@
 										$donations_url = get_option('donations'); 
 										if (isset($donations_url) && strlen($donations_url) > 0): 
 									?>
-											<a class="btn btn--donations btn--dark" href="<?php echo $donations_url?>" class="btn">Donate</a>
-										<?php endif; ?>
-									?>
+										<a class="btn btn--donations btn--dark" href="<?php echo $donations_url?>" class="btn">Donate</a>
+									<?php endif; ?>
 									
 								</div>
 
