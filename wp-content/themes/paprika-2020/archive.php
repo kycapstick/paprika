@@ -1,8 +1,9 @@
 <?php 
     get_header();
+    $color_classes = paprika_custom_colors();
 ?>
 
-<div class="container">
+<div class="container <?php echo $color_classes ?>">
         <div class="flex">
             <main class="col-9 post__list">
             <?php

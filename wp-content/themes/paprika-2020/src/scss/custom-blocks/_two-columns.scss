@@ -20,37 +20,4 @@
 	a {
 		margin-top: 8px;
 	}
-	a {
-		color: $programs-primary;
-	}
-	&.page-festivals {
-		h2 {
-			&::after {
-				background: $festivals-primary;
-			}
-		}
-		a {
-			color: $festivals-primary;
-		}
-	}
-	&.page-press {
-		h2 {
-			&::after {
-				background: $press-primary;
-			}
-		}
-		a {
-			color: $press-primary;
-		}
-	}
-	&.page-support {
-		h2 {
-			&::after {
-				background: $support-primary;
-			}
-		}
-		a {
-			color: $support-primary;
-		}
-	}
 }

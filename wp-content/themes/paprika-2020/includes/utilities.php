@@ -91,7 +91,7 @@ if (!function_exists('paprika_custom_colors')) {
         if (is_post_type_archive('festival')) {
             return 'page-festivals';
         }
-        return 'unset';
+        return 'page-about';
     }
 }
 
@@ -162,115 +162,38 @@ function paprika_theme_settings() {
 
 			if ( wp_verify_nonce( $nonce, 'admin_nonce' ) ) {
 
-				if ( isset( $_POST['github_link'] ) ) {
-					$github_link = sanitize_text_field( wp_unslash( $_POST['github_link'] ) );
-					update_option( 'github_link', $github_link );
-				}
-
-				if ( isset( $_POST['community_discourse'] ) ) {
-					$community_discourse = sanitize_text_field( wp_unslash( $_POST['community_discourse'] ) );
-					update_option( 'community_discourse', $community_discourse );
-				}
-
-				if ( isset( $_POST['google_analytics_id'] ) ) {
-					$google_analytics_id = sanitize_text_field( wp_unslash( $_POST['google_analytics_id'] ) );
-					update_option( 'google_analytics_id', $google_analytics_id );
-				}
-
-				if ( isset( $_POST['google_analytics_sri'] ) ) {
-					$google_analytics_sri = sanitize_text_field( wp_unslash( $_POST['google_analytics_sri'] ) );
-					update_option( 'google_analytics_sri', $google_analytics_sri );
-				}
-
-				if ( isset( $_POST['default_open_graph_title'] ) ) {
-					$default_open_graph_title = sanitize_text_field( wp_unslash( $_POST['default_open_graph_title'] ) );
-					update_option( 'default_open_graph_title', $default_open_graph_title );
-				}
-
-				if ( isset( $_POST['default_open_graph_desc'] ) ) {
-					$default_open_graph_desc = sanitize_text_field( wp_unslash( $_POST['default_open_graph_desc'] ) );
-					update_option( 'default_open_graph_desc', $default_open_graph_desc );
-				}
-
-				if ( isset( $_POST['image_max_filesize'] ) ) {
-					$image_max_filesize = sanitize_text_field( wp_unslash( $_POST['image_max_filesize'] ) );
-					update_option( 'image_max_filesize', intval( $image_max_filesize ) );
-				}
-
-				if ( isset( $_POST['error_404_title'] ) ) {
-					$error_404_title = sanitize_text_field( wp_unslash( $_POST['error_404_title'] ) );
-					update_option( 'error_404_title', $error_404_title );
-				}
-
-				if ( isset( $_POST['error_404_copy'] ) ) {
-					$error_404_copy = sanitize_text_field( wp_unslash( $_POST['error_404_copy'] ) );
-					update_option( 'error_404_copy', $error_404_copy );
-				}
-
-				if ( isset( $_POST['discourse_api_key'] ) ) {
-					$discourse_api_key = sanitize_text_field( wp_unslash( $_POST['discourse_api_key'] ) );
-					update_option( 'discourse_api_key', $discourse_api_key );
-				}
-
-				if ( isset( $_POST['discourse_api_url'] ) ) {
-					$discourse_api_url = sanitize_text_field( wp_unslash( $_POST['discourse_api_url'] ) );
-					update_option( 'discourse_api_url', $discourse_api_url );
-				}
-
-				if ( isset( $_POST['discourse_url'] ) ) {
-					$discourse_url = sanitize_text_field( wp_unslash( $_POST['discourse_url'] ) );
-					update_option( 'discourse_url', $discourse_url );
-				}
-
-				if ( isset( $_POST['mapbox'] ) ) {
-					$mapbox = sanitize_text_field( wp_unslash( $_POST['mapbox'] ) );
-					update_option( 'mapbox', $mapbox );
-				}
-
-				if ( isset( $_POST['report_email'] ) ) {
-					$report_email = sanitize_email( wp_unslash( $_POST['report_email'] ) );
-					update_option( 'report_email', $report_email );
-				}
-
 				if ( isset( $_POST['mailchimp'] ) ) {
 					$mailchimp = sanitize_text_field( wp_unslash( $_POST['mailchimp'] ) );
 					update_option( 'mailchimp', $mailchimp );
-				}
+                }
+                $custom_colors = get_option('custom_colors');
+    
+                if (!isset($custom_colors) || !is_array($custom_colors)) {
+                    $custom_colors = array();
+                    update_option('custom_colors', $custom_colors);
+                }
 
-				if ( isset( $_POST['company'] ) ) {
-					$company = sanitize_text_field( wp_unslash( $_POST['company'] ) );
-					update_option( 'company', $company );
-				}
-
-				if ( isset( $_POST['address'] ) ) {
-					$address = sanitize_text_field( wp_unslash( $_POST['address'] ) );
-					update_option( 'address', $address );
-				}
-
-				if ( isset( $_POST['city'] ) ) {
-					$city = sanitize_text_field( wp_unslash( $_POST['city'] ) );
-					update_option( 'city', $city );
-				}
-
-				if ( isset( $_POST['state'] ) ) {
-					$state = sanitize_text_field( wp_unslash( $_POST['state'] ) );
-					update_option( 'state', $state );
-				}
-
-				if ( isset( $_POST['zip'] ) ) {
-					$zip = sanitize_text_field( wp_unslash( $_POST['zip'] ) );
-					update_option( 'zip', $zip );
-				}
-
-				if ( isset( $_POST['country'] ) ) {
-					$country = sanitize_text_field( wp_unslash( $_POST['country'] ) );
-					update_option( 'country', $country );
-				}
-
-				if ( isset( $_POST['phone'] ) ) {
-					$phone = sanitize_text_field( wp_unslash( $_POST['phone'] ) );
-					update_option( 'phone', $phone );
-				}
+                if ( isset( $_POST['about-color'] ) ) {
+                    $about_color = sanitize_text_field( wp_unslash( $_POST['about-color'] ) );
+                    $custom_colors['about'] = $about_color;
+                }
+                if ( isset( $_POST['festivals-color'] ) ) {
+					$festivals_color = sanitize_text_field( wp_unslash( $_POST['festivals-color'] ) );
+					$custom_colors['festivals'] = $festivals_color;
+                }
+                if ( isset( $_POST['support-color'] ) ) {
+					$support_color = sanitize_text_field( wp_unslash( $_POST['support-color'] ) );
+					$custom_colors['support'] = $support_color;
+                }
+                if ( isset( $_POST['press-color'] ) ) {
+					$press_color = sanitize_text_field( wp_unslash( $_POST['press-color'] ) );
+					$custom_colors['press'] = $press_color;
+                }
+                if ( isset( $_POST['grey-color'] ) ) {
+					$grey_color = sanitize_text_field( wp_unslash( $_POST['grey-color'] ) );
+					$custom_colors['grey'] = $grey_color;
+                }
+                update_option( 'custom_colors', $custom_colors );
 			}
 		}
 	}
@@ -278,6 +201,24 @@ function paprika_theme_settings() {
 
 	$options = wp_load_alloptions();
 	include "{$theme_dir}/templates/settings.php";
+}
+
+if (!function_exists('paprika_custom_css')) {
+    function paprika_custom_css() {
+        include( get_template_directory()  . '/includes/styles/style.php'); 
+    }
+}
+
+if (!function_exists('paprika_hex_to_rgb')) {
+    function paprika_hex_to_rgb($opacities, $color) {
+        $opaque_values = array();
+            list($r, $g, $b) = sscanf($color, "#%02x%02x%02x");
+            foreach($opacities as $opacity) {
+                $opaque_values[$opacity] = 'rgba('. $r . ',' . $g . ',' . $b . ', 0.' . $opacity . ')';
+        }
+        return $opaque_values;
+    }
+    
 }
 
 ?>

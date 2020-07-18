@@ -35,7 +35,6 @@
 				z-index: -1;
 				top: 0;
 				bottom: 0;
-				border: 2px solid $festivals-primary;
 			}
 		}
 		&__title {
@@ -47,19 +46,12 @@
 		padding-left: 24px;
 		margin: 16px 0 24px;
 	}
-	&__link {
-		color: $festivals-primary;
-	}
 	&__button {
 		margin-top: 32px;
-		.btn--dark {
-			background-color: $festivals-primary;
-		}
 	}
 	&__archive {
 		@extend .post__archive;
 		.archive__link {
-			color: $festivals-primary;
 			&::after {
 				content: url("../images/ticket.svg");
 			}

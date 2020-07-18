@@ -6,7 +6,6 @@
 			width: 100%;
 			height: 5px;
 			top: -8px;
-			background-color: $press-primary;
 			display: block;
 		}
 	}
@@ -31,8 +30,5 @@
 	}
 	.wp-block-button {
 		margin-top: 16px;
-		&__link {
-			background-color: $press-primary;
-		}
 	}
 }

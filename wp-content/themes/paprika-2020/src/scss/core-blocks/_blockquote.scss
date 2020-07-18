@@ -4,7 +4,6 @@ blockquote {
 	padding: 0 64px;
 	&:before {
 		content: "“";
-		color: $programs-primary;
 		display: block;
 		position: absolute;
 		top: -15px;
@@ -21,23 +20,5 @@ blockquote {
 			margin-right: 10px;
 			transform: translateY(1px);
 		}
-	}
-}
-
-.page-festivals {
-	blockquote::before {
-		color: $festivals-primary;
-	}
-	cite::before {
-		content: url("../images/quote-festival.svg");
-	}
-}
-
-.page-press {
-	blockquote::before {
-		color: $press-primary;
-	}
-	cite::before {
-		content: url("../images/quote-pink.svg");
 	}
 }

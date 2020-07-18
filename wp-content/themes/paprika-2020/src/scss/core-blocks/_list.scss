@@ -9,27 +9,11 @@
 				height: 5px;
 				width: 10px;
 				display: block;
-				background-color: $programs-primary;
 				position: absolute;
 				left: -20px;
 				top: 13px;
 				transform: translateY(-50%);
 			}
-		}
-	}
-	&.page-festivals {
-		ul li::before {
-			background-color: $festivals-primary;
-		}
-	}
-	&.page-press {
-		ul li::before {
-			background-color: $press-primary;
-		}
-	}
-	&.page-support {
-		ul li::before {
-			background-color: $support-primary;
 		}
 	}
 }

@@ -2,17 +2,7 @@
 	text-align: center;
 	padding: 128px 0;
 	color: #fff;
-	background-color: $programs-primary;
 	margin: 64px 0;
-	&.page-support {
-		background-color: $support-primary;
-	}
-	&.page-press {
-		background-color: $press-primary;
-	}
-	&.page-festivals {
-		background-color: $festivals-primary;
-	}
 	&__title {
 		margin: 0 auto;
 		max-width: 50%;

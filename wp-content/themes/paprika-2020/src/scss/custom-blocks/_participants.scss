@@ -25,7 +25,6 @@
 		@extend .name-tag;
 		right: 0;
 		&::before {
-			background-color: $festivals-primary;
 			transition: background-color 0.3s ease-in-out;
 		}
 	}
@@ -35,7 +34,6 @@
 		right: 0;
 		width: 100%;
 		height: 100%;
-		background-color: $festivals-95;
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out;
 		&__title {
@@ -49,12 +47,9 @@
 		}
 	}
 	&__placeholder {
-		border: 32px solid $festivals-15;
 		border-bottom-width: 0;
 		height: 100%;
 		padding-top: 56.25%;
-		background-image: url("../images/missing-portrait.svg"),
-			linear-gradient(to bottom, $festivals-15, $festivals-15);
 		background-size: contain;
 		background-position: bottom center;
 		background-repeat: no-repeat;

@@ -1,11 +1,5 @@
 .donor-block {
 	text-align: center;
-	&--two-up {
-		background: linear-gradient(to right, #fff 50%, $support-15 50%);
-		&:nth-of-type(2n) {
-			background: linear-gradient(to left, #fff 50%, $support-15 50%);
-		}
-	}
 	&__price {
 		text-align: center;
 		span {
@@ -14,7 +8,6 @@
 				content: "$";
 				display: block;
 				position: absolute;
-				color: $support-primary;
 				top: -10px;
 				left: -25px;
 				font-size: 4rem;
@@ -36,6 +29,5 @@
 	}
 	.cta-block {
 		margin: 0;
-		background-color: $support-primary;
 	}
 }
