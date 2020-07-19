@@ -24,7 +24,7 @@ const validateInputs = (inputs) => {
 	inputs.forEach((input) => {
 		data[input.name] = input.value;
 		let allClear;
-		if (input.type === "text") {
+		if (input.type === "text" || input.type === "textarea") {
 			allClear = checkForEmptyInput(input.value);
 			if (allClear === false) {
 				addErrorMessage(input, "This field is required");
@@ -44,22 +44,48 @@ const validateInputs = (inputs) => {
 	return data;
 };
 
-const submitForm = (action, formData) => {
-	const url = `/wp-admin/admin-ajax.php?action=${action}`;
-	const data = formData;
-	console.log(data);
-	jQuery.ajax({
-		url,
-		data,
-		method: "POST",
-		success: function (resp) {
-			const response = jQuery.parseJSON(resp);
-			if (response.status === "OK") {
-				console.log(response);
-			}
-			console.log(response);
-		},
+const submitForm = (action, formData, form) => {
+	return new Promise((resolve, reject) => {
+		const url = `/wp-admin/admin-ajax.php?action=${action}`;
+		const data = formData;
+		jQuery.ajax({
+			url,
+			data,
+			method: "POST",
+			success: function (data) {
+				resolve(data);
+			},
+			error: function (data) {
+				reject(data);
+			},
+		});
 	});
+};
+
+const handleResponse = (form, response) => {
+	const resp = JSON.parse(response);
+	console.log(resp);
+	if (resp.status === "OK") {
+		form.classList.add("form__success");
+		return;
+	}
+	form.classList.add("form__submission__error");
+};
+
+const handleDataSubmission = async (formId, form, data) => {
+	if (formId === "footer__form") {
+		data["nonce"] = form.dataset.nonce;
+		data["list_id"] = form.dataset.list;
+		const response = await submitForm("mailchimp_subscribe", data);
+		handleResponse(form, response);
+		return;
+	}
+	if (formId === "contact__form") {
+		data["nonce"] = form.dataset.nonce;
+		const response = await submitForm("contact_form", data);
+		handleResponse(form, response);
+		return;
+	}
 };
 
 const handleSubmit = (itemId) => {
@@ -68,13 +94,10 @@ const handleSubmit = (itemId) => {
 		form.addEventListener("submit", (e) => {
 			e.preventDefault();
 			const requiredInputs = form.querySelectorAll("[required]");
-			console.log(requiredInputs);
 			if (requiredInputs.length > 0) {
 				const data = validateInputs(requiredInputs);
 				if (data) {
-					data["nonce"] = form.dataset.nonce;
-					data["list_id"] = form.dataset.list;
-					submitForm("mailchimp_subscribe", data);
+					handleDataSubmission(itemId, form, data);
 				}
 			}
 		});
@@ -82,7 +105,10 @@ const handleSubmit = (itemId) => {
 };
 
 const init = () => {
-	handleSubmit("footer__form");
+	const forms = ["footer__form", "contact__form"];
+	forms.forEach((form) => {
+		handleSubmit(form);
+	});
 };
 
 export default init;

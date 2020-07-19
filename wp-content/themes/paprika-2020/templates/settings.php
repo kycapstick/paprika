@@ -31,6 +31,14 @@
 			</tr>
 			<tr>
 				<th scope="row">
+					<label for="mailchimp">Contact Form Email Address</label>
+				</th>
+				<td>
+					<input type="text" id="contact_email" name="contact_email" class="regular-text" value="<?php echo isset($options['contact_email']) ? esc_attr( $options['contact_email'] ) : null; ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
 					<label for="about-color">About Color</label>
 				</th>
 				<td>

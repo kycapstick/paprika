@@ -24,7 +24,24 @@
 	}
 	&__error {
 		display: none;
-		color: white;
+		color: red;
+		&--dark {
+			color: white;
+		}
+	}
+	& ~ .success-message,
+	& ~ .error-message {
+		display: none;
+	}
+	&__success,
+	&__submission__error {
+		display: none;
+	}
+	&__success + .success-message {
+		display: block;
+	}
+	&__submission__error + .error-message {
+		display: block;
 	}
 }
 
