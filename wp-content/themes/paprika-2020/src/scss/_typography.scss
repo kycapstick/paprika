@@ -30,6 +30,10 @@ h1 {
 	line-height: 1.3;
 }
 
+.header-menu .btn--donations {
+	font-size: 6.5rem;
+}
+
 .hero-text,
 .header__title {
 	font-size: 5rem;
@@ -63,7 +67,8 @@ h3,
 
 .card__title,
 .breadcrumb,
-blockquote p {
+blockquote p,
+.festivals__link {
 	font-size: 1.8rem;
 }
 
@@ -122,12 +127,12 @@ label,
 	font-size: 1.8rem;
 }
 
-.btn {
-	font-size: 1.6rem;
+.form__input {
+	line-height: 1.6;
 }
 
-.programs {
-	color: $programs-primary;
+.btn {
+	font-size: 1.6rem;
 }
 
 .wp-block-button__link {

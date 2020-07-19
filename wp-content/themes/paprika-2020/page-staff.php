@@ -11,6 +11,7 @@
 				"order" => 'ASC'
 			);
 			$staff_posts = new WP_Query($args);
+			$color_classes = paprika_custom_colors();
 			$count = 1;
 			if ( $staff_posts->have_posts() ):
 				while($staff_posts->have_posts()):
@@ -18,7 +19,7 @@
 					$name = get_post_meta($post->ID, 'name', true); 
 					$email = get_post_meta($post->ID, 'email', true);
 		?>
-		<div class="staff__block">
+		<div class="staff__block <?php echo $color_classes ?>">
 			<div class="container">
 				<div class="flex">
 					<?php 

@@ -18,7 +18,6 @@
 		}
 	}
 	&__contact {
-		background-color: $programs-primary;
 		&__form {
 			padding-right: 24px;
 		}
@@ -26,24 +25,6 @@
 			text-align: left;
 			span {
 				display: block;
-			}
-		}
-		&.page-support {
-			background-color: $support-primary;
-			.btn--dark {
-				background-color: $support-primary;
-			}
-		}
-		&.page-press {
-			background-color: $press-primary;
-			.btn--dark {
-				background-color: $press-primary;
-			}
-		}
-		&.page-festivals {
-			background-color: $festivals-primary;
-			.btn--dark {
-				background-color: $festivals-primary;
 			}
 		}
 	}

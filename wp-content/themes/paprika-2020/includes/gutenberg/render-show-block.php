@@ -29,10 +29,11 @@
         $time_slots = get_post_meta($post_id, 'timeSlots', true);
         uksort($time_slots, 'paprika_sort_order');
         $festival_id = get_post_meta($post_id, 'festival', true);
-        $festival = get_post($festival_id);
+		$festival = get_post($festival_id);
+		$color_classes = paprika_custom_colors();
         ob_start();
         ?>
-		<div class="show-block">
+		<div class="show-block <?php echo $color_classes ?>">
 			<div class="container">
 				<div class="flex">
 					<div class="col-9">
@@ -109,6 +110,12 @@
 			<?php
 				endif;
 			?>
+			<?php 
+				$ticket_link = get_post_meta($festival_id, 'tickets', true); 
+				if (isset($ticket_link) && strlen($ticket_link) > 0 && filter_var($ticket_link, FILTER_VALIDATE_URL)): 
+			?>
+				<a href="<?php echo $ticket_link ?>" class="btn btn--light">Buy Tickets</a>
+				<?php endif; ?>
             </div>
             </div>
 			</div>

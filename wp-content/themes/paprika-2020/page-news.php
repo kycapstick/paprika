@@ -1,5 +1,6 @@
 <?php 
-	get_header();
+    get_header();
+    $color_classes = paprika_custom_colors();
 ?>
 
 <?php 
@@ -8,7 +9,7 @@
     $args = array( 'posts_per_page' => 10, 'paged' => $paged,'post_type' => 'post' );
     $postslist = new WP_Query( $args );
     ?>
-    <div class="container">
+    <div class="container <?php echo $color_classes ?>">
         <div class="flex">
             <main class="col-9 post__list">
             <?php

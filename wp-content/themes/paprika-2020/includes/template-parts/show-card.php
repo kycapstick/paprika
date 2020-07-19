@@ -3,7 +3,6 @@
     <div 
         <?php 
             $class_list = array();
-
             if (!empty($show_details)) {
                 foreach($show_details as $details) {
                     $class_list[] = 'schedule__date--' . $details['date'];

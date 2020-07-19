@@ -33,6 +33,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 }
 add_action( 'wp_head', 'paprika_head_metadata' );
+add_action( 'wp_head', 'paprika_custom_css' );
+
+add_action( 'admin_menu', 'paprika_add_menu_item' );
 
 // Block Utilities
 require get_template_directory() . '/includes/gutenberg/customizations.php';

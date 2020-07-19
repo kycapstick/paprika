@@ -24,6 +24,7 @@
                                 <div class="col-9 festivals__contents">
                                     <?php if (!empty($programs) ): ?>
                                         <h3>Programs</h3>
+                                        <p class="copy--light">Click on the program's name for more details.</p>
                                         <ul class="flex festivals__list">
                                             <?php foreach($programs as $program): ?>
                                                 <li class="col-4">
@@ -38,6 +39,7 @@
                                     <?php endif; ?>
                                     <?php if (!empty($shows) ): ?>
                                         <h3>Shows</h3>
+                                        <p class="copy--light">Click on the show's name for more details.</p>
                                         <ul class="flex festivals__list">
                                             <?php foreach($shows as $show_id=>$show): ?>
                                                 <li class="col-4">

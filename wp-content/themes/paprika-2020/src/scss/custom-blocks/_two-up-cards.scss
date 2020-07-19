@@ -65,46 +65,6 @@
 			position: absolute;
 			bottom: 16px;
 			border-radius: 0;
-			background: $programs-primary;
-		}
-	}
-	&.page-festivals {
-		.two-up-cards {
-			&__card {
-				background-color: $festivals-15;
-			}
-			&__subtitle::before {
-				display: none;
-			}
-		}
-		.wp-block-button__link {
-			background: $festivals-primary;
-		}
-	}
-	&.page-press {
-		.two-up-cards {
-			&__card {
-				background-color: $press-15;
-			}
-			&__subtitle::before {
-				display: none;
-			}
-		}
-		.wp-block-button__link {
-			background: $press-primary;
-		}
-	}
-	&.page-support {
-		.two-up-cards {
-			&__card {
-				background-color: $support-15;
-			}
-			&__subtitle::before {
-				display: none;
-			}
-		}
-		.wp-block-button__link {
-			background: $support-primary;
 		}
 	}
 }
