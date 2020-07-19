@@ -30,6 +30,7 @@
             <div class="homepage-cards container <?php echo isset($attributes->custom_color) && strlen($attributes->custom_color) > 0 ? 'page-' . $attributes->custom_color : null; ?>">
                 <div class="flex">
                     <?php for ($i = 0; $i < 2; $i = $i + 1): ?>
+                        <div class="col-6">
                         <?php 
                             if ($i === 0) {
                                 $custom_class = isset($attributes->customColor0) && strlen($attributes->customColor0) > 0 ? 'page-'. $attributes->customColor0 : 'page-about'; 
@@ -37,13 +38,14 @@
                                 $custom_class = isset($attributes->customColor1) && strlen($attributes->customColor1) > 0 ? 'page-'. $attributes->customColor1 : 'page-about'; 
                             }
                         ?>
-                        <div class="col-6 homepage-cards__card <?php echo $custom_class ?>">
+                        <?php
+                            if (pg_is_valid('string', $titleObjects[$i]->link)):
+                        ?>
+                            <a href="<?php echo $titleObjects[$i]->link ?>">
+                        <?php endif; ?>
+                        <div class="homepage-cards__card <?php echo $custom_class ?>">
+                            
                             <?php
-                                if (pg_is_valid('string', $titleObjects[$i]->link)):
-                            ?>
-                                <a href="<?php echo $titleObjects[$i]->link ?>">
-                            <?php
-                                endif; 
                                 if (pg_is_valid('string', $titleObjects[$i]->title)):
                             ?>
                                 <p class="homepage-cards__title card__title card__title--dark">
@@ -54,14 +56,18 @@
                                 if (pg_is_valid('string', $images[$i])):
                                     echo $images[$i];
                                 endif;
-                                if (pg_is_valid('string', $titleObjects[$i]->link)):
-                            ?>
-                                </a>
-                            <?php
-                                endif;  
                             ?>
                         </div>
+                        <?php
+                            if (pg_is_valid('string', $titleObjects[$i]->link)):
+                        ?>
+                            </a>
+                        <?php
+                            endif;  
+                        ?>
+                        </div>
                     <?php endfor; ?>
+                    
                 </div>
             </div>
         <?php

@@ -6,8 +6,8 @@ export default function paprikaAlumniBlock() {
 	const blockSlug = "alumni";
 	const blockTitle = "Alumni Block";
 	const blockDescription = "Creates a list of alumni";
-	const blockCategory = "layout";
-	const blockIcon = "screenoptions"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockCategory = "about-blocks";
+	const blockIcon = "id"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
 		title: i18n.__(blockTitle),

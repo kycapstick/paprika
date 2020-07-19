@@ -6,15 +6,6 @@
 		<tbody>
 			<tr>
 				<th scope="row">
-					<label for="donations">Donation Link</label>
-				</th>
-				<td>
-					<input type="text" id="donations" name="donations" class="regular-text" value="<?php echo isset($options['donations']) ? esc_attr( $options['donations'] ) : null; ?>" />
-					<p>Requires full url.</p>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
 					<label for="mailchimp">Mailchimp API Key</label>
 				</th>
 				<td>
@@ -35,6 +26,15 @@
 				</th>
 				<td>
 					<input type="text" id="contact_email" name="contact_email" class="regular-text" value="<?php echo isset($options['contact_email']) ? esc_attr( $options['contact_email'] ) : null; ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="donations">Donation Link</label>
+				</th>
+				<td>
+					<input type="text" id="donations" name="donations" class="regular-text" value="<?php echo isset($options['donations']) ? esc_attr( $options['donations'] ) : null; ?>" />
+					<p class="copy--italic">Requires full url.</p>
 				</td>
 			</tr>
 			<tr>
@@ -67,6 +67,14 @@
 				</th>
 				<td>
 					<input type="color" id="press-color" name="press-color" class="regular-text" value="<?php echo isset($custom_colors['press']) ? esc_attr( $custom_colors['press'] ) : '#0c628b'; ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="land-acknowledgement">Land Acknowledgement</label>
+				</th>
+				<td>
+					<textarea name="land_acknowledgement" id="land_acknowledgement" cols="30" rows="10" style="width: 80%; resize: none;"><?php echo isset($options['land_acknowledgement']) ? esc_attr( $options['land_acknowledgement'] ) : null; ?></textarea>
 				</td>
 			</tr>
 		</tbody>

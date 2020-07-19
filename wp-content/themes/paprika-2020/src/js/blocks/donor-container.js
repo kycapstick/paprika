@@ -6,7 +6,7 @@ export default function paprikaDonorContainerBlock() {
 	const blockSlug = "donors";
 	const blockTitle = "Donors Block";
 	const blockDescription = "Creates a donors block";
-	const blockCategory = "donor-blocks";
+	const blockCategory = "support-blocks";
 	const blockIcon = "awards"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {

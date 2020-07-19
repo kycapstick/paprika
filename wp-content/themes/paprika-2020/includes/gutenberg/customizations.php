@@ -5,12 +5,28 @@ function paprika_custom_block_categories( $categories, $post ) {
 		$categories,
 		array(
 			array(
-				'slug' => 'donor-blocks',
-				'title' => __( 'Donor Blocks' ),
+				'slug' => 'image-blocks',
+				'title' => __( 'Image Blocks' ),
 			),
 			array(
 				'slug' => 'post-blocks',
 				'title' => __( 'Post Blocks' ),
+			),
+			array(
+				'slug' => 'festivals-blocks',
+				'title' => __( 'Festivals Blocks' ),
+			),
+			array(
+				'slug' => 'about-blocks',
+				'title' => __( 'About Blocks' ),
+			),
+			array(
+				'slug' => 'support-blocks',
+				'title' => __( 'Support Blocks' ),
+			),
+			array(
+				'slug' => 'press-blocks',
+				'title' => __( 'Press Blocks' ),
 			),
 		),
 	);

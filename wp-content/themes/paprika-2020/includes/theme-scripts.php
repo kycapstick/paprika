@@ -28,11 +28,3 @@
 
 	function my_function_admin_bar(){ return false; }
 	add_filter( 'show_admin_bar' , 'my_function_admin_bar');
-
-	add_action('admin_menu', 'paprika_add_custom_options');
-
-	if (!function_exists('paprika_add_custom_options')) {
-		function paprika_add_custom_options() {
-			add_options_page('Paprika Settings', 'Paprika Settings', 'manage_options', 'paprika_options.php');
-		}
-	}

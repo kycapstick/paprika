@@ -5,7 +5,7 @@
         'post_status' => 'publish',
         'numberposts' => 1,
     );
-    $land_acknowledgement = get_posts($query_args);
+    $land_acknowledgement = get_option('land_acknowledgement');
     $footer_class = paprika_custom_colors();
     ?>
     <footer class="footer">
@@ -16,10 +16,10 @@
             <div class="container">
                 <div class="flex">
                     <div class="footer__land__title col-6">
-                        <h3 class="subtitle"><?php echo $land_acknowledgement[0]->post_title ?></h3>
+                        <h3 class="subtitle">Land Acknowledgement</h3>
                     </div>
                     <div class="footer__land__copy col-6">
-                        <p><?php echo $land_acknowledgement[0]->post_content ?></p>
+                        <p><?php echo $land_acknowledgement ?></p>
                     </div>
                 </div>
             </div>

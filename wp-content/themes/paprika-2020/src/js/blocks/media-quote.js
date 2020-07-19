@@ -6,7 +6,7 @@ export default function paprikaMediaQuoteCardBlock() {
 	const blockSlug = "media-quote";
 	const blockTitle = "Media Quote";
 	const blockDescription = "Card to link out to media coverage";
-	const blockCategory = "layout";
+	const blockCategory = "press-blocks";
 	const blockIcon = "testimonial"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {

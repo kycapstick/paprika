@@ -10,7 +10,7 @@ export default function artistReverseBlock() {
 	registerBlockType("paprika/artist-reverse", {
 		title: i18n.__("Artist Block - Reverse"),
 		description: i18n.__("Add an artist photo and bio"),
-		category: "post-blocks",
+		category: "festivals-blocks",
 		icon: "admin-customizer", // Dashicons: https://developer.wordpress.org/resource/dashicons/
 		attributes: {
 			title: {

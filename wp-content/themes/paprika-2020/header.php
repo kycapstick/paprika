@@ -65,13 +65,19 @@
 									<?php $archive_title = explode(': ', get_the_archive_title()) ?>
 									<h1 class="header__text"><?php echo $archive_title[1]; ?></h1>
 								<?php
-									elseif (is_singular('festival') || is_singular('program') || !is_single()): 
+									elseif (is_singular('festival') || is_singular('program') || !is_single() || is_404()): 
 										$title = get_the_title();
 										if (is_singular('program')) {
 											$title = preg_replace("/\b[0-9]{4}/", "", $title);
 										}
+										if (is_singular('festival')) {
+											$title = 'Festival' . $title;
+										}
+										if (is_404()) {
+											$title = '404';
+										}
 								?>
-									<h1 class="header__text"><?php echo is_singular('festival') ? 'Festival ' .  $title : $title; ?></h1>
+									<h1 class="header__text"><?php echo esc_html($title); ?></h1>
 								<?php endif; ?>
 							</div>
 						</div>

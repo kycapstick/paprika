@@ -10,7 +10,7 @@ export default function scheduleBlock() {
 	registerBlockType("paprika/schedule", {
 		title: i18n.__("Schedule Block"),
 		description: i18n.__("Builds a schedule"),
-		category: "post-blocks",
+		category: "festivals-blocks",
 		icon: "calendar-alt", // Dashicons: https://developer.wordpress.org/resource/dashicons/
 		edit: (props, editor = false, save = false) => {
 			return [

@@ -6,7 +6,7 @@ export default function paprikaFullWidthImageBlock() {
 	const blockSlug = "fw-image";
 	const blockTitle = "Full-Width Image";
 	const blockDescription = "Add a full-width image with title to the page";
-	const blockCategory = "layout";
+	const blockCategory = "image-blocks";
 	const blockIcon = "format-image"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {

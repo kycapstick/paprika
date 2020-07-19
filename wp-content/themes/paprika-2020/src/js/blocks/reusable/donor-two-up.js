@@ -6,7 +6,7 @@ export default function paprikaDonorTwoUpBlock() {
 	const blockSlug = "donor-two-up";
 	const blockTitle = "Donor Two Up";
 	const blockDescription = "Pair of donor cards";
-	const blockCategory = "donor-blocks";
+	const blockCategory = "support-blocks";
 	const blockIcon = "awards"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {

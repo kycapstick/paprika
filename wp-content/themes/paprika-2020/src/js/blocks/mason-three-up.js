@@ -7,7 +7,7 @@ export default function paprikaThreeUpImageBlock() {
 	const blockTitle = "Mason Three Up Image Block";
 	const blockDescription =
 		"Add three equally spaced images with title to the page";
-	const blockCategory = "layout";
+	const blockCategory = "image-blocks";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {

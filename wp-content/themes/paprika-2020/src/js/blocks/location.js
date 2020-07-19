@@ -10,8 +10,8 @@ export default function artistBlock() {
 	registerBlockType("paprika/location", {
 		title: i18n.__("Location Block"),
 		description: i18n.__("Add a location post"),
-		category: "post-blocks",
-		icon: "admin-customizer", // Dashicons: https://developer.wordpress.org/resource/dashicons/
+		category: "festivals-blocks",
+		icon: "post-status", // Dashicons: https://developer.wordpress.org/resource/dashicons/
 		attributes: {
 			title: {
 				type: "string",

@@ -214,6 +214,11 @@ function paprika_theme_settings() {
 					$custom_colors['press'] = '#0c628b';
                 }
                 update_option( 'custom_colors', $custom_colors );
+
+                if ( isset( $_POST['land_acknowledgement'] ) ) {
+					$land_acknowledgement = sanitize_textarea_field( trim( $_POST['land_acknowledgement'] )  );
+					update_option( 'land_acknowledgement', $land_acknowledgement );
+                }
 			}
 		}
 	}
