@@ -94,3 +94,16 @@
 		top: 0;
 	}
 }
+
+.home .header {
+	.header__trigger {
+		&__bar {
+			background-color: white;
+		}
+	}
+	.header__trigger--active {
+		.header__trigger__bar {
+			background-color: black;
+		}
+	}
+}

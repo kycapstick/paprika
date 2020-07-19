@@ -14,6 +14,13 @@
             .page-<?php echo $key ?> .btn--dark {
                 background-color: <?php echo $color ?>
             }
+
+            .homepage-cards .page-<?php echo $key ?> .homepage-cards__title::before {
+                background-color: <?php echo $color; ?>
+            }
+            .homepage-cards .homepage-cards__card.page-<?php echo $key ?> {
+                background-color: <?php echo $opaque_values['15']; ?>
+            }
             /* FOOTER */
             .footer__contact.page-<?php echo $key ?> {
                 background-color: <?php echo $color ?>;
