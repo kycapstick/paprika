@@ -49,7 +49,6 @@
 
             if ( isset( $options['mailchimp'] ) ) {
                 $api_key = trim( $options['mailchimp'] );
-                paprika_console_log($api_key);
                 if ( ! empty( $api_key ) ) {
                     $dc = end( explode( '-', $api_key ) );
                 }
