@@ -2,12 +2,15 @@
 
 add_action( 'wp_ajax_mailchimp_subscribe', 'paprika_mailchimp_subscribe' );
 add_action( 'wp_ajax_nopriv_mailchimp_subscribe', 'paprika_mailchimp_subscribe' );
+add_action( 'wp_ajax_nopriv_contact_form', 'paprika_send_contact_form' );
+add_action( 'wp_ajax_contact_form', 'paprika_send_contact_form' );
 
 require get_template_directory() . '/includes/setup.php';
 require get_template_directory() . '/includes/theme-scripts.php';
 require get_template_directory() . '/includes/gutenberg.php';
 require get_template_directory() . '/includes/utilities.php';
 require get_template_directory() . '/includes/mailchimp.php';
+require get_template_directory() . '/includes/contact-form.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.

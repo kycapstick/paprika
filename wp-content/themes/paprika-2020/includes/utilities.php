@@ -177,6 +177,10 @@ function paprika_theme_settings() {
 					$mailchimp = sanitize_text_field( wp_unslash( $_POST['mailchimp_list'] ) );
 					update_option( 'mailchimp_list', $mailchimp );
                 }
+                if ( isset( $_POST['contact_email'] ) ) {
+					$contact_email = sanitize_email( $_POST['contact_email'] );
+					update_option( 'contact_email', $contact_email );
+                }
     
                 $custom_colors = get_option('custom_colors');
     
@@ -235,6 +239,25 @@ if (!function_exists('paprika_hex_to_rgb')) {
         return $opaque_values;
     }
     
+}
+
+if (!function_exists('paprika_sanitize_field')) {
+    function paprika_sanitize_field($field, $value, $object, $type = '') {
+        if ($type === 'email') {
+            $sanitized_field = trim(sanitize_email($value));
+            $object[$field] = $sanitized_field;
+            return $object;
+        }
+        if ($type === 'textarea') {
+            $sanitized_field = sanitize_textarea_field($value);
+            $object[$field] = $sanitized_field;
+            return $object;
+        }
+        $sanitized_field = sanitize_text_field($value);
+        $object[$field] = $sanitized_field;
+        return $object;
+
+    }
 }
 
 ?>
