@@ -173,6 +173,10 @@ function paprika_theme_settings() {
 					$mailchimp = sanitize_text_field( wp_unslash( $_POST['mailchimp'] ) );
 					update_option( 'mailchimp', $mailchimp );
                 }
+                if ( isset( $_POST['mailchimp_list'] ) ) {
+					$mailchimp = sanitize_text_field( wp_unslash( $_POST['mailchimp_list'] ) );
+					update_option( 'mailchimp_list', $mailchimp );
+                }
     
                 $custom_colors = get_option('custom_colors');
     

@@ -27,19 +27,24 @@
         <div class="footer__contact <?php echo $footer_class ?>">
             <div class="container">
                 <div class="flex">
+                    <?php $mailchimp_list = get_option('mailchimp_list'); ?>
                     <div class="footer__contact__form col-6">
-                        <form action="/">
+                        <form action="/wp-admin/" id="footer__form" novalidate method="POST" data-list="<?php echo isset($mailchimp_list) && strlen($mailchimp_list) > 0 ? $mailchimp_list : null ?>" data-nonce="<?php echo wp_create_nonce('mailing-list') ?>">
+                            <input type="hidden" name="list_id" value="">
                             <div class="form__field">
-                                <label class="form__label form__label--dark" for="name">Your First Name (required) </label>
-                                <input class="form__input form__input--dark" type="text" name="name" id="name">
+                                <label class="form__label form__label--dark" for="first_name">Your First Name (required) </label>
+                                <input class="form__input form__input--dark" type="text" name="first_name" id="first_name" required aria-describedby="first_name_error">
+                                <p id="first_name_error" class="copy--italic copy--small form__error"></p>
                             </div>
                             <div class="form__field">
-                                <label class="form__label form__label--dark" for="name">Your Last Name (required) </label>
-                                <input class="form__input form__input--dark" type="text" name="name" id="name">
+                                <label class="form__label form__label--dark" for="last_name">Your Last Name (required) </label>
+                                <input class="form__input form__input--dark" type="text" name="last_name" id="last_name" required aria-describedby="last_name_error">
+                                <p id="last_name_error" class="copy--italic copy--small form__error"></p>
                             </div>
                             <div class="form__field">
                                 <label class="form__label form__label--dark" for="email">Your Email Address (required)</label>
-                                <input class="form__input form__input--dark" type="email" name="email" id="email">
+                                <input class="form__input form__input--dark" type="email" name="email" id="email" required aria-describedby="email_error">
+                                <p id="email_error" class="copy--italic copy--small form__error"></p>
                             </div>
                             <input class="btn btn--dark" type="submit" value="Subscribe">
                         </form>

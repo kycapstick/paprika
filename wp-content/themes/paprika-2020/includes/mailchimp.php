@@ -43,13 +43,13 @@
     }
 
     if (!function_exists('paprika_add_email_to_list')) {
-        function mozilla_add_email_to_list( $id, $email, $name = false ) {
+        function paprika_add_email_to_list( $id, $email, $name = false ) {
 
             $options = wp_load_alloptions();
 
             if ( isset( $options['mailchimp'] ) ) {
                 $api_key = trim( $options['mailchimp'] );
-
+                paprika_console_log($api_key);
                 if ( ! empty( $api_key ) ) {
                     $dc = end( explode( '-', $api_key ) );
                 }
@@ -99,8 +99,8 @@
                         );
                         die();
                     }
-                    if ( isset( $_POST['first_name'] ) && strlen( trim( sanitize_key( $_POST['first_name'] ) ) ) > 0 && isset( $_POST['last_name'] ) && strlen( trim( sanitize_key( $_POST['last_name'] ) ) ) > 0 && isset( $_POST['email'] ) && strlen( sanitize_key( $_POST['email'] ) ) > 0 ) {
-
+                    if ( isset( $_POST['first_name'] ) && strlen( trim( sanitize_key( $_POST['first_name'] ) ) ) > 0 && isset( $_POST['last_name'] ) && strlen( trim( sanitize_key( $_POST['last_name'] ) ) ) > 0 && isset( $_POST['email'] ) && strlen( sanitize_key( $_POST['email'] ) ) > 0  && isset($_POST['list_id']) && strlen($_POST['list_id']) > 0) {
+                        $list_id = trim( sanitize_key( $_POST['list_id'] ) );
                         $first_name        = trim( sanitize_key( $_POST['first_name'] ) );
                         $last_name        = trim( sanitize_key( $_POST['last_name'] ) );
                         $email =    intval( sanitize_key( $_POST['email'] ) );
@@ -109,7 +109,7 @@
                         $name['LNAME'] = trim( sanitize_text_field( wp_unslash( $_POST['last_name'] ) ) );
                         $email         = trim( sanitize_email( wp_unslash( $_POST['email'] ) ) );
 
-                        $result = mozilla_add_email_to_list( $email, $name );
+                        $result = paprika_add_email_to_list( $list_id, $email, $name );
                         if ( $result ) {
                             print wp_json_encode( array( 'status' => 'OK' ) );
                         }
