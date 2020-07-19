@@ -23,16 +23,22 @@
 						<span class="header__trigger__bar"></span>
 					</button>
 					<div class="header-menu">
-						<div class="container">
-							<div class="flex">
+						<div class="container flex">
 								<div class="col-6 menu__container">
 									<?php 
 										wp_nav_menu(array(
 											'menu' => 'main',
 										))
 									?>
+									<?php 
+										$donations_url = get_option('donations'); 
+										if (isset($donations_url) && strlen($donations_url) > 0): 
+									?>
+										<a class="btn btn--donations btn--dark" href="<?php echo $donations_url?>" class="btn">Donate</a>
+									<?php endif; ?>
+									
 								</div>
-							</div>	
+
 						</div>
 					</div>
 				</div>

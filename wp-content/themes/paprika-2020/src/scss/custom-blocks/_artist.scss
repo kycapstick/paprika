@@ -11,9 +11,6 @@
 	&__name {
 		@extend .name-tag;
 		margin: 0;
-		&::before {
-			background-color: $festivals-primary;
-		}
 	}
 	&__copy {
 		p {
@@ -22,7 +19,6 @@
 	}
 	&--reverse {
 		padding: 64px 0;
-		background-color: $festivals-15;
 		.artist-block__photo {
 			display: flex;
 			justify-content: flex-end;

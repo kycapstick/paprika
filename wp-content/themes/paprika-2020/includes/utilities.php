@@ -91,7 +91,7 @@ if (!function_exists('paprika_custom_colors')) {
         if (is_post_type_archive('festival')) {
             return 'page-festivals';
         }
-        return 'unset';
+        return 'page-about';
     }
 }
 
@@ -147,6 +147,90 @@ if (!function_exists('paprika_get_shows_by_dates')) {
         }           
         return $shows;
     }
+}
+
+function paprika_add_menu_item() {
+	add_menu_page( 'Paprika Settings', 'Paprika Settings', 'manage_options', 'theme-panel', 'paprika_theme_settings', null, 99 );
+}
+
+function paprika_theme_settings() {
+	$theme_dir = get_template_directory();
+
+	if ( current_user_can( 'manage_options' ) && ! empty( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'] ) {
+		if ( isset( $_POST['admin_nonce_field'] ) ) {
+			$nonce = trim( sanitize_text_field( wp_unslash( $_POST['admin_nonce_field'] ) ) );
+
+			if ( wp_verify_nonce( $nonce, 'admin_nonce' ) ) {
+                
+                if ( isset( $_POST['donations'] ) ) {
+                    
+					if (filter_var($_POST['donations'], FILTER_VALIDATE_URL)) {
+                        update_option( 'donations', $_POST['donations'] );
+                    };
+                }
+
+				if ( isset( $_POST['mailchimp'] ) ) {
+					$mailchimp = sanitize_text_field( wp_unslash( $_POST['mailchimp'] ) );
+					update_option( 'mailchimp', $mailchimp );
+                }
+    
+                $custom_colors = get_option('custom_colors');
+    
+                if (!isset($custom_colors) || !is_array($custom_colors)) {
+                    $custom_colors = array();
+                    update_option('custom_colors', $custom_colors);
+                }
+
+                if ( isset( $_POST['about-color'] ) ) {
+                    $about_color = sanitize_text_field( wp_unslash( $_POST['about-color'] ) );
+                    $custom_colors['about'] = $about_color;
+                } else {
+                    $custom_colors['about'] = '#a74482';
+                }
+                if ( isset( $_POST['festivals-color'] ) ) {
+					$festivals_color = sanitize_text_field( wp_unslash( $_POST['festivals-color'] ) );
+					$custom_colors['festivals'] = $festivals_color;
+                } else {
+                    $custom_colors['festivals'] = '#e6007a';
+                }
+                if ( isset( $_POST['support-color'] ) ) {
+					$support_color = sanitize_text_field( wp_unslash( $_POST['support-color'] ) );
+					$custom_colors['support'] = $support_color;
+                } else {
+                    $custom_colors['support'] = '#177e72';
+                }
+                if ( isset( $_POST['press-color'] ) ) {
+					$press_color = sanitize_text_field( wp_unslash( $_POST['press-color'] ) );
+					$custom_colors['press'] = $press_color;
+                } else {
+					$custom_colors['press'] = '#0c628b';
+                }
+                update_option( 'custom_colors', $custom_colors );
+			}
+		}
+	}
+
+
+	$options = wp_load_alloptions();
+	include "{$theme_dir}/templates/settings.php";
+}
+
+if (!function_exists('paprika_custom_css')) {
+    function paprika_custom_css() {
+        include( get_template_directory()  . '/includes/styles/style.php'); 
+    }
+}
+
+if (!function_exists('paprika_hex_to_rgb')) {
+    function paprika_hex_to_rgb($opacities, $color) {
+        $opaque_values = array();
+            list($r, $g, $b) = sscanf($color, "#%02x%02x%02x");
+            foreach($opacities as $opacity) {
+                $opaque_values[$opacity] = 'rgba('. $r . ',' . $g . ',' . $b . ', 0.' . $opacity . ')';
+        }
+        return $opaque_values;
+    }
+    
 }
 
 ?>

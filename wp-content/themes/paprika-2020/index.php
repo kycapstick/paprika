@@ -1,7 +1,8 @@
 <?php 
 get_header();
+$color_class = paprika_custom_colors();
 ?>
-<main>
+<main <?php echo $color_class ?>>
 <?php
 if ( have_posts() ) : 
     while ( have_posts() ) : the_post(); 
