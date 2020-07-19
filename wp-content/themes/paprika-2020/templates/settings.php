@@ -23,6 +23,14 @@
 			</tr>
 			<tr>
 				<th scope="row">
+					<label for="mailchimp">Mailchimp List ID</label>
+				</th>
+				<td>
+					<input type="text" id="mailchimp_list" name="mailchimp_list" class="regular-text" value="<?php echo isset($options['mailchimp_list']) ? esc_attr( $options['mailchimp_list'] ) : null; ?>" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
 					<label for="about-color">About Color</label>
 				</th>
 				<td>

@@ -1,9 +1,11 @@
 import css from "../scss/style.scss";
 
-import schedule from "./schedule";
+import forms from "./forms";
 import menus from "./menus";
+import schedule from "./schedule";
 
 jQuery(function () {
-	schedule();
+	forms();
 	menus();
+	schedule();
 });

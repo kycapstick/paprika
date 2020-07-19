@@ -12,9 +12,19 @@
 		&--dark {
 			border: 1px solid white;
 		}
+		&.error__active {
+			border: 2px solid red;
+			& + .form__error {
+				display: block;
+			}
+		}
 	}
 	&__field:nth-child(n + 2) {
 		margin-top: 16px;
+	}
+	&__error {
+		display: none;
+		color: white;
 	}
 }
 
