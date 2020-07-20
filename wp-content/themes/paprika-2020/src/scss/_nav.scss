@@ -2,7 +2,7 @@
 	position: fixed;
 	background: white;
 	width: 100%;
-	min-height: 100vh;
+	max-height: 100vh;
 	left: 0;
 	z-index: 20;
 	display: flex;
@@ -11,12 +11,15 @@
 	transition: top 0.5s ease-in-out;
 	align-items: flex-end;
 	padding-bottom: 64px;
+	padding-top: 100px;
 	.btn--dark {
 		@extend .btn--dark;
 		padding: 24px 80px;
 	}
 	.container {
 		max-width: 900px;
+		max-height: 100%;
+		overflow: scroll;
 	}
 	li,
 	a {
@@ -29,7 +32,6 @@
 	a {
 		padding: 10px;
 		display: inline-block;
-		font-size: 7rem;
 		line-height: 1;
 		color: $grey-60;
 	}
@@ -44,10 +46,19 @@
 	}
 	.menu > .menu-item-has-children {
 		& > a::after {
+			content: "+";
 			margin-left: 5px;
 			display: inline-block;
+			@include desktop {
+				display: none;
+			}
+		}
+		&.menu-item--active > a::after {
+			content: "-";
+			margin-left: 10px;
 		}
 		.sub-menu {
+			padding: 16px 0 16px 24px;
 			@include desktop {
 				position: absolute;
 				left: 100%;
@@ -57,10 +68,6 @@
 				right: 0;
 				background: white;
 				width: 100%;
-			}
-			li,
-			a {
-				font-size: 6.4rem;
 			}
 		}
 		@include desktop {

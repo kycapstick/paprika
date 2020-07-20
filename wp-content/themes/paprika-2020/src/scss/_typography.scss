@@ -43,8 +43,33 @@ h1 {
 	}
 }
 
+.header-menu a {
+	font-size: 4rem;
+	@include tablet {
+		font-size: 6rem;
+	}
+	@include desktop {
+		font-size: 7rem;
+	}
+}
+.header-menu .menu .sub-menu {
+	li,
+	a {
+		font-size: 3rem;
+		@include tablet {
+			font-size: 5rem;
+		}
+		@include desktop {
+			font-size: 6.4rem;
+		}
+	}
+}
+
 .header-menu .btn--donations {
-	font-size: 5.5rem;
+	font-size: 3.5rem;
+	@include tablet {
+		font-size: 5.5rem;
+	}
 }
 
 .hero-text,
