@@ -3,6 +3,18 @@
 ?>
 
 <div class="container festivals">
+    <div class="festivals__aside festivals__aside--mobile">
+        <div>
+            <h3 class="card__header">Quick Links</h3>
+            <ul class="festivals__archive">
+                <?php foreach($posts as $post): ?>
+                    <li class="archive__item">
+                        <a class="archive__link"href="<?php echo get_post_permalink($post->ID); ?>"><?php echo get_the_title($post->ID); ?></a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
         <div class="flex">
             <main class="col-9">
             <?php

@@ -4,6 +4,33 @@
 ?>
 
 <div class="container <?php echo $color_classes ?>">
+        <div class="post__aside post__aside--mobile">
+                <div>
+                <h3 class="card__header">Recent Posts</h3>
+                <?php 
+                    $recent_args = array('numberposts' => 5);
+                    $recent_posts = get_posts($recent_args);
+                    if (!empty($recent_posts)):
+                        ?>
+                        <ul class="post__recent">
+                            <?php foreach($recent_posts as $recent_post): ?>
+                                <li class="archive__item">
+                                    <a class="archive__link post__recent__link" href="<?php echo get_the_permalink($recent_post->ID) ?>"><?php echo $recent_post->post_title ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
+                <div>
+                    <h3 class="card__header">Archives</h3>
+                    <ul class="post__archive">
+                        <?php
+                            wp_get_archives('type=yearly');
+                        ?>
+                    </ul>
+                    <a class="post__aside__link"href="/about/news">All News</a>
+                </div>
+        </div>
         <div class="flex">
             <main class="col-9 post__list">
             <?php

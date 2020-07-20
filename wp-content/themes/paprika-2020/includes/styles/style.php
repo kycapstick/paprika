@@ -9,7 +9,7 @@
             <?php 
                 if (intval(strlen($color)) === 7) {
                     $opaque_values = paprika_hex_to_rgb($opacities, $color);
-                    $darker_color = paprika_adjust_brightness($color, -30);
+                    $darker_color = paprika_adjust_brightness($color, -40);
                 }
             ?>
 
@@ -38,6 +38,11 @@
             .page-<?php echo $key ?> .header__text,
             .page-<?php echo $key ?> .header__link {
                 color: <?php echo $color ?>;
+            }
+
+            .page-<?php echo $key ?> .header__link:focus, 
+            .page-<?php echo $key ?> .header__link:hover {
+                color: <?php echo $darker_color ?>;
             }
 
             /* BLOCKQUOTE */
@@ -152,6 +157,10 @@
         .staff__name::before {
             background-color: <?php echo $color ?>;
         }
+
+        .two-up-cards.page-about .two-up-cards__subtitle::before {
+            display: inline-block;
+        }
         .post__aside__link,
         .post__recent__link,
         .post__archive li a,
@@ -169,6 +178,9 @@
         .post__card__byline a:focus {
             color: <?php echo $darker_color ?>;
         }
+        .post__content:nth-child(2n) {
+            background-color: <?php echo $opaque_values['15']; ?>;
+        }
     <?php endif; ?>
 
     <?php if (isset($custom_colors['festivals'])): ?>
@@ -184,7 +196,8 @@
             linear-gradient(<?php echo $color ?>, <?php echo $color ?>);
         }
         .btn--schedule,
-        .festivals__card__link::before {
+        .festivals__card__link::before,
+        .festivals__card__link {
             border: 2px solid <?php echo $color ?>;
         }
 
@@ -200,7 +213,9 @@
         }
 
         .festivals__card__link:hover::before,
-        .festivals__card__link:focus::before {
+        .festivals__card__link:focus::before,
+        .festivals__card__link:focus, 
+        .festivals__card__link:hover {
             background: <?php echo $color ?>;
         }
         .home .header,
@@ -212,11 +227,17 @@
         .festivals__button .btn--dark {
             background-color: <?php echo $color ?>;
         }
+
         .show-block a,
         .show-block__date__link:hover,
         .festivals__link:hover,
         .festivals__archive .archive__link {
             color: <?php echo $color; ?>
+        }
+
+        .show-block a:focus,
+        .show-block a:hover {
+            color: <?php echo $darker_color ?>;
         }
 
         .festivals__archive .archive__link:hover,
@@ -285,18 +306,25 @@
         .donor-block__price span::before {
             color: <?php echo $color; ?>;
         }
-        .donor-block--two-up .donor-block__card:nth-child(2n) {
-            background-color: <?php echo $opaque_values['15']; ?>;
+        .donor-block--two-up {
+            background: linear-gradient(to right, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
         }
-        @media (min-with: 724px) {
-            .donor-block--two-up .donor-block__card:nth-child(2n) {
-                background-color: none;
+        .donor-block--two-up:nth-of-type(2n) {
+            background: linear-gradient(to left, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
+        }
+        @media (max-width: 724px) {
+            .donor-block--two-up .donor-block__card:nth-of-type(2n) {
+                background: <?php echo $opaque_values['15'] ?>;
             }
+        }
+        @media (max-width: 724px) {
             .donor-block--two-up {
-                background: linear-gradient(to right, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
+                background: none;
             }
+        }
+        @media (max-width: 724px) {
             .donor-block--two-up:nth-of-type(2n) {
-                background: linear-gradient(to left, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
+                background: none;
             }
         }
         

@@ -19,7 +19,7 @@
 		}
 	}
 	&__nav__logo {
-		max-width: 150px;
+		max-width: 200px;
 		position: relative;
 		a {
 			position: relative;
@@ -76,15 +76,24 @@
 	&__banner {
 		width: 100%;
 		display: flex;
-		align-items: center;
+		flex-direction: column;
 		margin-top: 32px;
+		@include tablet {
+			flex-direction: row;
+			align-items: center;
+		}
 		&__bar {
 			height: 20px;
 			min-width: 20px;
 			flex-grow: 1;
 			box-shadow: $box-shadow;
-			display: none;
-			@include mobile {
+			margin-bottom: 16px;
+			@include tablet {
+				margin-bottom: 0;
+			}
+		}
+		&__single {
+			.header__banner__bar {
 				display: block;
 			}
 		}
@@ -117,15 +126,20 @@
 		&::before {
 			position: absolute;
 			content: "";
-			height: 100vw;
-			width: 100vw;
+			height: 120vw;
+			width: 120vw;
 			background-color: #fff;
 			transform: rotate(-20.75deg);
-			top: -83vw;
+			top: -103vw;
 			left: -60vw;
 			display: none;
 			@include tablet {
 				display: block;
+			}
+			@include desktop {
+				height: 100vw;
+				width: 100vw;
+				top: -83vw;
 			}
 		}
 	}

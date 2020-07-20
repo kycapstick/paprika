@@ -13,9 +13,7 @@
 		<div class="container">
 			<nav class="header__nav">
 				<div class="header__nav__logo">
-					<a href="#">
-						<?php echo $logo; ?>
-					</a>
+					<?php echo $logo; ?>
 				</div>
 				<div class="header__nav__menu">
 					<button class="header__trigger">
@@ -59,7 +57,7 @@
 						<?php echo $hero_subtitle ?>
 					</p> 
 					<?php else: ?>
-						<div class="header__banner">
+						<div class="header__banner <?php echo is_single() && !is_singular('festival') && !is_singular('program') ? 'header__banner__single' : null ?>">
 							<div class="header__banner__bar">
 							</div>
 							<div class="header__title">
@@ -75,7 +73,7 @@
 											$title = preg_replace("/\b[0-9]{4}/", "", $title);
 										}
 										if (is_singular('festival')) {
-											$title = 'Festival' . $title;
+											$title = 'Festival ' . $title;
 										}
 										if (is_404()) {
 											$title = '404';

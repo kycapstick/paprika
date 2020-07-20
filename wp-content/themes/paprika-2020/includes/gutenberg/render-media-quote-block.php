@@ -40,17 +40,19 @@
                                                 <?php echo $paragraph; ?>
                                             </div>
                                         <?php endif; ?>
-                                        <?php if (pg_is_valid('string', $button) && strlen($button) > 74): ?>
-                                            <div class="media-quote__btn">
-                                                <?php echo $button; ?>
-                                            </div>
-                                        <?php endif; ?>
                                     </div>
                                     <div class="col-3">
                                         <?php if (pg_is_valid('string', $titleObject->subtitle)): ?>
                                             <p class="media-quote__subtitle copy--light"><?php echo $titleObject->subtitle ?></p>
                                         <?php endif; ?>
                                     </div>
+                                </div>
+                                <div>
+                                    <?php if (pg_is_valid('string', $button) && strlen($button) > 74): ?>
+                                        <div class="media-quote__btn">
+                                            <?php echo $button; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>

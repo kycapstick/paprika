@@ -10,7 +10,7 @@
                     <?php if (isset($date_ids) && is_array($date_ids)): ?>
                         <form>
                             <fieldset>
-                                <div class="flex">
+                                <div class="flex schedule__toggle__container">
                                     <div class="schedule__toggle">
                                                 <input 
                                                     type="radio" 

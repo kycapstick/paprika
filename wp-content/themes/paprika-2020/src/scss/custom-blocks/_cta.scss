@@ -5,9 +5,11 @@
 	margin: 64px 0;
 	&__title {
 		margin: 0 auto;
-		max-width: 50%;
 		& + .wp-block-button {
 			margin-top: 32px;
+		}
+		@include tablet {
+			max-width: 50%;
 		}
 	}
 	&__copy {

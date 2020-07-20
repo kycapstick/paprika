@@ -1,7 +1,33 @@
 .festivals {
 	&__articles,
 	&__aside {
-		margin: 64px 0 16px;
+		margin-top: 32px;
+		@include tablet {
+			margin: 64px 0 16px;
+		}
+	}
+	&__aside {
+		display: none;
+		@include tablet {
+			display: block;
+		}
+		&--mobile {
+			max-width: 60%;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 16px 0;
+			display: block;
+			.card__header {
+				padding: 10px 0 5px;
+				text-align: center;
+			}
+			.festivals__archive {
+				justify-content: center;
+			}
+			@include tablet {
+				display: none;
+			}
+		}
 	}
 	&__link {
 		color: black;
@@ -11,36 +37,44 @@
 		position: relative;
 		margin: 0;
 		&__wrapper {
-			max-width: 80%;
 			margin: 0 auto;
 			position: relative;
+			@include tablet {
+				max-width: 80%;
+			}
 		}
 		&__link {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			position: absolute;
-			padding-top: 50%;
-			height: auto;
-			left: 0;
-			right: 0;
-			padding-bottom: 50%;
-			height: 100%;
-			top: 0;
-			bottom: 0;
-			transform: translateY(calc(-50% + 24px));
-			height: auto;
-			&::before {
-				content: "";
+			display: block;
+			padding: 16px 0;
+			transition: background-color 0.3s ease-in-out;
+			margin-bottom: 32px;
+			@include tablet {
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				position: absolute;
-				display: block;
+				padding-top: 50%;
+				height: auto;
 				left: 0;
 				right: 0;
-				z-index: -1;
+				padding-bottom: 50%;
+				height: 100%;
 				top: 0;
 				bottom: 0;
-				background-color: white;
-				transition: background-color 0.3s ease-in-out;
+				transform: translateY(calc(-50% + 24px));
+				height: auto;
+				&::before {
+					content: "";
+					position: absolute;
+					display: block;
+					left: 0;
+					right: 0;
+					z-index: -1;
+					top: 0;
+					bottom: 0;
+					background-color: white;
+					transition: background-color 0.3s ease-in-out;
+				}
 			}
 		}
 		&__title {

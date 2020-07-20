@@ -42,37 +42,35 @@
                 <div class="container">
                     <div class="flex">
                         <?php for ($i = 0; $i < 2; $i = $i + 1): ?>
-                            <div class="col-6 donor-block__card">
-                                <?php 
-                                    if (pg_is_valid('string', $titleObjects[$i]->tier)):
-                                ?>
+                            <?php if (pg_is_valid('string', $titleObjects[$i]->tier)): ?>
+                                <div class="col-6 donor-block__card">
                                     <p class="copy--large donor-block__price subtitle">
                                         <span><?php echo $titleObjects[$i]->tier ?></span>
                                     </p>
-                                <?php
-                                    endif;
-                                    if (pg_is_valid('string', $titleObjects[$i]->title)):
-                                ?>
-                                    <p class="card__title donor-block__title"><?php echo $titleObjects[$i]->title ?></p>
-                                <?php
-                                    endif; 
-                                    if (pg_is_valid('string', $paragraphs[$i]) && strlen($paragraphs[$i]) > 9) {
-                                        echo $paragraphs[$i];
-                                    }
-                                    if (isset($lists[$i]) && strlen($lists[$i]) > 9) {
-                                        echo $lists[$i];
-                                    }
-                                    if (pg_is_valid('string', $finePrints[$i]->copy)) {
+                                    <?php
+                                        if (pg_is_valid('string', $titleObjects[$i]->title)):
                                     ?>
-                                        <div class="donor-block__fp copy copy--light copy--italic">
-                                            <?php 
-                                                echo wpautop($finePrints[$i]->copy);
-                                            ?>
-                                        </div>
-                                        <?php
-                                    }
-                                ?>
-                            </div>
+                                        <p class="card__title donor-block__title"><?php echo $titleObjects[$i]->title ?></p>
+                                    <?php
+                                        endif; 
+                                        if (pg_is_valid('string', $paragraphs[$i]) && strlen($paragraphs[$i]) > 9) {
+                                            echo $paragraphs[$i];
+                                        }
+                                        if (isset($lists[$i]) && strlen($lists[$i]) > 9) {
+                                            echo $lists[$i];
+                                        }
+                                        if (pg_is_valid('string', $finePrints[$i]->copy)) {
+                                        ?>
+                                            <div class="donor-block__fp copy copy--light copy--italic">
+                                                <?php 
+                                                    echo wpautop($finePrints[$i]->copy);
+                                                ?>
+                                            </div>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                            <?php endif; ?>
                         <?php endfor; ?>
                     </div>
                 </div>

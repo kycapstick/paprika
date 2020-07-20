@@ -41,6 +41,12 @@
                                 <?php endif; ?>
                             </div>
                         <?php else: ?>
+                            <div class="col-4 artist-block__photo__container--mobile">
+                                <figure class="artist-block__photo">                                
+                                    <?php echo $thumbnail ?>
+                                    <p class="artist-block__name card__title card__title--dark"><?php echo $post->post_title ?></p>
+                                </figure>
+                            </div>
                             <div class="col-8 artist-block__copy">
                                 <?php if (pg_is_valid('string', $post->post_title)): ?>
                                     <h3 class="artist-block__title"><?php echo $attributes->title ?></h3>
@@ -49,7 +55,7 @@
                                     <?php echo wpautop($post->post_content); ?>
                                 <?php endif; ?>
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 artist-block__photo__container--tablet">
                                 <figure class="artist-block__photo">                                
                                     <?php echo $thumbnail ?>
                                     <p class="artist-block__name card__title card__title--dark"><?php echo $post->post_title ?></p>

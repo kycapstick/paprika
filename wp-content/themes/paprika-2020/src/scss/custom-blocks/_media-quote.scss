@@ -14,7 +14,6 @@
 	}
 	&__subtitle {
 		position: relative;
-		margin-left: 10px;
 		&::before {
 			content: url(../images/speaker.svg);
 			height: 24px;
@@ -23,10 +22,19 @@
 			display: inline-block;
 			transform: translateY(3px);
 		}
+		@include tablet {
+			margin-left: 10px;
+		}
 	}
 	&__subtitle,
 	&__copy {
 		margin-top: 16px;
+	}
+	&__btn {
+		margin-top: 32px;
+		@include tablet {
+			margin-top: 0;
+		}
 	}
 	.wp-block-button {
 		margin-top: 16px;

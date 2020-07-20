@@ -11,6 +11,9 @@
 		flex: 1 0 auto;
 		max-width: 100%;
 		flex-basis: 100%;
+		&:nth-child(2n) {
+			margin-top: 32px;
+		}
 		@include tablet {
 			flex-basis: auto;
 			max-width: calc(50% - 12px);
@@ -21,26 +24,33 @@
 			&:nth-child(2n) {
 				margin-left: 12px;
 				margin-right: 0;
+				margin-top: 5px;
 			}
+		}
+		@media (max-width: $screen-tablet-min) {
+			margin-left: 0;
+			margin-right: 0;
 		}
 	}
 	&__copy {
-		padding: 16px 24px;
+		padding: 16px;
 		display: flex;
 		flex-direction: column;
 		flex: 1 0 auto;
 		position: relative;
+		@include tablet {
+			padding: 16px 24px;
+		}
 	}
 	p {
-		margin: 0 0 16px;
+		margin: 0 0 24px;
 	}
 	&__title,
 	p.two-up-cards__subtitle {
 		margin: 0;
 	}
 	&__subtitle {
-		padding-top: 8px;
-		padding-bottom: 16px;
+		padding: 8px 0 16px;
 		color: $grey-main;
 		&::before {
 			content: url(../images/age.svg);

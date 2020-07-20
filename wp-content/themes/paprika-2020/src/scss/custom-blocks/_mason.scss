@@ -1,5 +1,8 @@
 .mason-block {
-	margin-top: 64px;
+	margin-top: 32px;
+	@include tablet {
+		margin-top: 64px;
+	}
 	&__title {
 		display: block;
 		margin: 32px 0 16px;
@@ -15,6 +18,12 @@
 		border: 0;
 		figure {
 			transform: scale(1.1);
+		}
+	}
+	.flex div:nth-child(2n) {
+		margin-top: 32px;
+		@include tablet {
+			margin-top: 0;
 		}
 	}
 	a:focus figure {

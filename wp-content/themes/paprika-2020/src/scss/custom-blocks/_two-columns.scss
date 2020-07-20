@@ -1,6 +1,7 @@
 .two-columns {
 	h2 {
 		margin: 0;
+		display: inline-block;
 		&::after {
 			content: "";
 			display: block;
@@ -14,7 +15,11 @@
 		max-width: 850px;
 	}
 	.column {
+		align-items: flex-start;
 		margin-top: 64px;
+		@include tablet {
+			align-items: center;
+		}
 	}
 	p,
 	a {

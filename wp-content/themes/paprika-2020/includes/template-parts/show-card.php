@@ -13,15 +13,17 @@
             }
         ?>
         class="schedule__card <?php echo implode(' ', $class_list); ?>"
+    >
         <?php  
-            $image = get_the_post_thumbnail_url($show_id); 
+            $image = get_the_post_thumbnail($show_id); 
             if (!empty($image)) {
                 ?>
-                style="background-image: url(<?php echo $image; ?>)"
+                <div class="schedule__card__image">
+                    <?php echo $image; ?>
+                </div>
                 <?php
             }
         ?> 
-    >
         <p class="schedule__time">
             <?php
                 if (!empty($show_details)):
@@ -35,7 +37,7 @@
         </p>
         <div class="schedule__card__overlay">
             <div class="schedule__card__overlay__title">
-                <p class="copy--medium"><?php echo $show->post_title ?></p>
+                <p class="copy copy--bold"><?php echo $show->post_title ?></p>
                 <?php
                     if (!empty($show_details)):
                         foreach($show_details as $details):
