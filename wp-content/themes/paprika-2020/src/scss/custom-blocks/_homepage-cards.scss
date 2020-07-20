@@ -3,6 +3,12 @@
 	& + .homepage-cards {
 		margin-top: 32px;
 	}
+	a:hover,
+	a:focus {
+		.homepage-cards__card {
+			box-shadow: 3px 3px 10px $grey-main;
+		}
+	}
 	.flex {
 		justify-content: space-between;
 		.col-6 {

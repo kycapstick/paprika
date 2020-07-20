@@ -7,7 +7,7 @@ export default function paprikaTwoUpCardsBlock() {
 	const blockTitle = "Two Up Columns";
 	const blockDescription = "Set of 2 columns";
 	const blockCategory = "layout";
-	const blockIcon = "screenoptions"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockIcon = "editor-table"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
 		title: i18n.__(blockTitle),

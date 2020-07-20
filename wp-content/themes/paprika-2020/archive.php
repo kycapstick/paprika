@@ -8,9 +8,7 @@
             <main class="col-9 post__list">
             <?php
                 foreach($posts as $post):
-                if (intval($post->ID) === 439) {
-                    continue;
-                }
+
                 $author_name = get_the_author_meta('display_name', $post->post_author);
                 $author_url = get_author_posts_url($post->post_author);
             ?>

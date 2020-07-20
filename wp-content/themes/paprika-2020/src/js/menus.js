@@ -1,6 +1,10 @@
 const addTrapFocusListeners = (first, last) => {
 	first.addEventListener("keydown", (e) => {
-		if (e.keyCode === 9 && e.shiftKey) {
+		if (
+			e.keyCode === 9 &&
+			e.shiftKey &&
+			e.target.classList.contains("header__trigger--active")
+		) {
 			e.preventDefault();
 			last.focus();
 		}
@@ -52,13 +56,14 @@ const allowEscKey = () => {
 const handleMenuTriggerClick = () => {
 	const menuTrigger = document.querySelector(".header__trigger");
 	menuTrigger.addEventListener("click", (e) => {
+		activateMenu();
 		if (e.target.classList.contains("header__trigger__bar")) {
 			e.target.parentNode.classList.toggle("header__trigger--active");
 			return;
 		}
 		e.target.classList.toggle("header__trigger--active");
-		activateMenu();
 	});
+
 	menuTrigger.addEventListener("keyup", (e) => {
 		if (!e.target.classList.contains("header__trigger--active")) {
 			return;

@@ -6,7 +6,7 @@ export default function paprikaMasonEvenSplitBlock() {
 	const blockSlug = "mason-even-split";
 	const blockTitle = "Mason Even Split Block";
 	const blockDescription = "Add side by side images with title to the page";
-	const blockCategory = "layout";
+	const blockCategory = "image-blocks";
 	const blockIcon = "format-gallery"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {

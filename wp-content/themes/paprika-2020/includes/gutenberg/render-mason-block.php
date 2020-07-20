@@ -27,52 +27,44 @@
                 <div class="container">
                     <div class="flex">
                         <div class="col-5">
-                            <?php
-                                if (pg_is_valid('string', $titleObjects[0]->link)):
-                            ?>
+                            <?php if (pg_is_valid('string', $titleObjects[0]->link)): ?>
                                 <a href="<?php echo $titleObjects[0]->link ?>">
-                            <?php
-                                endif; 
-                                if (pg_is_valid('string', $titleObjects[0]->title)):
-                            ?>
-                                <h3 class="mason-block__title subtitle">
-                                    <?php echo $titleObjects[0]->title ?>
-                                </h3>
-                            <?php
-                                endif;
-                                if (pg_is_valid('string', $images[0])):
-                                    echo $images[0];
-                                endif;
-                                if (pg_is_valid('string', $titleObjects[0]->link)):
-                            ?>
-                                </a>
-                            <?php
-                                endif;  
-                            ?>
+                            <?php endif; ?>
+                                <div>
+                                    <?php if (pg_is_valid('string', $titleObjects[0]->title)): ?>
+                                        <h3 class="mason-block__title subtitle">
+                                            <?php echo $titleObjects[0]->title ?>
+                                        </h3>
+                                    <?php endif; ?>
+                                    <?php
+                                        if (pg_is_valid('string', $images[0])):
+                                            echo $images[0];
+                                        endif;
+                                    ?>
+                                </div>
+                            <?php if (pg_is_valid('string', $titleObjects[0]->link)): ?>
+                            </a>
+                            <?php endif; ?>
                         </div>
                         <div class="col-7">
-                            <?php
-                                if (pg_is_valid('string', $titleObjects[1]->link)):
-                            ?>
+                            <?php if (pg_is_valid('string', $titleObjects[1]->link)): ?>
                                 <a href="<?php echo $titleObjects[1]->link ?>">
-                            <?php
-                                endif;
-                                if (pg_is_valid('string', $titleObjects[1]->title)):
-                            ?>
-                                <h3 class="mason-block__title subtitle">
-                                    <?php echo $attributes->title ?>
-                                </h3>
-                            <?php
-                                endif;
-                                if (pg_is_valid('string', $images[1])):
-                                    echo $images[1];
-                                endif;
-                            if (pg_is_valid('string', $titleObjects[1]->link)):
-                        ?>
+                            <?php endif; ?>
+                            <div>
+                                <?php if (pg_is_valid('string', $titleObjects[1]->title)): ?>
+                                    <h3 class="mason-block__title subtitle">
+                                        <?php echo $attributes->title ?>
+                                    </h3>
+                                <?php endif; ?>
+                                <?php 
+                                    if (pg_is_valid('string', $images[1])):
+                                        echo $images[1];
+                                    endif; 
+                                ?>
+                            </div>
+                            <?php if (pg_is_valid('string', $titleObjects[1]->link)): ?>
                             </a>
-                        <?php
-                            endif; 
-                        ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

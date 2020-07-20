@@ -10,8 +10,8 @@ export default function participantsBlock() {
 	registerBlockType("paprika/participants", {
 		title: i18n.__("Participants Block"),
 		description: i18n.__("Builds a set of participant links"),
-		category: "post-blocks",
-		icon: "calendar-alt", // Dashicons: https://developer.wordpress.org/resource/dashicons/
+		category: "festivals-blocks",
+		icon: "groups", // Dashicons: https://developer.wordpress.org/resource/dashicons/
 		edit: (props, editor = false, save = false) => {
 			return [
 				<div

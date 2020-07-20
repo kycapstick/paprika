@@ -9,41 +9,44 @@ import donorTitleBlock from "./blocks/reusable/donor-title";
 import mediaTitleCopy from "./blocks/reusable/media-title-copy";
 import alumnusBlock from "./blocks/reusable/alumnus-block";
 import columnBlock from "./blocks/reusable/single-column";
+import teamMember from "./blocks/reusable/team-member";
 
 // Layout Blocks
 import ctaBlock from "./blocks/cta";
+import homepageCardsBlock from "./blocks/homepage-cards";
+import imageTextBlock from "./blocks/image-text-block";
 import twoUpCardsBlock from "./blocks/two-up-cards";
-import alumniBlock from "./blocks/alumni-block";
 import twoUpColumnsBlocks from "./blocks/two-up-text";
 
+// Post Blocks
+import newsBlock from "./blocks/news";
+
+// Image Blocks
 import fwImageBlock from "./blocks/full-width-image";
 import masonBlock from "./blocks/mason";
 import reverseMasonBlock from "./blocks/reverse-mason";
-import masonThreeUpBlock from "./blocks/mason-three-up";
 import masonEvenSplitBlock from "./blocks/mason-even-split";
-import homepageCardsBlock from "./blocks/homepage-cards";
-import mediaQuoteBlock from "./blocks/media-quote";
-import imageTextBlock from "./blocks/image-text-block";
+import masonThreeUpBlock from "./blocks/mason-three-up";
 
-// Post Blocks
+// About Blocks
+import alumniBlock from "./blocks/alumni-block";
+import contactFormBlock from "./blocks/contact-form";
+
+// Festival Blocks
 import artistBlock from "./blocks/artist";
 import artistReverseBlock from "./blocks/artist-reverse";
-import newsBlock from "./blocks/news";
 import locationBlock from "./blocks/location";
+import participantBlock from "./blocks/participants";
+import scheduleBlock from "./blocks/schedule";
+import showBlock from "./blocks/show-block";
 
-// Donor Blocks
+// Support Blocks
 import donorsBlock from "./blocks/donor-container";
 import donorTwoUp from "./blocks/reusable/donor-two-up";
 import donorFW from "./blocks/donor-fw";
 
-// Show Blocks
-import showBlock from "./blocks/show-block";
-import teamMember from "./blocks/reusable/team-member";
-
-// Form Blocks
-import contactFormBlock from "./blocks/contact-form";
-import scheduleBlock from "./blocks/schedule";
-import participantBlock from "./blocks/participants";
+// Press Blocks
+import mediaQuoteBlock from "./blocks/media-quote";
 
 // Init Component Blocks
 cardTitleBlock();
@@ -56,23 +59,33 @@ donorTitleBlock();
 mediaTitleCopy();
 alumnusBlock();
 columnBlock();
+teamMember();
 
 // Init Layout Blocks
 ctaBlock();
-
 homepageCardsBlock();
+imageTextBlock();
 twoUpCardsBlock();
-mediaQuoteBlock();
-alumniBlock();
 twoUpColumnsBlocks();
 
+// Init Image Blocks
 fwImageBlock();
 masonBlock();
 reverseMasonBlock();
 masonEvenSplitBlock();
 masonThreeUpBlock();
 
-imageTextBlock();
+// Init About Blocks
+alumniBlock();
+contactFormBlock();
+
+// Init Festivals Blocks
+artistBlock();
+artistReverseBlock();
+locationBlock();
+participantBlock();
+scheduleBlock();
+showBlock();
 
 // Init Donor Blocks
 donorsBlock();
@@ -81,15 +94,6 @@ donorFW();
 
 // Init Post Blocks
 newsBlock();
-artistBlock();
-artistReverseBlock();
-locationBlock();
 
-// Init Show Blocks
-showBlock();
-teamMember();
-
-// Init Form Blocks
-contactFormBlock();
-scheduleBlock();
-participantBlock();
+// Init Press Blocks
+mediaQuoteBlock();

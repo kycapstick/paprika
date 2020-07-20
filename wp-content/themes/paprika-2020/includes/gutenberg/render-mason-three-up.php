@@ -28,28 +28,24 @@
                             for ($i = 0; $i < 3; $i = $i + 1):  
                         ?>
                             <div class="col-4">
-                                <?php
-                                    if (pg_is_valid('url', $titleObjects[$i]->link)):
-                                ?>
+                                <?php if (pg_is_valid('string', $titleObjects[$i]->link)): ?>
                                     <a href="<?php echo $titleObjects[$i]->link ?>">
-                                <?php
-                                    endif; 
-                                    if (pg_is_valid('string', $titleObjects[$i]->title)):
-                                ?>
-                                    <h3 class="subtitle mason-block__title">
-                                        <?php echo $titleObjects[$i]->title ?>
-                                    </h3>
-                                <?php
-                                    endif;
-                                    if (pg_is_valid('string', $images[$i])):
-                                        echo $images[$i];
-                                    endif;
-                                    if (pg_is_valid('url', $titleObjects[$i]->link)):
-                                ?>
+                                <?php endif; ?>
+                                    <div>
+                                        <?php  if (pg_is_valid('string', $titleObjects[$i]->title)): ?>
+                                            <h3 class="subtitle mason-block__title">
+                                                <?php echo $titleObjects[$i]->title ?>
+                                            </h3>
+                                        <?php
+                                            endif;
+                                            if (pg_is_valid('string', $images[$i])):
+                                                echo $images[$i];
+                                            endif;
+                                        ?>
+                                    </div>
+                                <?php if (pg_is_valid('string', $titleObjects[$i]->link)): ?>
                                     </a>
-                                <?php
-                                    endif;  
-                                ?>
+                                <?php endif; ?>
                             </div>
                         <?php endfor; ?>
                     </div>

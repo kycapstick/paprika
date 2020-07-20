@@ -7,7 +7,7 @@ export default function paprikaHomepageCardsBlock() {
 	const blockTitle = "Homepage Cards";
 	const blockDescription = "Set of 2 cards with related links";
 	const blockCategory = "layout";
-	const blockIcon = "screenoptions"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockIcon = "admin-multisite"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
 		title: i18n.__(blockTitle),
@@ -70,7 +70,6 @@ export default function paprikaHomepageCardsBlock() {
 						id="customColor1"
 						value={customColor1}
 						onChange={(e) => {
-							console.log(e.target.value);
 							updateAttributeValue(
 								"customColor1",
 								e.target.value

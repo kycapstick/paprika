@@ -6,7 +6,7 @@ export default function paprikaShowCardBlock() {
 	const blockSlug = "show";
 	const blockTitle = "Show Card";
 	const blockDescription = "Card for show details with related link";
-	const blockCategory = "layout";
+	const blockCategory = "festivals-blocks";
 	const blockIcon = "tickets-alt"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {

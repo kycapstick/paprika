@@ -53,7 +53,7 @@
                             echo (isset($content) ? substr( $content, 0, 250) : null ); 
                         ?>
                     </p>
-                    <a href="<?php echo get_post_permalink($post->ID, true) ?>" class="btn btn--color">Learn More</a>
+                    <a href="<?php echo get_post_permalink($post->ID, true) ?>" class="btn btn--light">Learn More</a>
                 </div>
             </div>
         </div>

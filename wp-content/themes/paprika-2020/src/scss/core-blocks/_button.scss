@@ -2,20 +2,29 @@
 	&__link {
 		border-radius: 0;
 		border: 0;
+		background: none;
+		transition: all 0.3s ease-in-out;
+		padding: 12px 40px;
 	}
 }
 
 .btn {
 	margin-top: 24px;
 	padding: 16px;
+	display: inline-block;
+	transition: all 0.3s ease-in-out;
+	transition-property: color, background-color;
 	&--dark {
-		border: 3px solid white;
+		border: 2px solid white;
 		color: white;
 	}
 	&--light {
 		display: inline-block;
 		padding: 10px 32px;
 		margin-top: 8px;
+		&:hover {
+			color: white;
+		}
 	}
 	&--no-brdr {
 		border: 0;

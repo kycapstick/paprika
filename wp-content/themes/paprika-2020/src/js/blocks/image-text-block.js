@@ -7,7 +7,7 @@ export default function paprikaShowCardBlock() {
 	const blockTitle = "Image Text Card";
 	const blockDescription = "Card with image beside text";
 	const blockCategory = "layout";
-	const blockIcon = "screenoptions"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
+	const blockIcon = "align-left"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
 		title: i18n.__(blockTitle),

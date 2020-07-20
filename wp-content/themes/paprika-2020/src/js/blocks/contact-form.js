@@ -10,8 +10,8 @@ export default function contactFormBlock() {
 	registerBlockType("paprika/contact-form", {
 		title: i18n.__("Contact Form Block"),
 		description: i18n.__("Builds a contact form"),
-		category: "post-blocks",
-		icon: "admin-customizer", // Dashicons: https://developer.wordpress.org/resource/dashicons/
+		category: "about-blocks",
+		icon: "admin-comments", // Dashicons: https://developer.wordpress.org/resource/dashicons/
 		edit: (props, editor = false, save = false) => {
 			return [
 				<div

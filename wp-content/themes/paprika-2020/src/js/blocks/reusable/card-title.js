@@ -55,7 +55,7 @@ export default function paprikaCardTitleBlock() {
 						/>
 						<RichText
 							class="components-text-control__input"
-							tagName="a"
+							tagName="p"
 							placeholder="Add optional link for card."
 							keepPlaceholderOnFocus={true}
 							value={link}

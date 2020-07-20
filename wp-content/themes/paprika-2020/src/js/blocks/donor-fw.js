@@ -6,7 +6,7 @@ export default function paprikaDonorFWBlock() {
 	const blockSlug = "donor-fw";
 	const blockTitle = "Full Width Donor Card";
 	const blockDescription = "Full width donor card";
-	const blockCategory = "donor-blocks";
+	const blockCategory = "support-blocks";
 	const blockIcon = "awards"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
 
 	registerBlockType(`paprika/${blockSlug}`, {
