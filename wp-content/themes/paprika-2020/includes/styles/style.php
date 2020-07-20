@@ -9,6 +9,7 @@
             <?php 
                 if (intval(strlen($color)) === 7) {
                     $opaque_values = paprika_hex_to_rgb($opacities, $color);
+                    $darker_color = paprika_adjust_brightness($color, -30);
                 }
             ?>
 
@@ -73,7 +74,7 @@
 
             .page-<?php echo $key ?> .block-link:hover,
             .page-<?php echo $key ?> .block-link:focus {
-                color: black;
+                color: <?php echo $darker_color ?>;
             }
 
             /* DEFAULT BLOCKS */
@@ -83,7 +84,7 @@
 
             .default-block.page-<?php echo $key ?> a:hover,
             .default-block.page-<?php echo $key ?> a:focus {
-                color: black;
+                color: <?php echo $darker_color ?>;
             }
             .default-block.page-<?php echo $key ?> h2::after {
                 background-color: <?php echo $color ?>;
@@ -166,7 +167,7 @@
         .post__archive li a:focus,
         .post__card__byline a:hover,
         .post__card__byline a:focus {
-            color: black;
+            color: <?php echo $darker_color ?>;
         }
     <?php endif; ?>
 
@@ -220,7 +221,7 @@
 
         .festivals__archive .archive__link:hover,
         .festivals__archive .archive__link:focus {
-            color: black;
+            color: <?php echo $darker_color ?>;
         }
 
         .artist-block--reverse {

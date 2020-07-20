@@ -108,11 +108,6 @@ figure,
 .wp-block-image {
 	margin: 0;
 }
-
-input {
-	width: 100%;
-}
-
 .block-link {
 	display: block;
 	margin: 16px 0;
@@ -147,6 +142,7 @@ input {
 }
 
 @import "./typography";
+@import "./animations/fade";
 
 // Core Blocks
 @import "./core-blocks/blockquote";

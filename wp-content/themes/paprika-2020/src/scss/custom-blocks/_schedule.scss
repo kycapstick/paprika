@@ -1,8 +1,18 @@
 .schedule {
+	position: relative;
 	&__toggle__single {
-		display: none;
+		position: absolute;
+		opacity: 0;
 		&:checked + label {
 			color: white;
+		}
+	}
+	&__list__item {
+		&--hidden {
+			display: none;
+		}
+		&.schedule__active {
+			display: block;
 		}
 	}
 	&__card {
