@@ -1,9 +1,15 @@
 .donor-block {
 	text-align: center;
 	&--two-up {
-		background: linear-gradient(to right, #fff 50%, $support-15 50%);
+		background: linear-gradient(to top, #fff 50%, $support-15 50%);
 		&:nth-of-type(2n) {
-			background: linear-gradient(to left, #fff 50%, $support-15 50%);
+			background: linear-gradient(to bottom, #fff 50%, $support-15 50%);
+		}
+		@include tablet {
+			background: linear-gradient(to right, #fff 50%, $support-15 50%);
+			&:nth-of-type(2n) {
+				background: linear-gradient(to left, #fff 50%, $support-15 50%);
+			}
 		}
 	}
 	&__price {

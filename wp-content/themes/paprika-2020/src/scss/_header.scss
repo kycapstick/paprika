@@ -2,7 +2,6 @@
 	font-family: "Roboto Slab", sans-serif;
 	position: relative;
 	overflow: hidden;
-	padding-top: 32px;
 	img {
 		max-width: 100%;
 	}
@@ -10,6 +9,14 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		&__container {
+			background: white;
+			padding-top: 32px;
+			padding-bottom: 16px;
+			@include tablet {
+				background: none;
+			}
+		}
 	}
 	&__nav__logo {
 		max-width: 150px;
@@ -53,14 +60,18 @@
 		align-items: center;
 	}
 	&__title {
-		max-width: 75%;
+		@include tablet {
+			max-width: 75%;
+		}
 	}
 	&__text {
 		margin: 0;
 		color: $programs_primary;
 		text-shadow: $box-shadow;
-		margin-left: 32px;
 		text-align: right;
+		@include tablet {
+			margin-left: 32px;
+		}
 	}
 	&__banner {
 		width: 100%;
@@ -72,6 +83,10 @@
 			min-width: 20px;
 			flex-grow: 1;
 			box-shadow: $box-shadow;
+			display: none;
+			@include mobile {
+				display: block;
+			}
 		}
 	}
 	&__subhero {
@@ -94,11 +109,9 @@
 	&__hero {
 		height: calc(100% - 128px);
 		align-items: flex-end;
-		justify-content: center;
+		justify-content: flex-end;
 		flex-direction: column;
-	}
-	.hero-text {
-		padding: 49px 0 100px;
+		padding-bottom: 64px;
 	}
 	&__nav__logo {
 		&::before {
@@ -110,6 +123,10 @@
 			transform: rotate(-20.75deg);
 			top: -83vw;
 			left: -60vw;
+			display: none;
+			@include tablet {
+				display: block;
+			}
 		}
 	}
 }

@@ -8,7 +8,8 @@
 ?>
 <body <?php body_class()?> >
 <?php $logo = get_custom_logo(); ?>
-    <header class="header <?php echo $header_class ?>">
+	<header class="header <?php echo $header_class ?>">
+	<div class="header__nav__container">
 		<div class="container">
 			<nav class="header__nav">
 				<div class="header__nav__logo">
@@ -43,7 +44,10 @@
 					</div>
 				</div>
 			</nav>
-			<div class="header__hero">
+			</div>
+		</div>
+		<div class="header__hero">
+			<div class="container">
 				<?php if (!empty($hero_text)): ?>
 					<h1 class="hero-text">
 						<?php foreach($hero_text as $hero_string): ?>
@@ -51,7 +55,7 @@
 							</br>
 						<?php endforeach ?>
 					</h1>
-					<p>
+					<p class="copy--right">
 						<?php echo $hero_subtitle ?>
 					</p> 
 					<?php else: ?>
@@ -82,41 +86,41 @@
 							</div>
 						</div>
 				<?php endif; ?>
-			</div>
-			<?php if (!empty($subtitle_object)): ?>
-				<div class="header__subheader">
-					<?php if (!empty($subtitle_object['subtitle']) ): ?>
-						<p class="copy--bold breadcrumb">
-							<?php echo $subtitle_object['subtitle'] ?>
-						</p>
-					<?php endif; ?>
-					<?php if( !empty($subtitle_object['subtitle_link']) && !empty($subtitle_object['subtitle_text'])): ?>
-						<a href="<?php echo $subtitle_object['subtitle_link'] ?>" class="btn btn--light">
-							<?php echo $subtitle_object['subtitle_text'] ?>
-						</a>
-					<?php endif; ?>
-				</div>
-			<?php endif ?>
-			<?php if (is_single() && !is_singular('festival') && !is_singular('program')): ?>
-				<?php 
-					global $post;
-					$referer = wp_get_referer(); 
-					if (pg_is_valid('string', $referer)) {
-						$reference_id = url_to_postid($referer);
-						$post_title = get_the_title($reference_id);
-						$post_type = get_post_type($reference_id);
-						if ($post_title === $post->post_title) {
-							$post_title = 'Archives';
+				<?php if (!empty($subtitle_object)): ?>
+					<div class="header__subheader">
+						<?php if (!empty($subtitle_object['subtitle']) ): ?>
+							<p class="copy--bold breadcrumb">
+								<?php echo $subtitle_object['subtitle'] ?>
+							</p>
+						<?php endif; ?>
+						<?php if( !empty($subtitle_object['subtitle_link']) && !empty($subtitle_object['subtitle_text'])): ?>
+							<a href="<?php echo $subtitle_object['subtitle_link'] ?>" class="btn btn--light">
+								<?php echo $subtitle_object['subtitle_text'] ?>
+							</a>
+						<?php endif; ?>
+					</div>
+				<?php endif ?>
+				<?php if (is_single() && !is_singular('festival') && !is_singular('program')): ?>
+					<?php 
+						global $post;
+						$referer = wp_get_referer(); 
+						if (pg_is_valid('string', $referer)) {
+							$reference_id = url_to_postid($referer);
+							$post_title = get_the_title($reference_id);
+							$post_type = get_post_type($reference_id);
+							if ($post_title === $post->post_title) {
+								$post_title = 'Archives';
+							}
 						}
-					}
-				?>
-				<div class="header__subhero">
-					<?php if (pg_is_valid('url', $referer) && isset($post_title) && pg_is_valid('string', $post_title)):?>
-						<a class="breadcrumb header__link" href="<?php echo $referer ?>">
-							Back to <?php echo $post_type === 'festival' ? 'Festival ' . $post_title : $post_title ?> 
-						</a>
-					<?php endif; ?>
-				</div>
-			<?php endif;?>
+					?>
+					<div class="header__subhero">
+						<?php if (pg_is_valid('url', $referer) && isset($post_title) && pg_is_valid('string', $post_title)):?>
+							<a class="breadcrumb header__link" href="<?php echo $referer ?>">
+								Back to <?php echo $post_type === 'festival' ? 'Festival ' . $post_title : $post_title ?> 
+							</a>
+						<?php endif; ?>
+					</div>
+				<?php endif;?>
+			</div>
 		</div>
     </header>

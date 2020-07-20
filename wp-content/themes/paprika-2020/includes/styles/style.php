@@ -285,12 +285,21 @@
         .donor-block__price span::before {
             color: <?php echo $color; ?>;
         }
-        .donor-block--two-up {
-            background: linear-gradient(to right, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
+        .donor-block--two-up .donor-block__card:nth-child(2n) {
+            background-color: <?php echo $opaque_values['15']; ?>;
         }
-		.donor-block--two-up:nth-of-type(2n) {
-			background: linear-gradient(to left, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
-		}
+        @media (min-with: 724px) {
+            .donor-block--two-up .donor-block__card:nth-child(2n) {
+                background-color: none;
+            }
+            .donor-block--two-up {
+                background: linear-gradient(to right, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
+            }
+            .donor-block--two-up:nth-of-type(2n) {
+                background: linear-gradient(to left, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
+            }
+        }
+        
     <?php endif; ?>
 </style>
 
