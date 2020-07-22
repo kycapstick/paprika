@@ -11,5 +11,17 @@
 	}
 	&__single {
 		margin-top: 32px;
+		@include mobile {
+			max-width: calc(50% - 10px);
+			flex-basis: calc(50% - 10px);
+		}
+		@include tablet {
+			max-width: calc(25% - 10px);
+			flex-basis: calc(25% - 10px);
+		}
+		.wp-block-image {
+			max-width: 300px;
+			margin: 0 auto;
+		}
 	}
 }

@@ -33,6 +33,7 @@ const addFocusTrapping = () => {
 };
 
 // MAIN MENU
+
 const activateMenu = () => {
 	const menu = document.querySelector(".header-menu");
 	menu.classList.toggle("header-menu--active");

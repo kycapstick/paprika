@@ -9,17 +9,6 @@ const clearCurrentDate = () => {
 	}
 };
 
-const fadeOutRemaining = (date) => {
-	const inactiveDates = document.querySelectorAll(
-		`.schedule__list__item:not(.schedule__active):not(.schedule__list__item--hidden)`
-	);
-	if (inactiveDates.length > 0) {
-		inactiveDates.forEach((date) => {
-			date.classList.add("fade-out");
-		});
-	}
-};
-
 const fadeInAll = () => {
 	const allHidden = document.querySelectorAll(
 		".schedule__list__item--hidden"
@@ -53,6 +42,36 @@ const activateNewDate = (date) => {
 	}
 };
 
+const timeOut = (date) => {
+	setTimeout(
+		function () {
+			activateNewDate(date);
+		},
+		500,
+		date
+	);
+};
+
+const setContainerHeight = (card) => {
+	const container = document.querySelector(".schedule__list");
+	const height = card.clientHeight + 21;
+	if (container) {
+		container.style.minHeight = `${height}px`;
+	}
+};
+
+const fadeOutAll = (date) => {
+	const inactiveDates = document.querySelectorAll(
+		`.schedule__list__item:not(.schedule__list__item--hidden)`
+	);
+	if (inactiveDates.length > 0) {
+		setContainerHeight(inactiveDates[0]);
+		inactiveDates.forEach((date) => {
+			date.classList.add("fade-out");
+		});
+	}
+};
+
 const handleDateChange = () => {
 	const $scheduleToggles = document.querySelectorAll(
 		".schedule__toggle__single"
@@ -68,8 +87,9 @@ const handleDateChange = () => {
 				return;
 			}
 			const date = e.target.value;
-			activateNewDate(date);
-			fadeOutRemaining(date);
+			fadeOutAll(date);
+			clearTimeout(timeOut);
+			timeOut(date);
 		});
 	});
 };
@@ -79,13 +99,13 @@ const handleFadeOut = () => {
 	if (scheduleItems.length) {
 		scheduleItems.forEach((item) => {
 			item.addEventListener("animationend", (e) => {
-				if (e.target.classList.contains("fade-out")) {
+				if (e.animationName === "fade-out") {
 					e.target.classList.add("schedule__list__item--hidden");
 					e.target.classList.remove("fade-out");
-					e.target.classList.remove("fade-in");
 					return;
 				}
-				if (e.target.classList.contains("fade-in")) {
+				if (e.animationName === "fade-in") {
+					e.target.classList.remove("schedule__list__item--hidden");
 					e.target.classList.remove("fade-in");
 					e.target.classList.remove("fade-out");
 				}

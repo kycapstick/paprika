@@ -25,8 +25,8 @@
         ob_start();
         ?>
             <?php if (isset($titleObject) ): ?>
-                <div class="col-3">
-                    <div class="alumni__single">
+                <div class="col-3 alumni__single">
+                    <div>
                         <?php if (pg_is_valid('string', $image)){
                                 echo $image;
                         } ?>

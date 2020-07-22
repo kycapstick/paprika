@@ -14,16 +14,16 @@
         ?>
         class="schedule__card <?php echo implode(' ', $class_list); ?>"
     >
+        <div class="schedule__card__image">
         <?php  
             $image = get_the_post_thumbnail($show_id); 
             if (!empty($image)) {
                 ?>
-                <div class="schedule__card__image">
                     <?php echo $image; ?>
-                </div>
-                <?php
+                    <?php
             }
-        ?> 
+            ?> 
+        </div>
         <p class="schedule__time">
             <?php
                 if (!empty($show_details)):

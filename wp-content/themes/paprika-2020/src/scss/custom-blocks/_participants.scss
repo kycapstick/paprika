@@ -6,6 +6,9 @@
 	&__column {
 		padding-right: calc(100% / 12);
 		margin-top: 32px;
+		@media screen and (max-width: $screen-tablet-min) {
+			height: 100%;
+		}
 		&:nth-child(n + 3) {
 			margin-top: 64px;
 		}

@@ -9,7 +9,8 @@
 	a:hover,
 	a:focus {
 		.homepage-cards__card {
-			box-shadow: 3px 3px 10px $grey-main;
+			transform: scale(1.02);
+			box-shadow: $box-shadow-light;
 		}
 	}
 	.flex {
@@ -26,9 +27,20 @@
 	}
 	&__card {
 		position: relative;
+		transition: all 0.3s;
 	}
 	&__title {
 		@extend .name-tag;
+		&:before {
+			transform: skew(10deg);
+			left: -8px;
+			padding: 0 8px;
+			@include mobile {
+				padding: 0 16px;
+				transform: skew(20deg);
+				left: -16px;
+			}
+		}
 	}
 	figure {
 		margin: 0;

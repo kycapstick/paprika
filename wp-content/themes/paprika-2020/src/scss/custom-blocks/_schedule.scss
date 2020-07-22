@@ -1,4 +1,13 @@
 .schedule {
+	&__toggle {
+		flex-basis: 100%;
+		max-width: 100%;
+		text-align: center;
+		@include tablet {
+			flex-basis: auto;
+			max-width: auto;
+		}
+	}
 	position: relative;
 	&__toggle__single {
 		position: absolute;
@@ -15,7 +24,7 @@
 		}
 	}
 	&__list__item {
-		margin: 5px 15px;
+		margin: 5px 15px 16px;
 		@include tablet-small {
 			max-width: calc(50% - 30px);
 			flex-basis: calc(50% - 30px);
@@ -44,13 +53,13 @@
 		}
 	}
 	&__card {
-		padding-top: 66.66%;
-		background-color: $grey-10;
-		position: relative;
-		background-position: center;
-		margin: 0 auto;
 		position: relative;
 		&__image {
+			padding-top: 66.66%;
+			position: relative;
+			background-position: center;
+			margin: 0 auto;
+			position: relative;
 			img {
 				position: absolute;
 				top: 0;
@@ -64,21 +73,25 @@
 			}
 		}
 		&__overlay {
-			opacity: 0;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			color: white;
-			transition: opacity 0.3s ease-in-out;
-			&__title {
+			padding: 16px;
+			color: black;
+			@include tablet {
+				opacity: 0;
 				position: absolute;
-				top: 50%;
+				top: 0;
 				left: 0;
 				width: 100%;
-				transform: translateY(-50%);
-				text-align: center;
+				height: 100%;
+				color: white;
+				transition: opacity 0.3s ease-in-out;
+				&__title {
+					position: absolute;
+					top: 50%;
+					left: 0;
+					width: 100%;
+					transform: translateY(-50%);
+					text-align: center;
+				}
 			}
 		}
 	}

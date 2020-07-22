@@ -248,9 +248,20 @@
         .artist-block--reverse {
             background-color: <?php echo $opaque_values['15']; ?> 
         }
-        .participants-block__overlay,
+
+        .schedule__card__image {
+            background-color: <?php echo $opaque_values['10']; ?>
+        }
         .schedule__card__overlay {
+            background-color: <?php echo $opaque_values['15']; ?>
+        }
+        .participants-block__overlay {
             background-color: <?php echo $opaque_values['95']; ?>
+        }
+        @media (min-width: 764px) {
+            .schedule__card__overlay {
+                background-color: <?php echo $opaque_values['95']; ?>
+            }
         }
         .participants-block__placeholder {
             border: 32px solid <?php echo $opaque_values['15'] ?>;
@@ -312,17 +323,17 @@
         .donor-block--two-up:nth-of-type(2n) {
             background: linear-gradient(to left, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
         }
-        @media (max-width: 724px) {
+        @media (max-width: 767px) {
             .donor-block--two-up .donor-block__card:nth-of-type(2n) {
                 background: <?php echo $opaque_values['15'] ?>;
             }
         }
-        @media (max-width: 724px) {
+        @media (max-width: 767px) {
             .donor-block--two-up {
                 background: none;
             }
         }
-        @media (max-width: 724px) {
+        @media (max-width: 767px) {
             .donor-block--two-up:nth-of-type(2n) {
                 background: none;
             }

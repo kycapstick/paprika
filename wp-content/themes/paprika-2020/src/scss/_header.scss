@@ -19,11 +19,14 @@
 		}
 	}
 	&__nav__logo {
-		max-width: 200px;
+		max-width: 150px;
 		position: relative;
 		a {
 			position: relative;
 			z-index: 10;
+		}
+		@include tablet {
+			max-width: 200px;
 		}
 	}
 	&__trigger {
@@ -104,9 +107,11 @@
 	}
 	&__subheader {
 		margin-top: 8px;
-		max-width: 50%;
 		margin-left: auto;
 		text-align: right;
+		@include tablet {
+			max-width: 50%;
+		}
 	}
 }
 
@@ -120,7 +125,10 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 		flex-direction: column;
-		padding-bottom: 64px;
+		padding-bottom: 32px;
+		@include mobile {
+			padding-bottom: 64px;
+		}
 	}
 	&__nav__logo {
 		&::before {

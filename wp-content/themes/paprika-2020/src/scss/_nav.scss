@@ -14,7 +14,10 @@
 	padding-top: 100px;
 	.btn--dark {
 		@extend .btn--dark;
-		padding: 24px 80px;
+		padding: 16px 40px;
+		@include tablet {
+			padding: 24px 80px;
+		}
 	}
 	.container {
 		max-width: 900px;
@@ -49,17 +52,13 @@
 			content: "+";
 			margin-left: 5px;
 			display: inline-block;
-			@include desktop {
-				display: none;
-			}
 		}
 		&.menu-item--active > a::after {
 			content: "-";
 			margin-left: 10px;
 		}
 		.sub-menu {
-			padding: 16px 0 16px 24px;
-			@include desktop {
+			@include tablet {
 				position: absolute;
 				left: 100%;
 				padding-left: 32px;
@@ -70,18 +69,11 @@
 				width: 100%;
 			}
 		}
-		@include desktop {
-			&:hover {
-				.sub-menu {
-					display: block;
-					z-index: 30;
-				}
-			}
-		}
 	}
 	.menu > .menu-item--active {
 		.sub-menu {
-			display: block;
+			max-height: 100vh;
+			overflow: visible;
 		}
 	}
 	.menu-item {
@@ -106,7 +98,10 @@
 	}
 
 	.sub-menu {
-		display: none;
+		max-height: 0px;
+		overflow: hidden;
+		transition: max-height 0.7s;
+		padding: 0;
 	}
 	&--active {
 		top: 0;

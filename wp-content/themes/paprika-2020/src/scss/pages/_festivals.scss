@@ -32,6 +32,8 @@
 	&__link {
 		color: black;
 		transition: color 0.1s ease-in-out;
+		display: block;
+		text-align: center;
 	}
 	&__card {
 		position: relative;
