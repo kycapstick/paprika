@@ -1,4 +1,4 @@
-    <?php
+<?php
 
     function paprika_compose_message($message_object) {
         $current_url = get_stylesheet_directory_uri();
@@ -82,5 +82,3 @@
             }
         }
     }
-
-?>

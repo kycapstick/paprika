@@ -28,7 +28,7 @@
           name="timeSlotCount" 
           id="timeSlotCount" 
           type="number"
-          value="<?php echo ($post_meta['timeSlotCount'][0] ?? '') ?>"
+          value="<?php echo isset($post_meta['timeSlotCount'][0]) ? $post_meta['timeSlotCount'][0] : ''; ?>"
         >
         <button id="update-timeslot-count" data-selector="timeSlotCount" data-nonce="<?php echo $count_nonce ?>" data-id="<?php echo $post->ID ?>">Update Time Slot Count</button>
 
@@ -46,7 +46,7 @@
                 id="<?php echo 'timeSlot'.$i.'Name' ?>" 
                 name="<?php echo 'timeSlot['.$i.'][name]' ?>"
                 type="text" 
-                value="<?php echo ($time_slots[$i]['name'] ?? '')?>">
+                value="<?php echo isset($time_slots[$i]['name']) ? $time_slots[$i]['name'] : ''; ?>">
             </div>
             <div>
               <label for="<?php echo 'timeSlot'.$i.'ShowCount' ?>">Number of Shows</label>
@@ -55,7 +55,7 @@
                 type="number" 
                 id="<?php echo 'timeSlot'.$i.'ShowCount' ?>" 
                 name="<?php echo 'timeSlot['.$i.'][showCount]'?>"
-                value="<?php echo ($time_slots[$i]['showCount'] ?? '') ?>"
+                value="<?php echo isset($time_slots[$i]['showCount']) ? $time_slots[$i]['showCount'] : ''; ?>"
               >
             </div>
             <?php 

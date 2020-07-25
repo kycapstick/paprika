@@ -7,11 +7,12 @@ if ( have_posts() ) :
     while ( have_posts() ) : the_post(); 
         $festival_id = get_post_meta($post->ID, 'festival', true);
         $festival = get_post($festival_id);
-        $time_slots = get_post_meta($post->ID, 'timeSlot', true);
+		$time_slots = get_post_meta($post->ID, 'timeSlot', true);
+		$title = html_entity_decode(the_title(),ENT_QUOTES,'UTF-8');
         ?>
-        <h1><?php the_title(); ?> </h1>
+        <h1><?php echo esc_html($title); ?> </h1>
         <?php 
-          if (isset($festival)):
+			if (isset($festival)):
         ?>
         <p>Part of 
           <a href="<?php echo get_post_permalink($festival_id) ?>">
@@ -39,8 +40,9 @@ if ( have_posts() ) :
               <?php
               if (isset($time_slot['shows']) && is_array($time_slot['shows'])):
                 foreach($time_slot['shows'] as $show_id):
-                  $program_id = get_post_meta($show_id, 'program', true);
-                  $program_title = str_replace($festival->post_title, '', get_the_title($program_id));
+				  $program_id = get_post_meta($show_id, 'program', true);
+				  $program_title = html_entity_decode(get_the_title($program_id),ENT_QUOTES,'UTF-8');
+                  $program_title = str_replace($festival->post_title, '', $program_title);
                   $show = get_post($show_id);
                   if (isset($show) && !empty($show)):
             ?>

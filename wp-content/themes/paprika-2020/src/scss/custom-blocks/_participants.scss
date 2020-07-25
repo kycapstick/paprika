@@ -12,7 +12,7 @@
 		&:nth-child(n + 3) {
 			margin-top: 64px;
 		}
-		&:hover {
+		a:hover {
 			.participants-block__overlay {
 				opacity: 1;
 			}

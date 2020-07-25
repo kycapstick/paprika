@@ -47,7 +47,7 @@ const timeOut = (date) => {
 		function () {
 			activateNewDate(date);
 		},
-		500,
+		450,
 		date
 	);
 };

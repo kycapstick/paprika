@@ -36,6 +36,21 @@
                                             </div>
                                         </div>
                                     </a>
+                                <?php else: ?>
+                                    <div class="participants-block__photo">
+                                        <p class="participants-block__name card__title card__title--dark"><?php echo $artist->post_title; ?></p>
+                                        <?php 
+                                            $artist_thumbnail = get_the_post_thumbnail($artist_id);
+                                            if (!empty($artist_thumbnail)) {
+                                                echo get_the_post_thumbnail($artist_id);
+                                            } else {
+                                                ?>
+                                                    <div class="participants-block__placeholder">
+                                                    </div>
+                                                <?php
+                                            }
+                                        ?>
+                                    </div>
                                 <?php endif; ?>
                             </li>
                         <?php endforeach; ?>

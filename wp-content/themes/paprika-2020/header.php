@@ -1,7 +1,7 @@
 <?php 
 	wp_head();
 	$hero_text = get_field('hero_text');
-	$hero_text = stripos($hero_text, '\n' ) !== false ? explode('\n', $hero_text) : null;
+	$hero_text = stripos($hero_text, '\n' ) !== false ? explode('\n', $hero_text) : $hero_text;
 	$hero_subtitle = get_field('hero_subtitle');
 	$header_class = paprika_custom_colors();
 	$subtitle_object = isset($post) ? get_post_meta($post->ID, 'subtitle', true) : array();
@@ -48,10 +48,14 @@
 			<div class="container">
 				<?php if (!empty($hero_text)): ?>
 					<h1 class="hero-text">
-						<?php foreach($hero_text as $hero_string): ?>
-							<?php echo $hero_string ?>
-							</br>
-						<?php endforeach ?>
+						<?php if (is_array($hero_text)): ?>
+							<?php foreach($hero_text as $hero_string): ?>
+								<?php echo $hero_string ?>
+								</br>
+							<?php endforeach ?>
+						<?php else: ?>
+							<?php echo $hero_text; ?>
+						<?php endif; ?>
 					</h1>
 					<p class="copy--right">
 						<?php echo $hero_subtitle ?>
@@ -68,8 +72,7 @@
 									<h1 class="header__text"><?php echo $archive_title[1]; ?></h1>
 								<?php
 									elseif (is_singular('festival') || is_singular('program') || !is_single() || is_404()): 
-										$title = get_the_title();
-										if (is_singular('program')) {
+										$title = html_entity_decode(get_the_title(),ENT_QUOTES,'UTF-8');										if (is_singular('program')) {
 											$title = preg_replace("/\b[0-9]{4}/", "", $title);
 										}
 										if (is_singular('festival')) {
@@ -104,7 +107,7 @@
 						$referer = wp_get_referer(); 
 						if (pg_is_valid('string', $referer)) {
 							$reference_id = url_to_postid($referer);
-							$post_title = get_the_title($reference_id);
+							$post_title = html_entity_decode(get_the_title($reference_id),ENT_QUOTES,'UTF-8');
 							$post_type = get_post_type($reference_id);
 							if ($post_title === $post->post_title) {
 								$post_title = 'Archives';

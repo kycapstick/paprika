@@ -192,7 +192,7 @@
         ?>
         /* FESTIVAL SPECIFIC STYLES */
         .page-festivals .header__banner__bar {
-            background-image: url(<?php echo get_template_directory_uri() . '/images/hexagons.svg' ?>),
+            background-image: url(<?php echo get_template_directory_uri() . '/images/floating-cogs.svg' ?>),
             linear-gradient(<?php echo $color ?>, <?php echo $color ?>);
         }
         .btn--schedule,

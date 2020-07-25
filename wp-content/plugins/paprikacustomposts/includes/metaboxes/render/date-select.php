@@ -11,7 +11,7 @@
   ?>
     <div>
       <label for="dateCount">Number of Days:</label>
-      <input class="custom-input" type="number" id="dateCount" name="dateCount" value="<?php echo ($dateCount ?? '') ?>">
+      <input class="custom-input" type="number" id="dateCount" name="dateCount" value="<?php echo ($dateCount ? $dateCount : '') ?>">
       <button id="update-date-count" data-selector="dateCount" data-nonce="<?php echo $nonce ?>" data-id="<?php echo $post->ID ?>">Update Date Count</button>
     </div>    
     <div>

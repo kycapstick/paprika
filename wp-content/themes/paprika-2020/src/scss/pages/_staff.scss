@@ -2,6 +2,7 @@
 	&__photo {
 		position: relative;
 		display: inline-block;
+		max-width: 300px;
 		@include tablet {
 			display: block;
 		}
@@ -37,9 +38,7 @@
 		margin: 8px 0 16px;
 	}
 	&__photo--reverse {
-		img {
-			margin-left: auto;
-		}
+		margin-left: auto;
 		.staff__name {
 			right: 0;
 			left: auto;

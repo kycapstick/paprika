@@ -9,7 +9,7 @@
   ?>
     <div>
       <label for="showCount">Number of shows:</label>
-      <input type="number" id="showCount" name="showCount" value="<?php echo ($showCount[0] ?? '') ?>"> 
+      <input type="number" id="showCount" name="showCount" value="<?php echo ($showCount[0] ? $showCount[0] : '') ?>"> 
     </div>    
     <div>
       <?php 

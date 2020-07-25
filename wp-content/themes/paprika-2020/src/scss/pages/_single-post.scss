@@ -1,4 +1,10 @@
 .single-post {
+	.container {
+		max-width: 1000px;
+		@include tablet {
+			width: 80%;
+		}
+	}
 	&__title {
 		text-align: left;
 	}

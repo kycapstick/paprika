@@ -6,7 +6,7 @@
 			ob_start();
 		?>
 			<label class="custom-label" for="order">Order</label>
-			<input  class="custom-input" type="number" name="order" value="<?php echo ($order ?? '') ?>" id="order">
+			<input  class="custom-input" type="number" name="order" value="<?php echo ($order ? $order :'') ?>" id="order">
 			<button id="update-order" data-selector="order" data-nonce="<?php echo $value_nonce ?>" data-id="<?php echo $post->ID ?>">Update Order</button>
 		<?php
 			return ob_get_clean();

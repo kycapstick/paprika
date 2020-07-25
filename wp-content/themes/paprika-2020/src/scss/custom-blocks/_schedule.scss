@@ -3,6 +3,10 @@
 		flex-basis: 100%;
 		max-width: 100%;
 		text-align: center;
+		@include mobile {
+			flex-basis: 50%;
+			max-width: 50%;
+		}
 		@include tablet {
 			flex-basis: auto;
 			max-width: auto;
@@ -67,7 +71,7 @@
 				left: 0;
 				right: 0;
 				margin: auto;
-				height: 100%;
+				height: auto;
 				width: auto;
 				max-height: 100%;
 			}

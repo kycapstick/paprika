@@ -14,7 +14,7 @@
     <fieldset>
     <legend class="custom-title">Artists</legend>
       <label for="artistCount">Number of Artists:</label>
-      <input class="custom-input" type="number" id="artistCount" name="artistCount" value="<?php echo ($artistCount[0] ?? '') ?>"> 
+      <input class="custom-input" type="number" id="artistCount" name="artistCount" value="<?php echo ($artistCount[0] ? $artistCount[0] : '') ?>"> 
       <button id="update-artist-count" data-selector="artistCount" data-nonce="<?php echo $count_nonce ?>" data-id="<?php echo $post->ID ?>">Update Artist Count</button>
       <?php 
         if (isset($artistCount[0])):

@@ -9,7 +9,8 @@
             <ul class="festivals__archive">
                 <?php foreach($posts as $post): ?>
                     <li class="archive__item">
-                        <a class="archive__link"href="<?php echo get_post_permalink($post->ID); ?>"><?php echo get_the_title($post->ID); ?></a>
+                        <?php $title = html_entity_decode(get_the_title($post->ID),ENT_QUOTES,'UTF-8'); ?>
+                        <a class="archive__link"href="<?php echo get_post_permalink($post->ID); ?>"><?php echo esc_html($title) ?></a>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -28,8 +29,9 @@
                             <div class="flex festivals__articles">
                                 <div class="col-3 festivals__card">
                                     <div class="festivals__card__wrapper">
+                                        <?php $title = html_entity_decode(get_the_title($post->ID),ENT_QUOTES,'UTF-8'); ?>
                                         <a href="<?php echo get_permalink($post->ID); ?>" class="festivals__card__link">
-                                            <h2 class="festivals__card__title"><?php echo get_the_title($post->ID) ?></h2>
+                                            <h2 class="festivals__card__title"><?php echo esc_html($title); ?></h2>
                                         </a>
                                     </div>
                                 </div>
@@ -41,7 +43,7 @@
                                             <?php foreach($programs as $program): ?>
                                                 <li class="col-4">
                                                     <?php 
-                                                        $title = get_the_title($program);
+                                                        $title = html_entity_decode(get_the_title($program),ENT_QUOTES,'UTF-8');
                                                         $title = preg_replace("/\b[0-9]{4}/", "", $title)
                                                     ?>
                                                     <a class="festivals__link" href="<?php echo get_post_permalink($program)?>"><?php echo $title; ?></a>
@@ -71,8 +73,9 @@
                     <h3 class="card__header">Quick Links</h3>
                     <ul class="festivals__archive">
                         <?php foreach($posts as $post): ?>
+                            <?php $title = html_entity_decode(get_the_title($post->ID),ENT_QUOTES,'UTF-8'); ?>
                             <li class="archive__item">
-                                <a class="archive__link"href="<?php echo get_post_permalink($post->ID); ?>"><?php echo get_the_title($post->ID); ?></a>
+                                <a class="archive__link"href="<?php echo get_post_permalink($post->ID); ?>"><?php echo esc_html($title); ?></a>
                             </li>
                         <?php endforeach; ?>
                     </ul>

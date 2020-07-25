@@ -25,6 +25,7 @@
                         </div>
                     </div>
                     <div class="col-8">
+                        <?php $title = html_entity_decode(get_the_title(),ENT_QUOTES,'UTF-8'); ?>
                         <h2 class="image-text__title"><?php echo get_the_title() ?></h2>
                         <?php foreach($paragraphs as $paragraph ):
                             echo $paragraph;

@@ -9,16 +9,15 @@
         function paprika_page_meta_cb($post) {
             $postMeta = get_post_meta($post->ID);
             $subtitleObject = get_post_meta($post->ID, 'subtitle', true);
-            paprika_console_log($subtitleObject);
             $nonce = wp_create_nonce("update_value_nonce");
     ?>
         <div>
             <label for="artist_title">Subtitle</label>
-            <input class="custom-input" type="text" name="subtitle" id="subtitle" value="<?php echo ($subtitleObject['subtitle'] ?? '') ?>">
+            <input class="custom-input" type="text" name="subtitle" id="subtitle" value="<?php echo isset($subtitleObject['subtitle']) ? $subtitleObject['subtitle'] : ''; ?>">
             <label for="artist_title">Link Text</label>
-            <input class="custom-input" type="text" name="subtitle_text" id="subtitle_text" value="<?php echo ($subtitleObject['subtitle_text'] ?? '') ?>">
+            <input class="custom-input" type="text" name="subtitle_text" id="subtitle_text" value="<?php echo isset($subtitleObject['subtitle_text']) ? $subtitleObject['subtitle_text'] : ''; ?>">
             <label for="artist_title">Link</label>
-            <input class="custom-input" type="url" name="subtitle_link" id="subtitle_link" value="<?php echo ($subtitleObject['subtitle_link'] ?? '') ?>">
+            <input class="custom-input" type="url" name="subtitle_link" id="subtitle_link" value="<?php echo isset($subtitleObject['subtitle_link']) ? $subtitleObject['subtitle_link'] : ''; ?>">
         </div>
         <?php
     }

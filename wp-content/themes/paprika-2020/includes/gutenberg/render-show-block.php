@@ -26,8 +26,10 @@
             }
         endforeach;
         $post_id = get_the_id();
-        $time_slots = get_post_meta($post_id, 'timeSlots', true);
-        uksort($time_slots, 'paprika_sort_order');
+		$time_slots = get_post_meta($post_id, 'timeSlots', true);
+		if (is_array($time_slots) && !empty($time_slots)) {
+			uksort($time_slots, 'paprika_sort_order');
+		}
         $festival_id = get_post_meta($post_id, 'festival', true);
 		$festival = get_post($festival_id);
 		$color_classes = paprika_custom_colors();
@@ -71,9 +73,7 @@
 								if ($date->post_status === 'publish'):
 							?>
 							<li class="show-block__date">
-								<a class="show-block__date__link" href="<?php echo get_post_permalink($date_id) ?>">
-									<p><?php echo gmdate('M d', strtotime($date->post_title)) ?> at <?php echo $time_slot['name'] ?></p>
-								</a>
+								<p><?php echo gmdate('M d', strtotime($date->post_title)) ?> at <?php echo $time_slot['name'] ?></p>
 								<?php 
 									if (intval($time_slot['showCount']) > 1): 
 										$other_shows = array_filter($time_slot['shows'], function($item) use($post_id) {

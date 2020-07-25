@@ -13,7 +13,7 @@
     <fieldset>
       <legend class="custom-title">Mentors</legend>
       <label for="mentorCount">Number of Mentors:</label>
-      <input class="custom-input" type="number" id="mentorCount" name="mentorCount" value="<?php echo ($mentorCount[0] ?? '') ?>"> 
+      <input class="custom-input" type="number" id="mentorCount" name="mentorCount" value="<?php echo ($mentorCount[0] ? $mentorCount[0] : '') ?>"> 
       <button id="update-mentor-count" data-selector="mentorCount" data-nonce="<?php echo $count_nonce ?>" data-id="<?php echo $post->ID ?>">Update Mentor Count</button>
 
       <?php 

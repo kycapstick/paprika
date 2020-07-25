@@ -2,7 +2,6 @@
 
 function paprika_custom_block_categories( $categories, $post ) {
 	return array_merge(
-		$categories,
 		array(
 			array(
 				'slug' => 'image-blocks',
@@ -29,6 +28,7 @@ function paprika_custom_block_categories( $categories, $post ) {
 				'title' => __( 'Press Blocks' ),
 			),
 		),
+		$categories	
 	);
 }
 add_filter( 'block_categories', 'paprika_custom_block_categories', 10, 2);

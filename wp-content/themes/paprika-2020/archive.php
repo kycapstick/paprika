@@ -42,7 +42,8 @@
                     <div class="post__content">
                         <div class="continer">
                             <article class="post__card">
-                                <h2 class="post__card__title"><?php echo get_the_title($post->ID) ?></h2>
+                                <?php $title = html_entity_decode(get_the_title($post->ID),ENT_QUOTES,'UTF-8');?>
+                                <h2 class="post__card__title"><?php echo esc_html($title); ?></h2>
                                 <p class="post__card__byline copy--light">Posted on <?php echo gmdate('F d, Y', strtotime( $post->post_date)); ?> by <a href="<?php echo $author_url; ?>"><?php echo $author_name ?></a></p>
                                 <?php
                                     $content = $post->post_content;

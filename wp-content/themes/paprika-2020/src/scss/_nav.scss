@@ -48,10 +48,12 @@
 		}
 	}
 	.menu > .menu-item-has-children {
-		& > a::after {
-			content: "+";
-			margin-left: 5px;
-			display: inline-block;
+		& > a {
+			&::after {
+				content: "+";
+				margin-left: 5px;
+				display: inline-block;
+			}
 		}
 		&.menu-item--active > a::after {
 			content: "-";
@@ -93,7 +95,7 @@
 		}
 		&--active > a::before,
 		&:hover > a::before {
-			width: 100%;
+			width: calc(100% - 20px);
 		}
 	}
 

@@ -16,7 +16,7 @@
     >
         <div class="schedule__card__image">
         <?php  
-            $image = get_the_post_thumbnail($show_id); 
+            $image = get_the_post_thumbnail($show_id, 'schedule-size'); 
             if (!empty($image)) {
                 ?>
                     <?php echo $image; ?>
@@ -41,8 +41,9 @@
                 <?php
                     if (!empty($show_details)):
                         foreach($show_details as $details):
+                        $title = html_entity_decode(get_the_title($details['date']),ENT_QUOTES,'UTF-8');
                 ?>
-                    <p><?php echo gmdate('F d', strtotime( get_the_title( $details['date'] ) ) ) . ' @ ' . $details['time'] ?></p>
+                    <p><?php echo gmdate('F d', strtotime( $title ) ) . ' @ ' . $details['time'] ?></p>
                 <?php
                         endforeach;
                     endif;

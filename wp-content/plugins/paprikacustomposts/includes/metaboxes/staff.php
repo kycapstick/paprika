@@ -17,7 +17,7 @@
           type="number" 
           id="order" 
           name="order"
-          value="<?php echo ($postMeta['order'][0] ?? '') ?>"
+          value="<?php echo ($postMeta['order'][0] ? $postMeta['order'][0] : '') ?>"
         >
         <label for="name">Name</label>
         <input 
@@ -25,7 +25,7 @@
           type="text" 
           name="name" 
           id="name" 
-          value="<?php echo ($postMeta['name'][0] ?? '') ?>""
+          value="<?php echo ($postMeta['name'][0] ? $postMeta['name'][0] : '') ?>""
         >
       </div>
       <div>
@@ -35,7 +35,7 @@
           type="email" 
           name="email"
           id="email"
-          value="<?php echo ($postMeta['email'][0] ?? '') ?>"
+          value="<?php echo ($postMeta['email'][0] ? $postMeta['email'][0] : '') ?>"
         >
       </div>
       <?php

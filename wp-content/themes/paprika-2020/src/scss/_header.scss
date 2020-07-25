@@ -83,7 +83,7 @@
 		margin-top: 32px;
 		@include tablet {
 			flex-direction: row;
-			align-items: center;
+			align-items: flex-end;
 		}
 		&__bar {
 			height: 20px;
@@ -92,12 +92,15 @@
 			box-shadow: $box-shadow;
 			margin-bottom: 16px;
 			@include tablet {
-				margin-bottom: 0;
+				margin-bottom: 45px;
 			}
 		}
 		&__single {
 			.header__banner__bar {
 				display: block;
+				@include tablet {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}

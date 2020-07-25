@@ -1,8 +1,23 @@
 .image-text {
 	margin-top: 64px;
+	.col-8 {
+		padding-top: 32px;
+		@include tablet {
+			padding-top: 0;
+			padding-left: 32px;
+		}
+	}
 	&__title {
 		margin-top: 0;
+		margin-bottom: 16px;
 	}
+	.wp-block-image {
+		background: $grey-10;
+		img {
+			margin: 0 auto;
+		}
+	}
+
 	p {
 		margin: 8px 0;
 	}
