@@ -5,13 +5,14 @@
 	h2 {
 		margin: 64px 0 16px;
 		display: inline-block;
+
 		&::after {
 			content: "";
 			display: block;
 			height: 8px;
 			width: 100%;
 			margin-top: 8px;
-			background-color: $programs-50;
+			background-color: $highlight-primary;
 		}
 	}
 	h3 {

@@ -32,12 +32,10 @@
 	&__title {
 		@extend .name-tag;
 		&:before {
-			transform: skew(10deg);
 			left: -8px;
 			padding: 0 8px;
 			@include mobile {
 				padding: 0 16px;
-				transform: skew(20deg);
 				left: -16px;
 			}
 		}

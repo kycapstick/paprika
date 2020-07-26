@@ -104,8 +104,8 @@
 		bottom: 0;
 		right: 0;
 		z-index: 10;
-		padding: 10px 0 10px 48px;
 		color: white;
+		padding: 16px 24px;
 		span {
 			display: none;
 		}
@@ -119,9 +119,7 @@
 				display: block;
 				top: 0;
 				bottom: 0;
-				left: auto;
-				right: -24px;
-				transform: skew(-20deg);
+				left: 0;
 				z-index: -1;
 			}
 		}

@@ -6,7 +6,6 @@
         ?>
             <div class="contact-form">
                 <div class="container default-block <?php echo $custom_colors ?>">
-                    <h2>General Inquiries</h2>
                     <form action="/" id="contact__form" class="form" novalidate data-nonce="<?php echo wp_create_nonce('contact_form'); ?>" data->
                         <div class="form__field">
                             <label class="form__label" for="contact_name">Your Name (Required) </label>

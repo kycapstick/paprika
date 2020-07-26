@@ -93,8 +93,22 @@
 			margin-top: 0;
 		}
 		&__byline {
+			display: flex;
 			@extend .post__byline;
 			margin-top: 8px;
+			&::before {
+				display: none;
+			}
+			svg {
+				display: inline-block;
+				transform: translateY(3px);
+			}
+			p {
+				margin-left: 8px;
+				a {
+					font-weight: bold;
+				}
+			}
 		}
 		@include tablet {
 			padding: 32px;
@@ -119,10 +133,21 @@
 			@extend .archive__item;
 			a {
 				@extend .archive__link;
-				&::after {
+				color: black;
+				&::before {
 					content: url("../images/archive.svg");
 				}
 			}
 		}
+	}
+}
+
+.pagination__links a {
+	padding: 16px 16px 16px 0;
+	display: block;
+	&::before {
+		content: "<";
+		display: inline-block;
+		margin-right: 10px;
 	}
 }

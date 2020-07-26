@@ -90,7 +90,7 @@
 			display: block;
 			height: 5px;
 			width: 0;
-			background-color: black;
+			background-color: $highlight-primary;
 			transition: width 0.3s cubic-bezier(0, 0.51, 0.73, 0.7);
 		}
 		&--active > a::before,

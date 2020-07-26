@@ -1,6 +1,6 @@
 <?php 
     $custom_colors = get_option('custom_colors');
-    $opacities = ['10','15','50','95'];
+    $opacities = ['10','15','25','50','95'];
 ?>
 
 <style>
@@ -12,6 +12,10 @@
                     $darker_color = paprika_adjust_brightness($color, -40);
                 }
             ?>
+
+            .header.page-<?php echo $key ?> {
+                background-image: linear-gradient(<?php echo $opaque_values['10'] ?>, rgba(255, 255, 255, 0.8)), url(<?php echo get_template_directory_uri() . '/images/grit.jpg' ?>);
+            }
 
             .default-block.page-<?php echo $key ?> .wp-block-button__link {
                 color: <?php echo $color; ?>;
@@ -28,16 +32,17 @@
             }
             /* FOOTER */
             .footer__contact.page-<?php echo $key ?> {
-                background-color: <?php echo $color ?>;
+                background-color: <?php echo $opaque_values['95'] ?>;
             } 
+
             .footer__contact.page-<?php echo $key ?> .btn--dark {
-                background-color: <?php echo $color ?>;
+                background-color: transparent;
             }
 
             /* HEADER */
             .page-<?php echo $key ?> .header__text,
             .page-<?php echo $key ?> .header__link {
-                color: <?php echo $color ?>;
+                color: <?php echo $color; ?>;
             }
 
             .page-<?php echo $key ?> .header__link:focus, 
@@ -87,12 +92,18 @@
                 color: <?php echo $color ?>;
             }
 
+            .pagination__links a {
+                color: <?php echo $color; ?>;
+            }
+            .pagination__links a:hover,
+            .pagination__links a:focus {
+                color: <?php echo $darker_color; ?>;
+            }
+
+
             .default-block.page-<?php echo $key ?> a:hover,
             .default-block.page-<?php echo $key ?> a:focus {
                 color: <?php echo $darker_color ?>;
-            }
-            .default-block.page-<?php echo $key ?> h2::after {
-                background-color: <?php echo $color ?>;
             }
             .container.default-block.page-<?php echo $key ?> ul li::before {
                 background-color: <?php echo $color ?>;
@@ -100,18 +111,10 @@
 
             /* CTAs */
             .cta-block.page-<?php echo $key ?> {
-                background-color: <?php echo $color ?>;
-            }
-
-            /* NEWS BLOCK */
-            .news-block.page-<?php echo $key ?> .news-block__subheader svg path {
-                stroke: <?php echo $color ?>;
+                background-color: <?php echo $opaque_values['95'] ?>;
             }
 
             /* TWO COLUMNS */
-            .two-columns.page-<?php echo $key ?> h2::after {
-                background: <?php echo $color ?>;
-            }
             .two-columns.page-<?php echo $key ?> a {
                 color: <?php echo $color ?>;
             }
@@ -148,10 +151,14 @@
                 $opaque_values = paprika_hex_to_rgb($opacities, $color);
             }
         ?>
-        /* FESTIVAL SPECIFIC STYLES */
+        /* ABOUT SPECIFIC STYLES */
         .page-about .header__banner__bar {
             background-image: url(<?php echo get_template_directory_uri() . '/images/topography.svg' ?>),
             linear-gradient(<?php echo $color ?>, <?php echo $color ?>);
+        }
+
+        .staff__block:nth-child(2n) {
+            background-color: <?php echo $opaque_values['10']; ?>;
         }
         .name-tag::before,
         .staff__name::before {
@@ -163,17 +170,21 @@
         }
         .post__aside__link,
         .post__recent__link,
-        .post__archive li a,
-        .post__card__byline a {
+        .post__card__byline a,
+        .post__byline a {
             color: <?php echo $color; ?>;
 
         }
+
+        .post__archive li a:hover,
+        .post__archive li a:focus {
+            color: <?php echo $color; ?>;
+        }
+
         .post__aside__link:hover,
         .post__aside__link:focus,
         .post__recent__link:hover,
         .post__recent__link:focus,
-        .post__archive li a:hover,
-        .post__archive li a:focus,
         .post__card__byline a:hover,
         .post__card__byline a:focus {
             color: <?php echo $darker_color ?>;
@@ -218,8 +229,6 @@
         .festivals__card__link:hover {
             background: <?php echo $color ?>;
         }
-        .home .header,
-        .homepage .cta-block,
         .artist-block__name::before,
         .participants-block__name::before,
         .schedule__toggle__single:checked + label,
@@ -227,11 +236,17 @@
         .festivals__button .btn--dark {
             background-color: <?php echo $color ?>;
         }
+        .home .header {
+            background: <?php echo $color; ?>;
+        }
+
+        .homepage .cta-block {
+            background-color: <?php echo $color?>;
+        }
+
 
         .show-block a,
-        .show-block__date__link:hover,
-        .festivals__link:hover,
-        .festivals__archive .archive__link {
+        .show-block__date__link:hover {
             color: <?php echo $color; ?>
         }
 
@@ -242,7 +257,7 @@
 
         .festivals__archive .archive__link:hover,
         .festivals__archive .archive__link:focus {
-            color: <?php echo $darker_color ?>;
+            color: <?php echo $color ?>;
         }
 
         .artist-block--reverse {
@@ -313,9 +328,6 @@
         .page-support .header__banner__bar {
             background-image: url(<?php echo get_template_directory_uri() . '/images/jigsaw.svg' ?>),
             linear-gradient(<?php echo $color ?>, <?php echo $color ?>);
-        }
-        .donor-block__price span::before {
-            color: <?php echo $color; ?>;
         }
         .donor-block--two-up {
             background: linear-gradient(to right, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);

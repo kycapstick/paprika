@@ -32,14 +32,29 @@
 	&__link {
 		color: black;
 		transition: color 0.1s ease-in-out;
-		display: block;
+		display: inline-block;
 		text-align: center;
+		position: relative;
+		padding: 5px 10px;
+		&:before {
+			height: 2px;
+			width: 0;
+			content: "";
+			display: block;
+			position: absolute;
+			transition: width 0.3s ease-in-out;
+			bottom: 5px;
+			background-color: $highlight-primary;
+		}
+		&:hover::before {
+			width: calc(100% - 20px);
+		}
 	}
 	&__card {
 		position: relative;
 		margin: 0;
 		&__wrapper {
-			margin: 0 auto;
+			margin-right: auto;
 			position: relative;
 			@include tablet {
 				max-width: 80%;
@@ -94,7 +109,8 @@
 	&__archive {
 		@extend .post__archive;
 		.archive__link {
-			&::after {
+			color: black;
+			&::before {
 				content: url("../images/ticket.svg");
 			}
 		}

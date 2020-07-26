@@ -38,6 +38,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 	<meta name="google" content="notranslate" />
 
+
 	<?php
 
 }

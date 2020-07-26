@@ -62,16 +62,10 @@
 		justify-content: center;
 		align-items: center;
 	}
-	&__title {
-		@include tablet {
-			max-width: 75%;
-		}
-	}
 	&__text {
 		margin: 0;
-		color: $programs_primary;
-		text-shadow: $box-shadow;
 		text-align: right;
+		letter-spacing: 1px;
 		@include tablet {
 			margin-left: 32px;
 		}
@@ -79,7 +73,7 @@
 	&__banner {
 		width: 100%;
 		display: flex;
-		flex-direction: column;
+		justify-content: flex-end;
 		margin-top: 32px;
 		@include tablet {
 			flex-direction: row;
@@ -91,16 +85,9 @@
 			flex-grow: 1;
 			box-shadow: $box-shadow;
 			margin-bottom: 16px;
+			display: none;
 			@include tablet {
 				margin-bottom: 45px;
-			}
-		}
-		&__single {
-			.header__banner__bar {
-				display: block;
-				@include tablet {
-					margin-bottom: 0;
-				}
 			}
 		}
 	}

@@ -49,7 +49,7 @@ h1 {
 		font-size: 6rem;
 	}
 	@include desktop {
-		font-size: 7rem;
+		font-size: 6.5rem;
 	}
 }
 .header-menu .menu .sub-menu {
@@ -100,16 +100,16 @@ h2 {
 }
 
 h3,
+.card__header,
 .page__header {
 	font-size: 3.6rem;
 }
 
-.card__header,
-.default-block h3 {
+.default-block h3,
+.card__title {
 	font-size: 2.4rem;
 }
 
-.card__title,
 .breadcrumb,
 blockquote p,
 .festivals__link {

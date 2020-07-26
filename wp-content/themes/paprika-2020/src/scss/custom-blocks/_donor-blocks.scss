@@ -6,16 +6,6 @@
 				background: none;
 			}
 		}
-		// background: linear-gradient(to top, #fff 50%, $support-15 50%);
-		// &:nth-of-type(2n) {
-		// 	background: linear-gradient(to bottom, #fff 50%, $support-15 50%);
-		// }
-		// @include tablet {
-		// 	background: linear-gradient(to right, #fff 50%, $support-15 50%);
-		// 	&:nth-of-type(2n) {
-		// 		background: linear-gradient(to left, #fff 50%, $support-15 50%);
-		// 	}
-		// }
 	}
 	&__price {
 		text-align: center;
@@ -28,21 +18,28 @@
 				top: -10px;
 				left: -25px;
 				font-size: 4rem;
+				color: $highlight-primary;
 			}
 		}
 	}
 	&__card {
 		padding: 32px 32px 100px;
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		p {
+			flex-grow: 0;
+		}
 	}
 	&__title {
 		margin-bottom: 32px;
 	}
 	&__fp {
-		position: absolute;
-		bottom: 32px;
-		left: 32px;
-		right: 32px;
+		display: flex;
+		flex-grow: 1;
+		flex-direction: column;
+		justify-content: flex-end;
 	}
 	.cta-block {
 		margin: 0;

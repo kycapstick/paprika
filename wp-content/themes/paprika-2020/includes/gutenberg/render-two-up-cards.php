@@ -37,35 +37,37 @@
             <div class="container two-up-cards <?php echo $card_classes ?>">
                 <div class="flex">
                     <?php for ($i = 0; $i < 2; $i = $i + 1): ?>
-                        <div class="col-6 two-up-cards__card">
-                            <?php 
-                                if (pg_is_valid('string', $images[$i])):
-                                    echo $images[$i];
-                                endif;
-                            ?>
-                            <div class="two-up-cards__copy">
-                                <?php
-                                    if (pg_is_valid('string', $titleObjects[$i]->title)):
-                                ?>
-                                    <h3 class="two-up-cards__title card__header">
-                                        <?php echo $titleObjects[$i]->title ?>
-                                    </h3>
-                                <?php
-                                    endif;
-                                    if (pg_is_valid('string', $titleObjects[$i]->subtitle)):
-                                ?>
-                                    <p class="two-up-cards__subtitle copy--light"><?php echo $titleObjects[$i]->subtitle ?></p>
-                                <?php
-                                    endif; 
-                                    if (pg_is_valid('string', $paragraphs[$i]) && strlen($paragraphs[$i]) > 9) {
-                                        echo $paragraphs[$i];
-                                    }
-                                    if (pg_is_valid('string', $buttons[$i]) && strlen($buttons[$i]) > 74):
-                                        echo $buttons[$i];
+                        <?php if (strlen($titleObjects[$i]->title) > 0): ?>
+                            <div class="col-6 two-up-cards__card">
+                                <?php 
+                                    if (pg_is_valid('string', $images[$i])):
+                                        echo $images[$i];
                                     endif;
                                 ?>
+                                <div class="two-up-cards__copy">
+                                    <?php
+                                        if (pg_is_valid('string', $titleObjects[$i]->title)):
+                                    ?>
+                                        <h3 class="two-up-cards__title card__header">
+                                            <?php echo $titleObjects[$i]->title ?>
+                                        </h3>
+                                    <?php
+                                        endif;
+                                        if (pg_is_valid('string', $titleObjects[$i]->subtitle)):
+                                    ?>
+                                        <p class="two-up-cards__subtitle copy--light"><?php echo $titleObjects[$i]->subtitle ?></p>
+                                    <?php
+                                        endif; 
+                                        if (pg_is_valid('string', $paragraphs[$i]) && strlen($paragraphs[$i]) > 9) {
+                                            echo $paragraphs[$i];
+                                        }
+                                        if (pg_is_valid('string', $buttons[$i]) && strlen($buttons[$i]) > 74):
+                                            echo $buttons[$i];
+                                        endif;
+                                    ?>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
                     <?php endfor; ?>
                 </div>
             </div>

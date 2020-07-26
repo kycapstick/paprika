@@ -101,11 +101,20 @@
 						<?php endif; ?>
 					</div>
 				<?php endif ?>
-				<?php if (is_single() && !is_singular('festival') && !is_singular('program')): ?>
+				<?php if (is_single() && !is_singular('festival')): ?>
 					<?php 
 						global $post;
 						$referer = wp_get_referer(); 
-						if (pg_is_valid('string', $referer)) {
+						if (is_singular('show')) {
+							$reference_id = get_post_meta($post->ID, 'program', true);
+							$referer = get_post_permalink($reference_id);
+							$post_title = html_entity_decode(get_the_title($reference_id),ENT_QUOTES,'UTF-8');
+						} elseif (is_singular('program')) {
+							$reference_id = get_post_meta($post->ID, 'festival', true);
+							$referer = get_post_permalink($reference_id);
+							$post_title = html_entity_decode(get_the_title($reference_id),ENT_QUOTES,'UTF-8');
+							$post_title = 'Festival ' . $post_title;
+						} elseif (pg_is_valid('string', $referer)) {
 							$reference_id = url_to_postid($referer);
 							$post_title = html_entity_decode(get_the_title($reference_id),ENT_QUOTES,'UTF-8');
 							$post_type = get_post_type($reference_id);
@@ -113,14 +122,15 @@
 								$post_title = 'Archives';
 							}
 						}
-					?>
-					<div class="header__subhero">
-						<?php if (pg_is_valid('url', $referer) && isset($post_title) && pg_is_valid('string', $post_title)):?>
-							<a class="breadcrumb header__link" href="<?php echo $referer ?>">
-								Back to <?php echo $post_type === 'festival' ? 'Festival ' . $post_title : $post_title ?> 
-							</a>
-						<?php endif; ?>
-					</div>
+						?>
+						<div class="header__subhero">
+								<?php if (pg_is_valid('url', $referer) && isset($post_title) && pg_is_valid('string', $post_title)):?>
+								<a class="breadcrumb header__link" href="<?php echo $referer ?>">
+									Back to <?php echo $post_type === 'festival' ? 'Festival ' . $post_title : $post_title ?> 
+								</a>
+							<?php endif; ?>
+						</div>
+
 				<?php endif;?>
 			</div>
 		</div>
