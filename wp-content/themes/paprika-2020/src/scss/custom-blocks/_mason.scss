@@ -3,9 +3,16 @@
 	@include tablet {
 		margin-top: 64px;
 	}
+	&__title,
+	figcaption {
+		color: black;
+	}
+	figcaption {
+		text-align: center;
+	}
 	&__title {
 		display: block;
-		margin: 32px 0 16px;
+		margin: 0 0 16px;
 	}
 	& + .mason-block {
 		margin-top: 32px;
@@ -17,13 +24,13 @@
 	a:focus {
 		border: 0;
 		figure {
-			transform: scale(1.1);
+			transform: scale(1.02);
 		}
 	}
 	.flex div:nth-child(2n) {
 		margin-top: 32px;
 		@include tablet {
-			margin-top: 0;
+			margin-top: 5px;
 		}
 	}
 	a:focus figure {

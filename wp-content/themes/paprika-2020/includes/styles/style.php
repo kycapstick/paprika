@@ -330,10 +330,10 @@
             linear-gradient(<?php echo $color ?>, <?php echo $color ?>);
         }
         .donor-block--two-up {
-            background: linear-gradient(to right, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
+            background: linear-gradient(to right, rgba(255,255,255,0.2) 50%, <?php echo $opaque_values['15']; ?> 50%);
         }
         .donor-block--two-up:nth-of-type(2n) {
-            background: linear-gradient(to left, #fff 50%, <?php echo $opaque_values['15']; ?> 50%);
+            background: linear-gradient(to left, rgba(255,255,255,0.2) 50%, <?php echo $opaque_values['15']; ?> 50%);
         }
         @media (max-width: 767px) {
             .donor-block--two-up .donor-block__card:nth-of-type(2n) {

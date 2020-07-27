@@ -11,7 +11,7 @@ html {
 		font-size: 7rem;
 	}
 	@include tablet {
-		font-size: 9rem;
+		font-size: 12rem;
 	}
 }
 
@@ -27,7 +27,8 @@ h3,
 p,
 label,
 input,
-a {
+a,
+.mason-block__title {
 	font-family: $font-copy;
 }
 
@@ -83,12 +84,12 @@ h1 {
 
 .subtitle,
 h2 {
-	font-size: 3.2rem;
+	font-size: 4.2rem;
 	@include tablet {
-		font-size: 3.6rem;
+		font-size: 4.6rem;
 	}
 	@include desktop {
-		font-size: 4.8rem;
+		font-size: 5.8rem;
 	}
 	&--dark {
 		color: white;
@@ -105,7 +106,6 @@ h3,
 	font-size: 3.6rem;
 }
 
-.default-block h3,
 .card__title {
 	font-size: 2.4rem;
 }

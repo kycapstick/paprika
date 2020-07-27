@@ -31,14 +31,6 @@
 	}
 	&__title {
 		@extend .name-tag;
-		&:before {
-			left: -8px;
-			padding: 0 8px;
-			@include mobile {
-				padding: 0 16px;
-				left: -16px;
-			}
-		}
 	}
 	figure {
 		margin: 0;

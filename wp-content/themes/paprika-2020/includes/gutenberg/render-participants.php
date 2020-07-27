@@ -15,7 +15,7 @@
                                 $shows = get_post_meta($artist_id, 'show', true);
                         ?>  
                             <li class="col-6 participants-block__column">
-                                <?php if (isset($shows) && is_array($shows) && count($shows) > 0): ?>
+                                <?php if (isset($shows) && is_array($shows) && count($shows) > 0 && isset($shows[0])): ?>
                                     <?php $show = get_post($shows[0]); ?>
                                     <a href="<?php echo get_post_permalink($show->ID)?>">
                                         <div class="participants-block__photo">

@@ -33,7 +33,7 @@
                                 <?php endif; ?>
                                     <div>
                                         <?php  if (pg_is_valid('string', $titleObjects[$i]->title)): ?>
-                                            <h3 class="subtitle mason-block__title">
+                                            <h3 class="mason-block__title">
                                                 <?php echo $titleObjects[$i]->title ?>
                                             </h3>
                                         <?php
