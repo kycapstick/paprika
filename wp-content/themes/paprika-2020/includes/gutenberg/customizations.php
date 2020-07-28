@@ -75,6 +75,7 @@ function paprika_allowed_block_types( $allowed_blocks ) {
 		'paprika/reverse-mason-image',
 		'paprika/media-quote',
 		'paprika/image-text',
+		'paprika/image-text-reverse',
 		
 		// Donor Blocks
 		'paprika/donor-fw',

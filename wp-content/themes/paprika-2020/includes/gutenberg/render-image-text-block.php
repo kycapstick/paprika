@@ -1,6 +1,6 @@
 <?php 
     if ( ! function_exists('paprika_render_image_text_block') ) {
-    function paprika_render_image_text_block($block) {
+    function paprika_render_image_text_block($block, $reverse = false) {
         $fields = array(
             'title',
         );
@@ -21,7 +21,7 @@
         $title = isset($attributes->title) && strlen($attributes->title) > 0 ? $attributes->title :  html_entity_decode(get_the_title(),ENT_QUOTES,'UTF-8');
         ob_start();
         ?>
-        <div class="image-text">
+        <div class="image-text <?php echo $reverse ? 'image-text--reverse' : null ?>">
             <div class="container">
                 <div class="flex">
                     <div class="col-4">

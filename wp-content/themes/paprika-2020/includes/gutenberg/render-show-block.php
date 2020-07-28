@@ -83,18 +83,23 @@
 										<?php 
 										if (is_array($other_shows) && count($other_shows) > 0):
 										?>
-
+											<?php $last_show = array_pop($other_shows); ?>
 											<p class="copy--light show-block__date__alt">Paired with 
-											<?php
-											foreach($other_shows as $index => $other_show):
-												$show = get_post($other_show);
-												?>
-												<a href="<?php echo get_post_permalink($other_show) ?>">
-													<?php echo $show->post_title ?>
-												</a>
 												<?php
-											endforeach;
-											?>
+													foreach($other_shows as $index => $other_show):
+														$show = get_post($other_show);
+														?>
+															<a href="<?php echo get_post_permalink($other_show) ?>">
+																<?php echo $show->post_title ?>,
+															</a>
+														<?php
+													endforeach;
+												?>
+												and 
+												<?php $show = get_post($last_show); ?>
+													<a href="<?php echo get_post_permalink($last_show) ?>">
+														<?php echo $show->post_title ?>.
+													</a>
 												</p>
 											<?php
 										endif; 

@@ -15,6 +15,7 @@ import teamMember from "./blocks/reusable/team-member";
 import ctaBlock from "./blocks/cta";
 import homepageCardsBlock from "./blocks/homepage-cards";
 import imageTextBlock from "./blocks/image-text-block";
+import imageTextReverseBlock from "./blocks/image-text-reverse";
 import twoUpCardsBlock from "./blocks/two-up-cards";
 import twoUpColumnsBlocks from "./blocks/two-up-text";
 
@@ -65,6 +66,7 @@ teamMember();
 ctaBlock();
 homepageCardsBlock();
 imageTextBlock();
+imageTextReverseBlock();
 twoUpCardsBlock();
 twoUpColumnsBlocks();
 

@@ -72,6 +72,10 @@ if ( ! function_exists( 'paprika_server_side_block_render') ) {
                 $block_content = paprika_render_image_text_block($block);
             break;
 
+            case 'paprika/image-text-reverse':
+                $block_content = paprika_render_image_text_block($block, true);
+            break;
+
             case 'paprika/location':
                 $block_content = paprika_render_location($block);
             break;

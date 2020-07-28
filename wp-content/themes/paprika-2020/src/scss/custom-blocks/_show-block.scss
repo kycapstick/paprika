@@ -3,6 +3,12 @@
 	&__subheader {
 		margin-top: 8px;
 	}
+	.col-3 {
+		margin-top: 32px;
+		@include tablet {
+			margin-top: 0;
+		}
+	}
 	&__date {
 		position: relative;
 		padding-left: 32px;

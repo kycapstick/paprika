@@ -20,4 +20,17 @@
 	p {
 		margin: 8px 0;
 	}
+	&--reverse {
+		.flex {
+			@include tablet {
+				flex-direction: row-reverse;
+			}
+		}
+		.col-8 {
+			@include tablet {
+				padding-left: 0;
+				padding-right: 32px;
+			}
+		}
+	}
 }

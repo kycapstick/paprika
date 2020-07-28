@@ -1,10 +1,10 @@
-export default function paprikaShowCardBlock() {
+export default function paprikaImageTextReverseBlock() {
 	const { registerBlockType } = wp.blocks;
 	const { InnerBlocks, RichText } = wp.blockEditor;
 	const { i18n } = wp;
 
-	const blockSlug = "image-text";
-	const blockTitle = "Image Text Card";
+	const blockSlug = "image-text-reverse";
+	const blockTitle = "Image Text Reverse";
 	const blockDescription = "Card with image beside text";
 	const blockCategory = "layout";
 	const blockIcon = "align-left"; // Dashicons: https://developer.wordpress.org/resource/dashicons/
@@ -33,17 +33,17 @@ export default function paprikaShowCardBlock() {
 						editor ? "custom-card--editor" : "custom-card--fe"
 					}`}
 				>
+					<RichText
+						class="components-text-control__input"
+						tagName="h2"
+						placeholder="Add the optional title here."
+						keepPlaceholderOnFocus={true}
+						value={title}
+						onChange={(changes) => {
+							updateAttributeValue("title", changes);
+						}}
+					/>
 					<div>
-						<RichText
-							class="components-text-control__input"
-							tagName="h2"
-							placeholder="Add the optional title here."
-							keepPlaceholderOnFocus={true}
-							value={title}
-							onChange={(changes) => {
-								updateAttributeValue("title", changes);
-							}}
-						/>
 						{save ? (
 							<InnerBlocks.Content />
 						) : (
