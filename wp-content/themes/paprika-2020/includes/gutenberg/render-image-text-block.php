@@ -1,6 +1,10 @@
 <?php 
     if ( ! function_exists('paprika_render_image_text_block') ) {
     function paprika_render_image_text_block($block) {
+        $fields = array(
+            'title',
+        );
+        $attributes = pg_get_attributes($block, $fields);
         $paragraphs = [];
         foreach ($block['innerBlocks'] as $innerBlock):
             switch( $innerBlock['blockName'] ) {
@@ -14,6 +18,7 @@
                 break;
             }
         endforeach;
+        $title = isset($attributes->title) && strlen($attributes->title) > 0 ? $attributes->title :  html_entity_decode(get_the_title(),ENT_QUOTES,'UTF-8');
         ob_start();
         ?>
         <div class="image-text">
@@ -25,8 +30,7 @@
                         </div>
                     </div>
                     <div class="col-8">
-                        <?php $title = html_entity_decode(get_the_title(),ENT_QUOTES,'UTF-8'); ?>
-                        <h2 class="image-text__title"><?php echo get_the_title() ?></h2>
+                        <h2 class="image-text__title"><?php echo $title ?></h2>
                         <?php foreach($paragraphs as $paragraph ):
                             echo $paragraph;
                         endforeach; ?>
