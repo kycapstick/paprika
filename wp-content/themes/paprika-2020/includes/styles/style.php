@@ -12,9 +12,22 @@
                     $darker_color = paprika_adjust_brightness($color, -40);
                 }
             ?>
-
             .header.page-<?php echo $key ?> {
                 background-image: linear-gradient(<?php echo $opaque_values['10'] ?>, rgba(255, 255, 255, 0.8)), url(<?php echo get_template_directory_uri() . '/images/grit.jpg' ?>);
+            }
+
+            .page-<?php echo $key ?> .name-tag::before,
+            .page-<?php echo $key ?> .artist-block__name::before,
+            .staff__name::before {
+                background-color: <?php echo $color ?>;
+            }
+
+            .artist-block--reverse.page-<?php echo $key; ?> {
+                background-color: <?php echo $opaque_values['15']; ?> 
+            }
+
+            .artist-block.page-<?php echo $key; ?> a {
+                color: <?php echo $color; ?>;
             }
 
             .default-block.page-<?php echo $key ?> .wp-block-button__link {
@@ -160,10 +173,6 @@
         .staff__block:nth-child(2n) {
             background-color: <?php echo $opaque_values['10']; ?>;
         }
-        .name-tag::before,
-        .staff__name::before {
-            background-color: <?php echo $color ?>;
-        }
 
         .two-up-cards.page-about .two-up-cards__subtitle::before {
             display: inline-block;
@@ -229,7 +238,6 @@
         .festivals__card__link:hover {
             background: <?php echo $color ?>;
         }
-        .artist-block__name::before,
         .participants-block__name::before,
         .schedule__toggle__single:checked + label,
         .schedule__time .schedule__active::before,
@@ -258,10 +266,6 @@
         .festivals__archive .archive__link:hover,
         .festivals__archive .archive__link:focus {
             color: <?php echo $color ?>;
-        }
-
-        .artist-block--reverse {
-            background-color: <?php echo $opaque_values['15']; ?> 
         }
 
         .schedule__card__image {

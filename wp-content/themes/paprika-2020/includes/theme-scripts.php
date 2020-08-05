@@ -3,6 +3,7 @@
 		function add_theme_scripts() {
 			wp_enqueue_style('main', get_template_directory_uri() . '/dist/main.css', array());
 			wp_enqueue_script('main_scripts', get_template_directory_uri() . '/dist/main.js', array('jquery'), true);
+			wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/90c774f050.js');
 		}
 	endif;
 

@@ -19,17 +19,20 @@
         $attributes = pg_get_attributes($block, $fields);
         $post_object = get_post($postObject->post);
         $thumbnail = get_the_post_thumbnail($post_object->ID);
+        $custom_colors = paprika_custom_colors();
         ob_start();
         ?>
             <?php if (intval($post_object->ID) !== intval($post->ID)): ?>
-                <div class="artist-block <?php echo $reverse ? 'artist-block--reverse' : null; ?>">
+                <div class="artist-block <?php echo $reverse ? 'artist-block--reverse' : null; ?> <?php echo $custom_colors; ?>">
                     <div class="container">
                         <div>
                             <div class="flex">
                                 <?php if ($reverse === false): ?>
                                     <div class="col-4">
                                         <figure class="artist-block__photo">                                
-                                            <?php echo $thumbnail ?>
+                                            <?php if (isset($thumbnail) && !empty($thumbnail)): ?>
+                                                <?php echo $thumbnail ?>
+                                            <?php endif; ?>
                                             <p class="artist-block__name card__title card__title--dark"><?php echo $post_object->post_title ?></p>
                                         </figure>
                                     </div>
@@ -57,8 +60,10 @@
                                         <?php endif; ?>
                                     </div>
                                     <div class="col-4 artist-block__photo__container--tablet">
-                                        <figure class="artist-block__photo">                                
-                                            <?php echo $thumbnail ?>
+                                        <figure class="artist-block__photo">
+                                            <?php if (isset($thumbnail) && !empty($thumbnail)): ?>
+                                                <?php echo $thumbnail ?>
+                                            <?php endif; ?>                                
                                             <p class="artist-block__name card__title card__title--dark"><?php echo $post_object->post_title ?></p>
                                         </figure>
                                     </div>

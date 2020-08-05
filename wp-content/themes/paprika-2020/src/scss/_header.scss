@@ -102,6 +102,9 @@
 		@include tablet {
 			max-width: 50%;
 		}
+		& + .header__subhero {
+			display: none;
+		}
 	}
 }
 

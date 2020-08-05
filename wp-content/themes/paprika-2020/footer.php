@@ -59,7 +59,26 @@
         </div>
         <div class="footer__social">
             <div class="container">
-                <p class="copy copy--dark">Copyright 2020</p>
+                <div class="footer__social-links">
+                    <?php 
+                        wp_nav_menu(array(
+                            'menu' => 'footer-social',
+                        ))
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copy">
+            <div class="container">
+                <div class="flex"> 
+                    <div class="col-6 footer__credits">
+                        <p>Brand design by Mitch Duncan.</p>
+                        <p>Designed and Built by Ky Capstick.</p>
+                    </div>
+                    <div class="col-6 footer__copyright">
+                        <p class="copy copy--dark">Copyright 2020</p>
+                    </div>
+                </div>
             </div>
         </div>
     <?php

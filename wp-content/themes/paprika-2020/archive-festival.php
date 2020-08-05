@@ -23,6 +23,7 @@
                     $programs = get_post_meta($post->ID, 'programs', true);
                     $dates = get_post_meta($post->ID, 'dates', true);
                     $shows = paprika_get_shows_by_dates($dates);
+                    if (isset($programs) && is_countable($programs) && count($programs) > 0):
             ?>
                     <div class="festivals__content">
                         <div class="continer">
@@ -66,7 +67,8 @@
                             </div>
                         </div>
                     </div>
-                    <?php endforeach;?>
+                    <?php endif; ?>
+                <?php endforeach;?>
             </main>
             <aside class="festivals__aside col-3">
                 <div>

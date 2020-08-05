@@ -55,7 +55,7 @@
                                     echo (isset($content) ? $content : null ); 
                                 ?>
                             </p>
-                            <a href="<?php echo get_post_permalink($post_object->ID, true) ?>" class="btn btn--light">Learn More</a>
+                            <a href="<?php echo get_post_permalink($post_object->ID, true) ?>" class="btn btn--light">Read More</a>
                         </div>
                     </div>
                 </div>

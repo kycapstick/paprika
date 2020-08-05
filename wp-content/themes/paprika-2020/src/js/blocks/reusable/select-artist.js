@@ -45,6 +45,7 @@ export default function selectPost() {
 					label: post.title.rendered,
 				};
 			});
+			options.unshift({ value: 0, label: "Select" });
 
 			return (
 				<div>
