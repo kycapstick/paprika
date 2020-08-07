@@ -5,6 +5,9 @@
             if (!isset($block['blockName'])) {
                 return;
             }
+            if ($block['blockName'] === 'core/quote') {
+                $class_name = $class_name . ' block-quote'; 
+            }
             ob_start();
             
             ?>

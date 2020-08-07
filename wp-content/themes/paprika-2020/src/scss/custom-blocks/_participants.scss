@@ -10,7 +10,9 @@
 			height: 100%;
 		}
 		&:nth-child(n + 3) {
-			margin-top: 64px;
+			@include tablet {
+				margin-top: 64px;
+			}
 		}
 		a:hover {
 			.participants-block__overlay {

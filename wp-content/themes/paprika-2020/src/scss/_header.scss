@@ -92,8 +92,10 @@
 		}
 	}
 	&__subhero {
-		padding-top: 32px;
 		text-align: right;
+		@include tablet {
+			padding-top: 8px;
+		}
 	}
 	&__subheader {
 		margin-top: 8px;

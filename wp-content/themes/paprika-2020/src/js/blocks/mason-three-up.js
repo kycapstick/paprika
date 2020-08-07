@@ -35,7 +35,7 @@ export default function paprikaThreeUpImageBlock() {
 									["paprika/card-title"],
 									["core/image"],
 								]}
-								templateLock="all"
+								allowedBlocks={["core/image"]}
 							/>
 						)}
 					</div>

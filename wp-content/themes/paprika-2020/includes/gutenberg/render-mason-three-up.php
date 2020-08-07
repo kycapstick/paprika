@@ -23,16 +23,22 @@
             <?php if (pg_is_valid('array', $titleObjects) || pg_is_valid('array', $images) )?>
             <div class="mason-block mason-three-up">
                 <div class="container">
+                    <?php if (pg_is_valid('string', $titleObjects[0]->title) && !pg_is_valid('string', $titleObjects[1]->title)): ?>
+                        <?php $single_title = true; ?>
+                        <h3 class="mason-block__title">
+                            <?php echo $titleObjects[0]->title ?>
+                        </h3>
+                    <?php endif; ?>
                     <div class="flex">
                         <?php 
-                            for ($i = 0; $i < 3; $i = $i + 1):  
+                            for ($i = 0; $i < count($images); $i = $i + 1):  
                         ?>
                             <div class="col-4">
-                                <?php if (pg_is_valid('string', $titleObjects[$i]->link)): ?>
+                                <?php if (isset($titleObjects[$i]) && pg_is_valid('string', $titleObjects[$i]->link)): ?>
                                     <a href="<?php echo $titleObjects[$i]->link ?>">
                                 <?php endif; ?>
                                     <div>
-                                        <?php  if (pg_is_valid('string', $titleObjects[$i]->title)): ?>
+                                        <?php  if (!isset($single_title) && isset($titleObjects[$i]) && pg_is_valid('string', $titleObjects[$i]->title)): ?>
                                             <h3 class="mason-block__title">
                                                 <?php echo $titleObjects[$i]->title ?>
                                             </h3>
@@ -43,7 +49,7 @@
                                             endif;
                                         ?>
                                     </div>
-                                <?php if (pg_is_valid('string', $titleObjects[$i]->link)): ?>
+                                <?php if (isset($titleObjects[$i]) && pg_is_valid('string', $titleObjects[$i]->link)): ?>
                                     </a>
                                 <?php endif; ?>
                             </div>

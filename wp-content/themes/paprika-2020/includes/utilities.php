@@ -290,4 +290,26 @@ if (!function_exists('paprika_adjust_brightness')) {
     }
 }
 
+if (!function_exists('paprika_hide_pages')) {
+    function paprika_hide_pages() {
+        if (!is_single()) {
+            return;
+        }
+        if (is_singular('staff')) {
+            wp_safe_redirect('/staff');
+            return;
+        }
+        if (is_singular('date') || is_singular('artist')) {
+            wp_safe_redirect('/festivals');
+            return;
+        }
+        if (is_singular('location')) {
+            wp_safe_redirect(get_site_url());
+            return;
+        }
+
+    }
+}
+add_action('template_redirect', 'paprika_hide_pages');
+
 ?>

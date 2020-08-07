@@ -18,7 +18,7 @@
 
             .page-<?php echo $key ?> .name-tag::before,
             .page-<?php echo $key ?> .artist-block__name::before,
-            .staff__name::before {
+            .page-<?php echo $key ?> .staff__name::before {
                 background-color: <?php echo $color ?>;
             }
 
@@ -66,6 +66,10 @@
             /* BLOCKQUOTE */
             .page-<?php echo $key ?> blockquote::before {
                 color: <?php echo $color ?>;
+            }
+
+            .block-quote.page-<?php echo $key ?>:nth-child(2n) {
+                background: <?php echo $opaque_values['10']; ?>;
             }
 
             /* BUTTONs */
@@ -125,6 +129,19 @@
             /* CTAs */
             .cta-block.page-<?php echo $key ?> {
                 background-color: <?php echo $opaque_values['95'] ?>;
+            }
+
+            .cta-block + .cta-block.page-<?php echo $key ?> {
+                background-color: white; 
+                color: <?php echo $color; ?>
+            }
+
+            .cta-block + .cta-block.page-<?php echo $key ?> .wp-block-button__link {
+                background: <?php echo $color; ?>;
+            }
+
+            .cta-block + .cta-block.page-<?php echo $key ?> .wp-block-button__link:hover {
+                background: black;
             }
 
             /* TWO COLUMNS */

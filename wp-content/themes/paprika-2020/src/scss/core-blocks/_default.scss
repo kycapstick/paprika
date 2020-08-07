@@ -1,8 +1,15 @@
 .default-block {
 	p {
-		margin: 0 auto;
 		padding: 8px 0;
+	}
+	ul,
+	p {
 		max-width: 1000px;
+		margin: 0 auto;
+	}
+	li p {
+		margin-top: 0;
+		padding: 0;
 	}
 	h2 {
 		margin: 64px 0 16px;

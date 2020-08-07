@@ -17,6 +17,17 @@
 	& + .mason-block {
 		margin-top: 32px;
 	}
+	div[class^="col-"] {
+		display: flex;
+		align-items: center;
+		div {
+			flex-grow: 1;
+		}
+	}
+	.wp-block-image {
+		padding: 16px;
+		margin: 0 auto;
+	}
 	figure {
 		transition: transform 0.3s ease-in-out;
 	}

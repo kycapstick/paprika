@@ -2,7 +2,7 @@
 	ul {
 		padding-left: 32px;
 		li {
-			margin: 8px 0;
+			padding: 8px 0;
 			position: relative;
 			&::before {
 				content: "";
@@ -11,7 +11,7 @@
 				display: block;
 				position: absolute;
 				left: -20px;
-				top: 13px;
+				top: 21px;
 				transform: translateY(-50%);
 			}
 		}

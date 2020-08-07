@@ -1,6 +1,8 @@
 blockquote {
 	position: relative;
 	margin: 0;
+	margin-bottom: 32px;
+	padding: 16px;
 	p::first-letter {
 		padding-left: 32px;
 		@include tablet {
@@ -8,22 +10,27 @@ blockquote {
 		}
 	}
 	@include tablet {
-		padding: 24px 64px;
+		margin-bottom: 0;
+		padding: 48px 64px;
 	}
 	&:before {
 		content: "“";
 		display: block;
 		position: absolute;
-		top: 15px;
 		font-family: sans-serif;
 		font-size: 6rem;
-		left: 0;
+		left: 16px;
+		top: 11px;
 		@include tablet {
+			top: 40px;
 			left: -32px;
 		}
 		@include tablet {
 			left: 32px;
 		}
+	}
+	p {
+		padding: 0;
 	}
 	cite {
 		display: block;

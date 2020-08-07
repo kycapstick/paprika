@@ -28,4 +28,9 @@
 			}
 		}
 	}
+	& + .cta-block {
+		.wp-block-button__link {
+			color: white;
+		}
+	}
 }

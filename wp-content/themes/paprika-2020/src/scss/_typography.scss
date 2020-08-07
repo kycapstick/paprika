@@ -62,7 +62,7 @@ h1 {
 			font-size: 5rem;
 		}
 		@include desktop {
-			font-size: 6.4rem;
+			font-size: 6rem;
 		}
 	}
 }
@@ -113,9 +113,19 @@ h3,
 }
 
 .breadcrumb,
-blockquote p,
 .festivals__link {
 	font-size: 1.8rem;
+}
+
+blockquote p {
+	font-size: 1.8rem;
+	@include tablet {
+		font-size: 2.4rem;
+	}
+}
+
+.footer__copy p {
+	font-size: 1.4rem;
 }
 
 .card__title,
@@ -129,10 +139,16 @@ blockquote p,
 .copy,
 p,
 li,
-a,
-cite {
+a {
 	font-size: 1.6rem;
 	line-height: 1.6;
+}
+
+cite {
+	font-size: 1.4rem;
+	@include tablet {
+		font-size: 1.6rem;
+	}
 }
 
 .btn {
